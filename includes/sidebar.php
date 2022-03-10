@@ -3,7 +3,7 @@
             <div class="nano-content">
                 <ul>
                     <div class="logo"><a href="index.php">
-                            <!-- <img src="assets/images/logo.png" alt="" /> --><span>~sdoin.dts</span></a></div>
+                            <!-- <img src="assets/images/logo.png" alt="" /> --><span>~sdoin.edts</span></a></div>
                             <li class="label">Main</li>
                     <li><a href="index.php"><i class="ti-home"></i> Dashboard </a>
                     </li>
