@@ -22,7 +22,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!">Login</a></li>
+                        <li class="nav-item"><a class="nav-link" href="dashboard.php">Login</a></li>
                     </ul>
                 </div>
             </div>
@@ -51,32 +51,25 @@
         <section class="py-5 border-bottom" id="features">
             <div class="container px-5 my-5">
                 <div class="row gx-5">
-                    <div class="col-lg-4 mb-5 mb-lg-0">
+                    <div class="col-lg-3 mb-5 mb-lg-0">
                         <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-collection"></i></div>
-                        <h2 class="h4 fw-bolder">Featured title</h2>
-                        <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-                        <a class="text-decoration-none" href="#!">
-                            Call to action
-                            <i class="bi bi-arrow-right"></i>
-                        </a>
+                        <h2 class="h4 fw-bolder">Organization</h2>
+                        <p>The eDTS Project aims to achieve better organization of documents by visualizing your current physical arrayed documents in a user-friendly, digital approach.</p>
                     </div>
-                    <div class="col-lg-4 mb-5 mb-lg-0">
-                        <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-building"></i></div>
-                        <h2 class="h4 fw-bolder">Featured title</h2>
-                        <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-                        <a class="text-decoration-none" href="#!">
-                            Call to action
-                            <i class="bi bi-arrow-right"></i>
-                        </a>
+                    <div class="col-lg-3 mb-5 mb-lg-0">
+                        <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-cursor"></i></div>
+                        <h2 class="h4 fw-bolder">Optimization</h2>
+                        <p>This project also aims to optimize the tracking process, enabling bulk releasing and receiving for units with a lot of documents to work on for improved efficiency.</p>
                     </div>
-                    <div class="col-lg-4">
-                        <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-toggles2"></i></div>
-                        <h2 class="h4 fw-bolder">Featured title</h2>
-                        <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-                        <a class="text-decoration-none" href="#!">
-                            Call to action
-                            <i class="bi bi-arrow-right"></i>
-                        </a>
+                    <div class="col-lg-3 mb-5 mb-lg-0">
+                        <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-upc-scan"></i></div>
+                        <h2 class="h4 fw-bolder">Scanning</h2>
+                        <p>An added feature of the eDTS is the ability for users to scan the documents to automatically receive it without having to type the tracking no. (Typing is still supported)</p>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-cloud-upload"></i></div>
+                        <h2 class="h4 fw-bolder">Cloud Upload</h2>
+                        <p>Some documents may be processed online without having to print a physical copy. The list of document types will be posted soon.</p>
                     </div>
                 </div>
             </div>
