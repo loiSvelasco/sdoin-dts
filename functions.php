@@ -6,8 +6,6 @@
  * 
  */
 
-$upload_directory = "img";
-
 function last_id()
 {
     global $connection;
@@ -90,20 +88,6 @@ function fetch_assoc($result)
 function row_count($query)
 {
     return mysqli_num_rows($query);
-}
-
-function display_img($id)
-{
-    global $upload_directory;
-
-    $get_img = query("SELECT img FROM admin WHERE id = '{$id}' ");
-    confirm($get_img);
-
-    if(row_count($get_img) == 1)
-    {
-        $img = fetch_assoc($get_img);
-        echo $upload_directory . DS . $img['img'];
-    }
 }
 
 /*
