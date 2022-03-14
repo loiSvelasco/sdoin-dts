@@ -33,6 +33,12 @@
                   <p>Receive / Release</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="fas fa-file-alt nav-icon"></i>
+                  <p>Reports</p>
+                </a>
+              </li>
             </ul>
           </li>
           <li class="nav-item">
