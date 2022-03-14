@@ -8,7 +8,6 @@ if(isset($_POST['register']))
 
     // user_details.table
     $fullname   = escape_string($_POST['fullname']);
-    
 
     $options = [
         'cost' => 12,
@@ -23,8 +22,7 @@ if(isset($_POST['register']))
     $insert_user_d = query("INSERT INTO user_details (usr_id, fname, lname, contact, address) VALUES ('{$last_id}', '{$firstName}', '{$lastName}', '{$contact}', '{$address}')");
     confirm($insert_user_d);
 
-
     set_message("Account successfully created!");
-    redirect("login.php");
+    redirect("?login");
 }
 ?>
