@@ -19,9 +19,15 @@ if(isset($_POST['login']))
     else
     {
         $row = fetch_assoc($sql);
+        
+        $sql_ud = query("SELECT * FROM user_details WHERE ud_id = {$row['id']}");
+        confirm($sql_ud);
+        $udRow = fetch_assoc($sql_ud);
+
         if(password_verify($password, $row['password']))
         {
             $_SESSION['user'] = $row['email'];
+            $_SESSION['unit'] = $udRow['ud_unit'];
             redirect("../dashboard/");
         }
         else

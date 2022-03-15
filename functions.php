@@ -146,3 +146,29 @@ ELLA;
         echo $option;
     }
  }
+
+ function get_unit_name($unit_id)
+ {
+     $sql = query("SELECT * FROM units WHERE unit_id = {$unit_id}");
+     confirm($sql);
+     
+     $row = fetch_assoc($sql);
+     echo $row['unit_name'];
+ }
+
+ function get_doctypes()
+ {
+    $sql = query("SELECT * FROM doctypes");
+    confirm($sql);
+
+    while($row = fetch_array($sql))
+    {
+        $doc_id = escape_string($row['doc_id']);
+        $doc_type = escape_string($row['doc_type']);
+        
+        $option = <<<ELLA
+        <option value="{$doc_id}">{$doc_type}</option>
+ELLA;
+        echo $option;
+    }
+ }

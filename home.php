@@ -76,7 +76,7 @@
         </section>
         <!-- Footer-->
         <footer class="py-5 bg-dark">
-            <div class="container px-5"><p class="m-0 text-center text-white">Copyright &copy; Louis Velasco</a>. Made with ❤ <script>document.write(new Date().getFullYear())</script></p></div>
+            <div class="container px-5"><p class="m-0 text-center text-white">Copyright &copy; Louis Velasco</a>. Made with <a href="" class="text-decoration-none">❤</a> <script>document.write(new Date().getFullYear())</script></p></div>
         </footer>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

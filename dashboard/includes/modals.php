@@ -8,10 +8,79 @@
         </div>
         <div class="modal-body">
             <!-- form here-->
+            <form action="" method="post" id="addDoc">
+            <div class="form-group row">
+                <div class="col-12">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                    <div class="input-group-text">
+                        <i class="fa fa-file"></i>
+                    </div>
+                    </div> 
+                    <input id="doc_title" name="doc_title" placeholder="Document Title" type="text" class="form-control" required="required">
+                </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-12">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                    <div class="input-group-text">
+                        <i class="fa fa-i-cursor"></i>
+                    </div>
+                    </div> 
+                    <input id="doc_desc" name="doc_desc" placeholder="Description" type="text" class="form-control" required="required">
+                </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-12">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <i class="fa fa-list"></i>
+                        </div>
+                        </div> 
+                        <select id="doc_type" name="doc_type" class="custom-select" required>
+                            <option value="" disabled selected hidden>Document type</option>
+                            <?php get_doctypes(); ?>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-12">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <i class="fa fa-reply"></i>
+                        </div>
+                        </div> 
+                        <select id="doc_to" name="doc_to" class="custom-select" required>
+                            <option value="" disabled selected hidden>Release to</option>
+                            <optgroup label="Division Office">
+                                <?php get_unit_do(); ?>
+                            </optgroup>
+                            <optgroup label="Public Schools">
+                                <?php get_unit_public(); ?>
+                            </optgroup>
+                            <optgroup label="Private Schools">
+                                <?php get_unit_private(); ?>
+                            </optgroup>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-12">
+                <textarea id="remarks" name="remarks" placeholder="Purpose" cols="40" rows="5" class="form-control" required="required"></textarea>
+                </div>
+            </div> 
+            </form>
         </div>
         <div class="modal-footer justify-content-between">
             <!-- <button type="button" class="btn btn-outline-danger" data-dismiss="modal"><i class="fas fa-times"></i>&nbsp;&nbsp;Cancel</button> -->
-            <button type="button" class="btn btn-block btn-outline-success"><i class="fas fa-plus"></i>&nbsp;&nbsp;Add Document</button>
+            <button type="submit" form="addDoc" class="btn btn-block btn-outline-success"><i class="fas fa-plus"></i>&nbsp;&nbsp;Add Document</button>
         </div>
         </div>
         <!-- /.modal-content -->
