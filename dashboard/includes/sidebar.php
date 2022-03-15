@@ -28,13 +28,13 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="?documents" class="nav-link">
                   <i class="fas fa-file-import nav-icon"></i>
                   <p>Receive / Release</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="?dashboard" class="nav-link">
                   <i class="fas fa-file-alt nav-icon"></i>
                   <p>Reports</p>
                 </a>

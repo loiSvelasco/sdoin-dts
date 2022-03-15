@@ -123,10 +123,10 @@ ELLA;
         $unit_id = escape_string($row['unit_id']);
         $unit_name = escape_string($row['unit_name']);
         
-        $option = <<<ELLA
+        $cutie = <<<ELLA
         <option value="{$unit_id}">{$unit_name}</option>
 ELLA;
-        echo $option;
+        echo $cutie;
     }
  }
 

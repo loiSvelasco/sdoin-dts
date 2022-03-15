@@ -1,9 +1,15 @@
-<?php include("includes/header.php"); ?>
+<?php include("includes/header.php");
+if(isset($_SESSION['user']))
+{
+  redirect("./dashboard");
+}
+
+?>
 
   <!-- /.login-logo -->
   <div class="card">
     <div class="card-body login-card-body">
-      <p class="login-box-msg">Sign in</p>
+      <p class="login-box-msg">Sign In</p>
 
       <?php display_notice(); ?>
 
