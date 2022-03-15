@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 15, 2022 at 08:59 AM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 8.1.2
+-- Generation Time: Mar 15, 2022 at 02:35 PM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 7.3.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,6 +20,84 @@ SET time_zone = "+00:00";
 --
 -- Database: `sdoin_dts`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `doctypes`
+--
+
+CREATE TABLE `doctypes` (
+  `id` int(11) NOT NULL,
+  `doc_id` int(11) NOT NULL,
+  `doc_type` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `doctypes`
+--
+
+INSERT INTO `doctypes` (`id`, `doc_id`, `doc_type`) VALUES
+(1, 201, '042'),
+(2, 202, 'Abstract of Quotation/PO-Contract/NOA'),
+(3, 203, 'APP-PPMP'),
+(4, 204, 'application letter'),
+(5, 205, 'Audit Observation Memo/Notice of Disallowance'),
+(6, 206, 'Authority to Travel'),
+(7, 207, 'BAC Resolution'),
+(8, 208, 'BAC Resolution/RFQ'),
+(9, 209, 'Business Letter'),
+(10, 210, 'Certificates/Diploma'),
+(11, 211, 'Compensatory Time Off'),
+(12, 212, 'CSC Form 33'),
+(13, 213, 'CSC Form 6'),
+(14, 214, 'CSC Form 9'),
+(15, 215, 'DepEd Memorandum'),
+(16, 216, 'DepEd Order'),
+(17, 217, 'Designation of OIC'),
+(18, 218, 'Division Advisory'),
+(19, 219, 'Division Memorandum'),
+(20, 220, 'Enhanced School Improvement Plan'),
+(21, 221, 'Equivalent Record Form (ERF)'),
+(22, 222, 'Itinerary of Travel'),
+(23, 223, 'LAC Proposal'),
+(24, 224, 'LAC Report'),
+(25, 225, 'LOEGSI/NOSI'),
+(26, 226, 'Mailed letters'),
+(27, 227, 'MEMORANDUM'),
+(28, 228, 'Notice of Cash Allocation (NCA)'),
+(29, 229, 'Office Memorandum'),
+(30, 230, 'Other'),
+(31, 231, 'Petty Cash Voucher'),
+(32, 232, 'Project Proposal'),
+(33, 233, 'Purchase Order'),
+(34, 234, 'Purchase Request'),
+(35, 235, 'Regional Advisory'),
+(36, 236, 'Regional Memorandum'),
+(37, 237, 'Regional Order'),
+(38, 238, 'Request for OIC'),
+(39, 239, 'Retirement Papers'),
+(40, 240, 'Sub-Allotment Release Order'),
+(41, 241, 'Supervisory Plan'),
+(42, 242, 'Training Proposal'),
+(43, 243, 'Write Up R1AA');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `documents`
+--
+
+CREATE TABLE `documents` (
+  `id` int(11) NOT NULL,
+  `document_title` varchar(255) NOT NULL,
+  `document_desc` varchar(255) NOT NULL,
+  `document_type` int(5) NOT NULL,
+  `document_purpose` varchar(255) NOT NULL,
+  `document_owner` int(5) NOT NULL,
+  `document_tracking` varchar(20) NOT NULL,
+  `date_created` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -521,6 +599,18 @@ INSERT INTO `user_details` (`id`, `ud_id`, `ud_unit`, `ud_name`) VALUES
 --
 
 --
+-- Indexes for table `doctypes`
+--
+ALTER TABLE `doctypes`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `documents`
+--
+ALTER TABLE `documents`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `units`
 --
 ALTER TABLE `units`
@@ -541,6 +631,18 @@ ALTER TABLE `user_details`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `doctypes`
+--
+ALTER TABLE `doctypes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+
+--
+-- AUTO_INCREMENT for table `documents`
+--
+ALTER TABLE `documents`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `units`
