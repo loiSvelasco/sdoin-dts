@@ -52,12 +52,6 @@ function refresh($interval, $location)
 {
     header("Refresh: {$interval}; URL={$location}");
 }
-    
-function query($sql)
-{
-    global $connection;
-    return mysqli_query($connection, $sql);
-}
 
 function confirm($result)
 {
@@ -67,6 +61,12 @@ function confirm($result)
     {
         die("Query Failed: " . mysqli_error($connection));
     }
+}
+
+function query($sql)
+{
+    global $connection;
+    return mysqli_query($connection, $sql);
 }
 
 function escape_string($string)
@@ -95,3 +95,54 @@ function row_count($query)
  *  FRONT END FUNCTIONS
  * 
  */
+
+ function get_unit_do()
+ {
+    $sql = query("SELECT * FROM units WHERE unit_type = 'Division Office'");
+    confirm($sql);
+
+    while($row = fetch_array($sql))
+    {
+        $unit_id = escape_string($row['unit_id']);
+        $unit_name = escape_string($row['unit_name']);
+
+        $option = <<<ELLA
+        <option value="{$unit_id}">{$unit_name}</option>
+ELLA;
+        echo $option;
+    }
+ }
+
+ function get_unit_public()
+ {
+    $sql = query("SELECT * FROM units WHERE unit_type = 'School' AND unit_sector = 'Public'");
+    confirm($sql);
+
+    while($row = fetch_array($sql))
+    {
+        $unit_id = escape_string($row['unit_id']);
+        $unit_name = escape_string($row['unit_name']);
+        
+        $option = <<<ELLA
+        <option value="{$unit_id}">{$unit_name}</option>
+ELLA;
+        echo $option;
+    }
+ }
+
+ function get_unit_private()
+ {
+    $sql = query("SELECT * FROM units WHERE unit_type = 'School' AND unit_sector = 'Private'");
+    confirm($sql);
+
+    while($row = fetch_array($sql))
+    {
+        $unit_id = escape_string($row['unit_id']);
+        $unit_name = escape_string($row['unit_name']);
+        
+        $option = <<<ELLA
+        <option value="{$unit_id}">{$unit_name}</option>
+ELLA;
+        echo $option;
+    }
+ }

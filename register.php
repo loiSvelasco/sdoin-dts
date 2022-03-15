@@ -21,6 +21,25 @@
           </div>
         </div>
         <div class="input-group mb-3">
+          <select class="form-control select2" placeholder="School/Unit" name="unit" required>
+              <option value="" disabled selected hidden>School / Unit</option>
+              <optgroup label="Division Office">
+                <?php get_unit_do(); ?>
+              </optgroup>
+              <optgroup label="Public Schools">
+                <?php get_unit_public(); ?>
+              </optgroup>
+              <optgroup label="Private Schools">
+                <?php get_unit_private(); ?>
+              </optgroup>
+            </select>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-school"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
           <input type="password" class="form-control" placeholder="Password" name="password" required>
           <div class="input-group-append">
             <div class="input-group-text">

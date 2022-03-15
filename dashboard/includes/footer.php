@@ -15,7 +15,7 @@
       Made with ❤
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; <script>document.write(new Date().getFullYear())</script> <a href="https://github.com/loiSvelasco">Louis Superficial Velasco</a></strong>
+    <strong>Copyright &copy; <script>document.write(new Date().getFullYear())</script> <a href="https://www.facebook.com/louis.superficial.velasco.1/" target="_blank">Louis Superficial Velasco</a></strong>
   </footer>
 </div>
 <!-- ./wrapper -->

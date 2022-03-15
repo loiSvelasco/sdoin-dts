@@ -5,9 +5,11 @@
     <div class="card-body login-card-body">
       <p class="login-box-msg">Sign in</p>
 
-      <form action="dashboard/index3.html" method="post">
+      <?php display_notice(); ?>
+
+      <form action="actions/login.php" method="post">
         <div class="input-group mb-3">
-          <input type="email" class="form-control" placeholder="Email">
+          <input type="email" class="form-control" placeholder="Email" name="email" required>
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
@@ -15,7 +17,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Password">
+          <input type="password" class="form-control" placeholder="Password" name="password" required>
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -25,7 +27,7 @@
         <div class="row">
           <!-- /.col -->
           <div class="col-12 mb-2">
-            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+            <button type="submit" class="btn btn-primary btn-block" name="login">Sign In</button>
           </div>
           <!-- /.col -->
         </div>
