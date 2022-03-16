@@ -10,14 +10,14 @@ if(isset($_POST['register']))
     // user_details.table
     $fullname   = escape_string($_POST['fullname']);
     $unit       = escape_string($_POST['unit']);
-
+    $reset      = random_str(8);
     $options = [
         'cost' => 12,
     ];
 
     $hashed_pwd = password_hash($password, PASSWORD_BCRYPT, $options);
 
-    $insert_users = query("INSERT INTO users (email, password) VALUES ('{$email}', '{$hashed_pwd}')");
+    $insert_users = query("INSERT INTO users (email, password, reset) VALUES ('{$email}', '{$hashed_pwd}', '{$reset}')");
     $last_id = last_id();
     confirm($insert_users);
 

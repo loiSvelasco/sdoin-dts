@@ -6,7 +6,7 @@
 
       <form action="login.html" method="post">
         <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Password">
+          <input type="password" class="form-control" placeholder="Password" autofocus>
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>

@@ -3,9 +3,11 @@
     <div class="card-body register-card-body">
       <p class="login-box-msg">Create an account</p>
 
+      <?php display_notice(); ?>
+
       <form action="actions/register.php" method="post" oninput="password2.setCustomValidity(password2.value != password.value ? 'Passwords do not match.' : '')">
         <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Full name" name="fullname" required>
+          <input type="text" class="form-control" placeholder="Full name" name="fullname" required autofocus>
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-user"></span>
