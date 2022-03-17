@@ -15,16 +15,28 @@ if(isset($_POST['register']))
         'cost' => 12,
     ];
 
-    $hashed_pwd = password_hash($password, PASSWORD_BCRYPT, $options);
+    $check = query("SELECT * FROM users WHERE email = '{$email}'");
+    confirm($check);
 
-    $insert_users = query("INSERT INTO users (email, password, reset) VALUES ('{$email}', '{$hashed_pwd}', '{$reset}')");
-    $last_id = last_id();
-    confirm($insert_users);
+    if(row_count($check) >= 1)
+    {
+        set_message_alert("alert-danger", "fa-info-circle", "Email already in use.");
+        redirect("../?register");
+    }
+    else
+    {
+        $hashed_pwd = password_hash($password, PASSWORD_BCRYPT, $options);
 
-    $insert_user_d = query("INSERT INTO user_details (ud_id, ud_unit, ud_name) VALUES ('{$last_id}', '{$unit}', '{$fullname}')");
-    confirm($insert_user_d);
-
-    set_message_alert("alert-success", "fa-check", "Account created! sign in below.");
-    redirect("../../?login");
+        $insert_users = query("INSERT INTO users (email, password, reset) VALUES ('{$email}', '{$hashed_pwd}', '{$reset}')");
+        $last_id = last_id();
+        confirm($insert_users);
+    
+        $insert_user_d = query("INSERT INTO user_details (ud_id, ud_unit, ud_name) VALUES ('{$last_id}', '{$unit}', '{$fullname}')");
+        confirm($insert_user_d);
+    
+        set_message_alert("alert-success", "fa-check", "Account created! sign in below.");
+        redirect("../../?login");
+    }
 }
+
 ?>

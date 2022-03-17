@@ -33,15 +33,17 @@
                 <div class="row gx-5 justify-content-center">
                     <div class="col-lg-6">
                         <div class="text-center my-5">
-                            <h1 class="display-5 fw-bolder text-white mb-2">Track your documents here!</h1>
+                            <h1 class="display-5 fw-bolder text-white mb-2">Enhanced DTS</h1>
                             <p class="lead text-white-50 mb-4">Enter the tracking no. provided to see its current status.</p>
-                            <div class="box">
-                                <input class="form-control" type="text" form="logDtr" name="idno" class="text-white font-weight-bold" autofocus required>
-                                <br>
-                            </div>
-                            <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
-                                <a class="btn btn-outline-light btn-lg px-4" href="#!">Track</a>
-                            </div>
+                            <form action="#" method="post">
+                                <div class="box">     
+                                    <input class="form-control" type="text" name="trackingno" class="text-white font-weight-bold" placeholder="Document Tracking No." autofocus required>
+                                    <br>
+                                </div>
+                                <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
+                                    <button type="submit" class="btn btn-outline-light btn-lg px-4" name="track">Track</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>

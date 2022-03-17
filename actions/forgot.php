@@ -11,7 +11,7 @@ if(isset($_POST['forgot']))
 
     if(row_count($sql) == 0)
     {
-        set_message_alert("alert-warning", "fa-info-circle", "Email not found. Register instead.");
+        set_message_alert("alert-warning", "fa-info-circle", "Email not found. <a href='?register' class='alert-link'>Register</a> instead.");
         redirect("../?forgot");
     }
     else
@@ -24,12 +24,18 @@ if(isset($_POST['forgot']))
         $subject = "Password Reset Request";
         $from_name = "SDOIN.eDTS Developer";
         $fr_email  = "loisuperficialvelasco.sdoin@gmail.com";
+
+        if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')
+            $protocol = 'https://';
+        else
+            $protocol = 'http://';
+
         $txt = <<<ELLA
         Good day! We received your request to reset your password at SDOIN's Enhanced DTS, please follow the link below to set a new password for your account.
         
-        http://localhost/sdoin-dts/?recover&hash={$reset}&for={$email}
+        {$protocol}{$_SERVER["HTTP_HOST"]}/sdoin-dts/?recover&hash={$reset}&for={$email}
 
-        in case you are unable to click on the link, please copy and paste it to your web browser's address bar.
+        in case you are unable to click on the link, please copy and paste it on your web browser's address bar.
 
         if you did not request this, just ignore this message.
         This email is auto-generated. Do not reply to this email.
