@@ -21,6 +21,7 @@
     <!-- Main content -->
     <div class="content">
       <div class="container-fluid">
+      <?php display_notice();?>
         <div class="row">
           <!-- /.col-md-6 -->
           <!-- /.col-md-6 -->
