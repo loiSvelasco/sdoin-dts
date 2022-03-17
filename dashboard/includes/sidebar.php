@@ -34,7 +34,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="?dashboard" class="nav-link">
+                <a href="?reports" class="nav-link">
                   <i class="fas fa-file-alt nav-icon"></i>
                   <p>Reports</p>
                 </a>

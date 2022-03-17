@@ -19,7 +19,7 @@ if(isset($_POST['recover']))
     if(row_count($sql) == 0)
     {
         set_message_alert("alert-danger", "fa-times", "An error occured. Try again later.");
-        // redirect("../?login");
+        redirect("../?login");
     }
     else
     {

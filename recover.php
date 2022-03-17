@@ -32,10 +32,6 @@
           <!-- /.col -->
         </div>
       </form>
-
-      <!-- <p class="mt-3 mb-1">
-        <a href="?login" class="btn btn-default btn-block">Login</a>
-      </p> -->
     </div>
     <!-- /.login-card-body -->
   </div>

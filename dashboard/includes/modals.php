@@ -26,7 +26,7 @@
                 <div class="input-group">
                     <div class="input-group-prepend">
                     <div class="input-group-text">
-                        <i class="fa fa-i-cursor"></i>
+                        <i class="fa fa-comment"></i>
                     </div>
                     </div> 
                     <input id="doc_desc" name="doc_desc" placeholder="Description" type="text" class="form-control" required="required">

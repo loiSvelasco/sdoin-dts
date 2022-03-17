@@ -35,7 +35,7 @@ if(isset($_POST['register']))
         confirm($insert_user_d);
     
         set_message_alert("alert-success", "fa-check", "Account created! sign in below.");
-        redirect("../../?login");
+        redirect("../?login");
     }
 }
 
