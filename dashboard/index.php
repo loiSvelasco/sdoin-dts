@@ -18,6 +18,11 @@ if(isset($_GET['logout']))
     include("actions/logout.php");
 }
 
+if(isset($_GET['manipulate']))
+{
+    include("actions/manipulate.php");
+}
+
 include("includes/modals.php");
 include("includes/footer.php"); 
 

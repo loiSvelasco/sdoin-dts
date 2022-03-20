@@ -1,7 +1,7 @@
-<?php 
+<?php
 
 /*
- * 
+ *
  *  HELPER FUNCTIONS
  *  Author: Louis Velasco
  *  Used for Procedural PHP
@@ -113,13 +113,13 @@ function random_num($length, $keyspace = '0123456789')
 }
 
 /*
- * 
+ *
  *  FRONT END FUNCTIONS
- * 
+ *
  */
 
- function get_unit_do()
- {
+function get_unit_do()
+{
     $sql = query("SELECT * FROM units WHERE unit_type = 'Division Office'");
     confirm($sql);
 
@@ -133,10 +133,10 @@ function random_num($length, $keyspace = '0123456789')
 ELLA;
         echo $option;
     }
- }
+}
 
- function get_unit_public()
- {
+function get_unit_public()
+{
     $sql = query("SELECT * FROM units WHERE unit_type = 'School' AND unit_sector = 'Public'");
     confirm($sql);
 
@@ -144,16 +144,16 @@ ELLA;
     {
         $unit_id = escape_string($row['unit_id']);
         $unit_name = escape_string($row['unit_name']);
-        
+
         $cutie = <<<ELLA
         <option value="{$unit_id}">{$unit_name}</option>
 ELLA;
         echo $cutie;
     }
- }
+}
 
- function get_unit_private()
- {
+function get_unit_private()
+{
     $sql = query("SELECT * FROM units WHERE unit_type = 'School' AND unit_sector = 'Private'");
     confirm($sql);
 
@@ -161,25 +161,25 @@ ELLA;
     {
         $unit_id = escape_string($row['unit_id']);
         $unit_name = escape_string($row['unit_name']);
-        
+
         $option = <<<ELLA
         <option value="{$unit_id}">{$unit_name}</option>
 ELLA;
         echo $option;
     }
- }
+}
 
- function get_unit_name($unit_id)
- {
-     $sql = query("SELECT * FROM units WHERE unit_id = {$unit_id}");
-     confirm($sql);
-     
-     $row = fetch_assoc($sql);
-     echo $row['unit_name'];
- }
+function get_unit_name($unit_id)
+{
+    $sql = query("SELECT * FROM units WHERE unit_id = {$unit_id}");
+    confirm($sql);
 
- function get_doctypes()
- {
+    $row = fetch_assoc($sql);
+    return $row['unit_name'];
+}
+
+function get_doctypes()
+{
     $sql = query("SELECT * FROM doctypes");
     confirm($sql);
 
@@ -187,10 +187,138 @@ ELLA;
     {
         $doc_id = escape_string($row['doc_id']);
         $doc_type = escape_string($row['doc_type']);
-        
+
         $option = <<<ELLA
         <option value="{$doc_id}">{$doc_type}</option>
 ELLA;
         echo $option;
     }
- }
+}
+
+function get_doctype_name($id)
+{
+    $printetella = query("SELECT * FROM doctypes WHERE doc_id = {$id}");
+    confirm($printetella);
+    
+    $row = fetch_assoc($printetella);
+    return $row['doc_type'];
+}
+
+function get_owner_name($id)
+{
+    $printetella = query("SELECT * FROM user_details WHERE ud_id = {$id}");
+    confirm($printetella);
+    
+    $row = fetch_assoc($printetella);
+    return $row['ud_name'];
+}
+
+function get_my_docs()
+{
+    $ella = query("SELECT * FROM documents WHERE document_origin = {$_SESSION['unit']} ORDER BY id DESC");
+    confirm($ella);
+
+    while($row = fetch_array($ella))
+    {
+        $doctype = get_doctype_name($row['document_type']);
+        $origin = get_unit_name($row['document_origin']);
+        $owner = get_owner_name($row['document_owner']);
+        $title = $row['document_title'];
+        $desc = $row['document_desc'];
+        $purpose = $row['document_purpose'];
+        $tracking = $row['document_tracking'];
+        $id = $row['id'];
+
+        $ellacutie = <<<ELLA
+        <tr>
+            <td data-visible="false">$id</td>
+            <td>{$tracking}</td>
+            <td>{$title}</td>
+            <td>{$doctype}</td>
+            <td>{$owner}</td>
+            <td></td>
+        </tr>
+ELLA;
+        echo $ellacutie;
+    }
+}
+
+function get_to_receive()
+{
+    $ella = query("SELECT * FROM docs_location WHERE dl_unit = {$_SESSION['unit']} AND dl_accomplished = 0 AND dl_receivedby = 0 ORDER BY dl_id ASC");
+    confirm($ella);
+
+    while($row = fetch_array($ella))
+    {
+        $bbyella = query("SELECT * FROM documents WHERE document_tracking = '{$row['dl_tracking']}'");
+        confirm($bbyella);
+
+        $id = $row['dl_id'];
+
+        while($docRow = fetch_array($bbyella))
+        {
+            $doctype = get_doctype_name($docRow['document_type']);
+            $origin = get_unit_name($docRow['document_origin']);
+            $owner = get_owner_name($docRow['document_owner']);
+            $title = $docRow['document_title'];
+            $desc = $docRow['document_desc'];
+            $purpose = $docRow['document_purpose'];
+            $tracking = $docRow['document_tracking'];
+    
+            $ellacutie = <<<ELLA
+            <tr>
+                <td data-visible="false">{$id}</td>
+                <td>{$tracking}</td>
+                <td>{$title}</td>
+                <td>{$doctype}</td>
+                <td>{$owner}</td>
+                <td class="text-center">
+                    <a href="?manipulate=receive&tracking={$tracking}&unit={$_SESSION['unit']}&by={$_SESSION['user_id']}" class="btn btn-sm btn-warning" data-toggle="tooltip" data-placement="left" title="Receive"><i class="fa fa-file-import"></i></a>
+                </td>
+            </tr>
+ELLA;
+            echo $ellacutie;
+        }
+    }
+}
+
+function get_to_release()
+{
+    $ella = query("SELECT * FROM docs_location WHERE dl_unit = {$_SESSION['unit']} AND dl_accomplished = 0 AND dl_receivedby != 0 ORDER BY dl_id ASC");
+    confirm($ella);
+
+    while($row = fetch_array($ella))
+    {
+        $bbyella = query("SELECT * FROM documents WHERE document_tracking = '{$row['dl_tracking']}'");
+        confirm($bbyella);
+
+        $id = $row['dl_id'];
+
+        while($docRow = fetch_array($bbyella))
+        {
+            $doctype = get_doctype_name($docRow['document_type']);
+            $origin = get_unit_name($docRow['document_origin']);
+            $owner = get_owner_name($docRow['document_owner']);
+            $title = $docRow['document_title'];
+            $desc = $docRow['document_desc'];
+            $purpose = $docRow['document_purpose'];
+            $tracking = $docRow['document_tracking'];
+    
+            $ellacutie = <<<ELLA
+            <tr>
+                <td data-visible="false">{$id}</td>
+                <td>{$tracking}</td>
+                <td>{$title}</td>
+                <td>{$doctype}</td>
+                <td>{$owner}</td>
+                <td class="text-center">
+                    <span data-toggle="tooltip" data-placement="left" title="Release"><a data-href="?manipulate=release&tracking={$tracking}&to={$_SESSION['user_id']}" data-toggle="modal" data-target="#modal-release-doc" class="btn btn-sm btn-light"><i class="fa fa-file-export white"></i></a></span>
+                    <a href="?manipulate=receive&tracking={$tracking}&unit={$_SESSION['unit']}&by={$_SESSION['user_id']}" class="btn btn-sm btn-success" data-toggle="tooltip" data-placement="right" title="Mark as Done"><i class="fa fa-check"></i></a>
+                </td>
+            </tr>
+ELLA;
+            echo $ellacutie;
+        }
+    }
+}
+

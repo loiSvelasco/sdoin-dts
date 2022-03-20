@@ -88,3 +88,52 @@
     <!-- /.modal-dialog -->
 </div>
 <!-- /.modal -->
+
+<div class="modal fade" id="modal-release-doc" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h4 class="modal-title">Release Document to</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span></button>
+        </div>
+        <div class="modal-body">
+            <!-- form here-->
+            <form method="get" id="releaseto">
+            <div class="form-group row">
+                <div class="col-12">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <i class="fa fa-reply"></i>
+                        </div>
+                        </div> 
+                        <select id="doc_to" name="to" class="custom-select" required>
+                            <option value="" disabled selected hidden>Release to</option>
+                            <optgroup label="Division Office">
+                                <?php get_unit_do(); ?>
+                            </optgroup>
+                            <optgroup label="Public Schools">
+                                <?php get_unit_public(); ?>
+                            </optgroup>
+                            <optgroup label="Private Schools">
+                                <?php get_unit_private(); ?>
+                            </optgroup>
+                        </select>
+                        <input type="text" name="manipulate" value="release">
+                        <input type="text" name="tracking" value="#">
+                    </div>
+                </div>
+            </div>
+            </form>
+        </div>
+        <div class="modal-footer justify-content-between">
+            <!-- <button type="button" class="btn btn-outline-danger" data-dismiss="modal"><i class="fas fa-times"></i>&nbsp;&nbsp;Cancel</button> -->
+            <button type="submit" form="releaseto" class="btn btn-block btn-outline-success" name="release"><i class="fas fa-reply"></i>&nbsp;&nbsp;Add Document</button>
+        </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->

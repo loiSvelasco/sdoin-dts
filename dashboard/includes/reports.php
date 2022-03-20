@@ -23,8 +23,42 @@
       <div class="container-fluid">
         <?php display_notice();?>
         <div class="row">
-          <!-- /.col-md-6 -->
-          <!-- /.col-md-6 -->
+            <div class="col-12">
+            <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">All created Documents</h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+              <table id="doctables" class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                  <th data-visible="false">ID</th>
+                  <th>Tracking</th>
+                  <th>Title</th>
+                  <th>Type</th>
+                  <th>Owner</th>
+                  <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                <?php echo get_my_docs(); ?>
+                </tbody>
+                <tfoot>
+                <tr>
+                  <th data-visible="false">ID</th>
+                  <th>Tracking</th>
+                  <th>Title</th>
+                  <th>Type</th>
+                  <th>Owner</th>
+                  <th>Action</th>
+                </tr>
+                </tfoot>
+              </table>
+            </div>
+            <!-- /.card-body -->
+          </div>
+            </div>
         </div>
         <!-- /.row -->
       </div><!-- /.container-fluid -->

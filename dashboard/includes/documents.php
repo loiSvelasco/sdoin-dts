@@ -21,10 +21,82 @@
     <!-- Main content -->
     <div class="content">
       <div class="container-fluid">
-      <?php display_notice();?>
+        <?php display_notice();?>
         <div class="row">
-          <!-- /.col-md-6 -->
-          <!-- /.col-md-6 -->
+            <div class="col-lg-6">
+              <div class="card">
+                <div class="card-header">
+                  <h3 class="card-title">Documents to Receive</h3>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                  <table id="receiveTable" class="table table-bordered table-hover">
+                    <thead>
+                    <tr>
+                      <th data-visible="false"></th>
+                      <th class="text-center">Tracking</th>
+                      <th class="text-center">Title</th>
+                      <th class="text-center">Type</th>
+                      <th class="text-center">Owner</th>
+                      <th class="text-center">Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php echo get_to_receive(); ?>
+                    </tbody>
+                    <!-- <tfoot>
+                    <tr>
+                      <th data-visible="false"></th>
+                      <th>Tracking</th>
+                      <th>Title</th>
+                      <th>Type</th>
+                      <th>Owner</th>
+                      <th>Action</th>
+                    </tr>
+                    </tfoot> -->
+                  </table>
+                </div>
+                <!-- /.card-body -->
+              </div>
+            </div>
+
+            <div class="col-lg-6">
+              <div class="card">
+                <div class="card-header">
+                  <h3 class="card-title">Documents to Release</h3>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                  <table id="releaseTable" class="table table-bordered table-hover">
+                    <thead>
+                    <tr>
+                      <th data-visible="false"></th>
+                      <th class="text-center">Tracking</th>
+                      <th class="text-center">Title</th>
+                      <th class="text-center">Type</th>
+                      <th class="text-center">Owner</th>
+                      <th class="text-center">Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php echo get_to_release(); ?>
+                    </tbody>
+                    <!-- <tfoot>
+                    <tr>
+                      <th data-visible="false"></th>
+                      <th>Tracking</th>
+                      <th>Title</th>
+                      <th>Type</th>
+                      <th>Owner</th>
+                      <th>Action</th>
+                    </tr>
+                    </tfoot> -->
+                  </table>
+                </div>
+                <!-- /.card-body -->
+              </div>
+            </div>
+
         </div>
         <!-- /.row -->
       </div><!-- /.container-fluid -->

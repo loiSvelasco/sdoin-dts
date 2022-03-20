@@ -26,8 +26,9 @@ if(isset($_POST['login']))
 
         if(password_verify($password, $row['password']))
         {
-            $_SESSION['user'] = $row['email'];
-            $_SESSION['unit'] = $udRow['ud_unit'];
+            $_SESSION['user']    = $row['email'];
+            $_SESSION['user_id'] = $udRow['ud_id'];
+            $_SESSION['unit']    = $udRow['ud_unit'];
             redirect("../dashboard/");
         }
         else

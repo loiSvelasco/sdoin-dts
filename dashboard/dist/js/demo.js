@@ -1,9 +1,4 @@
-/**
- * AdminLTE Demo Menu
- * ------------------
- * You should not use this file in production.
- * This file is for demo purposes only.
- */
+
 (function ($) {
   'use strict'
 
@@ -424,3 +419,37 @@
     $(this).addClass('active');
   });
 })(jQuery)
+
+$(function () {
+  $('#doctables').DataTable({
+    "paging": true,
+    "lengthChange": false,
+    "searching": true,
+    "ordering": false,
+    "info": true,
+    "autoWidth": false,
+    "responsive": true,
+  });
+
+  $('#releaseTable').DataTable({
+    "paging": true,
+    "lengthChange": false,
+    "searching": true,
+    "ordering": false,
+    "info": true,
+    "autoWidth": false,
+    "responsive": true,
+  });
+
+  $('#receiveTable').DataTable({
+    "paging": true,
+    "lengthChange": false,
+    "searching": true,
+    "ordering": false,
+    "info": true,
+    "autoWidth": false,
+    "responsive": true,
+  });
+
+  $('[data-toggle="tooltip"]').tooltip()
+});
