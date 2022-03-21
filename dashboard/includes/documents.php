@@ -30,7 +30,7 @@
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
-                  <table id="receiveTable" class="table table-bordered table-hover">
+                  <table class="table table-bordered table-hover" id="receiveTable">
                     <thead>
                     <tr>
                       <th data-visible="false"></th>

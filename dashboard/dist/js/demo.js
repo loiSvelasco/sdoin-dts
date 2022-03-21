@@ -451,5 +451,21 @@ $(function () {
     "responsive": true,
   });
 
-  $('[data-toggle="tooltip"]').tooltip()
+  $('[data-toggle="tooltip"]').tooltip();
+
+});
+
+
+$(document).ready(function() {
+      $('#releaseTable').on('click','.release_doc', function() {
+      $('#modal-release-doc').modal('show');
+
+      $tr = $(this).closest('tr');
+      var data = $tr.children("td").map(function() {
+          return $(this).text();
+      }).get();
+      console.log(data);
+      
+      $('#doc_tracking').val(data[0]);
+  });
 });

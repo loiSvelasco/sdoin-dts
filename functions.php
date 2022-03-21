@@ -243,14 +243,30 @@ ELLA;
     }
 }
 
+function get_doc_current_location($tracking)
+{
+    $superduperultramegacutiepieprintetella = query("SELECT * FROM docs_location WHERE dl_tracking = '{$tracking}' ORDER BY dl_id DESC LIMIT 1");
+    confirm($superduperultramegacutiepieprintetella);
+
+    if(row_count($superduperultramegacutiepieprintetella) >= 1)
+    {
+        $row = fetch_assoc($superduperultramegacutiepieprintetella);
+        return $row['dl_unit'];
+    }
+    else
+    {
+        // throw an error
+    }
+}
+
 function get_to_receive()
 {
-    $ella = query("SELECT * FROM docs_location WHERE dl_unit = {$_SESSION['unit']} AND dl_accomplished = 0 AND dl_receivedby = 0 ORDER BY dl_id ASC");
+    $ella = query("SELECT * FROM docs_location WHERE dl_unit = {$_SESSION['unit']} AND dl_receivedby = 0 ORDER BY dl_id ASC");
     confirm($ella);
 
     while($row = fetch_array($ella))
     {
-        $bbyella = query("SELECT * FROM documents WHERE document_tracking = '{$row['dl_tracking']}'");
+        $bbyella = query("SELECT * FROM documents WHERE document_tracking = '{$row['dl_tracking']}' AND document_accomplished = 0");
         confirm($bbyella);
 
         $id = $row['dl_id'];
@@ -284,12 +300,13 @@ ELLA;
 
 function get_to_release()
 {
-    $ella = query("SELECT * FROM docs_location WHERE dl_unit = {$_SESSION['unit']} AND dl_accomplished = 0 AND dl_receivedby != 0 ORDER BY dl_id ASC");
+    // $ella = query("SELECT * FROM docs_location WHERE dl_unit = {$_SESSION['unit']} AND dl_accomplished = 0 AND dl_receivedby != 0 ORDER BY dl_id DESC");
+    $ella = query("SELECT DISTINCT dl_tracking, dl_id FROM docs_location WHERE dl_unit = {$_SESSION['unit']} AND dl_receivedby != 0 AND dl_forwarded = 0 ORDER BY dl_id DESC");
     confirm($ella);
 
     while($row = fetch_array($ella))
     {
-        $bbyella = query("SELECT * FROM documents WHERE document_tracking = '{$row['dl_tracking']}'");
+        $bbyella = query("SELECT * FROM documents WHERE document_tracking = '{$row['dl_tracking']}' AND document_accomplished = 0");
         confirm($bbyella);
 
         $id = $row['dl_id'];
@@ -312,8 +329,8 @@ function get_to_release()
                 <td>{$doctype}</td>
                 <td>{$owner}</td>
                 <td class="text-center">
-                    <span data-toggle="tooltip" data-placement="left" title="Release"><a data-href="?manipulate=release&tracking={$tracking}&to={$_SESSION['user_id']}" data-toggle="modal" data-target="#modal-release-doc" class="btn btn-sm btn-light"><i class="fa fa-file-export white"></i></a></span>
-                    <a href="?manipulate=receive&tracking={$tracking}&unit={$_SESSION['unit']}&by={$_SESSION['user_id']}" class="btn btn-sm btn-success" data-toggle="tooltip" data-placement="right" title="Mark as Done"><i class="fa fa-check"></i></a>
+                    <span data-toggle="tooltip" data-placement="left" title="Release"><button data-toggle="modal" data-target="#modal-release-doc" class="btn btn-sm btn-light release_doc"><i class="fa fa-file-export white"></i></button></span>
+                    <!-- <a href="?manipulate=receive&tracking={$tracking}&unit={$_SESSION['unit']}&by={$_SESSION['user_id']}" class="btn btn-sm btn-success" data-toggle="tooltip" data-placement="right" title="Mark as Done"><i class="fa fa-check"></i></a> -->
                 </td>
             </tr>
 ELLA;
