@@ -30,7 +30,7 @@ if(isset($_POST['add-document']))
     if(row_count($check) == 0)
     {
         insert($title, $desc, $type, $purpose, $origin, $owner, $tracking);
-        release($tracking, $to);
+        release($tracking, $origin, $to);
         set_message_alert("alert-success", "fa-check", "Document added! Tracking # is: <strong>" . $tracking . "</strong>");
         redirect("../?reports");
     }
@@ -39,7 +39,7 @@ if(isset($_POST['add-document']))
         $identifier = random_num(6);
         $tracking   = strtoupper($date . $identifier);
         insert($title, $desc, $type, $purpose, $origin, $owner, $tracking);
-        release($tracking, $to);
+        release($tracking, $origin, $to);
         set_message_alert("alert-success", "fa-check", "Document added! Tracking # is: <strong>" . $tracking . "</strong>");
         redirect("../?reports");
 
