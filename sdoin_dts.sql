@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 20, 2022 at 11:20 PM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 7.3.31
+-- Generation Time: Mar 21, 2022 at 08:46 AM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 8.1.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -34,20 +34,32 @@ CREATE TABLE `docs_location` (
   `dl_receivedby` int(11) DEFAULT 0,
   `dl_receiveddate` datetime DEFAULT NULL,
   `dl_releaseddate` datetime NOT NULL DEFAULT current_timestamp(),
-  `dl_accomplished` int(1) NOT NULL DEFAULT 0
+  `dl_forwarded` int(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `docs_location`
 --
 
-INSERT INTO `docs_location` (`dl_id`, `dl_tracking`, `dl_unit`, `dl_receivedby`, `dl_receiveddate`, `dl_releaseddate`, `dl_accomplished`) VALUES
-(1, '22319-892306', 119, 0, NULL, '2022-03-19 11:36:46', 0),
-(2, '22319-173565', 117, 0, NULL, '2022-03-19 11:39:07', 0),
+INSERT INTO `docs_location` (`dl_id`, `dl_tracking`, `dl_unit`, `dl_receivedby`, `dl_receiveddate`, `dl_releaseddate`, `dl_forwarded`) VALUES
+(1, '22319-892306', 119, 4, '2022-03-21 15:15:32', '2022-03-19 11:36:46', 1),
+(2, '22319-173565', 117, 1, '2022-03-21 15:21:10', '2022-03-19 11:39:07', 1),
 (3, '22320-808730', 103, 0, NULL, '2022-03-20 07:19:45', 0),
-(4, '22320-588877', 119, 3, '2022-03-20 10:18:36', '2022-03-20 10:07:58', 0),
-(5, '22320-311300', 119, 0, NULL, '2022-03-20 10:08:22', 0),
-(6, '22320-611832', 119, 3, '2022-03-20 18:01:53', '2022-03-20 10:08:34', 0);
+(4, '22320-588877', 119, 4, '2022-03-21 15:15:29', '2022-03-20 10:07:58', 1),
+(5, '22320-311300', 119, 4, '2022-03-21 15:17:29', '2022-03-20 10:08:22', 1),
+(6, '22320-611832', 119, 4, '2022-03-21 15:15:30', '2022-03-20 10:08:34', 1),
+(7, '22320-588877', 117, 4, '2022-03-21 15:15:29', '2022-03-21 11:35:46', 1),
+(13, '22320-588877', 110, 4, '2022-03-21 15:15:29', '2022-03-21 14:58:47', 1),
+(14, '22320-588877', 117, 4, '2022-03-21 15:15:29', '2022-03-21 14:59:38', 1),
+(15, '22320-588877', 119, 4, '2022-03-21 15:15:29', '2022-03-21 15:01:33', 1),
+(16, '22320-588877', 117, 4, '2022-03-21 15:15:29', '2022-03-21 15:14:38', 0),
+(17, '22320-611832', 117, 4, '2022-03-21 15:15:30', '2022-03-21 15:14:44', 0),
+(18, '22319-892306', 117, 4, '2022-03-21 15:15:32', '2022-03-21 15:14:48', 1),
+(19, '22319-173565', 117, 1, '2022-03-21 15:21:10', '2022-03-21 15:15:16', 1),
+(20, '22320-311300', 117, 4, '2022-03-21 15:17:29', '2022-03-21 15:17:22', 1),
+(21, '22320-311300', 122, 0, NULL, '2022-03-21 15:19:52', 0),
+(22, '22319-173565', 122, 1, '2022-03-21 15:21:10', '2022-03-21 15:19:57', 0),
+(23, '22319-892306', 122, 0, NULL, '2022-03-21 15:20:01', 0);
 
 -- --------------------------------------------------------
 
@@ -125,31 +137,32 @@ CREATE TABLE `documents` (
   `document_origin` int(11) NOT NULL,
   `document_owner` int(5) NOT NULL,
   `document_tracking` varchar(20) NOT NULL,
-  `date_created` datetime NOT NULL DEFAULT current_timestamp()
+  `date_created` datetime NOT NULL DEFAULT current_timestamp(),
+  `document_accomplished` int(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `documents`
 --
 
-INSERT INTO `documents` (`id`, `document_title`, `document_desc`, `document_type`, `document_purpose`, `document_origin`, `document_owner`, `document_tracking`, `date_created`) VALUES
-(1, 'Test doc 1', 'Test insert 1', 203, 'test', 122, 1, '22317-821923', '2022-03-17 20:38:23'),
-(2, 'Test doc 2', 'Test insert 2', 210, 'test', 122, 1, '22317-333203', '2022-03-17 20:39:53'),
-(3, 'Test doc 2', 'Test insert 2', 210, 'test', 122, 1, '22317-810163', '2022-03-17 20:40:16'),
-(4, 'Test doc 3', 'Test insert 3', 203, 'test 3', 122, 1, '22317-233903', '2022-03-17 20:42:03'),
-(5, 'Test doc 2', 'Test insert 3', 204, 'dddd', 122, 1, '22317-833913', '2022-03-17 20:42:56'),
-(6, 'duplicate test', 'desc', 206, 'dup', 122, 1, '22317-833203', '2022-03-17 21:10:43'),
-(7, '2022-03-17EQD1B8', '2022-03-17EQD1B8', 205, '2022-03-17EQD1B8', 122, 1, '22317-833902', '2022-03-17 21:14:12'),
-(8, '23123', '213123', 205, 'sad1ed', 122, 1, '22317-833903', '2022-03-17 21:18:44'),
-(9, 'Test doc 3', 'desc', 213, 'sdsdfsfd', 122, 1, '22319-609139', '2022-03-19 07:59:20'),
-(10, 'Test doc 1', 'desc', 212, 'asasd', 122, 1, '22319-653130', '2022-03-19 07:59:57'),
-(11, 'ella', 'ella', 206, 'ell', 122, 2, '22319-881113', '2022-03-19 08:33:41'),
-(12, 'Leave', 'For Dec 20-30 2022', 213, 'For approval.', 122, 2, '22319-892306', '2022-03-19 11:36:46'),
-(13, 'Memo 01', 'Something something', 215, 'test', 122, 2, '22319-173565', '2022-03-19 11:39:07'),
-(14, 'Test doc 3', 'Test insert 2', 213, '222', 119, 3, '22320-808730', '2022-03-20 07:19:45'),
-(15, 'test data ', 'test data', 210, 'test data', 122, 1, '22320-588877', '2022-03-20 10:07:58'),
-(16, 'test data 1', 'test data 1', 204, 'test data 1', 122, 1, '22320-311300', '2022-03-20 10:08:22'),
-(17, 'test data 11', 'test data 11', 242, 'test data 11', 122, 1, '22320-611832', '2022-03-20 10:08:34');
+INSERT INTO `documents` (`id`, `document_title`, `document_desc`, `document_type`, `document_purpose`, `document_origin`, `document_owner`, `document_tracking`, `date_created`, `document_accomplished`) VALUES
+(1, 'Test doc 1', 'Test insert 1', 203, 'test', 122, 1, '22317-821923', '2022-03-17 20:38:23', 0),
+(2, 'Test doc 2', 'Test insert 2', 210, 'test', 122, 1, '22317-333203', '2022-03-17 20:39:53', 0),
+(3, 'Test doc 2', 'Test insert 2', 210, 'test', 122, 1, '22317-810163', '2022-03-17 20:40:16', 0),
+(4, 'Test doc 3', 'Test insert 3', 203, 'test 3', 122, 1, '22317-233903', '2022-03-17 20:42:03', 0),
+(5, 'Test doc 2', 'Test insert 3', 204, 'dddd', 122, 1, '22317-833913', '2022-03-17 20:42:56', 0),
+(6, 'duplicate test', 'desc', 206, 'dup', 122, 1, '22317-833203', '2022-03-17 21:10:43', 0),
+(7, '2022-03-17EQD1B8', '2022-03-17EQD1B8', 205, '2022-03-17EQD1B8', 122, 1, '22317-833902', '2022-03-17 21:14:12', 0),
+(8, '23123', '213123', 205, 'sad1ed', 122, 1, '22317-833903', '2022-03-17 21:18:44', 0),
+(9, 'Test doc 3', 'desc', 213, 'sdsdfsfd', 122, 1, '22319-609139', '2022-03-19 07:59:20', 0),
+(10, 'Test doc 1', 'desc', 212, 'asasd', 122, 1, '22319-653130', '2022-03-19 07:59:57', 0),
+(11, 'ella', 'ella', 206, 'ell', 122, 2, '22319-881113', '2022-03-19 08:33:41', 0),
+(12, 'Leave', 'For Dec 20-30 2022', 213, 'For approval.', 122, 2, '22319-892306', '2022-03-19 11:36:46', 0),
+(13, 'Memo 01', 'Something something', 215, 'test', 122, 2, '22319-173565', '2022-03-19 11:39:07', 0),
+(14, 'Test doc 3', 'Test insert 2', 213, '222', 119, 3, '22320-808730', '2022-03-20 07:19:45', 0),
+(15, 'test data ', 'test data', 210, 'test data', 122, 1, '22320-588877', '2022-03-20 10:07:58', 0),
+(16, 'test data 1', 'test data 1', 204, 'test data 1', 122, 1, '22320-311300', '2022-03-20 10:08:22', 0),
+(17, 'test data 11', 'test data 11', 242, 'test data 11', 122, 1, '22320-611832', '2022-03-20 10:08:34', 0);
 
 -- --------------------------------------------------------
 
@@ -627,7 +640,8 @@ INSERT INTO `users` (`id`, `email`, `password`, `role`, `reset`) VALUES
 (1, 'loisuperficialvelasco@gmail.com', '$2y$12$FFP9WL8ML5DAUInwd0b5DuyOzF0aJJBBfBHb9qp.x9sTcC7DU/i8G', 1, '0'),
 (2, 'ellacutie@gmail.com', '$2y$12$SLBjbdIFshow0LdcW8cqz.cL1hXvjZvsJ7eiCQhL7N4Oc531J20x6', 2, 'IbG9Y2iN'),
 (3, 'personnel@dev.com', '$2y$12$CTR3T0Zn.jHKCDOmXMwQWeFhR1nOr/azxzSkFX3L75tlUb.S7Wf3S', 2, 'QyYfq43O'),
-(4, 'osds@dev.com', '$2y$12$uyyN.lBXPVMech6dvuVP2unbMXAjyYL9CrLIUfMuSL1fUwYZuMmle', 2, 'th37dueE');
+(4, 'osds@dev.com', '$2y$12$uyyN.lBXPVMech6dvuVP2unbMXAjyYL9CrLIUfMuSL1fUwYZuMmle', 2, 'th37dueE'),
+(5, 'drrm@dev.com', '$2y$12$4LooJ/QyOdbIo2os6zMPk.6dBYpNkw63xDE7QR8O361kTS1fROp.G', 2, 'wNAOHUkj');
 
 -- --------------------------------------------------------
 
@@ -650,7 +664,8 @@ INSERT INTO `user_details` (`id`, `ud_id`, `ud_unit`, `ud_name`) VALUES
 (1, '1', '122', 'Louis Superficial Velasco'),
 (2, '2', '122', 'Ella Santos'),
 (3, '3', '119', 'Personnel Acct'),
-(4, '4', '117', 'OSDS Office');
+(4, '4', '117', 'OSDS Office'),
+(5, '5', '110', 'DRRM Acc');
 
 --
 -- Indexes for dumped tables
@@ -700,7 +715,7 @@ ALTER TABLE `user_details`
 -- AUTO_INCREMENT for table `docs_location`
 --
 ALTER TABLE `docs_location`
-  MODIFY `dl_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `dl_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `doctypes`
@@ -724,13 +739,13 @@ ALTER TABLE `units`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `user_details`
 --
 ALTER TABLE `user_details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
