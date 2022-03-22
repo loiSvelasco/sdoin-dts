@@ -466,7 +466,7 @@ $(document).ready(function() {
       }).get();
       console.log(data);
       
-      $('#doc_tracking').val(data[0]);
+      $('#doc_tracking').val(data[1]);
   });
 });
 
@@ -477,3 +477,15 @@ $(function () {
 $('.popover-dismiss').popover({
   trigger: 'focus'
 })
+
+$(document).ready(function(){
+  $("#receive").on('click','#select-all-rec',function(){
+    $(".receiveBox").prop('checked', this.checked);
+  });
+});
+
+$(document).ready(function(){
+  $("#release").on('click', '#select-all-rel', function(){
+    $(".releaseBox").prop('checked', this.checked);
+  });
+});

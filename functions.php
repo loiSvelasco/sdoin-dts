@@ -280,16 +280,20 @@ function get_to_receive()
             $desc = $docRow['document_desc'];
             $purpose = $docRow['document_purpose'];
             $tracking = $docRow['document_tracking'];
+
+            $phpdate = strtotime($docRow['date_created']);
+            $date = date("F j, Y, g:i a", $phpdate );
     
             $ellacutie = <<<ELLA
             <tr>
-                <td data-visible="false">{$id}</td>
-                <td>{$tracking}</td>
+                <td class="text-center"><input type="checkbox" name="rec-check[]" value="{$tracking}" class="receiveBox" form="receive">&nbsp;&nbsp;</td>
+                <td class="text-center">{$tracking}</td>
                 <td><a tabindex="0" class="btn btn-sm btn-default popover-dismiss" role="button" data-toggle="popover" data-html="true" data-trigger="focus" title="Document Details"
                     data-content="
                     Type: {$doctype}
                     <br>Origin: {$origin}
                     <br>Owner: {$owner}
+                    <hr>Date Created:<br>{$date}
                     ">{$title}</a></td>
                 <!-- <td>{$doctype}</td>
                 <td>{$owner}</td> -->
@@ -325,16 +329,20 @@ function get_to_release()
             $desc = $docRow['document_desc'];
             $purpose = $docRow['document_purpose'];
             $tracking = $docRow['document_tracking'];
+
+            $phpdate = strtotime($docRow['date_created']);
+            $date = date("F j, Y, g:i a", $phpdate );
     
             $ellacutie = <<<ELLA
             <tr>
-                <td data-visible="false">{$id}</td>
-                <td>{$tracking}</td>
+                <td class="text-center"><input type="checkbox" name="rel-check[]" form="release" class="releaseBox" value="{$tracking}">&nbsp;&nbsp;</td>
+                <td class="text-center">{$tracking}</td>
                 <td><a tabindex="0" class="btn btn-sm btn-default popover-dismiss" role="button" data-toggle="popover" data-html="true" data-trigger="focus" title="Document Details"
                 data-content="
                 Type: {$doctype}
                 <br>Origin: {$origin}
                 <br>Owner: {$owner}
+                <hr>Date Created: <br>{$date}
                 ">{$title}</a></td>
                 <!--<td>{$doctype}</td>
                 <td>{$owner}</td>-->
