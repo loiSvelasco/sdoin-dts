@@ -11455,7 +11455,8 @@ body.sidebar-collapse:not(.sidebar-mini-md):not(.sidebar-mini) .main-header::bef
 }
 
 .content-wrapper {
-  background: #f4f6f9;
+  /* background: #f4f6f9; */
+  background: #fff;
 }
 
 .content-wrapper > .content {

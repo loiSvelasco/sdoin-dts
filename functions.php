@@ -285,9 +285,14 @@ function get_to_receive()
             <tr>
                 <td data-visible="false">{$id}</td>
                 <td>{$tracking}</td>
-                <td>{$title}</td>
-                <td>{$doctype}</td>
-                <td>{$owner}</td>
+                <td><a tabindex="0" class="btn btn-sm btn-default popover-dismiss" role="button" data-toggle="popover" data-html="true" data-trigger="focus" title="Document Details"
+                    data-content="
+                    Type: {$doctype}
+                    <br>Origin: {$origin}
+                    <br>Owner: {$owner}
+                    ">{$title}</a></td>
+                <!-- <td>{$doctype}</td>
+                <td>{$owner}</td> -->
                 <td class="text-center">
                     <a href="?manipulate=receive&tracking={$tracking}&unit={$_SESSION['unit']}&by={$_SESSION['user_id']}" class="btn btn-sm btn-warning" data-toggle="tooltip" data-placement="left" title="Receive"><i class="fa fa-file-import"></i></a>
                 </td>
@@ -325,9 +330,14 @@ function get_to_release()
             <tr>
                 <td data-visible="false">{$id}</td>
                 <td>{$tracking}</td>
-                <td>{$title}</td>
-                <td>{$doctype}</td>
-                <td>{$owner}</td>
+                <td><a tabindex="0" class="btn btn-sm btn-default popover-dismiss" role="button" data-toggle="popover" data-html="true" data-trigger="focus" title="Document Details"
+                data-content="
+                Type: {$doctype}
+                <br>Origin: {$origin}
+                <br>Owner: {$owner}
+                ">{$title}</a></td>
+                <!--<td>{$doctype}</td>
+                <td>{$owner}</td>-->
                 <td class="text-center">
                     <span data-toggle="tooltip" data-placement="left" title="Release"><button data-toggle="modal" data-target="#modal-release-doc" class="btn btn-sm btn-light release_doc"><i class="fa fa-file-export white"></i></button></span>
                     <!-- <a href="?manipulate=receive&tracking={$tracking}&unit={$_SESSION['unit']}&by={$_SESSION['user_id']}" class="btn btn-sm btn-success" data-toggle="tooltip" data-placement="right" title="Mark as Done"><i class="fa fa-check"></i></a> -->

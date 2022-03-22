@@ -469,3 +469,11 @@ $(document).ready(function() {
       $('#doc_tracking').val(data[0]);
   });
 });
+
+$(function () {
+  $('[data-toggle="popover"]').popover()
+})
+
+$('.popover-dismiss').popover({
+  trigger: 'focus'
+})
