@@ -33,6 +33,7 @@
                 <div class="row gx-5 justify-content-center">
                     <div class="col-lg-6">
                         <div class="text-center my-5">
+                            <img src="assets/images/sdoin-logo-small.png" width="25%" alt="SDOIN Logo">
                             <h1 class="display-5 fw-bolder text-white mb-2">Enhanced DTS</h1>
                             <p class="lead text-white-50 mb-4">Enter the tracking no. provided to see its current status.</p>
                             <form action="#" method="post">
@@ -78,7 +79,7 @@
         </section>
         <!-- Footer-->
         <footer class="py-5 bg-dark">
-            <div class="container px-5"><p class="m-0 text-center text-white">Copyright &copy; Louis Velasco</a>. Made with <a href="" class="text-decoration-none">❤</a> <script>document.write(new Date().getFullYear())</script></p></div>
+            <div class="container px-5"><p class="m-0 text-center text-white">Copyright &copy; Louis Velasco</a>. Made with <a href="?inspiration" class="text-decoration-none">❤</a> <script>document.write(new Date().getFullYear())</script></p></div>
         </footer>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

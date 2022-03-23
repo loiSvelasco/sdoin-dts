@@ -28,4 +28,9 @@
     {
         include("recover.php");
     }
+
+    if(isset($_GET['inspiration']))
+    {
+        include("inspiration.php");
+    }
 ?>
