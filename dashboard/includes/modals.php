@@ -146,3 +146,58 @@
     <!-- /.modal-dialog -->
 </div>
 <!-- /.modal -->
+
+<div class="modal fade" id="modal-release-multi-doc" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h4 class="modal-title" id="modal-release-doc-Label">Release Document to</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span></button>
+        </div>
+        <div class="modal-body">
+            <!-- form here-->                
+                <input type="hidden" form="release" name="manipulate" value="release">
+                <input type="hidden" form="release" name="tracking" id="doc_tracking" value="">
+                <input type="hidden" form="release" name="unit" value="<?php echo $_SESSION['unit']; ?>">
+                
+                <div class="form-group row">
+                    <div class="col-12">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <i class="fa fa-reply"></i>
+                                </div>
+                            </div>
+                            <select id="doc_to" name="to" class="custom-select" form="release" required>
+                                <option value="" disabled selected hidden>Release to</option>
+                                <optgroup label="Division Office">
+                                    <?php get_unit_do(); ?>
+                                </optgroup>
+                                <optgroup label="Public Schools">
+                                    <?php get_unit_public(); ?>
+                                </optgroup>
+                                <optgroup label="Private Schools">
+                                    <?php get_unit_private(); ?>
+                                </optgroup>
+                            </select>
+                            <!-- <input type="text" name="to" list="docto" class="form-control">
+                            <datalist id="docto">
+                                <?php // get_unit_do(); ?>
+                                <?php // get_unit_public(); ?>
+                                <?php // get_unit_private(); ?>
+                            </datalist> -->
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <div class="modal-footer justify-content-between">
+            <!-- <button type="button" class="btn btn-outline-danger" data-dismiss="modal"><i class="fas fa-times"></i>&nbsp;&nbsp;Cancel</button> -->
+            <button type="submit" form="release" class="btn btn-block btn-outline-success" name="rel-multiple"><i class="fas fa-reply"></i>&nbsp;&nbsp;Release</button>
+        </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->

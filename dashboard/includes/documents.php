@@ -69,7 +69,7 @@
                     <table id="releaseTable" class="table table-striped table-bordered table-hover">
                       <thead>
                       <tr>
-                        <th class="text-center col-1"><form action="action/multi-release.php" id="release" method="post">
+                        <th class="text-center col-1"><form action="actions/multi-release.php" id="release" method="post">
                             <input type="checkbox" id="select-all-rel" data-toggle="tooltip" data-placement="left" title="Select All">&nbsp;&nbsp;</form></th>
                         <th class="text-center col-2">Tracking</th>
                         <th class="text-center col-7">Title</th>
@@ -83,7 +83,7 @@
                           <?php echo get_to_release(); ?>
                       </tbody>
                     </table>
-                    <button type="submit" form="release" name="rel-selected">release all</button>
+                    <button type="button" data-toggle="modal" data-target="#modal-release-multi-doc" form="release" name="rel-selected">release all</button>
                 </div>
                 <!-- /.card-body -->
               <!-- </div> -->

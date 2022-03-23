@@ -3,14 +3,19 @@
 include("includes/header.php");
 include("includes/sidebar.php");
 
-if($_SERVER['REQUEST_URI'] == "/sdoin-dts/dashboard/" || $_SERVER['REQUEST_URI'] == "/sdoin-dts/dashboard/?reports")
+if($_SERVER['REQUEST_URI'] == "/sdoin-dts/dashboard/")
 {
-    include("includes/reports.php");
+    include("includes/documents.php");
 }
 
 if(isset($_GET['documents']))
 {
     include("includes/documents.php");
+}
+
+if(isset($_GET['reports']))
+{
+    include("includes/reports.php");
 }
 
 if(isset($_GET['logout']))
