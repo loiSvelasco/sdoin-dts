@@ -1,0 +1,19 @@
+/* .stepper {
+    .line {
+      border-left: 2px;
+      background-color: grey !important;
+    }
+    .lead {
+      font-size: 1.1rem;
+    }
+  }
+   */
+
+   .stepper .line {
+    width: 2px;
+    background-color: black !important;
+ }
+  .stepper .lead {
+    font-size: 1.1rem;
+ }
+  

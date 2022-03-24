@@ -18,6 +18,11 @@ if(isset($_GET['reports']))
     include("includes/reports.php");
 }
 
+if(isset($_GET['tracking']))
+{
+    include("includes/tracking.php");
+}
+
 if(isset($_GET['logout']))
 {
     include("actions/logout.php");

@@ -37,6 +37,7 @@
   <link rel="stylesheet" href="plugins/jqvmap/jqvmap.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="dist/css/custom.css">
   <!-- overlayScrollbars -->
   <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
   <!-- Daterange picker -->
@@ -60,9 +61,9 @@
     </ul>
 
     <!-- SEARCH FORM -->
-    <form class="form-inline ml-3">
+    <form action="?tracking" class="form-inline ml-3" method="GET">
       <div class="input-group input-group-sm">
-        <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+        <input class="form-control form-control-navbar" type="search" name="tracking" placeholder="Search" aria-label="Search" required>
         <div class="input-group-append">
           <button class="btn btn-navbar" type="submit">
             <i class="fas fa-search"></i>

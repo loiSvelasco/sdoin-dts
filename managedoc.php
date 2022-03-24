@@ -25,14 +25,9 @@ function receive($tracking, $unit, $by)
     if(row_count($ellaganda) >= 1)
     {
         $date = date('Y-m-d H:i:s');
-        $receive = query("UPDATE docs_location SET dl_receivedby = '{$by}', dl_receiveddate = '{$date}' WHERE dl_tracking = '{$tracking}' ");
+        $receive = query("UPDATE docs_location SET dl_receivedby = '{$by}', dl_receiveddate = '{$date}' WHERE dl_tracking = '{$tracking}' AND dl_unit ='{$unit}' ORDER BY dl_id DESC LIMIT 1");
         confirm($receive);
     }
-    else
-    {
-        // throw error
-    }
-
 }
 
 ?>

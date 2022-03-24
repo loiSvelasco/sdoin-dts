@@ -201,3 +201,61 @@
     <!-- /.modal-dialog -->
 </div>
 <!-- /.modal -->
+
+
+<div class="modal fade" id="modal-track" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h4 class="modal-title" id="modal-release-doc-Label">Track Document</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span></button>
+        </div>
+        <div class="modal-body">
+
+
+        <div class="stepper d-flex flex-column mt-2 ml-2">
+            <div class="d-flex mb-1">
+            <div class="d-flex flex-column pr-4 align-items-center">
+                <div class="rounded-circle py-2 px-3 bg-secondary text-white mb-1">1</div>
+                <div class="line h-100"></div>
+            </div>
+            <div>
+                <h5 class="text-dark">Create your application respository</h5>
+                <p class="lead text-muted pb-3">Choose your website name & create repository</p>
+            </div>
+            </div>
+            <div class="d-flex mb-1">
+            <div class="d-flex flex-column pr-4 align-items-center">
+                <div class="rounded-circle py-2 px-3 bg-secondary text-white mb-1">2</div>
+                <div class="line h-100"></div>
+            </div>
+            <div>
+                <h5 class="text-dark">Clone application respository</h5>
+                <p class="lead text-muted pb-3">Go to your dashboard and clone Git respository from the url in the dashboard of your application</p>
+            </div>
+            </div>
+            <div class="d-flex mb-1">
+            <div class="d-flex flex-column pr-4 align-items-center">
+                <div class="rounded-circle py-2 px-3 bg-secondary text-white mb-1">3</div>
+                <div class="line h-100 d-none"></div>
+            </div>
+            <div>
+                <h5 class="text-dark">Make changes and push!</h5>
+                <p class="lead text-muted pb-3">Now make changes to your application source code, test it then commit &amp; push</p>
+            </div>
+            </div>
+        </div>
+
+
+        </div>
+        <div class="modal-footer justify-content-between">
+            <!-- <button type="button" class="btn btn-outline-danger" data-dismiss="modal"><i class="fas fa-times"></i>&nbsp;&nbsp;Cancel</button> -->
+            <button type="submit" form="release" class="btn btn-block btn-outline-success" name="rel-multiple"><i class="fas fa-reply"></i>&nbsp;&nbsp;Release</button>
+        </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
