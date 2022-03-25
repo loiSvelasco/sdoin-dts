@@ -31,8 +31,8 @@ if(isset($_POST['add-document']))
     {
         insert($title, $desc, $type, $purpose, $origin, $owner, $tracking);
         release($tracking, $origin, $to);
-        set_message_alert("alert-success", "fa-check", "Document added! Tracking # is: <strong><a href='#' class='text-decoration-none btn btn-success' data-toggle='tooltip' data-placement='right' title='Print'><i class='fas fa-print'></i>&nbsp;&nbsp;&nbsp;" . $tracking . "</a></strong>");
-        redirect("../?documents");
+        set_message_alert("alert-success", "fa-check", "Document added! Tracking # is: <strong><a href='?print={$tracking}' target='_blank' class='text-decoration-none btn btn-success' data-toggle='tooltip' data-placement='right' title='Print'><i class='fas fa-print'></i>&nbsp;&nbsp;&nbsp;" . $tracking . "</a></strong>");
+        redirect($_SERVER['HTTP_REFERER']);
     }
     else
     {
@@ -41,7 +41,7 @@ if(isset($_POST['add-document']))
         insert($title, $desc, $type, $purpose, $origin, $owner, $tracking);
         release($tracking, $origin, $to);
         set_message_alert("alert-success", "fa-check", "Document added! Tracking # is: <strong>" . $tracking . "</strong>");
-        redirect("../?documents");
+        redirect($_SERVER['HTTP_REFERER']);
 
     }
 }

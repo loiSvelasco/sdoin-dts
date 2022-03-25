@@ -236,7 +236,10 @@ function get_my_docs()
             <td>{$title}</td>
             <td>{$doctype}</td>
             <td>{$owner}</td>
-            <td></td>
+            <td>
+                <a href="?print={$tracking}" target="_blank" class="text-decoration-none btn btn-warning" data-toggle="tooltip" data-placement="left" title="Print Tracking no."><i class="fa fa-print"></i></a>
+                <a href="?tracking={$tracking}" target="_blank" class="text-decoration-none btn btn-success" data-toggle="tooltip" data-placement="right" title="Track"><i class="fa fa-search"></i></a>
+            </td>
         </tr>
 ELLA;
         echo $ellacutie;

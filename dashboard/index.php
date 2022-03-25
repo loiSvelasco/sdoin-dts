@@ -23,6 +23,11 @@ if(isset($_GET['tracking']))
     include("includes/tracking.php");
 }
 
+if(isset($_GET['profile']))
+{
+    include("includes/profile.php");
+}
+
 if(isset($_GET['logout']))
 {
     include("actions/logout.php");
@@ -31,6 +36,11 @@ if(isset($_GET['logout']))
 if(isset($_GET['manipulate']))
 {
     include("actions/manipulate.php");
+}
+
+if(isset($_GET['print']))
+{
+    redirect("print/barcode.php?tracking=" . escape_string($_GET['print']));
 }
 
 include("includes/modals.php");

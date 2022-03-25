@@ -84,7 +84,7 @@
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
           <span class="dropdown-item dropdown-header"><?php echo $_SESSION['user']; ?><br><?php echo get_unit_name($_SESSION['unit']); ?></span>
           <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
+          <a href="?profile" class="dropdown-item">
             <i class="fas fa-user mr-2"></i> Profile
           </a>
           <div class="dropdown-divider"></div>

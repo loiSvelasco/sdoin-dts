@@ -21,11 +21,7 @@
     <!-- Main content -->
     <div class="content">
       <div class="container-fluid">
-
-      <div class="stepper d-flex flex-column mt-2 ml-2">
-
-        </div>
-
+        <div class="stepper d-flex flex-column mt-2 ml-2">
         <?php 
           if(isset($_GET['tracking']))
           {
@@ -53,10 +49,7 @@
                 <div class="d-flex mb-1">
                 <div class="d-flex flex-column pr-4 align-items-center">
                     <div class="rounded-circle py-2 px-3 bg-secondary text-white mb-1">{$sequence}</div>
-                    <div class="line h-100" style="
-                    width: 2px;
-                    background-color: lightgrey !important;
-                "></div>
+                    <div class="line h-100"></div>
                 </div>
                 <div>
                     <h5 class="text-dark">{$status}</h5>
@@ -74,7 +67,7 @@ CUTIEPIE;
             redirect($_SERVER['HTTP_REFERER']);
           }
         ?>
-
+        </div>
         <!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
