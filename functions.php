@@ -310,6 +310,21 @@ ELLA;
     }
 }
 
+function get_to_receive_count()
+{
+    $ella = query("SELECT * FROM docs_location WHERE dl_unit = {$_SESSION['unit']} AND dl_receivedby = 0 ORDER BY dl_id ASC");
+    confirm($ella);
+    $counter = 0;
+    while($row = fetch_array($ella))
+    {
+        $bbyella = query("SELECT * FROM documents WHERE document_tracking = '{$row['dl_tracking']}' AND document_accomplished = 0");
+        confirm($bbyella);
+
+        $counter++;
+    }
+    echo $counter;
+}
+
 function get_to_release()
 {
     // $ella = query("SELECT * FROM docs_location WHERE dl_unit = {$_SESSION['unit']} AND dl_accomplished = 0 AND dl_receivedby != 0 ORDER BY dl_id DESC");
@@ -360,3 +375,15 @@ ELLA;
     }
 }
 
+function get_received_today()
+{
+    $unit = $_SESSION['unit'];
+    $prettyella = query("SELECT *, DATE_FORMAT(dl_receiveddate, '%Y-%m-%d')  FROM docs_location WHERE DATE(dl_receiveddate) = CURDATE() AND dl_unit = {$unit}");
+    echo row_count($prettyella);
+}
+
+function get_released_today()
+{
+    echo "test";
+    //
+}

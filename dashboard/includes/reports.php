@@ -22,6 +22,80 @@
     <div class="content">
       <div class="container-fluid">
         <?php display_notice();?>
+
+
+        <div class="row">
+          <div class="col-lg-3 col-6">
+            <!-- small card -->
+            <div class="small-box bg-info">
+              <div class="inner">
+                <h3><?php get_received_today(); ?></h3>
+
+                <p>Received Documents (Today)</p>
+              </div>
+              <div class="icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <!-- <a href="#" class="small-box-footer">
+                More info <i class="fas fa-arrow-circle-right"></i>
+              </a> -->
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small card -->
+            <div class="small-box bg-success">
+              <div class="inner">
+                <h3><?php get_released_today(); ?></h3>
+
+                <p>Released documents (Today)</p>
+              </div>
+              <div class="icon">
+                <i class="fas fa-reply"></i>
+              </div>
+              <!-- <a href="#" class="small-box-footer">
+                More info <i class="fas fa-arrow-circle-right"></i>
+              </a> -->
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small card -->
+            <div class="small-box bg-warning">
+              <div class="inner">
+                <h3><?php get_to_receive_count(); ?></h3>
+
+                <p>To Receive</p>
+              </div>
+              <div class="icon">
+                <i class="fas fa-folder-plus"></i>
+              </div>
+              <!-- <a href="#" class="small-box-footer">
+                More info <i class="fas fa-arrow-circle-right"></i>
+              </a> -->
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small card -->
+            <div class="small-box bg-danger">
+              <div class="inner">
+                <h3>53<sup style="font-size: 20px">%</sup></h3>
+
+                <p>Rate</p>
+              </div>
+              <div class="icon">
+                <i class="fas fa-percentage"></i>
+              </div>
+              <!-- <a href="#" class="small-box-footer">
+                More info <i class="fas fa-arrow-circle-right"></i>
+              </a> -->
+            </div>
+          </div>
+          <!-- ./col -->
+        </div>
+
+
         <div class="row">
             <div class="col-12">
             <div class="card">
