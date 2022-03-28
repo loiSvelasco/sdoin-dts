@@ -28,6 +28,11 @@ if(isset($_GET['profile']))
     include("includes/profile.php");
 }
 
+if(isset($_GET['scanrec']))
+{
+    include("includes/scanrec.php");
+}
+
 if(isset($_GET['logout']))
 {
     include("actions/logout.php");

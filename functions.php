@@ -365,7 +365,7 @@ function get_to_release()
                 <!--<td>{$doctype}</td>
                 <td>{$owner}</td>-->
                 <td class="text-center">
-                    <span data-toggle="tooltip" data-placement="left" title="Release"><button data-toggle="modal" data-target="#modal-release-doc" class="btn btn-sm btn-light release_doc"><i class="fa fa-file-export white"></i></button></span>
+                    <span data-toggle="tooltip" data-placement="left" title="Release"><button data-toggle="modal" data-target="#modal-release-doc" class="btn btn-sm btn-info release_doc"><i class="fa fa-file-export white"></i></button></span>
                     <!-- <a href="?manipulate=receive&tracking={$tracking}&unit={$_SESSION['unit']}&by={$_SESSION['user_id']}" class="btn btn-sm btn-success" data-toggle="tooltip" data-placement="right" title="Mark as Done"><i class="fa fa-check"></i></a> -->
                 </td>
             </tr>
@@ -384,6 +384,7 @@ function get_received_today()
 
 function get_released_today()
 {
-    echo "test";
-    //
+    $unit = $_SESSION['unit'];
+    $prettyella = query("SELECT *, DATE_FORMAT(dl_releaseddate, '%Y-%m-%d')  FROM docs_location WHERE DATE(dl_releaseddate) = CURDATE() AND dl_releasedby = {$unit}");
+    echo row_count($prettyella);
 }

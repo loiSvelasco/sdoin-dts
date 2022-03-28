@@ -34,6 +34,12 @@
                 </a>
               </li>
               <li class="nav-item">
+                <a href="?scanrec" class="nav-link">
+                  <i class="fas fa-barcode nav-icon"></i>
+                  <p>Receive (Scan)</p>
+                </a>
+              </li>
+              <li class="nav-item">
                 <a href="?reports" class="nav-link">
                   <i class="fas fa-file-alt nav-icon"></i>
                   <p>Reports</p>

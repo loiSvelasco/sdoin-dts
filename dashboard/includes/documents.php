@@ -27,7 +27,9 @@
             <div class="col-lg-6">
               <!-- <div class="card"> -->
                 <div class="card-header">
-                  <h3 class="card-title">Documents to Receive</h3>
+                  <h3 class="card-title">
+                  <button type="submit" form="receive" class="btn btn-warning btn-sm btn-flat" name="rec-selected">Receive Selected</button>
+                  &nbsp;&nbsp;&nbsp;Documents to Receive</h3>
                 </div>
                 <br>
                 <!-- /.card-header -->
@@ -51,7 +53,6 @@
                         <?php echo get_to_receive(); ?>
                       </tbody>
                     </table>
-                    <button type="submit" form="receive" name="rec-selected">receive all</button>
                 </div>
                 <!-- /.card-body -->
               <!-- </div> -->
@@ -60,7 +61,9 @@
             <div class="col-lg-6">
               <!-- <div class="card"> -->
                 <div class="card-header">
-                  <h3 class="card-title">Documents to Release</h3>
+                  <h3 class="card-title">
+                  <button type="button" class="btn btn-sm btn-flat btn-info" data-toggle="modal" data-target="#modal-release-multi-doc" form="release" name="rel-selected">Release Selected</button>
+                  &nbsp;&nbsp;&nbsp;Documents to Release</h3>
                 </div>
                 <br>
                 <!-- /.card-header -->
@@ -83,7 +86,7 @@
                           <?php echo get_to_release(); ?>
                       </tbody>
                     </table>
-                    <button type="button" data-toggle="modal" data-target="#modal-release-multi-doc" form="release" name="rel-selected">release all</button>
+                    
                 </div>
                 <!-- /.card-body -->
               <!-- </div> -->

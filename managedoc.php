@@ -1,13 +1,13 @@
 <?php
 
-function release($tracking, $unit, $to)
+function release($tracking, $unit, $to, $by)
 {
     $ellaganda = query("SELECT * FROM docs_location WHERE dl_tracking = '{$tracking}' AND dl_unit = '{$unit}' ORDER BY dl_id DESC LIMIT 1");
     confirm($ellaganda);
-
+    $by = $_SESSION['unit'];
     if(row_count($ellaganda) >= 1)
     {
-        $receive = query("UPDATE docs_location SET dl_forwarded = 1 WHERE dl_tracking = '{$tracking}' AND dl_unit = '{$unit}'");
+        $receive = query("UPDATE docs_location SET dl_forwarded = 1, dl_releasedby = {$by} WHERE dl_tracking = '{$tracking}' AND dl_unit = '{$unit}'");
         confirm($receive);
     }
 
