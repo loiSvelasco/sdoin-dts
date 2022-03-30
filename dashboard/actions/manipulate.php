@@ -17,8 +17,8 @@ if(isset($_GET['manipulate']) && isset($_GET['tracking']) && isset($_GET['unit']
     if($action == 'release')
     {
         $to = escape_string($_GET['to']);
-        $by = $_SESSION['unit'];
-        release($tracking, $unit, $to, $by);
+        // $by = $_SESSION['unit'];
+        release($tracking, $unit, $to);
         $to_name = get_unit_name($to);
         set_message_alert("alert-success", "fa-check", "Document released to " . $to_name);
         // redirect("?documents");

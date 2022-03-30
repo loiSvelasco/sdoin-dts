@@ -6,9 +6,9 @@ if(isset($_POST['rel-check']))
     foreach($_POST['rel-check'] AS $tracking)
     {
         $unit = $_SESSION['unit'];
-        $by = $_SESSION['unit'];
+        // $by = $_SESSION['unit'];
         $to = $_POST['to'];
-        release($tracking, $unit, $to, $by);
+        release($tracking, $unit, $to);
         echo "release(".$tracking.", ".$unit.", ".$to.");<br>";
     }
     set_message_alert("alert-success", "fa-check", "Documents released to " . get_unit_name($to));
