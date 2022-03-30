@@ -7,7 +7,7 @@ session_destroy();
 session_write_close();
 
 // header('Location: ../');
-redirect("../");
+redirect("../?login");
 die;
 
 ?>

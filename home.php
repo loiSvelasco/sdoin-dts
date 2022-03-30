@@ -1,3 +1,4 @@
+<?php require("config.php"); ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -22,7 +23,16 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="?home">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="?login">Login</a></li>
+                        <?php
+                        if(isset($_SESSION['user']))
+                        {
+                            echo '<li class="nav-item"><a class="nav-link" href="./dashboard">Dashboard</a></li>';
+                        }
+                        else
+                        {
+                            echo '<li class="nav-item"><a class="nav-link" href="?login">Login</a></li>';
+                        }
+                        ?>
                     </ul>
                 </div>
             </div>
@@ -35,14 +45,14 @@
                         <div class="text-center my-5">
                             <img src="assets/images/sdoin-logo-small.png" width="25%" alt="SDOIN Logo">
                             <h1 class="display-5 fw-bolder text-white mb-2">Enhanced DTS</h1>
-                            <p class="lead text-white-50 mb-4">Enter the tracking no. provided to see its current status.</p>
+                            <p class="lead text-white-50 mb-4">Enter the tracking no. and click on track to see its current status.</p>
                             <form action="#" method="post">
                                 <div class="box">     
-                                    <input class="form-control" type="text" name="trackingno" class="text-white font-weight-bold" placeholder="Document Tracking No." autofocus required>
+                                    <input class="form-control form-control-lg" type="text" name="trackingno" class="text-white font-weight-bold" style="background-color:rgba(0,0,0,0) !important;color: white; border:none;text-align:center;" placeholder="Type here." autofocus required>
                                     <br>
                                 </div>
                                 <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
-                                    <button type="submit" class="btn btn-outline-light btn-lg px-4" name="track">Track</button>
+                                    <button type="submit" class="btn btn-outline-light btn-lg px-4" name="track"><i class="bi bi-search"></i>&nbsp;Track</button>
                                 </div>
                             </form>
                         </div>
@@ -85,10 +95,5 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <!-- * *                               SB Forms JS                               * *-->
-        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
     </body>
 </html>

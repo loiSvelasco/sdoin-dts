@@ -7,7 +7,7 @@
     </div> -->
   </aside>
   <!-- /.control-sidebar -->
-
+  <button onclick="topFunction()" data-toggle="tooltip" data-placement="top" class="btn btn-dark" id="myBtn" title="Scroll to top of page"><i class="fa fa-angle-up"></i></button>
   <!-- Main Footer -->
   <footer class="main-footer">
     <!-- To the right -->

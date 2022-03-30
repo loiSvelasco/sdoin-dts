@@ -29,6 +29,7 @@ if(isset($_POST['login']))
             $_SESSION['user_id'] = $udRow['ud_id'];
             $_SESSION['unit']    = $udRow['ud_unit'];
             $_SESSION['role']    = $row['role'];
+            $_SESSION['timestamp'] = time();
             redirect("../dashboard/");
         }
         else

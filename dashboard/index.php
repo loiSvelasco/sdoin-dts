@@ -9,6 +9,20 @@ include("includes/sidebar.php");
 // *  3 = regular user
 
 
+// session_start();
+if(isset($_SESSION['timestamp']))
+{
+    if(time() - $_SESSION['timestamp'] > 900)
+    {
+        redirect("?logout");
+    }
+    else
+    {
+        $_SESSION['timestamp'] = time();
+    }
+}
+
+
 if(isset($_GET['admin']))
 {
     if($_SESSION['role'] == 1)

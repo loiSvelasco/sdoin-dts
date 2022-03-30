@@ -16,7 +16,7 @@
             <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-envelope"></i>
               <p>
-                File Management
+                Management
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
