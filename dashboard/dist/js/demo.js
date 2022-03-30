@@ -432,7 +432,7 @@ $(function () {
   });
 
   $('#releaseTable').DataTable({
-    "paging": true,
+    "paging": false,
     "lengthChange": false,
     "searching": true,
     "ordering": false,
@@ -442,7 +442,7 @@ $(function () {
   });
 
   $('#receiveTable').DataTable({
-    "paging": true,
+    "paging": false,
     "lengthChange": false,
     "searching": true,
     "ordering": false,

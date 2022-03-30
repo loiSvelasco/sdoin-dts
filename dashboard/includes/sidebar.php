@@ -45,6 +45,37 @@
                   <p>Reports</p>
                 </a>
               </li>
+
+              <?php 
+              
+                if ($_SESSION['role'] == 1)
+                {
+                  $lala = <<<LALACUTIE
+                  <li class="nav-item">
+                  <a href="?admin" class="nav-link">
+                    <i class="fas fa-user-cog nav-icon"></i>
+                    <p>Administration</p>
+                  </a>
+                </li>
+LALACUTIE;
+                  echo $lala;
+                }
+                if ($_SESSION['role'] == 2 || $_SESSION['role'] == 1)
+                {
+                  // special accounts
+                  $lala = <<<LALACUTIE
+                  <li class="nav-item">
+                  <a href="?upload" class="nav-link">
+                    <i class="fas fa-upload nav-icon"></i>
+                    <p>Upload</p>
+                  </a>
+                </li>
+LALACUTIE;
+                  echo $lala;
+                }
+
+              ?>
+
             </ul>
           </li>
           <!-- <li class="nav-item">

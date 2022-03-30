@@ -11,7 +11,8 @@ if(isset($_GET['manipulate']) && isset($_GET['tracking']) && isset($_GET['unit']
         $by = escape_string($_GET['by']);
         receive($tracking, $unit, $by);
         set_message_alert("alert-success", "fa-check", "Document received.");
-        redirect("?documents");
+        // redirect("?documents");
+        redirect($_SERVER['HTTP_REFERER']);
     }
     if($action == 'release')
     {
@@ -20,7 +21,8 @@ if(isset($_GET['manipulate']) && isset($_GET['tracking']) && isset($_GET['unit']
         release($tracking, $unit, $to, $by);
         $to_name = get_unit_name($to);
         set_message_alert("alert-success", "fa-check", "Document released to " . $to_name);
-        redirect("?documents");
+        // redirect("?documents");
+        redirect($_SERVER['HTTP_REFERER']);
     }
     if($action == 'accomplish')
     {

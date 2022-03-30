@@ -4,7 +4,6 @@ require("../config.php");
 
 if(isset($_POST['login']))
 {
-    // users.table
     $email      = escape_string($_POST['email']);
     $password   = escape_string($_POST['password']);
 
@@ -29,6 +28,7 @@ if(isset($_POST['login']))
             $_SESSION['user']    = $row['email'];
             $_SESSION['user_id'] = $udRow['ud_id'];
             $_SESSION['unit']    = $udRow['ud_unit'];
+            $_SESSION['role']    = $row['role'];
             redirect("../dashboard/");
         }
         else

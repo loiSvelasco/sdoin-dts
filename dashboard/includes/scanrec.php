@@ -21,22 +21,51 @@
     <!-- Main content -->
     <div class="content">
       <div class="container-fluid">
-        <div class="stepper d-flex flex-column mt-2 ml-2">
-
-
-        <section class="h-100">
-          <header class="container h-100">
-            <div class="d-flex align-items-center justify-content-center h-100">
-              <div class="d-flex flex-column">
-                <h1 class="text align-self-center p-2">item 1</h1>
-                <h4 class="text align-self-center p-2">item 2</h4>
-              </div>
-            </div>
-          </header>
-        </section>
-
-
+      <?php display_notice();?>
+      <div class="input-group mb-3">
+        <form action="actions/scanrec.php" method="POST" id="scanrec"></form>
+        <input type="text" name="tracking" form="scanrec" class="form-control" placeholder="Tracking No." autofocus required>
+        <div class="input-group-append">
+          <button class="btn btn-warning" type="submit" name="scanrec" form="scanrec">Receive</button>
         </div>
+      </div>
+
+      <div class="col-12">
+              <!-- <div class="card"> -->
+          <div class="card-header">
+            <h3 class="card-title">
+            <button type="button" class="btn btn-sm btn-flat btn-info" data-toggle="modal" data-target="#modal-release-multi-doc" form="release" name="rel-selected">Release Selected</button>
+            &nbsp;&nbsp;&nbsp;Documents to Release</h3>
+          </div>
+          <br>
+          <!-- /.card-header -->
+          <!-- <div class="card-body"> -->
+            <div class="table-responsive-sm">
+              <table id="releaseTable" class="table table-striped table-bordered table-hover">
+                <thead>
+                <tr>
+                  <th class="text-center col-1"><form action="actions/multi-release.php" id="release" method="post">
+                      <input type="checkbox" id="select-all-rel" data-toggle="tooltip" data-placement="left" title="Select All">&nbsp;&nbsp;</form></th>
+                  <th class="text-center col-2">Tracking</th>
+                  <th class="text-center col-7">Title</th>
+                  <!-- <th class="text-center">Type</th>
+                  <th class="text-center">Owner</th> -->
+                  <th class="text-center col-1">Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                  
+                    <?php echo get_to_release(); ?>
+                </tbody>
+              </table>
+              
+          </div>
+          <!-- /.card-body -->
+        <!-- </div> -->
+      </div>
+
+
+
         <!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>

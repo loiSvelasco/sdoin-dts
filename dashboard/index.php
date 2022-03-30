@@ -3,6 +3,38 @@
 include("includes/header.php");
 include("includes/sidebar.php");
 
+// !  Role Assignment
+// *  1 = superadmin
+// *  2 = admin / special accounts
+// *  3 = regular user
+
+
+if(isset($_GET['admin']))
+{
+    if($_SESSION['role'] == 1)
+    {   
+        include("includes/admin.php");   
+    }
+    else
+    {
+        set_message_alert("alert-warning", "fa-exclamation", "Access Denied.");
+        redirect("./?documents");
+    }    
+}
+
+if(isset($_GET['upload']))
+{
+    if($_SESSION['role'] == 2 || $_SESSION['role'] == 1 )
+    {   
+        include("includes/upload.php");   
+    }
+    else
+    {
+        set_message_alert("alert-warning", "fa-exclamation", "Access Denied.");
+        redirect("./?documents");
+    }    
+}
+
 if($_SERVER['REQUEST_URI'] == "/sdoin-dts/dashboard/")
 {
     include("includes/documents.php");
