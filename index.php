@@ -1,10 +1,18 @@
-<?php 
+<?php
+
+    // require_once("config.php");
+
     if($_SERVER['REQUEST_URI'] == "/sdoin-dts/")
     {
         include("home.php");
     }
 
     if(isset($_GET['home']))
+    {
+        include("home.php");
+    }
+
+    if(isset($_GET['tracking']))
     {
         include("home.php");
     }
