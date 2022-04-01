@@ -11,7 +11,7 @@
 
    .stepper .line {
     width: 2px;
-    background-color: black !important;
+    background-color: lightslategray !important;
  }
   .stepper .lead {
     font-size: 1.1rem;

@@ -385,15 +385,7 @@ function get_received_today()
 function get_released_today()
 {
     $unit = $_SESSION['unit'];
-
-    // $qtqtella = query("SELECT * FROM docs_location WHERE")
-
-    $prettyella = query("SELECT *, DATE_FORMAT(dl_releaseddate, '%Y-%m-%d')  FROM docs_location WHERE DATE(dl_releaseddate) = CURDATE() AND dl_releasedby = {$unit}");
-    
-    while($row = fetch_array($prettyella))
-    {
-        
-    }
-
+    // $prettyella = query("SELECT *, DATE_FORMAT(dl_releaseddate, '%Y-%m-%d')  FROM docs_location WHERE DATE(dl_releaseddate) = CURDATE() AND dl_forwarded = 1 AND dl_unit = '{$unit}'");
+    $prettyella = query("SELECT *, DATE_FORMAT(dl_releaseddate, '%Y-%m-%d')  FROM docs_location WHERE DATE(dl_releaseddate) = CURDATE() AND dl_releasedbyunit = {$unit}");
     echo row_count($prettyella);
 }
