@@ -24,7 +24,9 @@
   <div class="display-4"> 
     <blockquote class="blockquote text-center">
       <p class="lead">To the one that inspires me,</p>
-      <p class="mb-0">To that special person who supported me, who listened to all my rants with an open ear, who kept in touch and showed genuine care, who shared my laughs and sadness with me, the one who lifted me up when I was at my lowest, I thank you. Because of you, I am no longer alone. You are appreciated, and most of all, <br>you are <strong>deeply loved.</strong></p>
+      <p class="mb-0">To that special person who supported me, who listened to all my rants with an open ear, who kept in touch and showed genuine care, 
+        who shared my laughs and sadness with me, the one who lifted me up when I was at my lowest, I thank you. Because of you, I am no longer alone. 
+        You are appreciated, and most of all, <br>you are <strong>truly and deeply loved.</strong></p>
       <br>
       <footer class="blockquote-footer"> Louis</footer>
     </blockquote>

@@ -441,6 +441,16 @@ $(function () {
     "responsive": true,
   });
 
+  $('#uploadedDocsTable').DataTable({
+    "paging": true,
+    "lengthChange": false,
+    "searching": true,
+    "ordering": false,
+    "info": true,
+    "autoWidth": false,
+    "responsive": true,
+  });
+
   $('#receiveTable').DataTable({
     "paging": false,
     "lengthChange": false,
