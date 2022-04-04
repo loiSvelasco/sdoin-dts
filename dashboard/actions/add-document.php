@@ -40,7 +40,7 @@ if(isset($_POST['add-document']))
         $tracking   = strtoupper($date . $identifier);
         insert($title, $desc, $type, $purpose, $origin, $owner, $tracking);
         release($tracking, $origin, $to, $by);
-        set_message_alert("alert-success", "fa-check", "Document added! Tracking # is: <strong>" . $tracking . "</strong>");
+        set_message_alert("alert-success", "fa-check", "Document added! Tracking # is: <strong><a href='?print={$tracking}' target='_blank' class='text-decoration-none btn btn-success' data-toggle='tooltip' data-placement='right' title='Print'><i class='fas fa-print'></i>&nbsp;&nbsp;&nbsp;" . $tracking . "</a></strong>");
         redirect($_SERVER['HTTP_REFERER']);
 
     }

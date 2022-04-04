@@ -63,7 +63,7 @@
     <!-- SEARCH FORM -->
     <form action="?tracking" class="form-inline ml-3" method="GET">
       <div class="input-group input-group-sm">
-        <input class="form-control form-control-navbar" type="search" name="tracking" placeholder="Search" aria-label="Search" required>
+        <input class="form-control form-control-navbar" type="search" name="tracking" placeholder="Tracking no." aria-label="Search" required>
         <div class="input-group-append">
           <button class="btn btn-navbar" type="submit">
             <i class="fas fa-search"></i>

@@ -38,7 +38,11 @@ if(isset($_GET['admin']))
 
 if(isset($_GET['upload']))
 {
-    if($_SESSION['role'] == 2 || $_SESSION['role'] == 1 || $_SESSION['unit'] == 117 || $_SESSION['unit'] == 127 || $_SESSION['unit'] == 128)
+    if($_SESSION['role'] == 2 || 
+        $_SESSION['role'] == 1 || 
+        $_SESSION['unit'] == 117 || 
+        $_SESSION['unit'] == 127 || 
+        $_SESSION['unit'] == 128)
     {   
         include("includes/upload.php");   
     }
@@ -92,6 +96,11 @@ if(isset($_GET['manipulate']))
 if(isset($_GET['print']))
 {
     redirect("print/barcode.php?tracking=" . escape_string($_GET['print']));
+}
+
+if(isset($_GET['view']) && isset($_GET['file']))
+{
+    redirect("uploads/".escape_string($_GET['file']));
 }
 
 include("includes/modals.php");

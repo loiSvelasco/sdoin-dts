@@ -313,6 +313,8 @@ function get_to_receive()
                     Type: {$doctype}
                     <br>Origin: {$origin}
                     <br>Owner: {$owner}
+                    <br>Description: {$desc}
+                    <br>Purpose: {$purpose}
                     <hr>Date Created:<br>{$date}
                     ">{$title}</a></td>
                 <!-- <td>{$doctype}</td>
@@ -377,6 +379,8 @@ function get_to_release()
                 Type: {$doctype}
                 <br>Origin: {$origin}
                 <br>Owner: {$owner}
+                <br>Description: {$desc}
+                <br>Purpose: {$purpose}
                 <hr>Date Created: <br>{$date}
                 ">{$title}</a></td>
                 <!--<td>{$doctype}</td>
@@ -429,7 +433,7 @@ function get_uploaded()
 
         $ellacutie = <<<ELLA
         <tr>
-            <td class="text-center">{$filename}</td>
+            <td class="text-center"><a href="?view={$id}&file={$filename}" target="_blank" class="text-decoration-none">{$filename}</a></td>
             <td><a tabindex="0" class="btn btn-sm btn-default popover-dismiss" role="button" data-toggle="popover" data-html="true" data-trigger="focus" title="Document Details"
                 data-content="
                 Originating Office: {$uploadedUnit}
