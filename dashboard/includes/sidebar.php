@@ -60,7 +60,7 @@
 LALACUTIE;
                   echo $lala;
                 }
-                if ($_SESSION['role'] == 2 || $_SESSION['role'] == 1)
+                if($_SESSION['role'] == 2 || $_SESSION['role'] == 1 || $_SESSION['unit'] == 117 || $_SESSION['unit'] == 127 || $_SESSION['unit'] == 128)
                 {
                   // special accounts
                   $lala = <<<LALACUTIE

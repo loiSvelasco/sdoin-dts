@@ -135,6 +135,23 @@ ELLA;
     }
 }
 
+function get_unit_heads()
+{
+    $sql = query("SELECT * FROM units WHERE unit_type = 'Division Office' AND unit_head = 1 AND unit_id != {$_SESSION['unit']}");
+    confirm($sql);
+
+    while($row = fetch_array($sql))
+    {
+        $unit_id = escape_string($row['unit_id']);
+        $unit_name = escape_string($row['unit_name']);
+
+        $option = <<<ELLA
+        <option value="{$unit_id}">{$unit_name}</option>
+ELLA;
+        echo $option;
+    }
+}
+
 function get_unit_public()
 {
     $sql = query("SELECT * FROM units WHERE unit_type = 'School' AND unit_sector = 'Public'");
@@ -388,4 +405,44 @@ function get_released_today()
     // $prettyella = query("SELECT *, DATE_FORMAT(dl_releaseddate, '%Y-%m-%d')  FROM docs_location WHERE DATE(dl_releaseddate) = CURDATE() AND dl_forwarded = 1 AND dl_unit = '{$unit}'");
     $prettyella = query("SELECT *, DATE_FORMAT(dl_releaseddate, '%Y-%m-%d')  FROM docs_location WHERE DATE(dl_releaseddate) = CURDATE() AND dl_releasedbyunit = {$unit}");
     echo row_count($prettyella);
+}
+
+function get_uploaded()
+{
+    $unit = $_SESSION['unit'];
+    $myella = query("SELECT * FROM uploads WHERE up_unit = '{$unit}' ORDER BY id DESC");
+    confirm($myella);
+
+    while($row = fetch_array($myella))
+    {
+        $id = $row['id'];
+        $filename = $row['up_filename'];
+        $title = $row['up_title'];
+        $action = $row['up_action'];
+        $receivingUnit = get_unit_name($row['up_receivingunit']);
+        $uploadedBy = get_owner_name($row['up_by']);
+        $uploadedUnit = get_unit_name($row['up_unit']);
+
+        $phpdate = strtotime($row['up_dateadded']);
+        $date = date("F j, Y, g:i a", $phpdate );
+
+
+        $ellacutie = <<<ELLA
+        <tr>
+            <td class="text-center">{$filename}</td>
+            <td><a tabindex="0" class="btn btn-sm btn-default popover-dismiss" role="button" data-toggle="popover" data-html="true" data-trigger="focus" title="Document Details"
+                data-content="
+                Originating Office: {$uploadedUnit}
+                <br>Uploaded by: {$uploadedBy}
+                <br>Forwarded to: {$receivingUnit}
+                <br>Date Uploaded: {$date}
+                <hr>Action:<br>{$action}
+                ">{$title}</a></td>
+            <td class="text-center">
+                <a href="#" class="btn btn-sm btn-warning" data-toggle="tooltip" data-placement="left" title="Receive"><i class="fa fa-file-import"></i></a>
+            </td>
+        </tr>
+ELLA;
+        echo $ellacutie;
+    }
 }

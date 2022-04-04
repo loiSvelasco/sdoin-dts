@@ -32,10 +32,22 @@
                 <form method="post" action="actions/upload.php" enctype="multipart/form-data">
                   <div class="form-group">
                     <label for="fileupload">Allowed file format: .PDF</label>
+                    <p class="text-muted">Maximum of 10MB</p>
                     <input type="file" name="file" class="form-control-file" id="fileupload" required>
-                    <br>
-                    <button type="submit" class="btn btn-success form-control" name="submit"><i class="fa fa-upload"></i>&nbsp;&nbsp;Upload</button>
                   </div>
+                  <div class="form-group">
+                    <input type="text" name="doc_title" class="form-control" placeholder="Document Title" required>
+                  </div>
+                  <div class="form-group">
+                    <select class="form-control select2" placeholder="School/Unit" name="doc_unit" required>
+                      <option value="" disabled selected hidden>Release to:</option>
+                        <?php get_unit_heads(); ?>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <textarea id="remarks" name="doc_action" placeholder="Action / Remarks" cols="40" rows="5" class="form-control" required="required"></textarea>
+                  </div>
+                  <button type="submit" class="btn btn-success form-control" name="submit"><i class="fa fa-upload"></i>&nbsp;&nbsp;Upload</button>
                 </form>
               </div>
             </div>
@@ -48,16 +60,14 @@
             <table class="table table-bordered table-striped table-hover" id="uploadedDocsTable">
               <thead>
               <tr>
-                <th class="text-center col-1">Filename</th>
-                <th class="text-center col-2">Title</th>
-                <th class="text-center col-7">Released to</th>
-                <!-- <th class="text-center">Type</th>
-                <th class="text-center">Owner</th> -->
+                <th class="text-center col-3">Filename</th>
+                <th class="text-center col-8">Title</th>
+                <!-- <th class="text-center col-7">Released to</th> -->
                 <th class="text-center col-1">Action</th>
               </tr>
               </thead>
               <tbody>
-                <?php echo get_to_receive(); ?>
+                <?php echo get_uploaded(); ?>
               </tbody>
             </table>
           </div>
