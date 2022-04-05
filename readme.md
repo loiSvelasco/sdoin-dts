@@ -1,26 +1,27 @@
+>Note: This manual is still being written and it is still unfinished.
 
 ## Enhanced Document Tracking System for SDOIN
 
-This project aims to improve the current tracking system used in the Schools Division of Ilocos Norte.
 
+This project aims to improve the current tracking system used in the Schools Division of Ilocos Norte.
 ### Table of Contents
 - [Account](#1-account)
-    - Creating an account
-    - Signing in
-    - Requesting for a new password
-- Adding documents
-    - Tracking number
-    - Printing of sdoin-dts tracking number
-    - Uploading digital copies (Only applicable to OSDS, SGOD, CID units)
-- Receiving and Releasing
-    - Receiving and releasing single documents
-    - Receiving and releasing multiple documents
-    - Scanning barcode to receive document
-    - Marking documents as accomplished
-- Report generation
-    - Per-day generation
-    - Date-range generation
-    - Keeping track of all created documents
+    - [Creating an account](#creating-an-account)
+    - [Signing in](#signing-in)
+    - [Requesting for a new password](#requesting-for-a-new-password)
+- [Adding documents](#2-adding-documents)
+    - [Tracking number](#tracking-number)
+    - [Printing of sdoin-dts tracking number](#printing-of-sdoin-dts-tracking-number)
+    - [Uploading digital copies (Only applicable to OSDS, SGOD, CID units)](#uploading-of-documents)
+- [Receiving and Releasing](#3-receiving-and-releasing)
+    - [Receiving and releasing single documents](#receiving-and-releasing-single-documents)
+    - [Receiving and releasing multiple documents](#receiving-and-releasing-multiple-documents)
+    - [Scanning barcode to receive document](#scanning-barcode-to-receive-document)
+    - [Marking documents as accomplished](#marking-documents-as-accomplished)
+- [Report generation](#4-report-generation)
+    - [Per-day generation](#per-day-generation)
+    - [Date-range generation](#date-range-generation)
+    - [Keeping track of all created documents](#keeping-track-of-all-created-documents)
 ---
 
 ## **1. Account**
@@ -67,11 +68,26 @@ Upon document creation, an alert message will show on whatever page you are on b
 Printing of the document tracking number opens up a new tab, and a print preview. The placement of the tracking number and the barcode are at the top right corner of the page.
 
 > This is the ideal process on how to print the tracking number on a physical copy of the document.
+>
+>```
+>1. Print the document
+>2. Insert the first page of the document back into the printer
+>3. Create a tracking number using the system
+>4. Print the tracking number
+>```
 
-```
+### **Uploading of Documents**
 
-```
+This section is inteded for accounts under the units *``OSDS OFFICE``, ``SGOD Chief``, ``CID Chief``*
 
+The only allowed documents for upload are those for dissemination **only**. 
 
 ## **3. Receiving and Releasing**
+### **Receiving and releasing single documents**
+### **Receiving and releasing multiple documents**
+### **Scanning barcode to receive document**
+### **Marking documents as accomplished**
 ## **4. Report generation**
+### **Per-day generation**
+### **Date-range generation**
+### **Keeping track of all created documents**
