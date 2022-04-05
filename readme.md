@@ -66,7 +66,7 @@ Tracking no. is used to track documents and it shows which office currently hold
 
 `4522-101698`
 
-Notice that there are 2 parts to the tracking number. The first part which is separated by a dash (-), shows the date of when the document is created in the format `MMDDYY`. In this case, the document is created during the 5<sup>th</sup> of April in the year 2022 (4522), leading zeroes are omitted to keep the tracking number clean and compact. The second part is just a random 6 digit identifer. Tables displayed in the system are searchable, users are able to search for a tracking number with only the 6 digit identifier, the date is just there to provide instant information on when it was created.
+Notice that there are 2 parts on the tracking number. The first part which is separated by a dash (-), shows the date of when the document is created in the format `MMDDYY`. In this case, the document is created during the 5<sup>th</sup> of April in the year 2022 (4522), leading zeroes are omitted to keep the tracking number clean and compact. The second part is just a random 6 digit identifer. Tables displayed in the system are searchable, users are able to search for a tracking number with only the 6 digit identifier, the date is just there to provide instant information on when it was created.
 
 Upon document creation, an alert message will show on whatever page you are on below the page title. You can then write the tracking number on the physical document, or you can click on it, which leads us to the next item, printing of the tracking number.
 
@@ -80,7 +80,7 @@ Printing of the document tracking number opens up a new tab, and a print preview
 >1. Print the document
 >2. Insert the first page of the document back into the printer
 >3. Create a tracking number using the system
->4. Print the tracking number
+>4. Print the tracking number on the first page of said document
 >```
 
 ### **Uploading of Documents**
