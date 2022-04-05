@@ -22,6 +22,7 @@ This project aims to improve the current tracking system used in the Schools Div
     - [Per-day generation](#per-day-generation)
     - [Date-range generation](#date-range-generation)
     - [Keeping track of all created documents](#keeping-track-of-all-created-documents)
+
 ---
 
 ## **1. Account**
@@ -81,6 +82,9 @@ Printing of the document tracking number opens up a new tab, and a print preview
 This section is inteded for accounts under the units *``OSDS OFFICE``, ``SGOD Chief``, ``CID Chief``*
 
 The only allowed documents for upload are those for dissemination **only**. 
+
+Filetype supported: ``PDF``, maximum file size is 10MB.
+
 
 ## **3. Receiving and Releasing**
 ### **Receiving and releasing single documents**
