@@ -4,7 +4,7 @@
 This project aims to improve the current tracking system used in the Schools Division of Ilocos Norte.
 
 ### Table of Contents
-- [Account](#account)
+- [Account](#1-account)
     - Creating an account
     - Signing in
     - Requesting for a new password
@@ -23,7 +23,7 @@ This project aims to improve the current tracking system used in the Schools Div
     - Keeping track of all created documents
 ---
 
-## **1. Account** {#account}
+## **1. Account**
 
 This section shows the basic overview of an account and how it is used in the system.
 
@@ -46,7 +46,7 @@ As of April 05, 2022 - the feature to change password has not been implemented y
 If you forgot your password, enter your e-mail address on the field and you will receive an auto generated e-mail on how to reset your password, please check if you typed your e-mail correctly and check your spam or trash folders on your e-mail service provider. You will receive an e-mail instantly, if not - try again within a few minutes.
 
 
-## **2. Adding documents** {#custom-id}
+## **2. Adding documents**
 
 Adding documents can only be done when a user is logged in. It is found on the left sidebar menu on the user's dashboard.
 - Fields needed to add a document are as follows:
@@ -73,5 +73,5 @@ Printing of the document tracking number opens up a new tab, and a print preview
 ```
 
 
-## **3. Receiving and Releasing** {#custom-id}
-## **4. Report generation** {#custom-id}
+## **3. Receiving and Releasing**
+## **4. Report generation**
