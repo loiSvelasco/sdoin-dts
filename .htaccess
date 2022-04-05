@@ -23,3 +23,4 @@ RewriteRule ^ - [R=404,L]
 
 # ErrorDocument 404 http://localhost/sdoin-dts/404/
 ErrorDocument 404 /sdoin-dts/404/
+ErrorDocument 403 /sdoin-dts/403/
