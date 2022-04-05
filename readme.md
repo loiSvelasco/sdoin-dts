@@ -39,7 +39,7 @@ Fields needed to create an account is a valid e-mail address, full name, school 
 
 ### **Signing in**
 
-This does not need any additional explanation. Although, keep in mind 
+This does not need any additional explanation. Although, keep in mind that when signed in and you have been inactive for 15 minutes, you will automatically be logged out for security purposes.
 
 ### **Requesting for a new password**
 
@@ -61,6 +61,12 @@ Adding documents can only be done when a user is logged in. It is found on the l
 Office origin, and the date of document creation are automatically generated.
 
 ### **Tracking number**
+
+Tracking no. is used to track documents and it shows which office currently holds said document. Here is what a typical tracking number looks like:
+
+`4522-101698`
+
+Notice that there are 2 parts to the tracking number. The first part which is separated by a dash (-), shows the date of when the document is created in the format `MMDDYY`. In this case, the document is created during the 5<sup>th</sup> of April in the year 2022 (4522), leading zeroes are omitted to keep the tracking number clean and compact. The second part is just a random 6 digit identifer. Tables displayed in the system are searchable, users are able to search for a tracking number with only the 6 digit identifier, the date is just there to provide instant information on when it was created.
 
 Upon document creation, an alert message will show on whatever page you are on below the page title. You can then write the tracking number on the physical document, or you can click on it, which leads us to the next item, printing of the tracking number.
 
@@ -87,6 +93,9 @@ Filetype supported: ``PDF``, maximum file size is 10MB.
 
 
 ## **3. Receiving and Releasing**
+
+Receiving and releasing is the main focus of this project, it provides data on how documents are being processed and also provides a map of when and where documents are received.
+
 ### **Receiving and releasing single documents**
 ### **Receiving and releasing multiple documents**
 ### **Scanning barcode to receive document**
@@ -95,3 +104,7 @@ Filetype supported: ``PDF``, maximum file size is 10MB.
 ### **Per-day generation**
 ### **Date-range generation**
 ### **Keeping track of all created documents**
+
+
+---
+#### This manual is written by Louis Velasco
