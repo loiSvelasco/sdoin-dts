@@ -507,7 +507,7 @@ mybutton = document.getElementById("myBtn");
 window.onscroll = function() {scrollFunction()};
 
 function scrollFunction() {
-  if (document.body.scrollTop > 60 || document.documentElement.scrollTop > 60) {
+  if (document.body.scrollTop > 150 || document.documentElement.scrollTop > 150) {
     mybutton.style.display = "block";
   } else {
     mybutton.style.display = "none";
@@ -519,3 +519,8 @@ function topFunction() {
   document.body.scrollTop = 0; // For Safari
   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }
+
+$('#complete-doc').on('show.bs.modal', function(e) {
+  $(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
+  $('.debug-url').html('Debug URL: <strong>' + $(this).find('.btn-ok').attr('href') + '</strong>');
+});

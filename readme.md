@@ -3,7 +3,11 @@
 ## Enhanced Document Tracking System for SDOIN
 
 
-This project aims to improve the current tracking system used in the Schools Division of Ilocos Norte.
+This project aims to improve the current tracking system used in the Schools Division of Ilocos Norte. The eDTS achieves better organization of documents by visualizing your current physical arrayed documents in a user-friendly, digital approach.
+
+This project also aims to optimize the tracking process, enabling bulk releasing and receiving for units with a lot of documents to work on for improved efficiency.
+
+An added feature of the eDTS is the ability for users to scan the documents to automatically receive it without having to type the tracking no. (Typing is still supported)
 ### Table of Contents
 - [Account](#1-account)
     - [Creating an account](#creating-an-account)

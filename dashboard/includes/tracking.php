@@ -49,6 +49,31 @@ CUTIEPIE;
                   }
                   else
                   {
+                    $accomp = query("SELECT * FROM documents WHERE document_tracking = '{$tracking}' LIMIT 1");
+                    confirm($accomp);
+                    $row = fetch_assoc($accomp);
+                    if($row['document_accomplished'] == 1)
+                    {
+                      $accomplishedBy = get_owner_name($row['accomp_by']);
+  
+                      $phpdate = strtotime($row['accomp_date']);
+                      $date = date("F j, Y, g:i a", $phpdate );
+
+                      $lovelyella = <<<CUTIEPIE
+                      <div class="d-flex mb-1">
+                      <div class="d-flex flex-column pr-4 align-items-center">
+                          <div class="rounded-circle py-2 px-3 bg-success text-white mb-1">&#10003;</div>
+                          <div class="line h-100"></div>
+                      </div>
+                      <div>
+                          <h5 class="text-dark">Document accomplished.</h5>
+                          <p class="lead text-muted pb-3">Accomplished by {$accomplishedBy} - {$date}</p>
+                      </div>
+                      </div>
+CUTIEPIE;
+                      echo $lovelyella;
+                    }
+
                     while($row = fetch_array($prettyella))
                     {
                       $phpdate = strtotime($row['dl_receiveddate']);
@@ -58,16 +83,18 @@ CUTIEPIE;
                       {
                         $status = "Received at " . get_unit_name($row['dl_unit']);
                         $received = "Received by " . get_owner_name($row['dl_receivedby']) . " - " . $date ;
+                        $bg = "bg-success";
                       }
                       else
                       {
                         $status = "Released to " . get_unit_name($row['dl_unit']);
                         $received = "Document not yet received.";
+                        $bg = "bg-warning";
                       } 
                       $lovelyella = <<<CUTIEPIE
                       <div class="d-flex mb-1">
                       <div class="d-flex flex-column pr-4 align-items-center">
-                          <div class="rounded-circle py-2 px-3 bg-secondary text-white mb-1">{$sequence}</div>
+                          <div class="rounded-circle py-2 px-3 {$bg} text-white mb-1">{$sequence}</div>
                           <div class="line h-100"></div>
                       </div>
                       <div>
