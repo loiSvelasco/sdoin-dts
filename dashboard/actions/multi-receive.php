@@ -7,10 +7,7 @@ if(isset($_POST['rec-selected']))
     {
         foreach($_POST['rec-check'] AS $tracking)
         {
-            $unit = $_SESSION['unit'];
-            $by = $_SESSION['user_id'];
-            receive($tracking, $unit, $by);
-            // echo "receive(".$tracking.", ".$unit.", ".$by.");";
+            receive($tracking);
         }
         set_message_alert("alert-success", "fa-check", "Document received.");
         redirect("../?documents");

@@ -8,7 +8,7 @@ if(isset($_POST['rel-check']))
         $unit = $_SESSION['unit'];
         // $by = $_SESSION['unit'];
         $to = $_POST['to'];
-        release($tracking, $unit, $to);
+        release($tracking, $to);
         echo "release(".$tracking.", ".$unit.", ".$to.");<br>";
     }
     set_message_alert("alert-success", "fa-check", "Documents released to " . get_unit_name($to));
