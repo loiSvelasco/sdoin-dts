@@ -328,7 +328,7 @@ function get_to_receive()
                 <!-- <td>{$doctype}</td>
                 <td>{$owner}</td> -->
                 <td class="text-center">
-                    <a href="?manipulate=receive&tracking={$tracking}" class="btn btn-sm btn-warning" data-toggle="tooltip" data-placement="left" title="Receive"><i class="fa fa-file-import"></i></a>
+                    <a href="?manipulate=receive&tracking={$tracking}&refer={$_SERVER['REQUEST_URI']}" class="btn btn-sm btn-warning" data-toggle="tooltip" data-placement="left" title="Receive"><i class="fa fa-file-import"></i></a>
                 </td>
             </tr>
 ELLA;

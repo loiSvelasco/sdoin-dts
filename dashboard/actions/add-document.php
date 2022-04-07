@@ -16,6 +16,7 @@ if(isset($_POST['add-document']))
     $type    = $_POST['doc-type'];
     $purpose = $_POST['doc-remarks'];
     $to      = $_POST['doc-to'];
+    $refer   = $_POST['referer'];
     $origin  = $_SESSION['unit'];
     $owner   = $_SESSION['user_id'];
 
@@ -32,7 +33,7 @@ if(isset($_POST['add-document']))
         insert($title, $desc, $type, $purpose, $origin, $owner, $tracking);
         release($tracking, $origin, $to, $by);
         set_message_alert("alert-success", "fa-check", "Document added! Tracking # is: <strong><a href='?print={$tracking}' target='_blank' class='text-decoration-none btn btn-success' data-toggle='tooltip' data-placement='right' title='Print'><i class='fas fa-print'></i>&nbsp;&nbsp;&nbsp;" . $tracking . "</a></strong>");
-        redirect($_SERVER['HTTP_REFERER']);
+        redirect($refer);
     }
     else
     {
@@ -41,7 +42,7 @@ if(isset($_POST['add-document']))
         insert($title, $desc, $type, $purpose, $origin, $owner, $tracking);
         release($tracking, $origin, $to, $by);
         set_message_alert("alert-success", "fa-check", "Document added! Tracking # is: <strong><a href='?print={$tracking}' target='_blank' class='text-decoration-none btn btn-success' data-toggle='tooltip' data-placement='right' title='Print'><i class='fas fa-print'></i>&nbsp;&nbsp;&nbsp;" . $tracking . "</a></strong>");
-        redirect($_SERVER['HTTP_REFERER']);
+        redirect($refer);
 
     }
 }

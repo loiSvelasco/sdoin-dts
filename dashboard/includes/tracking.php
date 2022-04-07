@@ -108,11 +108,6 @@ CUTIEPIE;
                     }
                   }
               }
-              else
-              {
-                set_message_alert("alert-warning", "fa-exclamation", "No tracking no. entered.");
-                redirect($_SERVER['HTTP_REFERER']);
-              }
             ?>
             </div>
           </div>
