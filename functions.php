@@ -323,6 +323,8 @@ function get_to_receive()
                     Type: {$doctype}
                     <br>Origin: {$origin}
                     <br>Owner: {$owner}
+                    <br>Purpose: {$purpose}
+                    <br>Description: {$desc}
                     <hr>Date Created:<br>{$date}
                     ">{$title}</a></td>
                 <!-- <td>{$doctype}</td>
@@ -387,6 +389,8 @@ function get_to_release()
                 Type: {$doctype}
                 <br>Origin: {$origin}
                 <br>Owner: {$owner}
+                <br>Purpose: {$purpose}
+                <br>Description: {$desc}
                 <hr>Date Created: <br>{$date}
                 ">{$title}</a></td>
                 <!--<td>{$doctype}</td>
