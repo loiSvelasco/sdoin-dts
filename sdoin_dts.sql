@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 04, 2022 at 09:36 AM
+-- Generation Time: Apr 08, 2022 at 02:47 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -116,7 +116,10 @@ CREATE TABLE `documents` (
   `document_owner` int(5) NOT NULL,
   `document_tracking` varchar(20) NOT NULL,
   `date_created` datetime NOT NULL DEFAULT current_timestamp(),
-  `document_accomplished` int(1) NOT NULL DEFAULT 0
+  `document_accomplished` int(1) NOT NULL DEFAULT 0,
+  `accomp_unit` int(11) DEFAULT NULL,
+  `accomp_by` int(11) DEFAULT NULL,
+  `accomp_date` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
