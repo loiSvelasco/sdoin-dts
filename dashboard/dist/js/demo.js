@@ -431,6 +431,16 @@ $(function () {
     "responsive": true,
   });
 
+  $('#accdoctables').DataTable({
+    "paging": true,
+    "lengthChange": false,
+    "searching": true,
+    "ordering": false,
+    "info": true,
+    "autoWidth": false,
+    "responsive": true,
+  });
+
   $('#releaseTable').DataTable({
     "paging": false,
     "lengthChange": false,

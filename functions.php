@@ -122,6 +122,11 @@ function random_num($length, $keyspace = '0123456789')
     return implode('', $pieces);
 }
 
+function format_date($date)
+{
+    return date("F j, Y, g:i a", strtotime($date));
+}
+
 /*
  *
  *  FRONT END FUNCTIONS
@@ -242,7 +247,7 @@ function get_owner_name($id)
 
 function get_my_docs()
 {
-    $ella = query("SELECT * FROM documents WHERE document_origin = {$_SESSION['unit']} ORDER BY id DESC");
+    $ella = query("SELECT * FROM documents WHERE document_origin = {$_SESSION['unit']} AND document_accomplished = 0 ORDER BY id DESC");
     confirm($ella);
 
     while($row = fetch_array($ella))
@@ -255,12 +260,20 @@ function get_my_docs()
         $purpose = $row['document_purpose'];
         $tracking = $row['document_tracking'];
         $id = $row['id'];
+        $date = format_date($row['date_created']);
 
         $ellacutie = <<<ELLA
         <tr>
-            <td data-visible="false">$id</td>
             <td>{$tracking}</td>
-            <td>{$title}</td>
+            <td>
+                <a tabindex="0" data-toggle="popover" data-html="true" data-trigger="focus" class="btn btn-light"  title="Document Details" data-content="
+                Origin: {$origin}
+                <br>Purpose: {$purpose}
+                <br>Description: {$desc}
+                <hr>
+                Date Created: {$date}
+                ">{$title}</a>
+                </td>
             <td>{$doctype}</td>
             <td>{$owner}</td>
             <td>
@@ -311,8 +324,7 @@ function get_to_receive()
             $purpose = $docRow['document_purpose'];
             $tracking = $docRow['document_tracking'];
 
-            $phpdate = strtotime($docRow['date_created']);
-            $date = date("F j, Y, g:i a", $phpdate );
+            $date = format_date($docRow['date_created']);
     
             $ellacutie = <<<ELLA
             <tr>
@@ -327,8 +339,6 @@ function get_to_receive()
                     <br>Description: {$desc}
                     <hr>Date Created:<br>{$date}
                     ">{$title}</a></td>
-                <!-- <td>{$doctype}</td>
-                <td>{$owner}</td> -->
                 <td class="text-center">
                     <a href="?manipulate=receive&tracking={$tracking}&refer={$_SERVER['REQUEST_URI']}" class="btn btn-sm btn-warning" data-toggle="tooltip" data-placement="left" title="Receive"><i class="fa fa-file-import"></i></a>
                 </td>
@@ -377,8 +387,7 @@ function get_to_release()
             $purpose = $docRow['document_purpose'];
             $tracking = $docRow['document_tracking'];
 
-            $phpdate = strtotime($docRow['date_created']);
-            $date = date("F j, Y, g:i a", $phpdate );
+            $date = format_date($docRow['date_created']);
     
             $ellacutie = <<<ELLA
             <tr>
@@ -393,8 +402,6 @@ function get_to_release()
                 <br>Description: {$desc}
                 <hr>Date Created: <br>{$date}
                 ">{$title}</a></td>
-                <!--<td>{$doctype}</td>
-                <td>{$owner}</td>-->
                 <td class="text-center">
                     <span data-toggle="tooltip" data-placement="left" title="Release"><button data-toggle="modal" data-target="#modal-release-doc" class="btn btn-sm btn-info release_doc"><i class="fa fa-file-export white"></i></button></span>
                     <!-- <a href="?manipulate=receive&tracking={$tracking}&unit={$_SESSION['unit']}&by={$_SESSION['user_id']}" class="btn btn-sm btn-success" data-toggle="tooltip" data-placement="right" title="Mark as Done"><i class="fa fa-check"></i></a> -->
@@ -419,7 +426,6 @@ function get_received_today()
 function get_released_today()
 {
     $unit = $_SESSION['unit'];
-    // $prettyella = query("SELECT *, DATE_FORMAT(dl_releaseddate, '%Y-%m-%d')  FROM docs_location WHERE DATE(dl_releaseddate) = CURDATE() AND dl_forwarded = 1 AND dl_unit = '{$unit}'");
     $prettyella = query("SELECT *, DATE_FORMAT(dl_releaseddate, '%Y-%m-%d')  FROM docs_location WHERE DATE(dl_releaseddate) = CURDATE() AND dl_releasedbyunit = {$unit}");
     echo row_count($prettyella);
 }
@@ -440,9 +446,7 @@ function get_uploaded()
         $uploadedBy = get_owner_name($row['up_by']);
         $uploadedUnit = get_unit_name($row['up_unit']);
 
-        $phpdate = strtotime($row['up_dateadded']);
-        $date = date("F j, Y, g:i a", $phpdate );
-
+        $date = format_date($row['up_dateadded']);
 
         $ellacutie = <<<ELLA
         <tr>
@@ -461,5 +465,56 @@ function get_uploaded()
         </tr>
 ELLA;
         echo $ellacutie;
+    }
+}
+
+function get_accomplished_docs()
+{
+    $babyella = query("SELECT * FROM documents WHERE document_accomplished = 1 AND accomp_unit = '{$_SESSION['unit']}'");
+    love($babyella);
+
+    if(row_count($babyella) >= 1)
+    {
+        while($row = fetch_array($babyella))
+        {
+            $title = $row['document_title'];
+            $desc = $row['document_desc'];
+            $purpose = $row['document_purpose'];
+            $tracking = $row['document_tracking'];
+
+            $dateCreated = format_date($row['date_created']);
+            $accompDate = format_date($row['accomp_date']);
+            
+            $origin = get_unit_name($row['document_origin']);
+            $accompUnit = get_unit_name($row['accomp_unit']);
+            $doctype = get_doctype_name($row['document_type']);
+            $accompBy = get_owner_name($row['accomp_by']);
+            $owner = get_owner_name($row['document_owner']);
+            
+            $ellacutie = <<<ELLA
+            <tr>
+                <td>{$tracking}</td>
+                <td>
+                    <a tabindex="0" data-toggle="popover" data-html="true" data-trigger="focus" class="btn btn-light"  title="Document Details" data-content="
+                    Origin: {$origin}
+                    <br>Purpose: {$purpose}
+                    <br>Description: {$desc}
+                    <br>Accomplished by: {$accompBy}
+                    <br>Unit Accomplished: {$accompUnit}
+                    <hr>
+                    Date Created: {$dateCreated}
+                    Date Accomplished: {$accompDate}
+                    ">{$title}</a>
+                </td>
+                <td>{$doctype}</td>
+                <td>{$owner}</td>
+                <td>
+                    <a href="?print={$tracking}" target="_blank" class="text-decoration-none btn btn-warning" data-toggle="tooltip" data-placement="left" title="Print Tracking no."><i class="fa fa-print"></i></a>
+                    <a href="?tracking={$tracking}" target="_blank" class="text-decoration-none btn btn-success" data-toggle="tooltip" data-placement="right" title="Track"><i class="fa fa-search"></i></a>
+                </td>
+            </tr>
+ELLA;
+            echo $ellacutie;
+        }
     }
 }

@@ -5,7 +5,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Status of Tracking no. <?php echo escape_string($_GET['tracking']); ?></h1>
+            <h1 class="m-0 text-dark">Status of Document with Tracking no. <?php echo escape_string($_GET['tracking']); ?></h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
