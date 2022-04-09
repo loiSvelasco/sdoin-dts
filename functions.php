@@ -406,7 +406,7 @@ function get_to_release()
                     <span data-toggle="tooltip" data-placement="left" title="Release"><button data-toggle="modal" data-target="#modal-release-doc" class="btn btn-sm btn-info release_doc"><i class="fa fa-file-export white"></i></button></span>
                     <!-- <a href="?manipulate=receive&tracking={$tracking}&unit={$_SESSION['unit']}&by={$_SESSION['user_id']}" class="btn btn-sm btn-success" data-toggle="tooltip" data-placement="right" title="Mark as Done"><i class="fa fa-check"></i></a> -->
                     <span data-toggle="tooltip" data-placement="right" title="Mark as accomplished">
-                        <a href="#" class="btn btn-sm btn-success" data-href="?manipulate=accomplish&tracking={$tracking}&unit={$_SESSION['unit']}&by={$_SESSION['user_id']}" data-toggle="modal" data-target="#complete-doc"><i class="fa fa-check"></i></a>
+                        <a href="#" class="btn btn-sm btn-success" data-href="?manipulate=accomplish&tracking={$tracking}&unit={$_SESSION['unit']}&by={$_SESSION['user_id']}&refer={$_SERVER['REQUEST_URI']}" data-toggle="modal" data-target="#complete-doc"><i class="fa fa-check"></i></a>
                     </span>
                 </td>
             </tr>
