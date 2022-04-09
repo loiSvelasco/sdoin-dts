@@ -19,6 +19,7 @@ if(isset($_POST['add-document']))
     $refer   = $_POST['referer'];
     $origin  = $_SESSION['unit'];
     $owner   = $_SESSION['user_id'];
+    
     $date       = date("njy-");
     $identifier = random_num(6);
     $tracking   = strtoupper($date . $identifier);
