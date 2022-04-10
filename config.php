@@ -3,12 +3,16 @@
 session_start();
 // session_destroy();
 
-defined("DB_HOST") ? null : define("DB_HOST", "localhost");
-defined("DB_USER") ? null : define("DB_USER", "root");
-defined("DB_PASS") ? null : define("DB_PASS", "");
-defined("DB_NAME") ? null : define("DB_NAME", "sdoin_dts");
+define("DB_HOST", "localhost");
+define("DB_USER", "root");
+define("DB_PASS", "");
+define("DB_NAME", "sdoin_dts");
 
 $connection = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+
+define("HOST", $_SERVER['HTTP_HOST']);
+define("URI", $_SERVER['REQUEST_URI']);
+define("URL", HOST . URI);
 
 date_default_timezone_set('Asia/Manila');
 
