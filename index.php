@@ -1,44 +1,50 @@
 <?php
 
-    // require_once("config.php");
+    require_once("config.php");
 
     if($_SERVER['REQUEST_URI'] == "/sdoin-dts/")
     {
         include("home.php");
     }
 
-    if(isset($_GET['home']))
+    else if(isset($_GET['home']))
     {
         include("home.php");
     }
 
-    if(isset($_GET['tracking']))
+    else if(isset($_GET['tracking']))
     {
         include("home.php");
     }
 
-    if(isset($_GET['login']))
+    else if(isset($_GET['login']))
     {
         include("login.php");
     }
 
-    if(isset($_GET['register']))
+    else if(isset($_GET['register']))
     {
         include("register.php");
     }
 
-    if(isset($_GET['forgot']))
+    else if(isset($_GET['forgot']))
     {
         include("forgot.php");
     }
     
-    if(isset($_GET['recover']))
+    else if(isset($_GET['recover']))
     {
         include("recover.php");
     }
 
-    if(isset($_GET['inspiration']))
+    else if(isset($_GET['inspiration']))
     {
         include("inspiration.php");
+    }
+
+    else
+    {
+        set_message_alert("alert-warning", "fa-exclamation", "Page you were trying to access was not found.");
+        include("home.php");
     }
 ?>
