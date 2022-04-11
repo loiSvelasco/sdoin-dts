@@ -39,10 +39,10 @@ if(isset($_GET['admin']))
 if(isset($_GET['upload']))
 {
     if($_SESSION['role'] == 2 || 
-        $_SESSION['role'] == 1 || 
-        $_SESSION['unit'] == 117 || 
-        $_SESSION['unit'] == 127 || 
-        $_SESSION['unit'] == 128)
+       $_SESSION['role'] == 1 || 
+       $_SESSION['unit'] == 117 || 
+       $_SESSION['unit'] == 127 || 
+       $_SESSION['unit'] == 128)
     {   
         include("includes/upload.php");   
     }
@@ -65,7 +65,14 @@ if(isset($_GET['documents']))
 
 if(isset($_GET['reports']))
 {
-    include("includes/reports.php");
+    if(isset($_GET['start']) && isset($_GET['end']))
+    {
+        include("includes/reports_dr.php");
+    }
+    else
+    {
+        include("includes/reportsv2.php");
+    }
 }
 
 if(isset($_GET['tracking']))

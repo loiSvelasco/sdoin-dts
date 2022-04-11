@@ -98,19 +98,22 @@
 
         <div class="row">
             <div class="col-12">
-              <div class="card">
               <div class="card-header">
                 <h3 class="card-title">All created Documents</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <table id="doctables" class="table table-bordered table-hover">
+                <table id="doctables" class="table table-bordered table-sm table-hover">
                   <thead>
                   <tr>
                     <th>Tracking</th>
                     <th>Title</th>
+                    <!-- <th>Origin</th> -->
+                    <th>Purpose</th>
+                    <!-- <th>Description</th> -->
                     <th>Type</th>
-                    <th>Owner</th>
+                    <th>Date Created</th>
+                    <!-- <th>Owner</th> -->
                     <th>Action</th>
                   </tr>
                   </thead>
@@ -120,7 +123,6 @@
                 </table>
               </div>
               <!-- /.card-body -->
-              </div>
             </div>
         </div>
         <!-- /.row -->
@@ -132,13 +134,14 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <table id="accdoctables" class="table table-sm table-bordered table-hover">
+                <table id="accdoctables" class="table table-bordered table-hover">
                   <thead>
                   <tr>
-                    <th>Tracking</th>
+                  <th>Tracking</th>
                     <th>Title</th>
+                    <th>Purpose</th>
                     <th>Type</th>
-                    <th>Owner</th>
+                    <th>Date Created</th>
                     <th>Action</th>
                   </tr>
                   </thead>

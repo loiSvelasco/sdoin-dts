@@ -265,20 +265,16 @@ function get_my_docs()
         $ellacutie = <<<ELLA
         <tr>
             <td>{$tracking}</td>
-            <td>
-                <a tabindex="0" data-toggle="popover" data-html="true" data-trigger="focus" class="btn btn-light"  title="Document Details" data-content="
-                Origin: {$origin}
-                <br>Purpose: {$purpose}
-                <br>Description: {$desc}
-                <hr>
-                Date Created: {$date}
-                ">{$title}</a>
-                </td>
+            <td>{$title}</td>
+            <!-- <td>{$origin}</td> -->
+            <td>{$purpose}</td>
+            <!-- <td>{$desc}</td> -->
             <td>{$doctype}</td>
-            <td>{$owner}</td>
+            <td>{$date}</td>
+            <!-- <td>{$owner}</td> -->
             <td>
-                <a href="?print={$tracking}" target="_blank" class="text-decoration-none btn btn-warning" data-toggle="tooltip" data-placement="left" title="Print Tracking no."><i class="fa fa-print"></i></a>
-                <a href="?tracking={$tracking}" target="_blank" class="text-decoration-none btn btn-success" data-toggle="tooltip" data-placement="right" title="Track"><i class="fa fa-search"></i></a>
+                <a href="?print={$tracking}" target="_blank" class="text-decoration-none btn btn-sm btn-warning" data-toggle="tooltip" data-placement="left" title="Print Tracking no."><i class="fa fa-print"></i></a>
+                <a href="?tracking={$tracking}" target="_blank" class="text-decoration-none btn btn-sm btn-success" data-toggle="tooltip" data-placement="right" title="Track"><i class="fa fa-search"></i></a>
             </td>
         </tr>
 ELLA;
@@ -430,6 +426,20 @@ function get_released_today()
     echo row_count($prettyella);
 }
 
+function get_received_dr($start, $end)
+{
+    $unit = $_SESSION['unit'];
+    $prettyella = query("SELECT * FROM docs_location WHERE DATE(dl_receiveddate) BETWEEN '{$start}' AND '{$end}' AND dl_unit = {$unit}");
+    echo row_count($prettyella);
+}
+
+function get_released_dr($start, $end)
+{
+    $unit = $_SESSION['unit'];
+    $prettyella = query("SELECT * FROM docs_location WHERE DATE(dl_receiveddate) BETWEEN '{$start}' AND '{$end}' AND dl_releasedbyunit = {$unit}");
+    echo row_count($prettyella);
+}
+
 function get_uploaded()
 {
     $unit = $_SESSION['unit'];
@@ -493,24 +503,14 @@ function get_accomplished_docs()
             
             $ellacutie = <<<ELLA
             <tr>
-                <td>{$tracking}</td>
+            <td>{$tracking}</td>
+            <td>{$title}</td>
+            <td>{$purpose}</td>
+            <td>{$doctype}</td>
+            <td>{$dateCreated}</td>
                 <td>
-                    <a tabindex="0" data-toggle="popover" data-html="true" data-trigger="focus" class="btn btn-light"  title="Document Details" data-content="
-                    Origin: {$origin}
-                    <br>Purpose: {$purpose}
-                    <br>Description: {$desc}
-                    <br>Accomplished by: {$accompBy}
-                    <br>Unit Accomplished: {$accompUnit}
-                    <hr>
-                    Date Created: {$dateCreated}
-                    Date Accomplished: {$accompDate}
-                    ">{$title}</a>
-                </td>
-                <td>{$doctype}</td>
-                <td>{$owner}</td>
-                <td>
-                    <a href="?print={$tracking}" target="_blank" class="text-decoration-none btn btn-warning" data-toggle="tooltip" data-placement="left" title="Print Tracking no."><i class="fa fa-print"></i></a>
-                    <a href="?tracking={$tracking}" target="_blank" class="text-decoration-none btn btn-success" data-toggle="tooltip" data-placement="right" title="Track"><i class="fa fa-search"></i></a>
+                    <a href="?print={$tracking}" target="_blank" class="text-decoration-none btn btn-sm btn-warning" data-toggle="tooltip" data-placement="left" title="Print Tracking no."><i class="fa fa-print"></i></a>
+                    <a href="?tracking={$tracking}" target="_blank" class="text-decoration-none btn btn-sm btn-success" data-toggle="tooltip" data-placement="right" title="Track"><i class="fa fa-search"></i></a>
                 </td>
             </tr>
 ELLA;

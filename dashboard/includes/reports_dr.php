@@ -1,3 +1,9 @@
+  <?php
+  
+    $start = escape_string($_GET['start']);
+    $end = escape_string($_GET['end']);
+
+  ?>
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -5,7 +11,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Reports</h1>
+            <h1 class="m-0 text-dark">Reports <?php echo $start . "<br>" . $end; ?></h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -29,9 +35,9 @@
             <!-- small card -->
             <div class="small-box bg-info">
               <div class="inner">
-                <h3><?php get_received_today(); ?></h3>
+                <h3><?php get_received_dr($start, $end); ?></h3>
 
-                <p>Received Documents (Today)</p>
+                <p>Received Documents</p>
               </div>
               <div class="icon">
                 <i class="fas fa-envelope"></i>
@@ -46,9 +52,9 @@
             <!-- small card -->
             <div class="small-box bg-success">
               <div class="inner">
-                <h3><?php get_released_today(); ?></h3>
+                <h3><?php get_released_dr($start, $end); ?></h3>
 
-                <p>Released documents (Today)</p>
+                <p>Released documents</p>
               </div>
               <div class="icon">
                 <i class="fas fa-reply"></i>
@@ -132,7 +138,7 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <table id="accdoctables" class="table table-sm table-bordered table-hover">
+                <table id="accdoctables" class="table table-bordered table-hover">
                   <thead>
                   <tr>
                     <th>Tracking</th>
