@@ -7,9 +7,9 @@ $(document).ready(function() {
   table = $('#doctables').DataTable({
   dom: 'lBfrtip',
   buttons: [
-    {extend: 'pdfHtml5',orientation: 'landscape',pageSize: 'A4',},
-    {extend: 'copyHtml5',orientation: 'landscape',pageSize: 'A4',},
-    {extend: 'excelHtml5',orientation: 'landscape',pageSize: 'A4',},
+    {extend: 'pdfHtml5', pageSize: 'A4',},
+    {extend: 'copyHtml5', pageSize: 'A4',},
+    {extend: 'excelHtml5', pageSize: 'A4',},
     {extend: 'print',
       customize: function(win)
       {

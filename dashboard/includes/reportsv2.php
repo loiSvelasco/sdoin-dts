@@ -36,9 +36,9 @@
               <div class="icon">
                 <i class="fas fa-envelope"></i>
               </div>
-              <!-- <a href="#" class="small-box-footer">
-                More info <i class="fas fa-arrow-circle-right"></i>
-              </a> -->
+              <a href="#" target="_blank" class="small-box-footer">
+                More info&nbsp;&nbsp;&nbsp;<i class="fas fa-arrow-circle-right"></i>
+              </a>
             </div>
           </div>
           <!-- ./col -->
@@ -53,9 +53,9 @@
               <div class="icon">
                 <i class="fas fa-reply"></i>
               </div>
-              <!-- <a href="#" class="small-box-footer">
-                More info <i class="fas fa-arrow-circle-right"></i>
-              </a> -->
+              <a href="#" target="_blank" class="small-box-footer">
+                More info&nbsp;&nbsp;&nbsp;<i class="fas fa-arrow-circle-right"></i>
+              </a>
             </div>
           </div>
           <!-- ./col -->
@@ -70,9 +70,9 @@
               <div class="icon">
                 <i class="fas fa-folder-plus"></i>
               </div>
-              <!-- <a href="#" class="small-box-footer">
-                More info <i class="fas fa-arrow-circle-right"></i>
-              </a> -->
+              <a href="#" target="_blank" class="small-box-footer">
+                More info&nbsp;&nbsp;&nbsp;<i class="fas fa-arrow-circle-right"></i>
+              </a>
             </div>
           </div>
           <!-- ./col -->
@@ -87,9 +87,9 @@
               <div class="icon">
                 <i class="fas fa-percentage"></i>
               </div>
-              <!-- <a href="#" class="small-box-footer">
-                More info <i class="fas fa-arrow-circle-right"></i>
-              </a> -->
+              <a href="#" target="_blank" class="small-box-footer">
+                More info&nbsp;&nbsp;&nbsp;<i class="fas fa-arrow-circle-right"></i>
+              </a>
             </div>
           </div>
           <!-- ./col -->
@@ -128,13 +128,12 @@
         <!-- /.row -->
         <div class="row">
             <div class="col-12">
-              <div class="card">
               <div class="card-header">
                 <h3 class="card-title">All Accomplished Documents</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <table id="accdoctables" class="table table-bordered table-hover">
+                <table id="accdoctables" class="table table-bordered table-sm table-hover">
                   <thead>
                   <tr>
                   <th>Tracking</th>
@@ -146,12 +145,14 @@
                   </tr>
                   </thead>
                   <tbody>
-                  <?php echo get_accomplished_docs(); ?>
+                  <?php 
+                    $start = escape_string($_GET['start']);
+                    $end = escape_string($_GET['end']);
+                    echo get_accomplished_docs($start, $end); ?>
                   </tbody>
                 </table>
               </div>
               <!-- /.card-body -->
-              </div>
             </div>
         </div>
       </div><!-- /.container-fluid -->
