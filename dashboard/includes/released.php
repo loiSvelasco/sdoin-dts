@@ -24,6 +24,25 @@
       <div class="container-fluid">
         <?php display_notice();?>
         <div class="row">
+          <div class="col-3">
+            <form action="" method="get" id="daterange"></form>
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <i class="far fa-calendar-alt"></i>
+                    </span>
+                  </div>
+                  <input type="text" class="form-control float-right" id="received_drpicker" value="">
+                  <input type="hidden" form="daterange" name="released">
+                  <input type="hidden" form="daterange" name="startDate" class="form-control float-right" id="startDate" value="">
+                  <input type="hidden" form="daterange" name="endDate" class="form-control float-right" id="endDate" value="">
+                  <div class="input-group-append">
+                    <button form="daterange" class="btn btn-outline-info" type="submit"><i class="fa fa-search"></i>&nbsp;&nbsp;Generate</button>
+                  </div>
+                </div>
+              </div>
+            </div>
             <div class="col-12">
               <div class="card-header border-info">
                 <h3 class="card-title">All Released Documents</h3>
@@ -43,9 +62,9 @@
                   </thead>
                   <tbody>
                   <?php
-                    isset($_GET['start']) ? $start = escape_string($_GET['start']) : $start = 0;
-                    isset($_GET['end']) ? $end = escape_string($_GET['end']) : $end = 0;
-                    isset($_GET['start']) && isset($_GET['end']) ? $today = false : $today = true;
+                    isset($_GET['startDate']) ? $start = escape_string($_GET['startDate']) : $start = 0;
+                    isset($_GET['endDate']) ? $end = escape_string($_GET['endDate']) : $end = 0;
+                    isset($_GET['startDate']) && isset($_GET['endDate']) ? $today = false : $today = true;
                     echo released_today_details($today, $start, $end); 
                   ?>
                   </tbody>

@@ -1,7 +1,23 @@
 
+$(function () {
+  $('#received_drpicker').daterangepicker({
+    locale: {
+      format: 'YYYY-MM-DD'
+    },
+  });
+
+  $('#startDate').val($('#received_drpicker').data('daterangepicker').startDate.format('YYYY-MM-DD'));
+  $('#endDate').val($('#received_drpicker').data('daterangepicker').endDate.format('YYYY-MM-DD'));
+
+  $('#received_drpicker').on('apply.daterangepicker', function(ev, picker) {
+    $('input[name="startDate"]').val(picker.startDate.format('YYYY-MM-DD'));
+    $('input[name="endDate"]').val(picker.endDate.format('YYYY-MM-DD'));
+  });
+})
+
 $(document).ready(function() {
 
-  $('[data-toggle="popover"]').popover()
+  $('[data-toggle="popover"]').popover();
   $('[data-toggle="tooltip"]').tooltip();
 
   table = $('#doctables').DataTable({
