@@ -2,19 +2,19 @@
 
 function release($tracking, $to)
 {
+    $by = $_SESSION['user_id'];
     $unit = $_SESSION['unit'];
     $ellaganda = query("SELECT * FROM docs_location WHERE dl_tracking = '{$tracking}' AND dl_unit = '{$unit}' ORDER BY dl_id DESC LIMIT 1");
     confirm($ellaganda);
-    $by = $_SESSION['user_id'];
-    $byUnit = $_SESSION['unit'];
+
     if(row_count($ellaganda) >= 1)
     {
-        $receive = query("UPDATE docs_location SET dl_forwarded = 1, dl_releasedby = {$by} WHERE dl_tracking = '{$tracking}' AND dl_unit = '{$unit}'");
-        confirm($receive);
+        $release = query("UPDATE docs_location SET dl_forwarded = 1 WHERE dl_tracking = '{$tracking}' AND dl_unit = '{$unit}' ORDER BY dl_id DESC LIMIT 1");
+        confirm($release);
     }
 
     $query = "INSERT INTO docs_location(dl_tracking, dl_unit, dl_releasedby, dl_releasedbyunit) "; 
-    $query .= "VALUES('{$tracking}', '{$to}', '{$by}', '{$byUnit}')";
+    $query .= "VALUES('{$tracking}', '{$to}', '{$by}', '{$unit}')";
     $insert = query($query);
     confirm($insert);
 }

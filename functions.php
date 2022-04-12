@@ -535,12 +535,20 @@ ELLA;
     }
 }
 
-function received_today_details()
+function received_today_details($today, $start = 0, $end = 0)
 {
-    $unit = $_SESSION['unit'];
-    $prettyella = query("SELECT *, DATE_FORMAT(dl_receiveddate, '%Y-%m-%d')  FROM docs_location WHERE DATE(dl_receiveddate) = CURDATE() AND dl_unit = {$unit}");
-    confirm($prettyella);
-
+    if($today == true)
+    {
+        $unit = $_SESSION['unit'];
+        $prettyella = query("SELECT * FROM docs_location WHERE DATE(dl_receiveddate) = CURDATE() AND dl_unit = {$unit} ORDER BY dl_id DESC");
+        confirm($prettyella);
+    }
+    else
+    {
+        $unit = $_SESSION['unit'];
+        $prettyella = query("SELECT * FROM docs_location WHERE DATE(dl_receiveddate) BETWEEN '{$start}' AND '{$end}' AND dl_unit = {$unit} ORDER BY dl_id DESC");
+        confirm($prettyella);
+    }
     while($row = fetch_array($prettyella))
     {
         $tracking = $row['dl_tracking'];
@@ -569,12 +577,20 @@ ELLA;
     }
 }
 
-function released_today_details()
+function released_today_details($today, $start = 0, $end = 0)
 {
-    $unit = $_SESSION['unit'];
-    $prettyella = query("SELECT *, DATE_FORMAT(dl_releaseddate, '%Y-%m-%d')  FROM docs_location WHERE DATE(dl_releaseddate) = CURDATE() AND dl_releasedbyunit = {$unit}");
-    confirm($prettyella);
-
+    if($today == true)
+    {
+        $unit = $_SESSION['unit'];
+        $prettyella = query("SELECT * FROM docs_location WHERE DATE(dl_releaseddate) = CURDATE() AND dl_releasedbyunit = {$unit} ORDER BY dl_id DESC");
+        confirm($prettyella);
+    }
+    else
+    {
+        $unit = $_SESSION['unit'];
+        $prettyella = query("SELECT * FROM docs_location WHERE DATE(dl_releaseddate) BETWEEN '{$start}' AND '{$end}' AND dl_releasedbyunit = {$unit} ORDER BY dl_id DESC");
+        confirm($prettyella);
+    }
     while($row = fetch_array($prettyella))
     {
         $tracking = $row['dl_tracking'];

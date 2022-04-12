@@ -42,7 +42,12 @@
                   </tr>
                   </thead>
                   <tbody>
-                  <?php echo released_today_details(); ?>
+                  <?php
+                    isset($_GET['start']) ? $start = escape_string($_GET['start']) : $start = 0;
+                    isset($_GET['end']) ? $end = escape_string($_GET['end']) : $end = 0;
+                    isset($_GET['start']) && isset($_GET['end']) ? $today = false : $today = true;
+                    echo released_today_details($today, $start, $end); 
+                  ?>
                   </tbody>
                 </table>
               </div>
