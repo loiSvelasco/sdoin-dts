@@ -65,14 +65,17 @@ if(isset($_GET['documents']))
 
 if(isset($_GET['reports']))
 {
-    if(isset($_GET['start']) && isset($_GET['end']))
-    {
-        include("includes/reports_dr.php");
-    }
-    else
-    {
-        include("includes/reportsv2.php");
-    }
+    include("includes/reports.php");
+}
+
+if(isset($_GET['received']))
+{
+    include("includes/received.php");
+}
+
+if(isset($_GET['released']))
+{
+    include("includes/released.php");
 }
 
 if(isset($_GET['tracking']))

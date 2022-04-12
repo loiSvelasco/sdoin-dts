@@ -86,6 +86,15 @@ $(document).ready(function() {
     "responsive": true,
   });
 
+  $('#reportTable').DataTable({
+    "paging": false,
+    "searching": true,
+    "ordering": false,
+    "info": true,
+    "autoWidth": false,
+    "responsive": true,
+  });
+
   $('#uploadedDocsTable').DataTable({
     "paging": true,
     "lengthChange": false,
@@ -110,12 +119,6 @@ $(document).ready(function() {
 
 });
 
-
-
-
-  
-
-
 $(document).ready(function() {
       $('#releaseTable').on('click','.release_doc', function() {
       $('#modal-release-doc').modal('show');
@@ -127,6 +130,7 @@ $(document).ready(function() {
       console.log(data);
       
       $('#doc_tracking').val(data[1]);
+      $('.tracking_placeholder').val(data[1]);
   });
 });
 

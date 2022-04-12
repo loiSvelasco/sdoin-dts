@@ -236,7 +236,16 @@ function get_doctype_name($id)
     return $row['doc_type'];
 }
 
-function get_owner_name($id)
+function get_document_detail($tracking, $index)
+{
+    $printetella = query("SELECT * FROM documents WHERE document_tracking = '{$tracking}'");
+    confirm($printetella);
+    
+    $row = fetch_assoc($printetella);
+    return $row[$index];
+}
+
+function get_user_name($id)
 {
     $printetella = query("SELECT * FROM user_details WHERE ud_id = {$id}");
     confirm($printetella);
@@ -254,7 +263,7 @@ function get_my_docs()
     {
         $doctype = get_doctype_name($row['document_type']);
         $origin = get_unit_name($row['document_origin']);
-        $owner = get_owner_name($row['document_owner']);
+        $owner = get_user_name($row['document_owner']);
         $title = $row['document_title'];
         $desc = $row['document_desc'];
         $purpose = $row['document_purpose'];
@@ -264,18 +273,16 @@ function get_my_docs()
 
         $ellacutie = <<<ELLA
         <tr>
-            <td>{$tracking}</td>
+            <td>
+            <a href="?tracking={$tracking}" target="_blank" data-toggle="tooltip" data-placement="top" title="Track"><i class="fa fa-search"></i></a>&nbsp;&nbsp;
+            <a href="?print={$tracking}" target="_blank" data-toggle="tooltip" data-placement="top" title="Print Tracking no."><i class="fa fa-print"></i></a>&nbsp;&nbsp;
+                {$tracking}
+            </td>
             <td>{$title}</td>
-            <!-- <td>{$origin}</td> -->
             <td>{$purpose}</td>
-            <!-- <td>{$desc}</td> -->
             <td>{$doctype}</td>
             <td>{$date}</td>
-            <!-- <td>{$owner}</td> -->
-            <td>
-                <a href="?print={$tracking}" target="_blank" class="text-decoration-none btn btn-sm btn-warning" data-toggle="tooltip" data-placement="left" title="Print Tracking no."><i class="fa fa-print"></i></a>
-                <a href="?tracking={$tracking}" target="_blank" class="text-decoration-none btn btn-sm btn-success" data-toggle="tooltip" data-placement="right" title="Track"><i class="fa fa-search"></i></a>
-            </td>
+            <td>{$owner}</td>
         </tr>
 ELLA;
         echo $ellacutie;
@@ -314,7 +321,7 @@ function get_to_receive()
         {
             $doctype = get_doctype_name($docRow['document_type']);
             $origin = get_unit_name($docRow['document_origin']);
-            $owner = get_owner_name($docRow['document_owner']);
+            $owner = get_user_name($docRow['document_owner']);
             $title = $docRow['document_title'];
             $desc = $docRow['document_desc'];
             $purpose = $docRow['document_purpose'];
@@ -377,7 +384,7 @@ function get_to_release()
         {
             $doctype = get_doctype_name($docRow['document_type']);
             $origin = get_unit_name($docRow['document_origin']);
-            $owner = get_owner_name($docRow['document_owner']);
+            $owner = get_user_name($docRow['document_owner']);
             $title = $docRow['document_title'];
             $desc = $docRow['document_desc'];
             $purpose = $docRow['document_purpose'];
@@ -453,7 +460,7 @@ function get_uploaded()
         $title = $row['up_title'];
         $action = $row['up_action'];
         $receivingUnit = get_unit_name($row['up_receivingunit']);
-        $uploadedBy = get_owner_name($row['up_by']);
+        $uploadedBy = get_user_name($row['up_by']);
         $uploadedUnit = get_unit_name($row['up_unit']);
 
         $date = format_date($row['up_dateadded']);
@@ -478,6 +485,14 @@ ELLA;
     }
 }
 
+function get_accomplished_count()
+{
+    $babyella = query("SELECT * FROM documents WHERE document_accomplished = 1 AND accomp_unit = '{$_SESSION['unit']}'");
+    love($babyella);
+
+    echo row_count($babyella);
+}
+
 function get_accomplished_docs()
 {
     $babyella = query("SELECT * FROM documents WHERE document_accomplished = 1 AND accomp_unit = '{$_SESSION['unit']}'");
@@ -498,23 +513,92 @@ function get_accomplished_docs()
             $origin = get_unit_name($row['document_origin']);
             $accompUnit = get_unit_name($row['accomp_unit']);
             $doctype = get_doctype_name($row['document_type']);
-            $accompBy = get_owner_name($row['accomp_by']);
-            $owner = get_owner_name($row['document_owner']);
+            $accompBy = get_user_name($row['accomp_by']);
+            $owner = get_user_name($row['document_owner']);
             
             $ellacutie = <<<ELLA
             <tr>
-            <td>{$tracking}</td>
-            <td>{$title}</td>
-            <td>{$purpose}</td>
-            <td>{$doctype}</td>
-            <td>{$dateCreated}</td>
                 <td>
-                    <a href="?print={$tracking}" target="_blank" class="text-decoration-none btn btn-sm btn-warning" data-toggle="tooltip" data-placement="left" title="Print Tracking no."><i class="fa fa-print"></i></a>
-                    <a href="?tracking={$tracking}" target="_blank" class="text-decoration-none btn btn-sm btn-success" data-toggle="tooltip" data-placement="right" title="Track"><i class="fa fa-search"></i></a>
+                    <a href="?tracking={$tracking}" target="_blank" data-toggle="tooltip" data-placement="top" title="Track"><i class="fa fa-search"></i></a>&nbsp;&nbsp;
+                    <a href="?print={$tracking}" target="_blank" data-toggle="tooltip" data-placement="top" title="Print Tracking no."><i class="fa fa-print"></i></a>&nbsp;&nbsp;
+                    {$tracking}
                 </td>
+                <td>{$title}</td>
+                <td>{$purpose}</td>
+                <td>{$doctype}</td>
+                <td>{$dateCreated}</td>
+                <td>{$accompDate}</td>
             </tr>
 ELLA;
             echo $ellacutie;
         }
+    }
+}
+
+function received_today_details()
+{
+    $unit = $_SESSION['unit'];
+    $prettyella = query("SELECT *, DATE_FORMAT(dl_receiveddate, '%Y-%m-%d')  FROM docs_location WHERE DATE(dl_receiveddate) = CURDATE() AND dl_unit = {$unit}");
+    confirm($prettyella);
+
+    while($row = fetch_array($prettyella))
+    {
+        $tracking = $row['dl_tracking'];
+        $title = get_document_detail($tracking, 'document_title');
+        $purpose = get_document_detail($tracking, 'document_purpose');
+        $doctype = get_doctype_name(get_document_detail($tracking, 'document_type'));
+        $date = get_document_detail($tracking, 'date_created');
+
+        $receivedBy = get_user_name($row['dl_receivedby']);
+
+        $ellacutie = <<<ELLA
+        <tr>
+            <td>
+            <a href="?tracking={$tracking}" target="_blank" data-toggle="tooltip" data-placement="top" title="Track"><i class="fa fa-search"></i></a>&nbsp;&nbsp;
+            <a href="?print={$tracking}" target="_blank" data-toggle="tooltip" data-placement="top" title="Print Tracking no."><i class="fa fa-print"></i></a>&nbsp;&nbsp;
+                {$tracking}
+            </td>
+            <td>{$title}</td>
+            <td>{$purpose}</td>
+            <td>{$doctype}</td>
+            <td>{$date}</td>
+            <td>{$receivedBy}</td>
+        </tr>
+ELLA;
+        echo $ellacutie;
+    }
+}
+
+function released_today_details()
+{
+    $unit = $_SESSION['unit'];
+    $prettyella = query("SELECT *, DATE_FORMAT(dl_releaseddate, '%Y-%m-%d')  FROM docs_location WHERE DATE(dl_releaseddate) = CURDATE() AND dl_releasedbyunit = {$unit}");
+    confirm($prettyella);
+
+    while($row = fetch_array($prettyella))
+    {
+        $tracking = $row['dl_tracking'];
+        $title = get_document_detail($tracking, 'document_title');
+        $purpose = get_document_detail($tracking, 'document_purpose');
+        $doctype = get_doctype_name(get_document_detail($tracking, 'document_type'));
+        $date = get_document_detail($tracking, 'date_created');
+
+        $releasedBy = get_user_name($row['dl_releasedby']);
+
+        $ellacutie = <<<ELLA
+        <tr>
+            <td>
+            <a href="?tracking={$tracking}" target="_blank" data-toggle="tooltip" data-placement="top" title="Track"><i class="fa fa-search"></i></a>&nbsp;&nbsp;
+            <a href="?print={$tracking}" target="_blank" data-toggle="tooltip" data-placement="top" title="Print Tracking no."><i class="fa fa-print"></i></a>&nbsp;&nbsp;
+                {$tracking}
+            </td>
+            <td>{$title}</td>
+            <td>{$purpose}</td>
+            <td>{$doctype}</td>
+            <td>{$date}</td>
+            <td>{$releasedBy}</td>
+        </tr>
+ELLA;
+        echo $ellacutie;
     }
 }

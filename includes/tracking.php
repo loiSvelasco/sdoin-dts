@@ -30,7 +30,7 @@ CUTIEPIE;
                     $row = fetch_assoc($accomp);
                     if($row['document_accomplished'] == 1)
                     {
-                      $accomplishedBy = get_owner_name($row['accomp_by']);
+                      $accomplishedBy = get_user_name($row['accomp_by']);
   
                       $phpdate = strtotime($row['accomp_date']);
                       $date = date("F j, Y, g:i a", $phpdate );
@@ -58,7 +58,7 @@ CUTIEPIE;
                       if($row['dl_receivedby'] != 0)
                       {
                         $status = "Received at " . get_unit_name($row['dl_unit']);
-                        $received = "Received by " . get_owner_name($row['dl_receivedby']) . " - " . $date ;
+                        $received = "Received by " . get_user_name($row['dl_receivedby']) . " - " . $date ;
                         $bg = "bg-success";
                       }
                       else

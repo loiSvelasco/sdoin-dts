@@ -36,9 +36,9 @@
               <div class="icon">
                 <i class="fas fa-envelope"></i>
               </div>
-              <!-- <a href="#" class="small-box-footer">
-                More info <i class="fas fa-arrow-circle-right"></i>
-              </a> -->
+              <a href="?received" target="_blank" class="small-box-footer">
+                More info&nbsp;&nbsp;&nbsp;<i class="fas fa-arrow-circle-right"></i>
+              </a>
             </div>
           </div>
           <!-- ./col -->
@@ -53,9 +53,9 @@
               <div class="icon">
                 <i class="fas fa-reply"></i>
               </div>
-              <!-- <a href="#" class="small-box-footer">
-                More info <i class="fas fa-arrow-circle-right"></i>
-              </a> -->
+              <a href="?released" target="_blank" class="small-box-footer">
+                More info&nbsp;&nbsp;&nbsp;<i class="fas fa-arrow-circle-right"></i>
+              </a>
             </div>
           </div>
           <!-- ./col -->
@@ -70,9 +70,9 @@
               <div class="icon">
                 <i class="fas fa-folder-plus"></i>
               </div>
-              <!-- <a href="#" class="small-box-footer">
-                More info <i class="fas fa-arrow-circle-right"></i>
-              </a> -->
+              <a href="?documents" class="small-box-footer">
+                Go to receiving&nbsp;&nbsp;&nbsp;<i class="fas fa-arrow-circle-right"></i>
+              </a>
             </div>
           </div>
           <!-- ./col -->
@@ -80,16 +80,16 @@
             <!-- small card -->
             <div class="small-box bg-danger">
               <div class="inner">
-                <h3>53<sup style="font-size: 20px">%</sup></h3>
+                <h3><?php get_accomplished_count(); ?></h3>
 
-                <p>Rate</p>
+                <p>Accomplished</p>
               </div>
               <div class="icon">
                 <i class="fas fa-percentage"></i>
               </div>
-              <!-- <a href="#" class="small-box-footer">
-                More info <i class="fas fa-arrow-circle-right"></i>
-              </a> -->
+              <a href="#" target="_blank" class="small-box-footer">
+                More info&nbsp;&nbsp;&nbsp;<i class="fas fa-arrow-circle-right"></i>
+              </a>
             </div>
           </div>
           <!-- ./col -->
@@ -98,20 +98,20 @@
 
         <div class="row">
             <div class="col-12">
-              <div class="card">
-              <div class="card-header">
+              <div class="card-header border-warning">
                 <h3 class="card-title">All created Documents</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <table id="doctables" class="table table-bordered table-hover">
+                <table id="doctables" class="table table-bordered table-sm table-hover table-responsive-xl">
                   <thead>
                   <tr>
-                    <th>Tracking</th>
-                    <th>Title</th>
-                    <th>Type</th>
-                    <th>Owner</th>
-                    <th>Action</th>
+                    <th class="col-1">Tracking</th>
+                    <th class="col-3">Title</th>
+                    <th class="col-2">Purpose</th>
+                    <th class="col-2">Type</th>
+                    <th class="col-1">Date Created</th>
+                    <th class="col-1">Owner</th>
                   </tr>
                   </thead>
                   <tbody>
@@ -120,26 +120,25 @@
                 </table>
               </div>
               <!-- /.card-body -->
-              </div>
             </div>
         </div>
         <!-- /.row -->
         <div class="row">
             <div class="col-12">
-              <div class="card">
-              <div class="card-header">
+              <div class="card-header border-success">
                 <h3 class="card-title">All Accomplished Documents</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <table id="accdoctables" class="table table-sm table-bordered table-hover">
+                <table id="accdoctables" class="table table-bordered table-sm table-hover table-responsive-sm">
                   <thead>
                   <tr>
-                    <th>Tracking</th>
-                    <th>Title</th>
-                    <th>Type</th>
-                    <th>Owner</th>
-                    <th>Action</th>
+                    <th class="col-1">Tracking</th>
+                    <th class="col-3">Title</th>
+                    <th class="col-2">Purpose</th>
+                    <th class="col-2">Type</th>
+                    <th class="col-1">Date Created</th>
+                    <th class="col-1">Date Accomplished</th>
                   </tr>
                   </thead>
                   <tbody>
@@ -148,7 +147,6 @@
                 </table>
               </div>
               <!-- /.card-body -->
-              </div>
             </div>
         </div>
       </div><!-- /.container-fluid -->

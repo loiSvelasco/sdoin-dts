@@ -159,39 +159,39 @@
         </div>
         <div class="modal-body">
             <!-- form here-->                
-                <input type="hidden" form="release" name="manipulate" value="release">
-                <input type="hidden" form="release" name="tracking" id="doc_tracking" value="">
-                <input type="hidden" form="release" name="unit" value="<?php echo $_SESSION['unit']; ?>">
-                
-                <div class="form-group row">
-                    <div class="col-12">
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <div class="input-group-text">
-                                    <i class="fa fa-reply"></i>
-                                </div>
+            <input type="hidden" form="release" name="manipulate" value="release">
+            <input type="hidden" form="release" name="tracking" id="doc_tracking" value="">
+            <input type="hidden" form="release" name="unit" value="<?php echo $_SESSION['unit']; ?>">
+
+            <div class="form-group row">
+                <div class="col-12">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">
+                                <i class="fa fa-reply"></i>
                             </div>
-                            <select id="doc_to" name="to" class="custom-select" form="release" required>
-                                <option value="" disabled selected hidden>Release to</option>
-                                <optgroup label="Division Office">
-                                    <?php get_unit_do(); ?>
-                                </optgroup>
-                                <optgroup label="Public Schools">
-                                    <?php get_unit_public(); ?>
-                                </optgroup>
-                                <optgroup label="Private Schools">
-                                    <?php get_unit_private(); ?>
-                                </optgroup>
-                            </select>
-                            <!-- <input type="text" name="to" list="docto" class="form-control">
-                            <datalist id="docto">
-                                <?php // get_unit_do(); ?>
-                                <?php // get_unit_public(); ?>
-                                <?php // get_unit_private(); ?>
-                            </datalist> -->
                         </div>
+                        <select id="doc_to" name="to" class="custom-select" form="release" required>
+                            <option value="" disabled selected hidden>Release to</option>
+                            <optgroup label="Division Office">
+                                <?php get_unit_do(); ?>
+                            </optgroup>
+                            <optgroup label="Public Schools">
+                                <?php get_unit_public(); ?>
+                            </optgroup>
+                            <optgroup label="Private Schools">
+                                <?php get_unit_private(); ?>
+                            </optgroup>
+                        </select>
+                        <!-- <input type="text" name="to" list="docto" class="form-control">
+                        <datalist id="docto">
+                            <?php // get_unit_do(); ?>
+                            <?php // get_unit_public(); ?>
+                            <?php // get_unit_private(); ?>
+                        </datalist> -->
                     </div>
                 </div>
+            </div>
         </div>
         <div class="modal-footer justify-content-between">
             <!-- <button type="button" class="btn btn-outline-danger" data-dismiss="modal"><i class="fas fa-times"></i>&nbsp;&nbsp;Cancel</button> -->
