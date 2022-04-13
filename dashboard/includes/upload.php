@@ -32,7 +32,7 @@
                 <form method="post" action="actions/upload.php" enctype="multipart/form-data">
                   <div class="form-group">
                     <label for="fileupload">Allowed file format: .PDF</label>
-                    <p class="text-muted">Maximum of 10MB</p>
+                    <p class="text-muted">Maximum size of 10MB</p>
                     <input type="file" name="file" class="form-control-file" id="fileupload" required>
                   </div>
                   <div class="form-group">

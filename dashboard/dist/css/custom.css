@@ -1,14 +1,8 @@
-/* .stepper {
-    .line {
-      border-left: 2px;
-      background-color: grey !important;
-    }
-    .lead {
-      font-size: 1.1rem;
-    }
-  }
-   */
-
+  html {
+  /* font-size: .9rem !important; */
+  line-height: 1.3 !important;
+}
+  
    .stepper .line {
     width: 2px;
     background-color: lightslategray !important;

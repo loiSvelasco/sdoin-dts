@@ -54,12 +54,12 @@
                 <table id="reportTable" class="table table-bordered table-sm table-hover table-responsive-xl">
                   <thead>
                   <tr>
-                    <th class="col-1">Tracking</th>
-                    <th class="col-3">Title</th>
+                    <th class="col-2">Tracking #</th>
+                    <th class="col-2">Title</th>
                     <th class="col-2">Purpose</th>
                     <th class="col-2">Type</th>
-                    <th class="col-1">Date Created</th>
-                    <th class="col-1">Received by</th>
+                    <th class="col-2">Date Created</th>
+                    <th class="col">Received by</th>
                   </tr>
                   </thead>
                   <tbody>
@@ -67,7 +67,7 @@
                     isset($_GET['startDate']) ? $start = escape_string($_GET['startDate']) : $start = 0;
                     isset($_GET['endDate']) ? $end = escape_string($_GET['endDate']) : $end = 0;
                     isset($_GET['startDate']) && isset($_GET['endDate']) ? $today = false : $today = true;
-                    echo received_today_details($today, $start, $end); 
+                    echo received_details($today, $start, $end); 
                   ?>
                   </tbody>
                 </table>

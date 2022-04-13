@@ -273,16 +273,16 @@ function get_my_docs()
 
         $ellacutie = <<<ELLA
         <tr>
-            <td>
+            <td class="align-middle">
             <a href="?tracking={$tracking}" target="_blank" data-toggle="tooltip" data-placement="top" title="Track"><i class="fa fa-search"></i></a>&nbsp;&nbsp;
             <a href="?print={$tracking}" target="_blank" data-toggle="tooltip" data-placement="top" title="Print Tracking no."><i class="fa fa-print"></i></a>&nbsp;&nbsp;
                 {$tracking}
             </td>
-            <td>{$title}</td>
-            <td>{$purpose}</td>
-            <td>{$doctype}</td>
-            <td>{$date}</td>
-            <td>{$owner}</td>
+            <td class="align-middle">{$title}</td>
+            <td class="align-middle">{$purpose}</td>
+            <td class="align-middle">{$doctype}</td>
+            <td class="align-middle">{$date}</td>
+            <td class="align-middle">{$owner}</td>
         </tr>
 ELLA;
         echo $ellacutie;
@@ -331,9 +331,9 @@ function get_to_receive()
     
             $ellacutie = <<<ELLA
             <tr>
-                <td class="text-center"><input type="checkbox" name="rec-check[]" value="{$tracking}" class="receiveBox" form="receive">&nbsp;&nbsp;</td>
-                <td class="text-center">{$tracking}</td>
-                <td><a tabindex="0" class="btn btn-sm btn-default popover-dismiss" role="button" data-toggle="popover" data-html="true" data-trigger="focus" title="Document Details"
+                <td class="text-center align-middle"><input type="checkbox" name="rec-check[]" value="{$tracking}" class="receiveBox" form="receive">&nbsp;&nbsp;</td>
+                <td class="text-center align-middle">{$tracking}</td>
+                <td class="align-middle"><a tabindex="0" class="btn btn-sm btn-default popover-dismiss" role="button" data-toggle="popover" data-html="true" data-trigger="focus" title="Document Details"
                     data-content="
                     Type: {$doctype}
                     <br>Origin: {$origin}
@@ -369,7 +369,6 @@ function get_to_receive_count()
 
 function get_to_release()
 {
-    // $ella = query("SELECT * FROM docs_location WHERE dl_unit = {$_SESSION['unit']} AND dl_accomplished = 0 AND dl_receivedby != 0 ORDER BY dl_id DESC");
     $ella = query("SELECT DISTINCT dl_tracking, dl_id FROM docs_location WHERE dl_unit = {$_SESSION['unit']} AND dl_receivedby != 0 AND dl_forwarded = 0 ORDER BY dl_id DESC");
     confirm($ella);
 
@@ -394,9 +393,9 @@ function get_to_release()
     
             $ellacutie = <<<ELLA
             <tr>
-                <td class="text-center"><input type="checkbox" name="rel-check[]" form="release" class="releaseBox" value="{$tracking}">&nbsp;&nbsp;</td>
-                <td class="text-center">{$tracking}</td>
-                <td><a tabindex="0" class="btn btn-sm btn-default popover-dismiss" role="button" data-toggle="popover" data-html="true" data-trigger="focus" title="Document Details"
+                <td class="text-center align-middle"><input type="checkbox" name="rel-check[]" form="release" class="releaseBox" value="{$tracking}">&nbsp;&nbsp;</td>
+                <td class="text-center align-middle">{$tracking}</td>
+                <td class="align-middle"><a tabindex="0" class="btn btn-sm btn-default popover-dismiss" role="button" data-toggle="popover" data-html="true" data-trigger="focus" title="Document Details"
                 data-content="
                 Type: {$doctype}
                 <br>Origin: {$origin}
@@ -407,7 +406,6 @@ function get_to_release()
                 ">{$title}</a></td>
                 <td class="text-center">
                     <span data-toggle="tooltip" data-placement="left" title="Release"><button data-toggle="modal" data-target="#modal-release-doc" class="btn btn-sm btn-info release_doc"><i class="fa fa-file-export white"></i></button></span>
-                    <!-- <a href="?manipulate=receive&tracking={$tracking}&unit={$_SESSION['unit']}&by={$_SESSION['user_id']}" class="btn btn-sm btn-success" data-toggle="tooltip" data-placement="right" title="Mark as Done"><i class="fa fa-check"></i></a> -->
                     <span data-toggle="tooltip" data-placement="right" title="Mark as accomplished">
                         <a href="#" class="btn btn-sm btn-success" data-href="?manipulate=accomplish&tracking={$tracking}&unit={$_SESSION['unit']}&by={$_SESSION['user_id']}&refer={$_SERVER['REQUEST_URI']}" data-toggle="modal" data-target="#complete-doc"><i class="fa fa-check"></i></a>
                     </span>
@@ -518,16 +516,16 @@ function get_accomplished_docs()
             
             $ellacutie = <<<ELLA
             <tr>
-                <td>
+                <td class="align-middle">
                     <a href="?tracking={$tracking}" target="_blank" data-toggle="tooltip" data-placement="top" title="Track"><i class="fa fa-search"></i></a>&nbsp;&nbsp;
                     <a href="?print={$tracking}" target="_blank" data-toggle="tooltip" data-placement="top" title="Print Tracking no."><i class="fa fa-print"></i></a>&nbsp;&nbsp;
                     {$tracking}
                 </td>
-                <td>{$title}</td>
-                <td>{$purpose}</td>
-                <td>{$doctype}</td>
-                <td>{$dateCreated}</td>
-                <td>{$accompDate}</td>
+                <td class="align-middle">{$title}</td>
+                <td class="align-middle">{$purpose}</td>
+                <td class="align-middle">{$doctype}</td>
+                <td class="align-middle">{$dateCreated}</td>
+                <td class="align-middle">{$accompDate}</td>
             </tr>
 ELLA;
             echo $ellacutie;
@@ -535,7 +533,7 @@ ELLA;
     }
 }
 
-function received_today_details($today, $start = 0, $end = 0)
+function received_details($today, $start = 0, $end = 0)
 {
     if($today == true)
     {
@@ -561,23 +559,23 @@ function received_today_details($today, $start = 0, $end = 0)
 
         $ellacutie = <<<ELLA
         <tr>
-            <td>
+            <td class="align-middle">
             <a href="?tracking={$tracking}" target="_blank" data-toggle="tooltip" data-placement="top" title="Track"><i class="fa fa-search"></i></a>&nbsp;&nbsp;
             <a href="?print={$tracking}" target="_blank" data-toggle="tooltip" data-placement="top" title="Print Tracking no."><i class="fa fa-print"></i></a>&nbsp;&nbsp;
                 {$tracking}
             </td>
-            <td>{$title}</td>
-            <td>{$purpose}</td>
-            <td>{$doctype}</td>
-            <td>{$date}</td>
-            <td>{$receivedBy}</td>
+            <td class="align-middle">{$title}</td>
+            <td class="align-middle">{$purpose}</td>
+            <td class="align-middle">{$doctype}</td>
+            <td class="align-middle">{$date}</td>
+            <td class="align-middle">{$receivedBy}</td>
         </tr>
 ELLA;
         echo $ellacutie;
     }
 }
 
-function released_today_details($today, $start = 0, $end = 0)
+function released_details($today, $start = 0, $end = 0)
 {
     if($today == true)
     {
@@ -603,16 +601,16 @@ function released_today_details($today, $start = 0, $end = 0)
 
         $ellacutie = <<<ELLA
         <tr>
-            <td>
+            <td class="align-middle">
             <a href="?tracking={$tracking}" target="_blank" data-toggle="tooltip" data-placement="top" title="Track"><i class="fa fa-search"></i></a>&nbsp;&nbsp;
             <a href="?print={$tracking}" target="_blank" data-toggle="tooltip" data-placement="top" title="Print Tracking no."><i class="fa fa-print"></i></a>&nbsp;&nbsp;
                 {$tracking}
             </td>
-            <td>{$title}</td>
-            <td>{$purpose}</td>
-            <td>{$doctype}</td>
-            <td>{$date}</td>
-            <td>{$releasedBy}</td>
+            <td class="align-middle">{$title}</td>
+            <td class="align-middle">{$purpose}</td>
+            <td class="align-middle">{$doctype}</td>
+            <td class="align-middle">{$date}</td>
+            <td class="align-middle">{$releasedBy}</td>
         </tr>
 ELLA;
         echo $ellacutie;

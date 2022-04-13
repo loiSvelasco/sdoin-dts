@@ -106,12 +106,12 @@
                 <table id="doctables" class="table table-bordered table-sm table-hover table-responsive-xl">
                   <thead>
                   <tr>
-                    <th class="col-1">Tracking</th>
-                    <th class="col-3">Title</th>
+                    <th class="col-2">Tracking #</th>
+                    <th class="col-2">Title</th>
                     <th class="col-2">Purpose</th>
                     <th class="col-2">Type</th>
-                    <th class="col-1">Date Created</th>
-                    <th class="col-1">Owner</th>
+                    <th class="col-2">Date Created</th>
+                    <th class="col">Owner</th>
                   </tr>
                   </thead>
                   <tbody>
@@ -130,15 +130,15 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <table id="accdoctables" class="table table-bordered table-sm table-hover table-responsive-sm">
+                <table id="accdoctables" class="table table-bordered table-sm table-hover table-responsive-xl">
                   <thead>
                   <tr>
-                    <th class="col-1">Tracking</th>
-                    <th class="col-3">Title</th>
+                    <th class="col-2">Tracking #</th>
+                    <th class="col-2">Title</th>
                     <th class="col-2">Purpose</th>
                     <th class="col-2">Type</th>
-                    <th class="col-1">Date Created</th>
-                    <th class="col-1">Date Accomplished</th>
+                    <th class="col-2">Date Created</th>
+                    <th class="col">Date Accomplished</th>
                   </tr>
                   </thead>
                   <tbody>
