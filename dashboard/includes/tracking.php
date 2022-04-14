@@ -21,8 +21,12 @@
     <!-- Main content -->
     <div class="content">
       <div class="container-fluid">
+      <?php display_notice(); ?>
         <div class="row">
-          <div class="col-6">
+          <div class="col-md-6">
+            <blockquote class="quote-red">
+              <h5>Tracking Status</h5>
+            </blockquote>
             <div class="stepper d-flex flex-column mt-2 ml-2">
             <?php 
               if(isset($_GET['tracking']))
@@ -33,6 +37,7 @@
                   $sequence = row_count($prettyella);
                   if(row_count($prettyella) == 0)
                   {
+                    $found = false;
                     $lovelyella = <<<CUTIEPIE
                     <div class="d-flex mb-1">
                     <div class="d-flex flex-column pr-4 align-items-center">
@@ -49,6 +54,7 @@ CUTIEPIE;
                   }
                   else
                   {
+                    $found = true;
                     $accomp = query("SELECT * FROM documents WHERE document_tracking = '{$tracking}' LIMIT 1");
                     confirm($accomp);
                     $row = fetch_assoc($accomp);
@@ -111,9 +117,77 @@ CUTIEPIE;
             ?>
             </div>
           </div>
-          <div class="col-5"></div>
+
+
+          <div class="col-md-6">
+            <blockquote class="quote-info">
+              <h5>Document Details</h5>
+            </blockquote>
+            <div class="card shadow-none rounded-0">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="info-box shadow-none">
+                      <span class="info-box-icon"><i class="far fa-edit"></i></span>
+                      <div class="info-box-content">
+                        <span class="info-box-text">Document Title</span>
+                        <span class="info-box-text"><strong><?php echo $found ? get_document_detail($tracking, 'document_title') : "Tracking no. not found."; ?></strong></span>
+                        <span class="info-box-text"><?php echo $found ? get_doctype_name(get_document_detail($tracking, 'document_type')) : "Tracking no. not found."; ?></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="info-box shadow-none">
+                      <span class="info-box-icon"><i class="far fa-clock"></i></span>
+                      <div class="info-box-content">
+                        <span class="info-box-text">Date Created</span>
+                        <span class="info-box-text"><strong><?php echo $found ? get_document_detail($tracking, 'document_title') : "Tracking no. not found."; ?></strong></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="info-box shadow-none">
+                      <span class="info-box-icon"><i class="far fa-user"></i></span>
+                      <div class="info-box-content">
+                        <span class="info-box-text">Document Owner</span>
+                        <span class="info-box-text"><strong><?php echo $found ? get_user_name(get_document_detail($tracking, 'document_owner')) : "Tracking no. not found."; ?></strong></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="info-box shadow-none">
+                      <span class="info-box-icon"><i class="far fa-building"></i></span>
+                      <div class="info-box-content">
+                        <span class="info-box-text">Originating Office</span>
+                        <span class="info-box-text"><strong><?php echo $found ? get_unit_name(get_document_detail($tracking, 'document_origin')) : "Tracking no. not found."; ?></strong></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="info-box shadow-none">
+                      <span class="info-box-icon"><i class="far fa-sticky-note"></i></span>
+                      <div class="info-box-content">
+                        <span class="info-box-text">Document Description</span>
+                        <span class="info-box-text"><strong><?php echo $found ? get_document_detail($tracking, 'document_desc') : "Tracking no. not found."; ?></strong></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="info-box shadow-none">
+                      <span class="info-box-icon"><i class="far fa-star"></i></span>
+                      <div class="info-box-content">
+                        <span class="info-box-text">Document Purpose</span>
+                        <span class="info-box-text"><strong><?php echo $found ? get_document_detail($tracking, 'document_purpose') : "Tracking no. not found."; ?></strong></span>
+                      </div>
+                    </div>
+                  </div>
+                </div> <!-- /ROW -->
+              </div>
+            </div>
+          </div>
+
+
         </div>
-        
         <!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>

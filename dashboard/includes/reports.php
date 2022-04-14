@@ -22,8 +22,6 @@
     <div class="content">
       <div class="container-fluid">
         <?php display_notice();?>
-
-
         <div class="row">
           <div class="col-lg-3 col-6">
             <!-- small card -->
@@ -97,7 +95,7 @@
 
 
         <div class="row">
-            <div class="col-12">
+            <div class="col">
               <div class="card-header border-warning">
                 <h3 class="card-title">All created Documents</h3>
               </div>
@@ -124,7 +122,7 @@
         </div>
         <!-- /.row -->
         <div class="row">
-            <div class="col-12">
+            <div class="col">
               <div class="card-header border-success">
                 <h3 class="card-title">All Accomplished Documents</h3>
               </div>
