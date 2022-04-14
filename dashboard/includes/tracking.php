@@ -24,8 +24,8 @@
       <?php display_notice(); ?>
         <div class="row">
           <div class="col-md-6">
-            <blockquote class="quote-red">
-              <h5>Tracking Status</h5>
+            <blockquote class="quote-olive">
+              <h5><i class='far fa-calendar'></i>&nbsp;&nbsp;Timeline</h5>
             </blockquote>
             <div class="stepper d-flex flex-column mt-2 ml-2">
             <?php 
@@ -41,7 +41,7 @@
                     $lovelyella = <<<CUTIEPIE
                     <div class="d-flex mb-1">
                     <div class="d-flex flex-column pr-4 align-items-center">
-                        <div class="rounded-circle py-2 px-3 bg-secondary text-white mb-1">0</div>
+                        <div class="rounded-circle py-2 px-3 bg-danger text-white mb-1"><i class='fa fa-exclamation'></i></div>
                         <div class="line h-100"></div>
                     </div>
                     <div>
@@ -121,7 +121,7 @@ CUTIEPIE;
 
           <div class="col-md-6">
             <blockquote class="quote-info">
-              <h5>Document Details</h5>
+              <h5><i class='far fa-list-alt'></i>&nbsp;&nbsp;Document Details</h5>
             </blockquote>
             <div class="card shadow-none rounded-0">
               <div class="card-body">
@@ -131,8 +131,8 @@ CUTIEPIE;
                       <span class="info-box-icon"><i class="far fa-edit"></i></span>
                       <div class="info-box-content">
                         <span class="info-box-text">Document Title</span>
-                        <span class="info-box-text"><strong><?php echo $found ? get_document_detail($tracking, 'document_title') : "Tracking no. not found."; ?></strong></span>
-                        <span class="info-box-text"><?php echo $found ? get_doctype_name(get_document_detail($tracking, 'document_type')) : "Tracking no. not found."; ?></span>
+                        <span class="info-box-text"><strong><?php echo $found ? get_document_detail($tracking, 'document_title') : "<span class='text-danger'><i class='fa fa-exclamation'></i>&nbsp;&nbsp;Tracking # not found.</span>"; ?></strong></span>
+                        <span class="info-box-text"><?php echo $found ? get_doctype_name(get_document_detail($tracking, 'document_type')) : ""; ?></span>
                       </div>
                     </div>
                   </div>
@@ -141,7 +141,7 @@ CUTIEPIE;
                       <span class="info-box-icon"><i class="far fa-clock"></i></span>
                       <div class="info-box-content">
                         <span class="info-box-text">Date Created</span>
-                        <span class="info-box-text"><strong><?php echo $found ? get_document_detail($tracking, 'document_title') : "Tracking no. not found."; ?></strong></span>
+                        <span class="info-box-text"><strong><?php echo $found ? format_date(get_document_detail($tracking, 'date_created')) : "<span class='text-danger'><i class='fa fa-exclamation'></i>&nbsp;&nbsp;Tracking # not found.</span>"; ?></strong></span>
                       </div>
                     </div>
                   </div>
@@ -150,7 +150,7 @@ CUTIEPIE;
                       <span class="info-box-icon"><i class="far fa-user"></i></span>
                       <div class="info-box-content">
                         <span class="info-box-text">Document Owner</span>
-                        <span class="info-box-text"><strong><?php echo $found ? get_user_name(get_document_detail($tracking, 'document_owner')) : "Tracking no. not found."; ?></strong></span>
+                        <span class="info-box-text"><strong><?php echo $found ? get_user_name(get_document_detail($tracking, 'document_owner')) : "<span class='text-danger'><i class='fa fa-exclamation'></i>&nbsp;&nbsp;Tracking # not found.</span>"; ?></strong></span>
                       </div>
                     </div>
                   </div>
@@ -159,7 +159,7 @@ CUTIEPIE;
                       <span class="info-box-icon"><i class="far fa-building"></i></span>
                       <div class="info-box-content">
                         <span class="info-box-text">Originating Office</span>
-                        <span class="info-box-text"><strong><?php echo $found ? get_unit_name(get_document_detail($tracking, 'document_origin')) : "Tracking no. not found."; ?></strong></span>
+                        <span class="info-box-text"><strong><?php echo $found ? get_unit_name(get_document_detail($tracking, 'document_origin')) : "<span class='text-danger'><i class='fa fa-exclamation'></i>&nbsp;&nbsp;Tracking # not found.</span>"; ?></strong></span>
                       </div>
                     </div>
                   </div>
@@ -168,7 +168,7 @@ CUTIEPIE;
                       <span class="info-box-icon"><i class="far fa-sticky-note"></i></span>
                       <div class="info-box-content">
                         <span class="info-box-text">Document Description</span>
-                        <span class="info-box-text"><strong><?php echo $found ? get_document_detail($tracking, 'document_desc') : "Tracking no. not found."; ?></strong></span>
+                        <span class="info-box-text"><strong><?php echo $found ? get_document_detail($tracking, 'document_desc') : "<span class='text-danger'><i class='fa fa-exclamation'></i>&nbsp;&nbsp;Tracking # not found.</span>"; ?></strong></span>
                       </div>
                     </div>
                   </div>
@@ -177,7 +177,7 @@ CUTIEPIE;
                       <span class="info-box-icon"><i class="far fa-star"></i></span>
                       <div class="info-box-content">
                         <span class="info-box-text">Document Purpose</span>
-                        <span class="info-box-text"><strong><?php echo $found ? get_document_detail($tracking, 'document_purpose') : "Tracking no. not found."; ?></strong></span>
+                        <span class="info-box-text"><strong><?php echo $found ? get_document_detail($tracking, 'document_purpose') : "<span class='text-danger'><i class='fa fa-exclamation'></i>&nbsp;&nbsp;Tracking # not found.</span>"; ?></strong></span>
                       </div>
                     </div>
                   </div>

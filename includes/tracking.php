@@ -12,7 +12,7 @@
                     $lovelyella = <<<CUTIEPIE
                     <div class="d-flex mb-1">
                     <div class="d-flex flex-column pr-4 align-items-center">
-                        <div class="rounded-circle py-2 px-3 bg-secondary text-white mb-1">0</div>
+                        <div class="rounded-circle py-2 px-3 bg-danger text-white mb-1"><i class='fa fa-exclamation'></i></div>
                         <div class="line h-100"></div>
                     </div>
                     <div>
