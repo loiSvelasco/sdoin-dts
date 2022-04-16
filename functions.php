@@ -553,7 +553,7 @@ function received_details($today, $start = 0, $end = 0)
         $title = get_document_detail($tracking, 'document_title');
         $purpose = get_document_detail($tracking, 'document_purpose');
         $doctype = get_doctype_name(get_document_detail($tracking, 'document_type'));
-        $date = get_document_detail($tracking, 'date_created');
+        $date = format_date(get_document_detail($tracking, 'date_created'));
 
         $receivedBy = get_user_name($row['dl_receivedby']);
 
@@ -595,7 +595,7 @@ function released_details($today, $start = 0, $end = 0)
         $title = get_document_detail($tracking, 'document_title');
         $purpose = get_document_detail($tracking, 'document_purpose');
         $doctype = get_doctype_name(get_document_detail($tracking, 'document_type'));
-        $date = get_document_detail($tracking, 'date_created');
+        $date = format_date(get_document_detail($tracking, 'date_created'));
 
         $releasedBy = get_user_name($row['dl_releasedby']);
 
@@ -611,6 +611,48 @@ function released_details($today, $start = 0, $end = 0)
             <td class="align-middle">{$doctype}</td>
             <td class="align-middle">{$date}</td>
             <td class="align-middle">{$releasedBy}</td>
+        </tr>
+ELLA;
+        echo $ellacutie;
+    }
+}
+
+function accomplished_details($today, $start = 0, $end = 0)
+{
+    if($today == true)
+    {
+        $unit = $_SESSION['unit'];
+        $prettyella = query("SELECT * FROM documents WHERE DATE(accomp_date) = CURDATE() AND document_accomplished = 1 ORDER BY id DESC");
+        confirm($prettyella);
+    }
+    else
+    {
+        $unit = $_SESSION['unit'];
+        $prettyella = query("SELECT * FROM documents WHERE DATE(accomp_date) BETWEEN '{$start}' AND '{$end}' AND document_accomplished = 1 ORDER BY id DESC");
+        confirm($prettyella);
+    }
+    while($row = fetch_array($prettyella))
+    {
+        $tracking = $row['document_tracking'];
+        $title = $row['document_title'];
+        $purpose = $row['document_purpose'];
+        $doctype = get_doctype_name($row['document_type']);
+        $date = format_date($row['date_created']);
+
+        $dateAccomp = format_date($row['accomp_date']);
+
+        $ellacutie = <<<ELLA
+        <tr>
+            <td class="align-middle">
+            <a href="?tracking={$tracking}" target="_blank" data-toggle="tooltip" data-placement="top" title="Track"><i class="fa fa-search"></i></a>&nbsp;&nbsp;
+            <a href="?print={$tracking}" target="_blank" data-toggle="tooltip" data-placement="top" title="Print Tracking no."><i class="fa fa-print"></i></a>&nbsp;&nbsp;
+                {$tracking}
+            </td>
+            <td class="align-middle">{$title}</td>
+            <td class="align-middle">{$purpose}</td>
+            <td class="align-middle">{$doctype}</td>
+            <td class="align-middle">{$date}</td>
+            <td class="align-middle">{$dateAccomp}</td>
         </tr>
 ELLA;
         echo $ellacutie;

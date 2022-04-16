@@ -1,5 +1,5 @@
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
+  <div class="content-wrapper wrapper-bgcolor">
     <!-- Content Header (Page header) -->
     <div class="content-header">
       <div class="container-fluid">
@@ -83,9 +83,9 @@
                 <p>Accomplished</p>
               </div>
               <div class="icon">
-                <i class="fas fa-percentage"></i>
+                <i class="fas fa-check"></i>
               </div>
-              <a href="#" target="_blank" class="small-box-footer">
+              <a href="?accomplished" target="_blank" class="small-box-footer">
                 More info&nbsp;&nbsp;&nbsp;<i class="fas fa-arrow-circle-right"></i>
               </a>
             </div>
@@ -93,14 +93,22 @@
           <!-- ./col -->
         </div>
 
+        <!-- <div class="row">
+          <blockquote class="quote-warning">
+            <h5>Reminders</h5>
+          </blockquote>
+        </div> -->
+        <div class="row">
+          <?php issueNotice(); ?>
+        </div>
 
         <div class="row">
             <div class="col">
-              <div class="card-header border-warning">
+              <div class="card-header border-warning bg-white">
                 <h3 class="card-title">All created Documents</h3>
               </div>
               <!-- /.card-header -->
-              <div class="card-body">
+              <div class="card-body bg-white">
                 <table id="doctables" class="table table-bordered table-sm table-hover table-responsive-xl">
                   <thead>
                   <tr>
@@ -123,11 +131,11 @@
         <!-- /.row -->
         <div class="row">
             <div class="col">
-              <div class="card-header border-success">
+              <div class="card-header border-success bg-white">
                 <h3 class="card-title">All Accomplished Documents</h3>
               </div>
               <!-- /.card-header -->
-              <div class="card-body">
+              <div class="card-body bg-white">
                 <table id="accdoctables" class="table table-bordered table-sm table-hover table-responsive-xl">
                   <thead>
                   <tr>

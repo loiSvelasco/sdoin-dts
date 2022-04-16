@@ -1,5 +1,5 @@
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
+  <div class="content-wrapper wrapper-bgcolor">
     <!-- Content Header (Page header) -->
     <div class="content-header">
       <div class="container-fluid">
@@ -26,12 +26,12 @@
         <div class="row">
 
             <div class="col-lg-6">
-                <div class="card-header border-warning">
+                <div class="card-header border-warning bg-white">
                   <h3 class="card-title">
                   <button type="submit" form="receive" class="btn btn-warning btn-sm btn-flat" name="rec-selected">Receive Selected</button>
                   &nbsp;&nbsp;&nbsp;Documents to Receive</h3>
                 </div>
-                <br>
+                <div class="card-body bg-white">
                   <div class="table-responsive-sm">
                     <table class="table table-bordered table-striped table-hover" id="receiveTable">
                       <thead>
@@ -47,31 +47,33 @@
                         <?php echo get_to_receive(); ?>
                       </tbody>
                     </table>
+                  </div>
                 </div>
             </div>
 
             <div class="col-lg-6">
-                <div class="card-header border-info">
+                <div class="card-header border-info bg-white">
                   <h3 class="card-title">
                   <button type="button" class="btn btn-sm btn-flat btn-info" data-toggle="modal" data-target="#modal-release-multi-doc" form="release" name="rel-selected">Release Selected</button>
                   &nbsp;&nbsp;&nbsp;Documents to Release</h3>
                 </div>
-                <br>
+                <div class="card-body bg-white">
                   <div class="table-responsive-sm">
-                    <table id="releaseTable" class="table table-striped table-bordered table-hover">
-                      <thead>
-                      <tr>
-                        <th class="text-center col-1"><form action="actions/multi-release.php?refer=<?php echo $_SERVER['REQUEST_URI']; ?>" id="release" method="post">
-                            <input type="checkbox" id="select-all-rel" data-toggle="tooltip" data-placement="left" title="Select All">&nbsp;&nbsp;</form></th>
-                        <th class="text-center col-3">Tracking</th>
-                        <th class="text-center col-6">Title</th>
-                        <th class="text-center col">Action</th>
-                      </tr>
-                      </thead>
-                      <tbody>
-                          <?php echo get_to_release(); ?>
-                      </tbody>
-                    </table>
+                      <table id="releaseTable" class="table table-striped table-bordered table-hover">
+                        <thead>
+                        <tr>
+                          <th class="text-center col-1"><form action="actions/multi-release.php?refer=<?php echo $_SERVER['REQUEST_URI']; ?>" id="release" method="post">
+                              <input type="checkbox" id="select-all-rel" data-toggle="tooltip" data-placement="left" title="Select All">&nbsp;&nbsp;</form></th>
+                          <th class="text-center col-3">Tracking</th>
+                          <th class="text-center col-6">Title</th>
+                          <th class="text-center col">Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <?php echo get_to_release(); ?>
+                        </tbody>
+                      </table>
+                  </div>
                 </div>
             </div>
 

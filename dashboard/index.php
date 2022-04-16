@@ -78,6 +78,11 @@ if(isset($_GET['released']))
     include("includes/released.php");
 }
 
+if(isset($_GET['accomplished']))
+{
+    include("includes/accomplished.php");
+}
+
 if(isset($_GET['tracking']))
 {
     include("includes/tracking.php");

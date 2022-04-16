@@ -1,5 +1,5 @@
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
+  <div class="content-wrapper wrapper-bgcolor">
     <!-- Content Header (Page header) -->
     <div class="content-header">
       <div class="container-fluid">
@@ -25,10 +25,10 @@
         <div class="row">
           <div class="col-12 col-lg-3">
             <div class="card">
-              <div class="card-header border-danger">
+              <div class="card-header border-danger bg-white">
                 File Upload
               </div>
-              <div class="card-body">
+              <div class="card-body bg-white">
                 <form method="post" action="actions/upload.php" enctype="multipart/form-data">
                   <div class="form-group">
                     <label for="fileupload">Allowed file format: .PDF</label>
@@ -53,23 +53,24 @@
             </div>
           </div>
           <div class="col-12 col-lg-9">
-            <div class="card-header border-danger">
+            <div class="card-header border-danger bg-white">
               Uploaded Documents
             </div>
-            <br>
-            <table class="table table-bordered table-striped table-hover" id="uploadedDocsTable">
-              <thead>
-              <tr>
-                <th class="text-center col-3">Filename</th>
-                <th class="text-center col-8">Title</th>
-                <!-- <th class="text-center col-7">Released to</th> -->
-                <th class="text-center col-1">Action</th>
-              </tr>
-              </thead>
-              <tbody>
-                <?php echo get_uploaded(); ?>
-              </tbody>
-            </table>
+            <div class="card-body bg-white">
+              <table class="table table-bordered table-striped table-hover" id="uploadedDocsTable">
+                <thead>
+                <tr>
+                  <th class="text-center col-3">Filename</th>
+                  <th class="text-center col-8">Title</th>
+                  <!-- <th class="text-center col-7">Released to</th> -->
+                  <th class="text-center col-1">Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                  <?php echo get_uploaded(); ?>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
         <!-- /.row -->

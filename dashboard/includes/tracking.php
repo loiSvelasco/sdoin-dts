@@ -131,7 +131,7 @@ CUTIEPIE;
                       <span class="info-box-icon"><i class="far fa-edit"></i></span>
                       <div class="info-box-content">
                         <span class="info-box-text">Document Title</span>
-                        <span class="info-box-text"><strong><?php echo $found ? get_document_detail($tracking, 'document_title') : "<span class='text-danger'><i class='fa fa-exclamation'></i>&nbsp;&nbsp;Tracking # not found.</span>"; ?></strong></span>
+                        <span class="info-box-text text-wrap"><strong><?php echo $found ? get_document_detail($tracking, 'document_title') : "<span class='text-danger'><i class='fa fa-exclamation'></i>&nbsp;&nbsp;Tracking # not found.</span>"; ?></strong></span>
                         <span class="info-box-text"><?php echo $found ? get_doctype_name(get_document_detail($tracking, 'document_type')) : ""; ?></span>
                       </div>
                     </div>
@@ -141,7 +141,7 @@ CUTIEPIE;
                       <span class="info-box-icon"><i class="far fa-clock"></i></span>
                       <div class="info-box-content">
                         <span class="info-box-text">Date Created</span>
-                        <span class="info-box-text"><strong><?php echo $found ? format_date(get_document_detail($tracking, 'date_created')) : "<span class='text-danger'><i class='fa fa-exclamation'></i>&nbsp;&nbsp;Tracking # not found.</span>"; ?></strong></span>
+                        <span class="info-box-text text-wrap"><strong><?php echo $found ? format_date(get_document_detail($tracking, 'date_created')) : "<span class='text-danger'><i class='fa fa-exclamation'></i>&nbsp;&nbsp;Tracking # not found.</span>"; ?></strong></span>
                       </div>
                     </div>
                   </div>
@@ -150,7 +150,7 @@ CUTIEPIE;
                       <span class="info-box-icon"><i class="far fa-user"></i></span>
                       <div class="info-box-content">
                         <span class="info-box-text">Document Owner</span>
-                        <span class="info-box-text"><strong><?php echo $found ? get_user_name(get_document_detail($tracking, 'document_owner')) : "<span class='text-danger'><i class='fa fa-exclamation'></i>&nbsp;&nbsp;Tracking # not found.</span>"; ?></strong></span>
+                        <span class="info-box-text text-wrap"><strong><?php echo $found ? get_user_name(get_document_detail($tracking, 'document_owner')) : "<span class='text-danger'><i class='fa fa-exclamation'></i>&nbsp;&nbsp;Tracking # not found.</span>"; ?></strong></span>
                       </div>
                     </div>
                   </div>
@@ -159,7 +159,7 @@ CUTIEPIE;
                       <span class="info-box-icon"><i class="far fa-building"></i></span>
                       <div class="info-box-content">
                         <span class="info-box-text">Originating Office</span>
-                        <span class="info-box-text"><strong><?php echo $found ? get_unit_name(get_document_detail($tracking, 'document_origin')) : "<span class='text-danger'><i class='fa fa-exclamation'></i>&nbsp;&nbsp;Tracking # not found.</span>"; ?></strong></span>
+                        <span class="info-box-text text-wrap"><strong><?php echo $found ? get_unit_name(get_document_detail($tracking, 'document_origin')) : "<span class='text-danger'><i class='fa fa-exclamation'></i>&nbsp;&nbsp;Tracking # not found.</span>"; ?></strong></span>
                       </div>
                     </div>
                   </div>
@@ -168,7 +168,7 @@ CUTIEPIE;
                       <span class="info-box-icon"><i class="far fa-sticky-note"></i></span>
                       <div class="info-box-content">
                         <span class="info-box-text">Document Description</span>
-                        <span class="info-box-text"><strong><?php echo $found ? get_document_detail($tracking, 'document_desc') : "<span class='text-danger'><i class='fa fa-exclamation'></i>&nbsp;&nbsp;Tracking # not found.</span>"; ?></strong></span>
+                        <span class="info-box-text text-wrap"><strong><?php echo $found ? get_document_detail($tracking, 'document_desc') : "<span class='text-danger'><i class='fa fa-exclamation'></i>&nbsp;&nbsp;Tracking # not found.</span>"; ?></strong></span>
                       </div>
                     </div>
                   </div>
@@ -177,7 +177,7 @@ CUTIEPIE;
                       <span class="info-box-icon"><i class="far fa-star"></i></span>
                       <div class="info-box-content">
                         <span class="info-box-text">Document Purpose</span>
-                        <span class="info-box-text"><strong><?php echo $found ? get_document_detail($tracking, 'document_purpose') : "<span class='text-danger'><i class='fa fa-exclamation'></i>&nbsp;&nbsp;Tracking # not found.</span>"; ?></strong></span>
+                        <span class="info-box-text text-wrap"><strong><?php echo $found ? get_document_detail($tracking, 'document_purpose') : "<span class='text-danger'><i class='fa fa-exclamation'></i>&nbsp;&nbsp;Tracking # not found.</span>"; ?></strong></span>
                       </div>
                     </div>
                   </div>

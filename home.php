@@ -11,8 +11,10 @@
         <!-- Bootstrap icons-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link rel="stylesheet" href="dashboard/plugins/fontawesome-free/css/all.min.css">
+        <!-- <link rel="stylesheet" href="dashboard/plugins/fontawesome-free/css/all.min.css"> -->
+        <script src="https://kit.fontawesome.com/8fb6d51646.js" crossorigin="anonymous"></script>
         <link href="css/styles.css" rel="stylesheet" />
+        <link href="css/custom.css" rel="stylesheet" />
         <style>
             .stepper .line {
                 width: 2px;
@@ -25,7 +27,7 @@
     </head>
     <body>
         <!-- Responsive navbar-->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
             <div class="container px-5">
                 <a class="navbar-brand" href="?home">~sdoin.edts</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
@@ -47,7 +49,8 @@
             </div>
         </nav>
         <!-- Header-->
-        <header class="bg-dark py-5">
+        <!-- <header class="bg-dark py-5 page-header"> -->
+        <header class="py-5 header-bg">
             <div class="container px-5">
                 <div class="row gx-5 justify-content-center">
                     <div class="col-lg-6">
@@ -57,11 +60,11 @@
                             <p class="lead text-white-50 mb-4">Enter the tracking no. and click on track to see its current status.</p>
                             <form action="" method="GWT">
                                 <div class="box">     
-                                    <input class="form-control form-control-lg" type="text" name="tracking" class="text-white font-weight-bold" style="background-color:rgba(0,0,0,0) !important;color: white; border:none;text-align:center;" placeholder="Type here." autofocus required>
+                                    <input class="form-control form-control-lg rounded-0" type="text" name="tracking" class="text-white font-weight-bold" style="background-color:rgba(255,255,255,1) !important;color: black; border:none;text-align:center;" placeholder="Tracking #." autofocus required>
                                     <br>
                                 </div>
                                 <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
-                                    <button type="submit" class="btn btn-outline-light btn-lg px-4"><i class="bi bi-search"></i>&nbsp;Track</button>
+                                    <button type="submit" class="btn btn-outline-warning btn-lg px-4 rounded-0"><i class="bi bi-search"></i>&nbsp;Track</button>
                                 </div>
                             </form>
                         </div>

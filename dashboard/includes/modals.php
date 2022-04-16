@@ -285,3 +285,25 @@
         </div>
     </div>
 </div>
+
+<div class="modal fade" id="modal-add-doc-restricted" tabindex="-1" role="dialog" aria-labelledby="LOIPOGI" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+        
+            <div class="modal-header">
+                <h4 class="modal-title" id="LOIPOGI">Sorry!</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+        
+            <div class="modal-body text-justify">
+                <p>You are unable to add documents at this moment.</p>
+                <p>This happens when you have unreleased / unaccomplished documents for more than 15 days. Accomplish them, first to regain access on adding documents.</p>
+                <p>Please check your <a href="./?reports">reports</a> page to see the concerned documents.</p>
+            </div>
+            
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Confirm</button>
+            </div>
+        </div>
+    </div>
+</div>

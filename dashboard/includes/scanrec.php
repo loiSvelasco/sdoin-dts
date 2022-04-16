@@ -1,5 +1,5 @@
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
+  <div class="content-wrapper wrapper-bgcolor">
     <!-- Content Header (Page header) -->
     <div class="content-header">
       <div class="container-fluid">
@@ -32,14 +32,13 @@
 
       <div class="col-12">
               <!-- <div class="card"> -->
-          <div class="card-header">
+          <div class="card-header bg-white">
             <h3 class="card-title">
             <button type="button" class="btn btn-sm btn-flat btn-info" data-toggle="modal" data-target="#modal-release-multi-doc" form="release" name="rel-selected">Release Selected</button>
             &nbsp;&nbsp;&nbsp;Documents to Release</h3>
           </div>
-          <br>
           <!-- /.card-header -->
-          <!-- <div class="card-body"> -->
+          <div class="card-body bg-white">
             <div class="table-responsive-sm">
               <table id="releaseTable" class="table table-striped table-bordered table-hover">
                 <thead>
@@ -54,14 +53,13 @@
                 </tr>
                 </thead>
                 <tbody>
-                  
                     <?php echo get_to_release(); ?>
                 </tbody>
               </table>
               
           </div>
           <!-- /.card-body -->
-        <!-- </div> -->
+        </div>
       </div>
 
 

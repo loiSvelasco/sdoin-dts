@@ -1,5 +1,5 @@
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
+  <div class="content-wrapper wrapper-bgcolor">
     <!-- Content Header (Page header) -->
     <div class="content-header">
       <div class="container-fluid">
@@ -24,7 +24,7 @@
       <div class="container-fluid">
         <?php display_notice();?>
         <div class="row">
-          <div class="col-3">
+          <div class="col-lg-3">
             <form action="" method="get" id="daterange"></form>
               <div class="form-group">
                 <div class="input-group">
@@ -44,11 +44,11 @@
               </div>
             </div>
             <div class="col-12">
-              <div class="card-header border-info">
+              <div class="card-header border-info bg-white">
                 <h3 class="card-title">All Released Documents</h3>
               </div>
               <!-- /.card-header -->
-              <div class="card-body">
+              <div class="card-body bg-white">
                 <table id="reportTable" class="table table-bordered table-sm table-hover table-responsive-xl">
                   <thead>
                   <tr>

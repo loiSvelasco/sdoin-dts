@@ -6,6 +6,7 @@
     </a>
 
     <!-- Sidebar -->
+    <?php isLapsed(); ?>
     <div class="sidebar">
       <!-- Sidebar Menu -->
       <nav class="mt-2">
@@ -21,12 +22,26 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="#" data-toggle="modal" data-target="#modal-add-doc" class="nav-link">
-                  <i class="fas fa-file-medical nav-icon"></i>
-                  <p>Add Document</p>
-                </a>
-              </li>
+              <?php
+                if(isLapsed())
+                {
+                  echo '<li class="nav-item">
+                  <a href="#" data-toggle="modal" data-target="#modal-add-doc-restricted" class="nav-link">
+                    <i class="fas fa-file-medical nav-icon"></i>
+                    <p>Add Document</p>
+                  </a>
+                </li>';
+                }
+                else
+                {
+                  echo '<li class="nav-item">
+                  <a href="#" data-toggle="modal" data-target="#modal-add-doc" class="nav-link">
+                    <i class="fas fa-file-medical nav-icon"></i>
+                    <p>Add Document</p>
+                  </a>
+                </li>';
+                }
+              ?>
               <li class="nav-item">
                 <a href="?documents" class="nav-link">
                   <i class="fas fa-file-import nav-icon"></i>
