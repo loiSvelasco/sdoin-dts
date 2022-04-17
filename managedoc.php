@@ -49,6 +49,16 @@ function accomplish($tracking)
         $stmt = query("UPDATE documents SET document_accomplished = 1, accomp_unit = '{$unit}', accomp_by = '{$by}', accomp_date = '{$date}' WHERE document_tracking = '{$tracking}'");
         confirm($stmt);
     }
+    
+    $ellaganda = query("SELECT * FROM docs_location WHERE dl_tracking = '{$tracking}' AND dl_unit = '{$unit}' ORDER BY dl_id DESC LIMIT 1");
+    love($ellaganda);
+
+    if(row_count($ellaganda) >= 1)
+    {
+        $setForwarded = query("UPDATE docs_location SET dl_forwarded = 1 WHERE dl_tracking = '{$tracking}' AND dl_unit = '{$unit}' ORDER BY dl_id DESC LIMIT 1");
+        confirm($setForwarded);
+    }
+
 }
 
 ?>

@@ -1,4 +1,5 @@
 <?php
+  $start_time = microtime(true);
   require("../config.php");
   if(!isset($_SESSION['user']))
   {

@@ -78,6 +78,8 @@ function love($result)
 function query($sql)
 {
     global $connection;
+    global $numQueries;
+    $numQueries++;
     return mysqli_query($connection, $sql);
 }
 
@@ -431,19 +433,19 @@ function get_released_today()
     echo row_count($prettyella);
 }
 
-function get_received_dr($start, $end)
-{
-    $unit = $_SESSION['unit'];
-    $prettyella = query("SELECT * FROM docs_location WHERE DATE(dl_receiveddate) BETWEEN '{$start}' AND '{$end}' AND dl_unit = {$unit}");
-    echo row_count($prettyella);
-}
+// function get_received_dr($start, $end)
+// {
+//     $unit = $_SESSION['unit'];
+//     $prettyella = query("SELECT * FROM docs_location WHERE DATE(dl_receiveddate) BETWEEN '{$start}' AND '{$end}' AND dl_unit = {$unit}");
+//     echo row_count($prettyella);
+// }
 
-function get_released_dr($start, $end)
-{
-    $unit = $_SESSION['unit'];
-    $prettyella = query("SELECT * FROM docs_location WHERE DATE(dl_receiveddate) BETWEEN '{$start}' AND '{$end}' AND dl_releasedbyunit = {$unit}");
-    echo row_count($prettyella);
-}
+// function get_released_dr($start, $end)
+// {
+//     $unit = $_SESSION['unit'];
+//     $prettyella = query("SELECT * FROM docs_location WHERE DATE(dl_receiveddate) BETWEEN '{$start}' AND '{$end}' AND dl_releasedbyunit = {$unit}");
+//     echo row_count($prettyella);
+// }
 
 function get_uploaded()
 {

@@ -297,7 +297,7 @@
         
             <div class="modal-body text-justify">
                 <p>You are unable to add documents at this moment.</p>
-                <p>This happens when you have unreleased / unaccomplished documents for more than 15 days. Accomplish them, first to regain access on adding documents.</p>
+                <p>This happens when you have unreleased / unaccomplished documents for more than 15 days. Accomplish them first to regain access on adding documents.</p>
                 <p>Please check your <a href="./?reports">reports</a> page to see the concerned documents.</p>
             </div>
             

@@ -47,8 +47,6 @@
                       <input type="checkbox" id="select-all-rel" data-toggle="tooltip" data-placement="left" title="Select All">&nbsp;&nbsp;</form></th>
                   <th class="text-center col-2">Tracking</th>
                   <th class="text-center col-7">Title</th>
-                  <!-- <th class="text-center">Type</th>
-                  <th class="text-center">Owner</th> -->
                   <th class="text-center col-1">Action</th>
                 </tr>
                 </thead>

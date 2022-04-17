@@ -54,6 +54,7 @@ $(document).ready(function() {
   "lengthMenu": [ [10, 25, 50, -1], [10, 25, 50, "All"] ],
   "responsive": true,
   "ordering": false,
+  "autoWidth": false,
   });
 
   $('#accdoctables').DataTable({
@@ -90,6 +91,7 @@ $(document).ready(function() {
     "lengthMenu": [ [10, 25, 50, -1], [10, 25, 50, "All"] ],
     "responsive": true,
     "ordering": false,
+    "autoWidth": false,
   });
 
   $('#releaseTable').DataTable({
