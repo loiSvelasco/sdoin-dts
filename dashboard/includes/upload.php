@@ -62,8 +62,7 @@
                 <tr>
                   <th class="text-center col-3">Filename</th>
                   <th class="text-center col-8">Title</th>
-                  <!-- <th class="text-center col-7">Released to</th> -->
-                  <th class="text-center col-1">Action</th>
+                  <!-- <th class="text-center col-1">Action</th> -->
                 </tr>
                 </thead>
                 <tbody>

@@ -467,7 +467,7 @@ function get_uploaded()
 
         $ellacutie = <<<ELLA
         <tr>
-            <td class="text-center">{$filename}</td>
+            <td class="text-center"><a href="./uploads/{$filename}" target="_blank">{$filename}</a></td>
             <td><a tabindex="0" class="btn btn-sm btn-default popover-dismiss" role="button" data-toggle="popover" data-html="true" data-trigger="focus" title="Document Details"
                 data-content="
                 Originating Office: {$uploadedUnit}
@@ -476,9 +476,9 @@ function get_uploaded()
                 <br>Date Uploaded: {$date}
                 <hr>Action:<br>{$action}
                 ">{$title}</a></td>
-            <td class="text-center">
+            <!-- <td class="text-center">
                 <a href="#" class="btn btn-sm btn-warning" data-toggle="tooltip" data-placement="left" title="Receive"><i class="fa fa-file-import"></i></a>
-            </td>
+            </td> -->
         </tr>
 ELLA;
         echo $ellacutie;

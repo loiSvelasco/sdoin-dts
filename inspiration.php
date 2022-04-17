@@ -19,7 +19,7 @@
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
 <body class="hold-transition login-page">
-<div class="login-box" style="width: 50%; !important">
+<div class="login-box" style="width: 90%; !important">
   <div class="display-4"> 
     <blockquote class="blockquote quote-red">
       <!-- <p class="lead">To the one that inspires me,</p> -->
