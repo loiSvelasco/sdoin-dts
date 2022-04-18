@@ -129,6 +129,15 @@ function format_date($date)
     return date("F j, Y, g:i a", strtotime($date));
 }
 
+function shortNumber($num) 
+{
+    $units = ['', 'K', 'M', 'B', 'T'];
+    for ($i = 0; $num >= 1000; $i++) {
+        $num /= 1000;
+    }
+    return round($num, 1) . $units[$i];
+}
+
 /*
  *
  *  FRONT END FUNCTIONS
@@ -423,29 +432,27 @@ function get_received_today()
 {
     $unit = $_SESSION['unit'];
     $prettyella = query("SELECT *, DATE_FORMAT(dl_receiveddate, '%Y-%m-%d')  FROM docs_location WHERE DATE(dl_receiveddate) = CURDATE() AND dl_unit = {$unit}");
-    echo row_count($prettyella);
+    echo shortNumber(row_count($prettyella));
 }
 
 function get_released_today()
 {
     $unit = $_SESSION['unit'];
     $prettyella = query("SELECT *, DATE_FORMAT(dl_releaseddate, '%Y-%m-%d')  FROM docs_location WHERE DATE(dl_releaseddate) = CURDATE() AND dl_releasedbyunit = {$unit}");
-    echo row_count($prettyella);
+    echo shortNumber(row_count($prettyella));
 }
 
-// function get_received_dr($start, $end)
-// {
-//     $unit = $_SESSION['unit'];
-//     $prettyella = query("SELECT * FROM docs_location WHERE DATE(dl_receiveddate) BETWEEN '{$start}' AND '{$end}' AND dl_unit = {$unit}");
-//     echo row_count($prettyella);
-// }
+function get_received_today_all()
+{
+    $prettyella = query("SELECT DISTINCT *, DATE_FORMAT(dl_receiveddate, '%Y-%m-%d')  FROM docs_location WHERE DATE(dl_receiveddate) = CURDATE()");
+    echo shortNumber(row_count($prettyella));
+}
 
-// function get_released_dr($start, $end)
-// {
-//     $unit = $_SESSION['unit'];
-//     $prettyella = query("SELECT * FROM docs_location WHERE DATE(dl_receiveddate) BETWEEN '{$start}' AND '{$end}' AND dl_releasedbyunit = {$unit}");
-//     echo row_count($prettyella);
-// }
+function get_released_today_all()
+{
+    $prettyella = query("SELECT DISTINCT *, DATE_FORMAT(dl_releaseddate, '%Y-%m-%d')  FROM docs_location WHERE DATE(dl_releaseddate) = CURDATE()");
+    echo shortNumber(row_count($prettyella));
+}
 
 function get_uploaded()
 {
@@ -659,4 +666,31 @@ function accomplished_details($today, $start = 0, $end = 0)
 ELLA;
         echo $ellacutie;
     }
+}
+
+function getNumUsers()
+{
+    $loveElla = query("SELECT * FROM users");
+    love($loveElla);
+
+    echo shortNumber(row_count($loveElla));
+}
+
+function getNumDocs()
+{
+    $loveElla = query("SELECT * FROM documents");
+    love($loveElla);
+
+    echo shortNumber(row_count($loveElla));
+}
+
+function getLapsedNumDocs()
+{
+    $wStmt = "SELECT DISTINCT dl_tracking, dl_forwarded, DATE(dl_receiveddate) AS 'receiveddate', document_accomplished FROM docs_location, documents ";
+    $wStmt .= "WHERE DATEDIFF(CURDATE(), DATE(dl_receiveddate)) >= 15 ";
+    $wStmt .= "AND document_accomplished = 0 AND dl_forwarded = 0";
+    $babyElla = query($wStmt);
+    love($babyElla); // QUERY FOR LAPSED DOCS
+
+    echo shortNumber(row_count($babyElla));
 }

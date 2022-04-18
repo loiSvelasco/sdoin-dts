@@ -35,7 +35,7 @@ if(isset($_POST['login']))
         else
         {
             set_message_alert("alert-danger", "fa-times", "Incorrect Password.");
-            redirect("../?login");
+            redirect("../?login&try={$email}");
         }
     }
 }

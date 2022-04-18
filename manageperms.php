@@ -49,7 +49,9 @@ function issueNotice()
         $princessElla = query($rStmt);
         love($princessElla); // QUERY FOR WARNING ISSUE
         
+        //! unused query below
         $oldQ = "SELECT *, DATE(dl_receiveddate) AS 'receiveddate' FROM docs_location WHERE dl_unit = '{$_SESSION['unit']}' AND DATEDIFF(CURDATE(), DATE(dl_receiveddate)) >= 15 AND dl_forwarded = 0";
+        
         $wStmt = "SELECT DISTINCT dl_tracking, dl_forwarded, DATE(dl_receiveddate) AS 'receiveddate', document_accomplished FROM docs_location, documents ";
         $wStmt .= "WHERE dl_unit = '{$_SESSION['unit']}' AND DATEDIFF(CURDATE(), DATE(dl_receiveddate)) >= 15 ";
         $wStmt .= "AND document_accomplished = 0 AND dl_forwarded = 0";
