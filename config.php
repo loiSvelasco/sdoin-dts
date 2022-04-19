@@ -20,5 +20,6 @@ date_default_timezone_set('Asia/Manila');
 require_once("functions.php"); // various functions for front-end generation
 require_once("managedoc.php"); // handles receiving, releasing, and accomplishing docs
 require_once("manageperms.php"); // handles when docs are lapsed
+require_once("administration.php"); // handles admin queries and functions
 
 ?>

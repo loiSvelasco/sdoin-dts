@@ -494,7 +494,7 @@ ELLA;
 
 function get_accomplished_count()
 {
-    $babyella = query("SELECT * FROM documents WHERE document_accomplished = 1 AND accomp_unit = '{$_SESSION['unit']}'");
+    $babyella = query("SELECT * FROM documents WHERE document_accomplished = 1 AND DATE(accomp_date) = CURDATE() AND accomp_unit = '{$_SESSION['unit']}'");
     love($babyella);
 
     echo row_count($babyella);

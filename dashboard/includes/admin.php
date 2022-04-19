@@ -34,7 +34,7 @@
               <div class="icon">
                 <i class="fas fa-envelope"></i>
               </div>
-              <a href="?received" target="_blank" class="small-box-footer">
+              <a href="?allReceived" target="_blank" class="small-box-footer">
                 More info&nbsp;&nbsp;&nbsp;<i class="fas fa-arrow-circle-right"></i>
               </a>
             </div>
@@ -51,7 +51,7 @@
               <div class="icon">
                 <i class="fas fa-reply"></i>
               </div>
-              <a href="?released" target="_blank" class="small-box-footer">
+              <a href="?allReleased" target="_blank" class="small-box-footer">
                 More info&nbsp;&nbsp;&nbsp;<i class="fas fa-arrow-circle-right"></i>
               </a>
             </div>
@@ -68,7 +68,7 @@
               <div class="icon">
                 <i class="fas fa-user"></i>
               </div>
-              <a href="#" class="small-box-footer">
+              <a href="?users" class="small-box-footer">
                 Manage Users&nbsp;&nbsp;&nbsp;<i class="fas fa-arrow-circle-right"></i>
               </a>
             </div>
