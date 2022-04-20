@@ -68,7 +68,7 @@
               <div class="icon">
                 <i class="fas fa-user"></i>
               </div>
-              <a href="?users" class="small-box-footer">
+              <a href="?users" target="_blank" class="small-box-footer">
                 Manage Users&nbsp;&nbsp;&nbsp;<i class="fas fa-arrow-circle-right"></i>
               </a>
             </div>
@@ -85,7 +85,7 @@
               <div class="icon">
                 <i class="fas fa-file"></i>
               </div>
-              <a href="?accomplished" target="_blank" class="small-box-footer">
+              <a href="?allDocs" target="_blank" class="small-box-footer">
                 More info&nbsp;&nbsp;&nbsp;<i class="fas fa-arrow-circle-right"></i>
               </a>
             </div>
@@ -102,7 +102,7 @@
               <div class="icon">
                 <i class="fas fa-times"></i>
               </div>
-              <a href="?accomplished" target="_blank" class="small-box-footer">
+              <a href="?lapsedDocs" target="_blank" class="small-box-footer">
                 More info&nbsp;&nbsp;&nbsp;<i class="fas fa-arrow-circle-right"></i>
               </a>
             </div>
@@ -114,34 +114,7 @@
           <?php //issueNotice(); ?>
         <!-- </div> -->
 
-        <div class="row">
-            <div class="col-12">
-              <div class="card-header border-warning bg-white">
-                <h3 class="card-title">All created Documents</h3>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body bg-white">
-                <div class="table-responsive-sm">
-                  <table id="doctables" class="table table-striped table-bordered table-hover table-sm">
-                    <thead>
-                      <tr>
-                        <th class="col-2">Tracking #</th>
-                        <th class="col-2">Title</th>
-                        <th class="col-2">Purpose</th>
-                        <th class="col-2">Type</th>
-                        <th class="col-2">Date Created</th>
-                        <th class="col">Owner</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                    <?php echo get_my_docs(); ?>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-              <!-- /.card-body -->
-            </div>
-        </div>
+
         <!-- /.row -->
         <div class="row">
             <div class="col-12">

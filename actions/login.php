@@ -19,14 +19,14 @@ if(isset($_POST['login']))
     {
         $row = fetch_assoc($sql);
         
-        $sql_ud = query("SELECT * FROM user_details WHERE ud_id = {$row['id']}");
+        $sql_ud = query("SELECT * FROM user_details WHERE id = {$row['id']}");
         confirm($sql_ud);
         $udRow = fetch_assoc($sql_ud);
 
         if(password_verify($password, $row['password']))
         {
             $_SESSION['user']    = $row['email'];
-            $_SESSION['user_id'] = $udRow['ud_id'];
+            $_SESSION['user_id'] = $udRow['id'];
             $_SESSION['unit']    = $udRow['ud_unit'];
             $_SESSION['role']    = $row['role'];
             $_SESSION['timestamp'] = time();

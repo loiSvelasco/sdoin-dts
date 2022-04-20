@@ -22,7 +22,7 @@ if(isset($_SESSION['timestamp']))
     }
 }
 
-if(isset($_GET['upload']))
+if(isset($g_upload))
 {
     if($_SESSION['role'] == 2 || 
     $_SESSION['role'] == 1 || 
@@ -65,18 +65,38 @@ if(isset($g_admin))
     }    
 }
 
-if(isset($g_allReceived) && $_SESSION['role'] == 1)
+if(isset($g_allReceived))
 {
+    if($_SESSION['role'] != 1)
+        redirect("./?documents");
     include("includes/allReceived.php");
 }
 
-if(isset($g_allReleased) && $_SESSION['role'] == 1)
+if(isset($g_allReleased))
 {
+    if($_SESSION['role'] != 1)
+        redirect("./?documents");
     include("includes/allReleased.php");
+}
+
+iF(isset($g_allDocs))
+{
+    if($_SESSION['role'] != 1)
+        redirect("./?documents");
+    include("includes/allDocs.php");
+}
+
+if(isset($g_lapsedDocs))
+{
+    if($_SESSION['role'] != 1)
+        redirect("./?documents");
+    include("includes/lapsedDocs.php");
 }
 
 if(isset($g_users))
 {
+    if($_SESSION['role'] != 1)
+        redirect("./?documents");
     include("includes/users.php");
 }
 
@@ -137,12 +157,12 @@ if(isset($g_manipulate))
 
 if(isset($g_print))
 {
-    redirect("print/barcode.php?tracking=" . escape_string($_GET['print']));
+    redirect("print/barcode.php?tracking=" . escape_string($g_print));
 }
 
 if(isset($g_view) && isset($g_file))
 {
-    redirect("uploads/".escape_string($_GET['file']));
+    redirect("uploads/".escape_string($g_file));
 }
 
 include("includes/modals.php");

@@ -258,7 +258,7 @@ function get_document_detail($tracking, $index)
 
 function get_user_name($id)
 {
-    $printetella = query("SELECT * FROM user_details WHERE ud_id = {$id}");
+    $printetella = query("SELECT * FROM user_details WHERE id = {$id}");
     confirm($printetella);
     
     $row = fetch_assoc($printetella);

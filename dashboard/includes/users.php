@@ -25,6 +25,33 @@
       </div>
       <div class="row">
 
+            <div class="col-12">
+              <div class="card-header border-warning bg-white">
+                <h3 class="card-title">Manage Users</h3>
+              </div>
+
+              <div class="card-body bg-white">
+                <table id="reportTable" class="table table-bordered table-sm table-hover table-responsive-xl">
+                  <thead>
+                  <tr>
+                    <th class="col-1">#</th>
+                    <th class="col-2">Email</th>
+                    <th class="col-2">Full Name</th>
+                    <th class="col-2">Role</th>
+                    <th class="col-2">Unit</th>
+                    <th class="col">Action</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <?php
+                    allUsers();
+                  ?>
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+
       </div>
     </div>
   </div>

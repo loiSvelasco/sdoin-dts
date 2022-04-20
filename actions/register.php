@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 require("../config.php");
 
@@ -30,10 +30,10 @@ if(isset($_POST['register']))
         $insert_users = query("INSERT INTO users (email, password, reset) VALUES ('{$email}', '{$hashed_pwd}', '{$reset}')");
         $last_id = last_id();
         confirm($insert_users);
-    
-        $insert_user_d = query("INSERT INTO user_details (ud_id, ud_unit, ud_name) VALUES ('{$last_id}', '{$unit}', '{$fullname}')");
+
+        $insert_user_d = query("INSERT INTO user_details (ud_unit, ud_name) VALUES ('{$unit}', '{$fullname}')");
         confirm($insert_user_d);
-    
+
         set_message_alert("alert-success", "fa-check", "Account created! sign in below.");
         redirect("../?login");
     }
