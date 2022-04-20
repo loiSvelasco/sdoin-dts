@@ -113,6 +113,15 @@ $(document).ready(function() {
     "responsive": true,
   });
 
+  $('#adminTables').DataTable({
+    "paging": true,
+    "searching": true,
+    "ordering": true,
+    "info": true,
+    "autoWidth": false,
+    "responsive": true,
+  });
+
   $('#uploadedDocsTable').DataTable({
     "paging": true,
     "lengthChange": false,

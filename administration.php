@@ -90,17 +90,19 @@ function allUsers()
         $id = $row['id'];
         $email = $row['email'];
         $name = $row['ud_name'];
-        $role = $row['role'];
+        $role = $row['role'] == 1 ? 'Admin' : ($row['role'] == 2 ? 'Special Access' : 'Regular');
         $unit = get_unit_name($row['ud_unit']);
 
         $ellacutie = <<<ELLA
         <tr>
-            <td>{$id}</td>
-            <td>{$email}</td>
-            <td>{$name}</td>
-            <td>{$role}</td>
-            <td>{$unit}</td>
-            <td></td>
+            <td class="align-middle text-center">{$id}</td>
+            <td class="align-middle">{$email}</td>
+            <td class="align-middle">{$name}</td>
+            <td class="align-middle">{$role}</td>
+            <td class="align-middle">{$unit}</td>
+            <td class="align-middle text-center">
+                <a href="?modify={$id}" target="_blank" data-toggle="tooltip" data-placement="left" title="Modify"><i class="fa fa-cog"></i></a>&nbsp;&nbsp;
+            </td>
         </tr>
 ELLA;
         echo $ellacutie;
@@ -136,7 +138,9 @@ function allDocs()
             <td class="align-middle">{$doctype}</td>
             <td class="align-middle">{$date}</td>
             <td class="align-middle">{$owner}</td>
-            <td class="align-middle"></td>
+            <td class="align-middle text-center">
+            <a href="?modifyDoc={$tracking}" target="_blank" data-toggle="tooltip" data-placement="left" title="Modify"><i class="fa fa-cog"></i></a>&nbsp;&nbsp;
+            </td>
         </tr>
 ELLA;
         echo $ellacutie;

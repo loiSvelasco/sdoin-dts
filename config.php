@@ -11,7 +11,7 @@ define("DB_NAME", "sdoin_dts");
 $connection = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 $numQueries = 0;
 
-define("HOST", $_SERVER['HTTP_HOST']);
+define("HOST", $_SERVER['HTTP_HOST'] . "/sdoin-dts/");
 define("URI", $_SERVER['REQUEST_URI']);
 define("URL", HOST . URI);
 
