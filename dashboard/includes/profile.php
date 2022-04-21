@@ -28,23 +28,18 @@
               <div class="card-body">
               <form action="actions/changepwd.php" method="post" oninput="newPass1.setCustomValidity(newPass1.value != newPass.value ? 'Passwords do not match.' : '')">
                 <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroup-sizing-default">Current Password</span>
-                  </div>
-                  <input type="password" class="form-control" aria-label="Sizing example input" name="currPass" aria-describedby="inputGroup-sizing-default" required>
+                  <input type="password" class="form-control" placeholder="Current Password" aria-label="Sizing example input" name="currPass" aria-describedby="inputGroup-sizing-default" required>
                 </div>
                 <hr>
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroup-sizing-default">New Password</span>
                   </div>
-                  <input type="password" class="form-control" aria-label="Sizing example input" name="newPass" aria-describedby="inputGroup-sizing-default" required>
+                  <input type="password" class="form-control" placeholder="New Password" aria-label="Sizing example input" name="newPass" aria-describedby="inputGroup-sizing-default" required>
                 </div>
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroup-sizing-default">Confirm</span>
                   </div>
-                  <input type="password" class="form-control" aria-label="Sizing example input" name="newPass1"aria-describedby="inputGroup-sizing-default" required>
+                  <input type="password" class="form-control" placeholder="Confirm Password" aria-label="Sizing example input" name="newPass1"aria-describedby="inputGroup-sizing-default" required>
                 </div>
                 <button type="submit" class="btn btn-success btn-block"><i class="fa fa-save"></i>&nbsp;&nbsp;&nbsp;Save</button>
               </form>
