@@ -12,7 +12,7 @@ extract($_GET, EXTR_PREFIX_ALL, "g");
 
 if(isset($_SESSION['timestamp']))
 {
-    if(time() - $_SESSION['timestamp'] > 900)
+    if(time() - $_SESSION['timestamp'] > 1500)
     {
         redirect("?logout");
     }

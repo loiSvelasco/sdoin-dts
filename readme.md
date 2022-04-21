@@ -18,8 +18,7 @@ An added feature of the eDTS is the ability for users to scan the documents to a
     - [Printing of sdoin-dts tracking number](#printing-of-sdoin-dts-tracking-number)
     - [Uploading digital copies (Only applicable to OSDS, SGOD, CID units)](#uploading-of-documents)
 - [Receiving and Releasing](#3-receiving-and-releasing)
-    - [Receiving and releasing single documents](#receiving-and-releasing-single-documents)
-    - [Receiving and releasing multiple documents](#receiving-and-releasing-multiple-documents)
+    - [Receiving and releasing documents](#receiving-and-releasing-documents)
     - [Scanning barcode to receive document](#scanning-barcode-to-receive-document)
     - [Marking documents as accomplished](#marking-documents-as-accomplished)
 - [Report generation](#4-report-generation)
@@ -43,7 +42,7 @@ Fields needed to create an account is a valid e-mail address, full name, school 
 
 ### **Signing in**
 
-This does not need any additional explanation. Although, keep in mind that when signed in and you have been inactive for 15 minutes, you will automatically be logged out for security purposes.
+This does not need any additional explanation. Although, keep in mind that when signed in and you have been inactive for 25 minutes, you will automatically be logged out for security purposes.
 
 ### **Requesting for a new password**
 
@@ -100,10 +99,29 @@ Filetype supported: ``PDF``, maximum file size is 10MB.
 
 Receiving and releasing is the main focus of this project, it provides data on how documents are being processed and also provides a map of when and where documents are received.
 
-### **Receiving and releasing single documents**
-### **Receiving and releasing multiple documents**
+### **Receiving and releasing documents**
+
+The table view for receiving and releasing documents is found on the left sidebar menu on the user's dashboard. The table consist of 3 columns:
+- Checkbox
+    - This allows the user to select a multiple documents to receive or release at once.
+- Document title
+- Action
+    - The receiving table only has a receive action, while the release table has 2 actions:
+        - Release
+        - Mark as accomplished
+> **Note:** Mark as accomplished is only available for documents that are already received.
+> Marking multiple documents as accomplished is not supported as this action is irreversible.
+
+
 ### **Scanning barcode to receive document**
+
+Scanning to receive is supported, in this page, a textbox is provided to read the code from the scanner. When scanning, make sure the *caret* is on the textbox for proper functionality. Along with this, a quick release table is provided, which allows the user to quickly release the document if needed.
+
+
 ### **Marking documents as accomplished**
+
+This function is mainly used for the purpose of making the release table **clean**, by removing completed documents from the table and putting them in a different table.
+
 ## **4. Report generation**
 ### **Per-day generation**
 ### **Date-range generation**
