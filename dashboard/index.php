@@ -161,7 +161,7 @@ if($_SERVER['REQUEST_URI'] == "/sdoin-dts/dashboard/") {
 } else if (isset($_GET['logout'])) {
     include("actions/logout.php");
 }
- // if needed, ad more else ifs here
+ // if needed, add more else ifs here
 else 
 {
     switch($_SERVER['QUERY_STRING'])
@@ -241,14 +241,14 @@ else
         case 'scanrec':
             include("includes/scanrec.php");
             break;
+        case '404':
+            include("includes/404.php");
+            break;
         default:
-            set_message_alert("alert-warning", "fa-exclamation", "No page found. Redirected you to Receiving and Releasing.");
-            redirect("./?documents");
+            redirect("./?404");
             break;
     }
 }
 
 include("includes/modals.php");
-include("includes/footer.php"); 
-
-?>
+include("includes/footer.php");
