@@ -123,10 +123,21 @@ Scanning to receive is supported, in this page, a textbox is provided to read th
 This function is mainly used for the purpose of making the release table **clean**, by removing completed documents from the table and putting them in a different table.
 
 ## **4. Report generation**
+
+This is the main output of the system.
+
 ### **Per-day generation**
+
+On the reports page, 4 cards are displayed below the title bar **Received, Released, To Receive, and Accomplished Documents** The numbers displayed are of the current date.*
+
+
 ### **Date-range generation**
+
+Clicking on `more info` found under the cards redirects the user on a page with a date-range selector, when selected and submitted, it returns all actions within the selected date.
+
 ### **Keeping track of all created documents**
 
+This table shows all created documents regardless if accomplished or not.
 
 ---
 #### This manual is written by Louis Velasco
