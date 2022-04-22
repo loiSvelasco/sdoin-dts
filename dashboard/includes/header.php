@@ -49,6 +49,11 @@
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
 <body class="hold-transition sidebar-mini sidebar-collapse">
+<!-- <div id="loading" class="spinner-border text-info" style="position:absolute; top:0; left:0; height:100%; width:100%; z-index:9999999;"></div> -->
+<div id="loading" style="position:absolute; width:100%; height: 100%; z-index:999; background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.1) 0%);">
+  <div class="spinner-border text-info" style="position:absolute; width: 6rem; height: 6rem; top:0;bottom:0;left:0;right:0;margin:auto;max-width:100%;max-height:100%;overflow:auto;"></div>
+</div>
+
 <!-- <body class="hold-transition sidebar-mini"> -->
 <div class="wrapper">
 
