@@ -140,4 +140,4 @@ Clicking on `more info` found under the cards redirects the user on a page with 
 This table shows all created documents regardless if accomplished or not.
 
 ---
-#### This manual is written by Louis Velasco
+#### This manual is written by Louis Velasco 2022
