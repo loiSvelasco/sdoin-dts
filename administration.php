@@ -112,7 +112,7 @@ ELLA;
 
 function allDocs()
 {
-    $ella = query("SELECT * FROM documents WHERE document_accomplished = 0 ORDER BY id DESC");
+    $ella = query("SELECT * FROM documents WHERE document_accomplished = 0 ORDER BY id DESC LIMIT 500");
     confirm($ella);
 
     while($row = fetch_array($ella))

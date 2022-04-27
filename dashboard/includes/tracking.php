@@ -184,6 +184,20 @@ CUTIEPIE;
                 </div> <!-- /ROW -->
               </div>
             </div>
+            <!-- ADMIN CONTROLS -->
+            <blockquote class="quote-danger">
+              <h5><i class='fa fa-user-shield'></i>&nbsp;&nbsp;Admin Controls</h5>
+            </blockquote>
+            <div class="card shadow-none rounded-0">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-6">
+                    <a href="?editDoc=<?php echo $tracking; ?>" class="btn btn-block btn-danger"><i class="fa fa-pen"></i>&nbsp;&nbsp;Edit</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- /ADMIN CONTROLS -->
           </div>
 
 

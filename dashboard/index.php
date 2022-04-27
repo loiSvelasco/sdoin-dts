@@ -32,6 +32,8 @@ if($_SERVER['REQUEST_URI'] == "/sdoin-dts/dashboard/") {
     include("includes/tracking.php");
 } else if (isset($_GET['logout'])) {
     include("actions/logout.php");
+} else if (isset($_GET['editDoc'])) {
+    include("includes/editDoc.php");
 }
  // if needed, add more else ifs here
 else 

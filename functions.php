@@ -502,7 +502,7 @@ function get_accomplished_count()
 
 function get_accomplished_docs()
 {
-    $babyella = query("SELECT * FROM documents WHERE document_accomplished = 1 AND accomp_unit = '{$_SESSION['unit']}'");
+    $babyella = query("SELECT * FROM documents WHERE document_accomplished = 1 AND accomp_unit = '{$_SESSION['unit']}' ORDER BY id DESC LIMIT 100");
     love($babyella);
 
     if(row_count($babyella) >= 1)
