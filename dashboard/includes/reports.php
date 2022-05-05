@@ -103,11 +103,11 @@
         </div>
 
         <div class="row">
-            <div class="col-12">
+          <div class="col-12">
+            <div class="card">
               <div class="card-header border-warning bg-white">
                 <h3 class="card-title">All created Documents</h3>
               </div>
-              <!-- /.card-header -->
               <div class="card-body bg-white">
                 <div class="table-responsive-sm">
                   <table id="doctables" class="table table-striped table-bordered table-hover table-sm">
@@ -126,13 +126,14 @@
                     </tbody>
                   </table>
                 </div>
-              </div>
-              <!-- /.card-body -->
+              </div><!-- /.card-body -->
             </div>
+          </div>
         </div>
         <!-- /.row -->
         <div class="row">
-            <div class="col-12">
+          <div class="col-12">
+            <div class="card">
               <div class="card-header border-success bg-white">
                 <h3 class="card-title">All Accomplished Documents</h3>
               </div>
@@ -155,10 +156,9 @@
                     </tbody>
                   </table>
                 </div>
-              </div>
-              <!-- /.card-body -->
-              <div class="card-footer"></div>
+              </div><!-- /.card-body -->
             </div>
+          </div>
         </div>
       </div><!-- /.container-fluid -->
     </div>

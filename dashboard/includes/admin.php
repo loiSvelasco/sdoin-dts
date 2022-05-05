@@ -117,7 +117,8 @@
 
         <!-- /.row -->
         <div class="row">
-            <div class="col-12">
+          <div class="col-12">
+            <div class="card">
               <div class="card-header border-success bg-white">
                 <h3 class="card-title">All Accomplished Documents</h3>
               </div>
@@ -143,6 +144,7 @@
               </div>
               <!-- /.card-body -->
             </div>
+          </div>
         </div>
       </div><!-- /.container-fluid -->
     </div>

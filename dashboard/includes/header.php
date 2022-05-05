@@ -14,7 +14,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-  <title>eDTS | Dashboard</title>
+  <title><?php echo DASHBOARD_TITLE ?></title>
 
   <!-- Font Awesome Icons -->
   <!-- <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css"> -->

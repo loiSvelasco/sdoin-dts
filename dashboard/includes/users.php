@@ -23,9 +23,9 @@
       <div class="container-fluid">
       <?php display_notice();?>
       </div>
-      <div class="row">
-
-            <div class="col-6">
+        <div class="row">
+          <div class="col-6">
+            <div class="card">
               <div class="card-header border-info bg-white">
                 <h3 class="card-title">Manage Users</h3>
               </div>
@@ -49,16 +49,17 @@
                   </tbody>
                 </table>
               </div>
-              <!-- /.card-body -->
             </div>
+            <!-- /.card-body -->
+          </div>
 
-            <div class="col-6">
+          <div class="col-6">
+            <div class="card">
               <div class="card-header border-info bg-white">
                 <h3 class="card-title">Add a user</h3>
               </div>
-
+  
               <div class="card-body bg-white">
-                
                 <form action="actions/register.php" method="post" oninput="password2.setCustomValidity(password2.value != password.value ? 'Passwords do not match.' : '')">
                   <div class="input-group mb-3">
                     <input type="text" class="form-control" placeholder="Full name" name="fullname" required autofocus>
@@ -132,11 +133,10 @@
                     <!-- /.col -->
                   </div>
                 </form>
-
               </div>
               <!-- /.card-body -->
             </div>
-
+          </div>
       </div>
     </div>
   </div>

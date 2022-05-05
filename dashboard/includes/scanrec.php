@@ -31,7 +31,7 @@
       </div>
 
       <div class="col-12">
-              <!-- <div class="card"> -->
+        <div class="card">
           <div class="card-header bg-white">
             <h3 class="card-title">
             <button type="button" class="btn btn-sm btn-flat btn-info" data-toggle="modal" data-target="#modal-release-multi-doc" form="release" name="rel-selected">Release Selected</button>
@@ -54,9 +54,8 @@
                     <?php echo get_to_release(); ?>
                 </tbody>
               </table>
-              
+            </div><!-- /.card-body -->
           </div>
-          <!-- /.card-body -->
         </div>
       </div>
 

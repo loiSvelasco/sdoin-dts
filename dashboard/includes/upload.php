@@ -53,22 +53,24 @@
             </div>
           </div>
           <div class="col-12 col-lg-9">
-            <div class="card-header border-danger bg-white">
-              Uploaded Documents
-            </div>
-            <div class="card-body bg-white">
-              <table class="table table-bordered table-striped table-hover" id="uploadedDocsTable">
-                <thead>
-                <tr>
-                  <th class="text-center col-3">Filename</th>
-                  <th class="text-center col-8">Title</th>
-                  <!-- <th class="text-center col-1">Action</th> -->
-                </tr>
-                </thead>
-                <tbody>
-                  <?php echo get_uploaded(); ?>
-                </tbody>
-              </table>
+            <div class="card">
+              <div class="card-header border-danger bg-white">
+                Uploaded Documents
+              </div>
+              <div class="card-body bg-white">
+                <table class="table table-bordered table-striped table-hover" id="uploadedDocsTable">
+                  <thead>
+                  <tr>
+                    <th class="text-center col-3">Filename</th>
+                    <th class="text-center col-8">Title</th>
+                    <!-- <th class="text-center col-1">Action</th> -->
+                  </tr>
+                  </thead>
+                  <tbody>
+                    <?php echo get_uploaded(); ?>
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
         </div>

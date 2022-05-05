@@ -267,7 +267,7 @@ function get_user_name($id)
 
 function get_my_docs()
 {
-    $ella = query("SELECT * FROM documents WHERE document_origin = {$_SESSION['unit']} AND document_accomplished = 0 ORDER BY id DESC");
+    $ella = query("SELECT * FROM documents WHERE document_origin = {$_SESSION['unit']} AND document_accomplished = 0 ORDER BY id DESC LIMIT " . DOC_QUERY_LIMIT);
     confirm($ella);
 
     while($row = fetch_array($ella))
@@ -312,7 +312,7 @@ function get_doc_current_location($tracking)
     }
     else
     {
-        // throw an error
+        return null;
     }
 }
 
@@ -502,7 +502,7 @@ function get_accomplished_count()
 
 function get_accomplished_docs()
 {
-    $babyella = query("SELECT * FROM documents WHERE document_accomplished = 1 AND accomp_unit = '{$_SESSION['unit']}' ORDER BY id DESC LIMIT 100");
+    $babyella = query("SELECT * FROM documents WHERE document_accomplished = 1 AND accomp_unit = '{$_SESSION['unit']}' ORDER BY id DESC LIMIT " . ACC_QUERY_LIMIT);
     love($babyella);
 
     if(row_count($babyella) >= 1)
@@ -693,4 +693,34 @@ function getLapsedNumDocs()
     love($babyElla); // QUERY FOR LAPSED DOCS
 
     echo shortNumber(row_count($babyElla));
+}
+
+function docExists($tracking)
+{
+    $babyElla = query("SELECT * FROM documents WHERE document_tracking = '{$tracking}' LIMIT 1");
+    love($babyElla);
+
+    if(row_count($babyElla) == 1)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+function isAccomplished($tracking)
+{
+    $babyElla = query("SELECT * FROM documents WHERE document_tracking = '{$tracking}' LIMIT 1");
+    love($babyElla);
+    
+    $row = fetch_assoc($babyElla);
+    
+    if( ! $row['document_accomplished'])
+    {
+        return false;
+    }
+
+    return true;
 }
