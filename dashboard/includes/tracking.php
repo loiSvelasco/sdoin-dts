@@ -185,18 +185,28 @@ CUTIEPIE;
               </div>
             </div>
             <!-- ADMIN CONTROLS -->
-            <blockquote class="quote-danger">
-              <h5><i class='fa fa-user-shield'></i>&nbsp;&nbsp;Admin Controls</h5>
-            </blockquote>
-            <div class="card shadow-none rounded-0">
-              <div class="card-body">
-                <div class="row">
-                  <div class="col-md-6">
-                    <a href="?editDoc=<?php echo $tracking; ?>" class="btn btn-block btn-danger"><i class="fa fa-pen"></i>&nbsp;&nbsp;Edit</a>
+            <?php if ($found): ?>
+              <?php if ($_SESSION['role'] <= 2): ?>
+                <blockquote class="quote-info">
+                  <h5><i class='fa fa-user-shield'></i>&nbsp;&nbsp;Admin Controls</h5>
+                </blockquote>
+                <div class="card shadow-none rounded-0">
+                  <div class="card-body">
+                    
+                    <div class="row">
+                      <div class="col-md-6">
+                        <a href="?editDoc=<?php echo $tracking; ?>" class="btn btn-block btn-primary"><i class="fa fa-pen"></i>&nbsp;&nbsp;Edit</a>
+                      </div>
+                      <?php if ($_SESSION['role'] == 1): ?>
+                        <div class="col-md-6">
+                          <a href="?purgeDoc=<?php echo $tracking; ?>" class="btn btn-block btn-danger"><i class="fa fa-fire"></i>&nbsp;&nbsp;Purge</a>
+                        </div>
+                      <?php endif; ?>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </div>
+              <?php endif; ?>
+            <?php endif; ?>
             <!-- /ADMIN CONTROLS -->
           </div>
 

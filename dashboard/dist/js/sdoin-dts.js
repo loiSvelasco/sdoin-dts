@@ -211,3 +211,20 @@ $('#complete-doc').on('show.bs.modal', function(e) {
   $(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
   $('.debug-url').html('Debug URL: <strong>' + $(this).find('.btn-ok').attr('href') + '</strong>');
 });
+
+$(document).ready(function() {
+  $('#adminTables').on('click','.modifyUser', function() {
+      $('#modify-user').modal('show');
+      $tr = $(this).closest('tr');
+      var data = $tr.children("td").map(function() {
+          return $(this).text();
+      }).get();
+      console.log(data);
+      
+      $('#userID').val(data[0]);
+      $('#userMail').val(data[1]);
+      $('#userFname').val(data[2]);
+      $('#userRole').val(data[4]);
+      $('#userUnit').val(data[6]);
+  });
+});

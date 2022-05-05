@@ -717,10 +717,21 @@ function isAccomplished($tracking)
     
     $row = fetch_assoc($babyElla);
     
-    if( ! $row['document_accomplished'])
+    if($row['document_accomplished'] == 1)
     {
-        return false;
+        return true;
     }
 
-    return true;
+    return false;
+}
+
+function exists($id, $table)
+{
+    $babyElla = query("SELECT * FROM {$table} WHERE id = '{$id}' LIMIT 1");
+    love($babyElla);
+
+    if(row_count($babyElla) == 1)
+        return true;
+    else
+        return false;
 }

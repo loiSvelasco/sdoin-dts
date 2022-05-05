@@ -32,7 +32,7 @@ if(isset($_POST['register']))
         $last_id = last_id();
         confirm($insert_users);
 
-        $insert_user_d = query("INSERT INTO user_details (ud_unit, ud_name) VALUES ('{$unit}', '{$fullname}')");
+        $insert_user_d = query("INSERT INTO user_details (id, ud_unit, ud_name) VALUES ('{$last_id}', '{$unit}', '{$fullname}')");
         confirm($insert_user_d);
 
         set_message_alert("alert-success", "fa-check", "Account created!");

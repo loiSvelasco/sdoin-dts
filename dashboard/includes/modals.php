@@ -307,3 +307,78 @@
         </div>
     </div>
 </div>
+
+<div class="modal fade" id="modify-user" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="LOIPOGI" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        
+            <div class="modal-header">
+                <h4 class="modal-title" id="LOIPOGI">Edit User</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+        
+            <div class="modal-body text-justify">
+                <form action="actions/modifyUser.php" method="post">
+                    <input type="hidden" class="form-control" placeholder="ID" id="userID" name="userID" required>
+                    <input type="hidden" name="referer" value="<?php echo URI; ?>">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Full name" id="userFname" name="fullname" required autofocus>
+                        <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-user"></span>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="email" class="form-control" placeholder="Email" id="userMail" name="email" required>
+                        <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-envelope"></span>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <select class="form-control select2" placeholder="School/Unit" id="userUnit" name="unit" required>
+                            <option value="" disabled selected hidden>School / Unit</option>
+                            <optgroup label="Division Office">
+                            <?php get_unit_do(); ?>
+                            </optgroup>
+                            <optgroup label="Public Schools">
+                            <?php get_unit_public(); ?>
+                            </optgroup>
+                            <optgroup label="Private Schools">
+                            <?php get_unit_private(); ?>
+                            </optgroup>
+                        </select>
+                        <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-school"></span>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <select class="form-control select2" placeholder="Role" id="userRole" name="role" required>
+                            <option value="" disabled selected hidden>Role</option>
+                            <option value="1">Administrator</option>
+                            <option value="2">Special Access</option>
+                            <option value="3">Regular User</option>
+                        </select>
+                        <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-user-shield"></span>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <!-- /.col -->
+                        <div class="col-12 mb-3">
+                        <button type="submit" class="btn btn-success btn-block" name="register"><i class="fa fa-save"></i>&nbsp;&nbsp;&nbsp;Update User</button>
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>

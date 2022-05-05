@@ -99,9 +99,13 @@ function allUsers()
             <td class="align-middle">{$email}</td>
             <td class="align-middle">{$name}</td>
             <td class="align-middle">{$role}</td>
+            <td class="align-middle d-none">{$row['role']}</td>
             <td class="align-middle">{$unit}</td>
+            <td class="align-middle d-none">{$row['ud_unit']}</td>
             <td class="align-middle text-center">
-                <a href="?modify={$id}" target="_blank" data-toggle="tooltip" data-placement="left" title="Modify"><i class="fa fa-cog"></i></a>&nbsp;&nbsp;
+                <span data-toggle="tooltip" data-placement="left" title="Modify">
+                    <a href="?modify={$id}" class="modifyUser" target="_blank" data-toggle="modal" data-target="#modify-user"><i class="fa fa-cog"></i></a>
+                </span>
             </td>
         </tr>
 ELLA;
@@ -139,7 +143,7 @@ function allDocs()
             <td class="align-middle">{$date}</td>
             <td class="align-middle">{$owner}</td>
             <td class="align-middle text-center">
-            <a href="?modifyDoc={$tracking}" target="_blank" data-toggle="tooltip" data-placement="left" title="Modify"><i class="fa fa-cog"></i></a>&nbsp;&nbsp;
+            <a href="?editDoc={$tracking}" target="_blank" data-toggle="tooltip" data-placement="left" title="Modify"><i class="fa fa-cog"></i></a>&nbsp;&nbsp;
             </td>
         </tr>
 ELLA;

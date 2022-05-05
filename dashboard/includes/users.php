@@ -24,7 +24,7 @@
       <?php display_notice();?>
       </div>
         <div class="row">
-          <div class="col-6">
+          <div class="col-8">
             <div class="card">
               <div class="card-header border-info bg-white">
                 <h3 class="card-title">Manage Users</h3>
@@ -33,14 +33,16 @@
               <div class="card-body bg-white">
                 <table id="adminTables" class="table table-bordered table-sm table-hover table-responsive-xl">
                   <thead>
-                  <tr>
-                    <th class="col-1 text-center">#</th>
-                    <th class="col-3">Email</th>
-                    <th class="col-3">Full Name</th>
-                    <th class="col-2">Role</th>
-                    <th class="col-2">Unit</th>
-                    <th class="col text-center">Action</th>
-                  </tr>
+                    <tr>
+                      <th class="col-1 text-center">#</th>
+                      <th class="col-3">Email</th>
+                      <th class="col-3">Full Name</th>
+                      <th class="col-2">Role</th>
+                      <th class="d-none">Role</th>
+                      <th class="col-2">Unit</th>
+                      <th class="d-none">Unit</th>
+                      <th class="col text-center">Action</th>
+                    </tr>
                   </thead>
                   <tbody>
                   <?php
@@ -53,7 +55,7 @@
             <!-- /.card-body -->
           </div>
 
-          <div class="col-6">
+          <div class="col-4">
             <div class="card">
               <div class="card-header border-info bg-white">
                 <h3 class="card-title">Add a user</h3>
