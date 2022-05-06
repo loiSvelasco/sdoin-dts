@@ -143,7 +143,7 @@ function allDocs()
             <td class="align-middle">{$date}</td>
             <td class="align-middle">{$owner}</td>
             <td class="align-middle text-center">
-            <a href="?editDoc={$tracking}" target="_blank" data-toggle="tooltip" data-placement="left" title="Modify"><i class="fa fa-cog"></i></a>&nbsp;&nbsp;
+            <a href="?editDoc={$tracking}" target="_blank" data-toggle="tooltip" data-placement="left" title="Modify"><i class="fa fa-cog"></i></a>
             </td>
         </tr>
 ELLA;
@@ -180,7 +180,11 @@ function allLapsedDocs()
             <td class="align-middle">{$doctype}</td>
             <td class="align-middle">{$date}</td>
             <td class="align-middle">{$currentLoc}</td>
-            <td class="align-middle"></td>
+            <td class="align-middle text-center">
+                <span data-toggle="tooltip" data-placement="left" title="Purge">
+                    <a href="?purgeDoc={$tracking}" class="text-danger"><i class="fa fa-fire"></i></a>
+                </span>
+            </td>
         </tr>
 ELLA;
         echo $ellacutie;

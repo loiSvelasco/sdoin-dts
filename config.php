@@ -3,7 +3,7 @@
      * 
      * AUTHOR:      LOUIS EUSEBIUS SUPERFICIAL VELASCO
      * DATE:        MAY 2022
-     * PROJECT:     IMPROVED DOCUMENT TRACKING SYSTEM FOR SDOIN
+     * PROJECT:     ENHANCED DOCUMENT TRACKING SYSTEM FOR SDOIN
      * 
      */
     session_start();
@@ -59,10 +59,10 @@
     $connection = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME);
     $numQueries = 0;
 
-    define("HOST", $_SERVER['HTTP_HOST'] . "/sdoin-dts/");
+    define("HOST",      $_SERVER['HTTP_HOST'] . "/sdoin-dts/");
     define("BASE_HOST", $_SERVER['HTTP_HOST']);
-    define("URI", $_SERVER['REQUEST_URI']);
-    define("URL", HOST . URI);
+    define("URI",       $_SERVER['REQUEST_URI']);
+    define("URL",       HOST . URI);
 
     date_default_timezone_set('Asia/Manila');
 

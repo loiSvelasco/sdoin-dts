@@ -25,9 +25,9 @@
         <div class="input-group mb-3">
           <select class="form-control select2" placeholder="School/Unit" name="unit" required>
               <option value="" disabled selected hidden>School / Unit</option>
-              <optgroup label="Division Office">
+              <!-- <optgroup label="Division Office">
                 <?php get_unit_do(); ?>
-              </optgroup>
+              </optgroup> -->
               <optgroup label="Public Schools">
                 <?php get_unit_public(); ?>
               </optgroup>

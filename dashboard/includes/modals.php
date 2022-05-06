@@ -263,7 +263,7 @@
 <!-- /.modal -->
 
 <div class="modal fade" id="complete-doc" tabindex="-1" role="dialog" aria-labelledby="LOIPOGI" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog">
         <div class="modal-content">
         
             <div class="modal-header">
