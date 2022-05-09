@@ -46,33 +46,35 @@
             </div>
 
             <div class="col-12">
-              <div class="card-header border-warning bg-white">
-                <h3 class="card-title">All Received Documents</h3>
+              <div class="card">
+                <div class="card-header border-warning bg-white">
+                  <h3 class="card-title">All Received Documents</h3>
+                </div>
+  
+                <div class="card-body bg-white">
+                  <table id="reportTable" class="table table-bordered table-sm table-hover table-responsive-xl">
+                    <thead>
+                    <tr>
+                      <th class="col-2">Tracking #</th>
+                      <th class="col-2">Title</th>
+                      <th class="col-2">Purpose</th>
+                      <th class="col-2">Type</th>
+                      <th class="col-2">Date Created</th>
+                      <th class="col">Received by</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php
+                      isset($_GET['startDate']) ? $start = escape_string($_GET['startDate']) : $start = 0;
+                      isset($_GET['endDate']) ? $end = escape_string($_GET['endDate']) : $end = 0;
+                      isset($_GET['startDate']) && isset($_GET['endDate']) ? $today = false : $today = true;
+                      echo allReceived($today, $start, $end); 
+                    ?>
+                    </tbody>
+                  </table>
+                </div>
+                <!-- /.card-body -->
               </div>
-
-              <div class="card-body bg-white">
-                <table id="reportTable" class="table table-bordered table-sm table-hover table-responsive-xl">
-                  <thead>
-                  <tr>
-                    <th class="col-2">Tracking #</th>
-                    <th class="col-2">Title</th>
-                    <th class="col-2">Purpose</th>
-                    <th class="col-2">Type</th>
-                    <th class="col-2">Date Created</th>
-                    <th class="col">Received by</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  <?php
-                    isset($_GET['startDate']) ? $start = escape_string($_GET['startDate']) : $start = 0;
-                    isset($_GET['endDate']) ? $end = escape_string($_GET['endDate']) : $end = 0;
-                    isset($_GET['startDate']) && isset($_GET['endDate']) ? $today = false : $today = true;
-                    echo allReceived($today, $start, $end); 
-                  ?>
-                  </tbody>
-                </table>
-              </div>
-              <!-- /.card-body -->
             </div>
         </div>
         <!-- /.row -->
