@@ -21,6 +21,7 @@
      *      DOC_QUERY_LIMIT     100               INT       # of rows to be shown on the created documents table.
      *      DOC_REMIND_DAYS     10                INT       # of days lapsed to show warning.
      *      DOC_LAPSED_DAYS     15                INT       # of days lapsed to disable adding documents.
+     *      BASE_URL            none              STRING    root URL for the application
      *    -----------------------------------------------------------------------
      * 
      * THESE VALUES MUST NOT BE EMPTY, AND THESE VALUES ONLY AFFECT THE DASHBOARD (when the user is logged in).
@@ -33,6 +34,7 @@
     define("DOC_QUERY_LIMIT", 100);
     define("DOC_REMIND_DAYS", 10);
     define("DOC_LAPSED_DAYS", 15);
+    define("BASE_URL", "localhost/sdoin-dts/");
 
     //  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 

@@ -34,7 +34,7 @@ if(isset($_POST['register']))
         $insert_user_d = query("INSERT INTO user_details (id, ud_unit, ud_name) VALUES ('{$last_id}', '{$unit}', '{$fullname}')");
         confirm($insert_user_d);
 
-        set_message_alert("alert-success", "fa-check", "Account created! sign in below.");
+        set_message_alert("alert-success", "fa-check", "Account created! Sign in below.");
         redirect("../?login");
     }
 }
