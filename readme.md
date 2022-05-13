@@ -46,7 +46,7 @@ This does not need any additional explanation. Although keep in mind that when s
 
 ### **Requesting for a new password**
 
-As of April 05, 2022, - the feature to change password has not been implemented yet. However, accounts with forgotten passwords can be recovered through the ***I forgot my password*** button upon signing in.
+You can change your password in the profile section, above the logout link when clicking on the user icon.
 
 If you forgot your password, enter your e-mail address on the field and you will receive an auto generated e-mail on how to reset your password, please check if you typed your e-mail correctly and check your spam or trash folders on your e-mail service provider. You will receive an e-mail instantly, if not - try again within a few minutes.
 
