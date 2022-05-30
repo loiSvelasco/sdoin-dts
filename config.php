@@ -12,8 +12,6 @@
      session_start();
 
     //  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-<<<<<<< HEAD
-
     /*
       
       USER DEFINED CONSTANTS
@@ -30,8 +28,6 @@
       
       THESE VALUES MUST NOT BE EMPTY, AND THESE VALUES ONLY AFFECT THE DASHBOARD (when the user is logged in).
       THESE ARE ADDED TO AVOID SLOW LOAD TIMES.
-      
-=======
     /**
      * 
      * USER DEFINED CONSTANTS
@@ -50,7 +46,6 @@
      * THESE VALUES MUST NOT BE EMPTY, AND THESE VALUES ONLY AFFECT THE DASHBOARD (when the user is logged in).
      * THESE ARE ADDED TO AVOID SLOW LOAD TIMES.
      * 
->>>>>>> 7d0cb8dc4d10b1d4f13b4efbb6a1e1d3f2ef7b8b
      */
 
     define("DASHBOARD_TITLE", "eDTS | Dashboard");
