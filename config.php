@@ -12,22 +12,6 @@
      session_start();
 
     //  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    /*
-      
-      USER DEFINED CONSTANTS
-      THESE VALUES CAN BE CHANGED BASED ON NEEDS
-      
-            CONSTANT NAME      [DEFAULT VALUE]   TYPE      DESCRIPTION    
-         -----------------------------------------------------------------------
-           DASHBOARD_TITLE     eDTS | Dashboard  STRING    title shown on the tab window.
-           ACC_QUERY_LIMIT     100               INT       # of rows to be shown on the accomplished documents table.
-           DOC_QUERY_LIMIT     100               INT       # of rows to be shown on the created documents table.
-           DOC_REMIND_DAYS     10                INT       # of days lapsed to show warning.
-           DOC_LAPSED_DAYS     15                INT       # of days lapsed to disable adding documents.
-         -----------------------------------------------------------------------
-      
-      THESE VALUES MUST NOT BE EMPTY, AND THESE VALUES ONLY AFFECT THE DASHBOARD (when the user is logged in).
-      THESE ARE ADDED TO AVOID SLOW LOAD TIMES.
     /**
      * 
      * USER DEFINED CONSTANTS
