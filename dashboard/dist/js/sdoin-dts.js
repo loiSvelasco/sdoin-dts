@@ -228,3 +228,8 @@ $(document).ready(function() {
       $('#userUnit').val(data[6]);
   });
 });
+
+$('.flexdatalist').flexdatalist({
+  selectionRequired: 1,
+  minLength: 0
+});

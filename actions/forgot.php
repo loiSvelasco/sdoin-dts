@@ -43,8 +43,8 @@ if(isset($_POST['forgot']))
         For questions, please contact Louis Velasco @ loisuperficialvelasco@gmail.com
 ELLA;
         $headers = "From: {$from_name} {$fr_email}";
-        $result = mail($to, $subject, $txt, $headers);
-        if($result)
+        // $result = mail($to, $subject, $txt, $headers);
+        if(mail($to, $subject, $txt, $headers))
         {
             set_message_alert("alert-info", "fa-info-circle", "Check your email for instructions.");
             redirect("../?forgot");

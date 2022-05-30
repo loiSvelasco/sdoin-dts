@@ -6,5 +6,9 @@
 <!-- AdminLTE App -->
 <script src="dashboard/dist/js/adminlte.min.js"></script>
 
+<script src="dashboard/dist/js/sdoin-dts.js"></script>
+
+<script src="dashboard/plugins/dataflex/jquery.flexdatalist.min.js"></script>
+
 </body>
 </html>

@@ -21,12 +21,14 @@
     <!-- Main content -->
     <div class="content">
       <div class="container-fluid">
+      <?php display_notice();?>
         <div class="row">
           <div class="col-3">
             <div class="card">
               <div class="card-header border-warning">Change Password</div>
               <div class="card-body">
               <form action="actions/changepwd.php" method="post" oninput="newPass1.setCustomValidity(newPass1.value != newPass.value ? 'Passwords do not match.' : '')">
+              <input type="hidden" name="referer" value="<?php echo BASE_HOST.URI; ?>">
                 <div class="input-group mb-3">
                   <input type="password" class="form-control" placeholder="Current Password" aria-label="Sizing example input" name="currPass" aria-describedby="inputGroup-sizing-default" required>
                 </div>
@@ -41,7 +43,7 @@
                   </div>
                   <input type="password" class="form-control" placeholder="Confirm Password" aria-label="Sizing example input" name="newPass1"aria-describedby="inputGroup-sizing-default" required>
                 </div>
-                <button type="submit" class="btn btn-success btn-block"><i class="fa fa-save"></i>&nbsp;&nbsp;&nbsp;Save</button>
+                <button type="submit" name="changePass" class="btn btn-success btn-block"><i class="fa fa-save"></i>&nbsp;&nbsp;&nbsp;Save</button>
               </form>
               </div>
             </div>
