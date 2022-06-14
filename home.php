@@ -91,7 +91,10 @@
         </section>
         <!-- Footer-->
         <footer class="py-5 bg-dark">
-            <div class="container px-5"><p class="m-0 text-center text-white">Copyright &copy; <script>document.write(new Date().getFullYear())</script> Louis Velasco. Made with <a href="?inspiration" class="text-decoration-none">❤</a></p></div>
+            <div class="container px-5"><p class="m-0 text-center text-white">Copyright &copy; <script>document.write(new Date().getFullYear())</script> Louis Superficial Velasco, Developer | Made with ❤<br>
+            Jennifer M. Felipe, System Analyst
+        </p>
+        </div>
         </footer>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
