@@ -352,7 +352,7 @@ function get_to_receive()
                     <br>Purpose: {$purpose}
                     <br>Description: {$desc}
                     <hr>Date Created:<br>{$date}
-                    ">{$title}</a></td>
+                    ">{$title}</a><strong class="small text-muted"> | {$doctype}</strong></td>
                 <td class="text-center">
                     <a href="?manipulate=receive&tracking={$tracking}&refer={$_SERVER['REQUEST_URI']}" class="btn btn-sm btn-warning" data-toggle="tooltip" data-placement="left" title="Receive"><i class="fa fa-file-import"></i></a>
                 </td>
@@ -414,7 +414,7 @@ function get_to_release()
                 <br>Purpose: {$purpose}
                 <br>Description: {$desc}
                 <hr>Date Created: <br>{$date}
-                ">{$title}</a></td>
+                ">{$title}</a><strong class="small text-muted"> | {$doctype}</strong></td>
                 <td class="text-center">
                     <span data-toggle="tooltip" data-placement="left" title="Release"><button data-toggle="modal" data-target="#modal-release-doc" class="btn btn-sm btn-info release_doc"><i class="fa fa-file-export white"></i></button></span>
                     <span data-toggle="tooltip" data-placement="right" title="Mark as accomplished">

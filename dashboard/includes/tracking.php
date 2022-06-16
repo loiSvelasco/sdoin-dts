@@ -81,12 +81,12 @@ CUTIEPIE;
                     }
 
                     while($row = fetch_array($prettyella))
-                    {
-                      $phpdate = strtotime($row['dl_receiveddate']);
-                      $date = date("F j, Y, g:i a", $phpdate );
-                      
+                    {                      
                       if($row['dl_receivedby'] != 0)
                       {
+                        $phpdate = strtotime($row['dl_receiveddate']);
+                        $date = date("F j, Y, g:i a", $phpdate );
+                        
                         $status = "Received at " . get_unit_name($row['dl_unit']);
                         $received = "Received by " . get_user_name($row['dl_receivedby']) . " - " . $date ;
                         $bg = "bg-success";
