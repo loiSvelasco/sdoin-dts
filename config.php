@@ -1,16 +1,25 @@
 <?php ob_start();
     
     /*
-      
-      AUTHOR:      LOUIS EUSEBIUS SUPERFICIAL VELASCO
-      DATE:        MAY 2022
-      PROJECT:     ENHANCED DOCUMENT TRACKING SYSTEM FOR SDOIN
-      
-     */
-    
-    
-     session_start();
 
+    AUTHOR:      LOUIS EUSEBIUS SUPERFICIAL VELASCO
+    DATE:        MAY 2022
+    PROJECT:     ENHANCED DOCUMENT TRACKING SYSTEM FOR SDOIN
+
+    */
+
+
+    session_start();
+    define("SUBDIRECTORY", "/");
+
+    include 'kint.phar';
+    Kint::$aliases[] = 'dd';
+ 
+    function dd(...$vars)
+    {
+      return die(Kint::dump(...$vars));
+    }
+    
     //  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     /**
      * 
@@ -37,7 +46,7 @@
     define("DOC_QUERY_LIMIT", 100);
     define("DOC_REMIND_DAYS", 10);
     define("DOC_LAPSED_DAYS", 15);
-    define("BASE_URL", "localhost/sdoin-dts/");
+    define("BASE_URL", "localhost" . SUBDIRECTORY);
 
     //  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -63,7 +72,7 @@
     $connection = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME);
     $numQueries = 0;
 
-    define("HOST",      $_SERVER['HTTP_HOST'] . "/sdoin-dts/");
+    define("HOST",      $_SERVER['HTTP_HOST'] . SUBDIRECTORY);
     define("BASE_HOST", $_SERVER['HTTP_HOST']);
     define("URI",       $_SERVER['REQUEST_URI']);
     define("URL",       HOST . URI);
@@ -75,7 +84,7 @@
       VARIOUS FUNCTIONS USED
            functions.php       |   contains all the functions used for front-end generation
            managedoc.php       |   manages the receiving, releasing, and accomplishing documents
-           manageperms.php     |   handles when documents are lapsed
+           manageperms.php     |   handles permissions when documents are lapsed
            administration.php  |   contains all administrator functions and queries
       
      */

@@ -1,5 +1,5 @@
 .header-bg {
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7)), url("../assets/images/sdoin-office.jpg");
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7)), url("../assets/images/sdoin-office.webp");
     -webkit-background-size: cover; /* For WebKit*/
     -moz-background-size: cover;    /* Mozilla*/
     -o-background-size: cover;      /* Opera*/
@@ -7,3 +7,4 @@
     background-repeat: no-repeat;
     background-position: center;
 }
+

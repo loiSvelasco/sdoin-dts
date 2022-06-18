@@ -2,7 +2,7 @@
 
     require_once("config.php");
 
-    if($_SERVER['REQUEST_URI'] == "/sdoin-dts/")
+    if($_SERVER['REQUEST_URI'] == SUBDIRECTORY)
     {
         include("home.php");
     }

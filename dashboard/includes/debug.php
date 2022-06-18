@@ -35,7 +35,6 @@
               $version = phpversion();
               print "Running on PHP Version: " . $version;
               ?>
-              <hr>
                 <div class="inline-code">
                     <code>
                     <?php 
@@ -47,38 +46,43 @@
                 </div>
               <hr>
               <?php 
-                  echo '<pre>';
-                  var_dump($_SESSION);
-                  echo '</pre>';
-                  echo '<hr>';
-                  echo '<pre>' . print_r($_SESSION, TRUE) . '</pre>';
+                  $constants = get_defined_constants(true);
+                  s($constants['user']);
+                  
+                  echo "<hr>";
+
+                  s($_SESSION);
               ?>
               <hr>
-              <p><strong>Defined Functions:</strong></p>
               <?php 
+                  // $functions = get_defined_functions();
+                  // $functions_list = array();
+                  // foreach ($functions['user'] as $func) {
+                  //         $f = new ReflectionFunction($func);
+                  //         $args = array();
+                  //         foreach ($f->getParameters() as $param) {
+                  //                 $tmparg = '';
+                  //                 if ($param->isPassedByReference()) $tmparg = '&';
+                  //                 if ($param->isOptional()) {
+                  //                         $tmparg = '[' . $tmparg . '$' . $param->getName() . ' = ' . $param->getDefaultValue() . ']';
+                  //                 } else {
+                  //                         $tmparg.= '$' . $param->getName();
+                  //                 }
+                  //                 $args[] = $tmparg;
+                  //                 unset ($tmparg);
+                  //         }
+                  //         $functions_list[] = 'function ' . $func . ' ( ' . implode(', ', $args) . ' ) <br>' . PHP_EOL;
+                  // }
+                  // print_r($functions_list);
+                  
+                  
                   $functions = get_defined_functions();
-                  $functions_list = array();
-                  foreach ($functions['user'] as $func) {
-                          $f = new ReflectionFunction($func);
-                          $args = array();
-                          foreach ($f->getParameters() as $param) {
-                                  $tmparg = '';
-                                  if ($param->isPassedByReference()) $tmparg = '&';
-                                  if ($param->isOptional()) {
-                                          $tmparg = '[' . $tmparg . '$' . $param->getName() . ' = ' . $param->getDefaultValue() . ']';
-                                  } else {
-                                          $tmparg.= '$' . $param->getName();
-                                  }
-                                  $args[] = $tmparg;
-                                  unset ($tmparg);
-                          }
-                          $functions_list[] = 'function ' . $func . ' ( ' . implode(', ', $args) . ' ) <br>' . PHP_EOL;
-                  }
-                  print_r($functions_list);
+                  s($functions['user']);
               ?>
               <hr>
                 <?php 
-                    echo '<pre>' . print_r(array_keys(get_defined_vars())) . '</pre>';
+                  $vars= array_keys(get_defined_vars());
+                  s($vars);
                 ?>
             </code>
             </div>

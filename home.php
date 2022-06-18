@@ -3,18 +3,18 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
+        <meta name="description" content="Enhanced DTS for SDOIN" />
+        <meta name="author" content="Louis Velasco" />
         <title>Enhanced DTS - SDOIN</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Bootstrap icons-->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet"/>
         <!-- Core theme CSS (includes Bootstrap)-->
         <!-- <link rel="stylesheet" href="dashboard/plugins/fontawesome-free/css/all.min.css"> -->
-        <script src="https://kit.fontawesome.com/8fb6d51646.js" crossorigin="anonymous"></script>
-        <link href="css/styles.css" rel="stylesheet" />
-        <link href="css/custom.css" rel="stylesheet" />
+        
+        <link href="css/styles.css" rel="stylesheet"/>
+        <link href="css/custom.css" rel="stylesheet"/>
         <style>
             .stepper .line {
                 width: 2px;
@@ -55,7 +55,7 @@
                 <div class="row gx-5 justify-content-center">
                     <div class="col-lg-6">
                         <div class="text-center my-5">
-                            <img src="assets/images/sdoin-logo-small.png" width="25%" alt="SDOIN Logo">
+                            <img src="assets/images/sdoin-logo-small.webp" width="25%" alt="SDOIN Logo">
                             <h1 class="display-5 fw-bolder text-white mb-2"><a href="?home" class="text-decoration-none text-white">Enhanced DTS</a></h1>
                             <p class="lead text-white-50 mb-4">Enter the tracking no. and click on track to see its current status.</p>
                             <form action="" method="GWT">
@@ -100,5 +100,6 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <!-- <script src="js/scripts.js"></script> -->
+        <script src="https://kit.fontawesome.com/8fb6d51646.js" crossorigin="anonymous"></script>
     </body>
 </html>

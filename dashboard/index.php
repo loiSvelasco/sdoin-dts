@@ -20,7 +20,7 @@ if(isset($_SESSION['timestamp']))
     }
 }
 
-if ($_SERVER['REQUEST_URI'] == "/sdoin-dts/dashboard/") 
+if ($_SERVER['REQUEST_URI'] == SUBDIRECTORY . "dashboard/")
 {
     include("includes/documents.php");
 }
