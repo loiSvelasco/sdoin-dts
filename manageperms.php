@@ -94,8 +94,9 @@ function issueReminder($query)
         $tracking = $row['dl_tracking'];
         $days = countDays($row['receiveddate']);
         $title = get_document_detail($tracking, 'document_title');
+        $link = '?tracking=' . $tracking;
         $myLove = <<<ELLA
-        Document <strong>#{$tracking}</strong> titled <strong>{$title}</strong> has not been released for <strong>{$days}</strong> days.<br>
+        Document <strong><a href="{$link}" target="_blank">#{$tracking}</a></strong> titled <strong>{$title}</strong> has not been released for <strong>{$days}</strong> days.<br>
 ELLA;
         echo $myLove;
     }
@@ -108,16 +109,20 @@ function issueWarning($query)
     echo '<div class="col-lg-6">
     <blockquote class="quote-red">
     <h5><i class="fas fa-exclamation-triangle"></i>&nbsp;&nbsp;Warning</h5>';
+
     while($row = fetch_array($query))
     {
         $tracking = $row['dl_tracking'];
         $days = countDays($row['receiveddate']);
         $title = get_document_detail($tracking, 'document_title');
+        $link = '?tracking=' . $tracking;
+
         $myLove = <<<ELLA
-        Document <strong>#{$tracking}</strong> titled <strong>{$title}</strong> has not been released for <strong>{$days}</strong> days.<br>
+        Document <strong><a href="{$link}" target="_blank">#{$tracking}</a></strong> titled <strong>{$title}</strong> has not been released for <strong>{$days}</strong> days.<br>
 ELLA;
         echo $myLove;
     }
+
     echo '</div></blockquote>';
 }
 
