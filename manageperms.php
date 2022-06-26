@@ -38,22 +38,35 @@ function countDays($fromReceived)
     return $row['days'];
 }
 
+function checkWarning($col)
+{
+    $rStmt = "SELECT *, DATE(dl_receiveddate) AS 'receiveddate' FROM docs_location WHERE {$col} = '{$_SESSION['unit']}' ";
+    $rStmt .= "AND DATEDIFF(CURDATE(), DATE(dl_receiveddate)) >= " . DOC_REMIND_DAYS . " ";
+    $rStmt .= "AND DATEDIFF(CURDATE(), DATE(dl_receiveddate)) < " . DOC_LAPSED_DAYS . " AND dl_forwarded = 0";
+    return $rStmt;
+}
+
+function checkLapsed($col)
+{
+    $wStmt = "SELECT DISTINCT dl_tracking, dl_forwarded, DATE(dl_receiveddate) AS 'receiveddate', document_accomplished FROM docs_location, documents ";
+    $wStmt .= "WHERE dl_unit = '{$_SESSION['unit']}' AND DATEDIFF(CURDATE(), DATE(dl_receiveddate)) >= " . DOC_LAPSED_DAYS . " ";
+    $wStmt .= "AND document_accomplished = 0 AND dl_forwarded = 0";
+    return $wStmt;
+}
+
 function issueNotice()
 {
     if(isset($_SESSION['unit']))
     {
         $active = false;
-        $rStmt = "SELECT *, DATE(dl_receiveddate) AS 'receiveddate' FROM docs_location WHERE dl_unit = '{$_SESSION['unit']}' ";
-        $rStmt .= "AND DATEDIFF(CURDATE(), DATE(dl_receiveddate)) >= " . DOC_REMIND_DAYS . " ";
-        $rStmt .= "AND DATEDIFF(CURDATE(), DATE(dl_receiveddate)) < " . DOC_LAPSED_DAYS . " AND dl_forwarded = 0";
-        $princessElla = query($rStmt);
-        love($princessElla); // QUERY FOR WARNING ISSUE
+
+        $warningQuery = checkWarning('dl_unit');
+        $princessElla = query($warningQuery);
+        love($princessElla);
         
-        $wStmt = "SELECT DISTINCT dl_tracking, dl_forwarded, DATE(dl_receiveddate) AS 'receiveddate', document_accomplished FROM docs_location, documents ";
-        $wStmt .= "WHERE dl_unit = '{$_SESSION['unit']}' AND DATEDIFF(CURDATE(), DATE(dl_receiveddate)) >= 15 ";
-        $wStmt .= "AND document_accomplished = 0 AND dl_forwarded = 0";
-        $babyElla = query($wStmt);
-        love($babyElla); // QUERY FOR LAPSED DOCS
+        $lapsedQuery = checkLapsed('dl_unit');
+        $babyElla = query($lapsedQuery);
+        love($babyElla);
     
         $warningDocs = row_count($princessElla);
         if($warningDocs >= 1)
