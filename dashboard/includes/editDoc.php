@@ -10,7 +10,7 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1 class="m-0 text-dark">Edit Document # <?php echo $tracking; ?></h1>
+          <h1 class="m-0 text-dark">Edit Document # <a href="?tracking=<?php echo $tracking; ?>"><?php echo $tracking; ?></a></h1>
         </div><!-- /.col -->
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
@@ -34,6 +34,8 @@
           <div class="card-header">Edit Document Details</div>
             <div class="card-body bg-white">
               <form action="actions/updateDoc.php" method="POST">
+                <input type="hidden" name="referer" value="<?php echo URI; ?>">
+                <input type="hidden" name="tracking" value="<?php echo $tracking; ?>">
                 <div class="form-group">
                   <label for="Title">Title</label>
                   <input type="text" name="title" id="title" class="form-control" value="<?php echo get_document_detail($tracking, 'document_title'); ?>">
@@ -49,7 +51,7 @@
                 <div class="form-group">
                   <label for="Type">Type</label>
                   <select id="doc_type" name="doctype" class="custom-select">
-                      <option value="<?php echo get_document_detail($tracking, 'document_type'); ?>" disabled selected hidden><?php echo get_doctype_name(get_document_detail($tracking, 'document_type')); ?></option>
+                      <option value="<?php echo get_document_detail($tracking, 'document_type'); ?>" hidden selected><?php echo get_doctype_name(get_document_detail($tracking, 'document_type')); ?></option>
                       <?php get_doctypes(); ?>
                   </select>
                 </div>

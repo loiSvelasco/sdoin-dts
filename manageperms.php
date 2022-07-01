@@ -40,7 +40,7 @@ function countDays($fromReceived)
 
 function checkWarning($col)
 {
-    $rStmt = "SELECT *, DATE(dl_receiveddate) AS 'receiveddate' FROM docs_location WHERE {$col} = '{$_SESSION['unit']}' ";
+    $rStmt  = "SELECT *, DATE(dl_receiveddate) AS 'receiveddate' FROM docs_location WHERE {$col} = '{$_SESSION['unit']}' ";
     $rStmt .= "AND DATEDIFF(CURDATE(), DATE(dl_receiveddate)) >= " . DOC_REMIND_DAYS . " ";
     $rStmt .= "AND DATEDIFF(CURDATE(), DATE(dl_receiveddate)) < " . DOC_LAPSED_DAYS . " AND dl_forwarded = 0";
     return $rStmt;
@@ -48,7 +48,7 @@ function checkWarning($col)
 
 function checkLapsed($col)
 {
-    $wStmt = "SELECT DISTINCT dl_tracking, dl_forwarded, DATE(dl_receiveddate) AS 'receiveddate', document_accomplished FROM docs_location, documents ";
+    $wStmt  = "SELECT DISTINCT dl_tracking, dl_forwarded, DATE(dl_receiveddate) AS 'receiveddate', document_accomplished FROM docs_location, documents ";
     $wStmt .= "WHERE dl_unit = '{$_SESSION['unit']}' AND DATEDIFF(CURDATE(), DATE(dl_receiveddate)) >= " . DOC_LAPSED_DAYS . " ";
     $wStmt .= "AND document_accomplished = 0 AND dl_forwarded = 0";
     return $wStmt;

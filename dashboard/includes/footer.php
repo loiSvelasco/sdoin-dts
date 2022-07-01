@@ -16,6 +16,7 @@
     </div>
     <!-- Default to the left -->
     <strong class="mx-auto">Copyright &copy; <script>document.write(new Date().getFullYear())</script>
+    Developed and Designed by 
     <a href="https://www.facebook.com/louis.superficial.velasco.1/" target="_blank">Louis Superficial Velasco</a>,</strong>
     <strong>System Analysis by <a class="display-6" href="https://www.facebook.com/jenmfelipe" target="_blank">Jennifer Lynn M. Felipe</a>.</strong>
     | Property of Schools Division of Ilocos Norte.
