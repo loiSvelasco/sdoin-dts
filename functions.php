@@ -547,13 +547,23 @@ function received_details($today, $start = 0, $end = 0)
     if($today == true)
     {
         $unit = $_SESSION['unit'];
-        $prettyella = query("SELECT * FROM docs_location WHERE DATE(dl_receiveddate) = CURDATE() AND dl_unit = {$unit} ORDER BY dl_id DESC");
+        $prettyella = query(
+            "SELECT * FROM docs_location WHERE 
+             DATE(dl_receiveddate) = CURDATE() 
+             AND dl_unit = {$unit} 
+             ORDER BY dl_id DESC"
+        );
         confirm($prettyella);
     }
     else
     {
         $unit = $_SESSION['unit'];
-        $prettyella = query("SELECT * FROM docs_location WHERE DATE(dl_receiveddate) BETWEEN '{$start}' AND '{$end}' AND dl_unit = {$unit} ORDER BY dl_id DESC");
+        $prettyella = query(
+            "SELECT * FROM docs_location
+             WHERE DATE(dl_receiveddate) BETWEEN '{$start}' AND '{$end}' 
+             AND dl_unit = {$unit} 
+             ORDER BY dl_id DESC"
+        );
         confirm($prettyella);
     }
     while($row = fetch_array($prettyella))
@@ -589,13 +599,24 @@ function released_details($today, $start = 0, $end = 0)
     if($today == true)
     {
         $unit = $_SESSION['unit'];
-        $prettyella = query("SELECT * FROM docs_location WHERE DATE(dl_releaseddate) = CURDATE() AND dl_releasedbyunit = {$unit} ORDER BY dl_id DESC");
+        $prettyella = query(
+            "SELECT * FROM docs_location WHERE 
+             DATE(dl_releaseddate) = CURDATE() 
+             AND dl_releasedbyunit = {$unit} 
+             ORDER BY dl_id DESC"
+        );
         confirm($prettyella);
     }
     else
     {
         $unit = $_SESSION['unit'];
-        $prettyella = query("SELECT * FROM docs_location WHERE DATE(dl_releaseddate) BETWEEN '{$start}' AND '{$end}' AND dl_releasedbyunit = {$unit} ORDER BY dl_id DESC");
+        $prettyella = query(
+            "SELECT * FROM docs_location WHERE 
+             DATE(dl_releaseddate) 
+             BETWEEN '{$start}' AND '{$end}' 
+             AND dl_releasedbyunit = {$unit} 
+             ORDER BY dl_id DESC"
+        );
         confirm($prettyella);
     }
     while($row = fetch_array($prettyella))
@@ -631,13 +652,23 @@ function accomplished_details($today, $start = 0, $end = 0)
     if($today == true)
     {
         $unit = $_SESSION['unit'];
-        $prettyella = query("SELECT * FROM documents WHERE DATE(accomp_date) = CURDATE() AND document_accomplished = 1 ORDER BY id DESC");
+        $prettyella = query(
+            "SELECT * FROM documents WHERE 
+             DATE(accomp_date) = CURDATE() 
+             AND document_accomplished = 1 
+             ORDER BY id DESC"
+        );
         confirm($prettyella);
     }
     else
     {
         $unit = $_SESSION['unit'];
-        $prettyella = query("SELECT * FROM documents WHERE DATE(accomp_date) BETWEEN '{$start}' AND '{$end}' AND document_accomplished = 1 ORDER BY id DESC");
+        $prettyella = query(
+            "SELECT * FROM documents WHERE 
+             DATE(accomp_date) BETWEEN '{$start}' AND '{$end}' 
+             AND document_accomplished = 1 
+             ORDER BY id DESC"
+        );
         confirm($prettyella);
     }
     while($row = fetch_array($prettyella))
@@ -687,7 +718,7 @@ function getNumDocs()
 function getLapsedNumDocs()
 {
     $wStmt = "SELECT DISTINCT dl_tracking, dl_forwarded, DATE(dl_receiveddate) AS 'receiveddate', document_accomplished FROM docs_location, documents ";
-    $wStmt .= "WHERE DATEDIFF(CURDATE(), DATE(dl_receiveddate)) >= 15 ";
+    $wStmt .= "WHERE DATEDIFF(CURDATE(), DATE(dl_receiveddate)) >= " . DOC_LAPSED_DAYS . " ";
     $wStmt .= "AND document_accomplished = 0 AND dl_forwarded = 0";
     $babyElla = query($wStmt);
     love($babyElla); // QUERY FOR LAPSED DOCS
@@ -697,7 +728,10 @@ function getLapsedNumDocs()
 
 function docExists($tracking)
 {
-    $babyElla = query("SELECT * FROM documents WHERE document_tracking = '{$tracking}' LIMIT 1");
+    $babyElla = query(
+        "SELECT * FROM documents WHERE 
+         document_tracking = '{$tracking}' LIMIT 1"
+    );
     love($babyElla);
 
     if(row_count($babyElla) == 1)
@@ -712,7 +746,10 @@ function docExists($tracking)
 
 function isAccomplished($tracking)
 {
-    $babyElla = query("SELECT * FROM documents WHERE document_tracking = '{$tracking}' LIMIT 1");
+    $babyElla = query(
+        "SELECT * FROM documents WHERE 
+         document_tracking = '{$tracking}' LIMIT 1"
+    );
     love($babyElla);
     
     $row = fetch_assoc($babyElla);

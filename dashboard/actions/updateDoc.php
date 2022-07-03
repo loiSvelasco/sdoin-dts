@@ -27,11 +27,12 @@ if(isset($_POST))
     {
 
         $updateLoc = query(
-            "UPDATE documents SET document_title = '{$title}',
-                                  document_desc = '{$desc}',
-                                  document_purpose = '{$purpose}',
-                                  document_type = '{$doctype}'
-                            WHERE document_tracking = '{$tracking}' ORDER BY id DESC LIMIT 1"
+            "UPDATE documents 
+             SET document_title = '{$title}',
+                 document_desc = '{$desc}',
+                 document_purpose = '{$purpose}',
+                 document_type = '{$doctype}'
+             WHERE document_tracking = '{$tracking}' ORDER BY id DESC LIMIT 1"
         );
 
         confirm($updateLoc);
