@@ -16,6 +16,7 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
 
   <title><?php echo DASHBOARD_TITLE ?></title>
+  <link rel="icon" type="image/x-icon" href="./favicon.ico" />
 
   <!-- Font Awesome Icons -->
   <!-- <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css"> -->
