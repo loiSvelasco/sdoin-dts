@@ -1,26 +1,18 @@
 <?php ob_start();
-    
+
     /*
-
-    AUTHOR:      LOUIS EUSEBIUS SUPERFICIAL VELASCO
-    DATE:        MAY 2022
-    PROJECT:     ENHANCED DOCUMENT TRACKING SYSTEM FOR SDOIN
-
+      AUTHOR:      LOUIS EUSEBIUS SUPERFICIAL VELASCO
+      DATE:        MAY 2022
+      PROJECT:     ENHANCED DOCUMENT TRACKING SYSTEM FOR SDOIN
     */
-
 
     session_start();
     define("SUBDIRECTORY", "/");
 
     include 'kint.phar';
     Kint::$aliases[] = 'dd';
- 
-    function dd(...$vars)
-    {
-      return die(Kint::dump(...$vars));
-    }
-    
-    //  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    function dd(...$vars) { return die(Kint::dump(...$vars)); }
+
     /**
      * 
      * USER DEFINED CONSTANTS
@@ -48,22 +40,7 @@
     define("DOC_LAPSED_DAYS", 15);
     define("BASE_URL", "localhost" . SUBDIRECTORY);
 
-    //  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-
-
-
-
-
-    /*
-
-      CONSTANTS BELOW MUST NOT BE CHANGED
-      
-     */
-
-    // DATABASE CONSTANTS
-
-
+    // db
     define("DB_HOST", "localhost");
     define("DB_USER", "root");
     define("DB_PASS", "");
