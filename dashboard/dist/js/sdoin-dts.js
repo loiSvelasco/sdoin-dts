@@ -240,6 +240,11 @@ $('#complete-doc').on('show.bs.modal', function(e) {
   $('.debug-url').html('Debug URL: <strong>' + $(this).find('.btn-ok').attr('href') + '</strong>');
 });
 
+$('#purge-doc').on('show.bs.modal', function(e) {
+  $(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
+  $('.debug-url').html('<strong>' + $(this).find('.btn-ok').attr('href') + '</strong>');
+});
+
 $(document).ready(function() {
   $('#adminTables').on('click','.modifyUser', function() {
       $('#modify-user').modal('show');

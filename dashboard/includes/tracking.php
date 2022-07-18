@@ -58,6 +58,11 @@ CUTIEPIE;
                     $accomp = query("SELECT * FROM documents WHERE document_tracking = '{$tracking}' LIMIT 1");
                     confirm($accomp);
                     $row = fetch_assoc($accomp);
+                    
+                    $purged = $row['document_accomplished'] == 3 ? true : false;
+                    $accomplished = $row['document_accomplished'] == 1 ? true : false;
+                    $docState = $purged ? 'purged' : ($accomplished ? 'accomplished' : '');
+
                     if($row['document_accomplished'] == 1)
                     {
                       $accomplishedBy = get_user_name($row['accomp_by']);
@@ -195,11 +200,30 @@ CUTIEPIE;
                     
                     <div class="row">
                       <div class="col-md-6">
+                      <?php if ($purged || $accomplished): ?>
+                        <span data-toggle="tooltip" data-placement="top" title="Cannot edit when document is <?php echo $docState ?>">
+                          <a class="btn btn-block btn-primary disabled"><i class="fa fa-pen"></i>&nbsp;&nbsp;Edit</a>
+                        </span>
+                      <?php else: ?>
                         <a href="?editDoc=<?php echo $tracking; ?>" class="btn btn-block btn-primary"><i class="fa fa-pen"></i>&nbsp;&nbsp;Edit</a>
+                      <?php endif; ?>
                       </div>
                       <?php if ($_SESSION['role'] == 1): ?>
                         <div class="col-md-6">
-                          <a href="?purgeDoc=<?php echo $tracking; ?>" class="btn btn-block btn-danger"><i class="fa fa-fire"></i>&nbsp;&nbsp;Purge</a>
+                          <!-- <a href="?purgeDoc=<?php echo $tracking; ?>" class="btn btn-block btn-danger"><i class="fa fa-fire"></i>&nbsp;&nbsp;Purge</a> -->
+                          <?php if ($purged || $accomplished): ?>
+                          <span data-toggle="tooltip" data-placement="top" title="Cannot purge when document is <?php echo $docState ?>">
+                            <a class="btn btn-block btn-danger disabled"><i class="fa fa-fire"></i>&nbsp;&nbsp;Purge</a>
+                          </span>
+                          <?php else: ?>
+                            <a href="#" class="btn btn-block btn-danger" 
+                            data-href="?manipulate=purge&tracking=<?php echo $tracking ?>
+                            &unit=<?php echo $_SESSION['unit'] ?>
+                            &by=<?php echo $_SESSION['user_id'] ?>
+                            &refer=<?php echo $_SERVER['REQUEST_URI'] ?>" 
+                            data-toggle="modal" data-target="#purge-doc">
+                            <i class="fa fa-fire"></i>&nbsp;&nbsp;Purge</a>
+                          <?php endif; ?>
                         </div>
                       <?php endif; ?>
                     </div>

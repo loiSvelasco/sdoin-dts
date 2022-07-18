@@ -44,8 +44,6 @@ if(isset($_POST['forgot']))
         For questions, please contact Louis Velasco @ louis.velasco@deped.gov.ph
 ELLA;
         $headers = "From: {$from_name} {$fr_email}";
-        dd(mail($to, $subject, $txt, $headers));
-        die();
         if(mail($to, $subject, $txt, $headers))
         {
             set_message_alert("alert-info", "fa-info-circle", "Check your email for instructions.");

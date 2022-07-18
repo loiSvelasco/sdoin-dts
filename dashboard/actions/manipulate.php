@@ -23,8 +23,14 @@ if(isset($_GET['manipulate']) && isset($_GET['tracking']))
     }
     if($action == 'accomplish')
     {
-        accomplish($tracking, $unit);
+        accomplish($tracking);
         set_message_alert("alert-success", "fa-check", "Document accomplished.");
+        redirect($referer);
+    }
+    if($action == 'purge')
+    {
+        purge($tracking);
+        set_message_alert("alert-success", "fa-check", "Document purged.");
         redirect($referer);
     }
 }

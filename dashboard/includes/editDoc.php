@@ -4,6 +4,10 @@
   {
     redirect("./?404");
   }
+  if(isAccomplished($tracking) || isPurged($tracking))
+  {
+    redirect("./?tracking=$tracking");
+  }
 ?>
 <div class="content-wrapper wrapper-bgcolor">
   <div class="content-header">

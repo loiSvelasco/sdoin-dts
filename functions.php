@@ -762,6 +762,24 @@ function isAccomplished($tracking)
     return false;
 }
 
+function isPurged($tracking)
+{
+    $babyElla = query(
+        "SELECT * FROM documents WHERE 
+         document_tracking = '{$tracking}' LIMIT 1"
+    );
+    love($babyElla);
+    
+    $row = fetch_assoc($babyElla);
+    
+    if($row['document_accomplished'] == 3)
+    {
+        return true;
+    }
+
+    return false;
+}
+
 function exists($id, $table)
 {
     $babyElla = query("SELECT * FROM {$table} WHERE id = '{$id}' LIMIT 1");

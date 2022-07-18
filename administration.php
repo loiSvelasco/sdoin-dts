@@ -181,8 +181,11 @@ function allLapsedDocs()
             <td class="align-middle">{$date}</td>
             <td class="align-middle">{$currentLoc}</td>
             <td class="align-middle text-center">
-                <span data-toggle="tooltip" data-placement="left" title="Purge">
+                <!-- <span data-toggle="tooltip" data-placement="left" title="Purge">
                     <a href="?purgeDoc={$tracking}" class="text-danger"><i class="fa fa-fire"></i></a>
+                </span> -->
+                <span data-toggle="tooltip" data-placement="right" title="Purge Document">
+                    <a href="#" class="text-danger" data-href="?manipulate=purge&tracking={$tracking}&unit={$_SESSION['unit']}&by={$_SESSION['user_id']}&refer={$_SERVER['REQUEST_URI']}" data-toggle="modal" data-target="#purge-doc"><i class="fa fa-fire"></i></a>
                 </span>
             </td>
         </tr>

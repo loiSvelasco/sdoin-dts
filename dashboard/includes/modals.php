@@ -286,6 +286,31 @@
     </div>
 </div>
 
+<div class="modal fade" id="purge-doc" tabindex="-1" role="dialog" aria-labelledby="LOIPOGI" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+        
+            <div class="modal-header">
+                <h4 class="modal-title" id="LOIPOGI">Purge document?</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+        
+            <div class="modal-body text-justify">
+                <p>You are about to purge a document.</p>
+                <p>Purging the document shall only be done when the document cannot be released.</p>
+                <p>This will then allow the unit with the said document to add or create new documents.</p>
+                <p>Do you wish to proceed?</p>
+                <code>Debug URL:<p class="debug-url"></p></code>
+            </div>
+            
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <a class="btn btn-danger text-white btn-ok">Purge Document</a>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="modal fade" id="modal-add-doc-restricted" tabindex="-1" role="dialog" aria-labelledby="LOIPOGI" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
