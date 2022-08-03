@@ -63,10 +63,9 @@ CUTIEPIE;
                     $accomplished = $row['document_accomplished'] == 1 ? true : false;
                     $docState = $purged ? 'purged' : ($accomplished ? 'accomplished' : '');
 
-                    if($row['document_accomplished'] == 1)
+                    if($accomplished)
                     {
                       $accomplishedBy = get_user_name($row['accomp_by']);
-  
                       $phpdate = strtotime($row['accomp_date']);
                       $date = date("F j, Y, g:i a", $phpdate );
 
@@ -79,6 +78,27 @@ CUTIEPIE;
                       <div>
                           <h5 class="text-dark">Document accomplished.</h5>
                           <p class="lead text-muted pb-3">Accomplished by {$accomplishedBy} - {$date}</p>
+                      </div>
+                      </div>
+CUTIEPIE;
+                      echo $lovelyella;
+                    }
+
+                    if($purged)
+                    {
+                      $accomplishedBy = get_user_name($row['accomp_by']);
+                      $phpdate = strtotime($row['accomp_date']);
+                      $date = date("F j, Y, g:i a", $phpdate );
+
+                      $lovelyella = <<<CUTIEPIE
+                      <div class="d-flex mb-1">
+                      <div class="d-flex flex-column pr-4 align-items-center">
+                          <div class="rounded-circle py-2 px-3 bg-danger text-white mb-1">&times;</div>
+                          <div class="line h-100"></div>
+                      </div>
+                      <div>
+                          <h5 class="text-dark">Document purged.</h5>
+                          <p class="lead text-muted pb-3">Purged at {$date}</p>
                       </div>
                       </div>
 CUTIEPIE;

@@ -87,6 +87,16 @@ LALACUTIE;
                 </li>
 LALACUTIE;
                   echo $lala;
+
+                  $lala = <<<LALACUTIE
+                  <li class="nav-item">
+                  <a href="?upForwarded" class="nav-link">
+                    <i class="fas fa-share-square nav-icon"></i>
+                    <p>Shared with you</p>
+                  </a>
+                </li>
+LALACUTIE;
+                  echo $lala;
                 }
 
               ?>

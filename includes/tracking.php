@@ -50,6 +50,26 @@ CUTIEPIE;
                       echo $lovelyella;
                     }
 
+                    if($row['document_accomplished'] == 3)
+                    {
+                      $phpdate = strtotime($row['accomp_date']);
+                      $date = date("F j, Y, g:i a", $phpdate );
+
+                      $lovelyella = <<<CUTIEPIE
+                      <div class="d-flex mb-1">
+                      <div class="d-flex flex-column pr-4 align-items-center">
+                          <div class="rounded-circle py-2 px-3 bg-danger text-white mb-1">&times;</div>
+                          <div class="line h-100"></div>
+                      </div>
+                      <div>
+                          <h5 class="text-dark">&nbsp;&nbsp;Document purged.</h5>
+                          <p class="lead text-muted pb-3">&nbsp;&nbsp;Purged at {$date}</p>
+                      </div>
+                      </div>
+CUTIEPIE;
+                      echo $lovelyella;
+                    }
+
                     while($row = fetch_array($prettyella))
                     { 
                       if($row['dl_receivedby'] != 0)

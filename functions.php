@@ -126,7 +126,7 @@ function random_num($length, $keyspace = '0123456789')
 
 function format_date($date)
 {
-    return date("F j, Y, g:i a", strtotime($date));
+    return date("F j, Y - g:i a", strtotime($date));
 }
 
 function shortNumber($num) 
@@ -474,7 +474,7 @@ function get_uploaded()
 
         $ellacutie = <<<ELLA
         <tr>
-            <td class="text-center"><a href="./uploads/{$filename}" target="_blank">{$filename}</a></td>
+            <td><a href="./uploads/{$filename}" target="_blank">{$filename}</a></td>
             <td><a tabindex="0" class="btn btn-sm btn-default popover-dismiss" role="button" data-toggle="popover" data-html="true" data-trigger="focus" title="Document Details"
                 data-content="
                 Originating Office: {$uploadedUnit}
@@ -483,9 +483,47 @@ function get_uploaded()
                 <br>Date Uploaded: {$date}
                 <hr>Action:<br>{$action}
                 ">{$title}</a></td>
-            <!-- <td class="text-center">
-                <a href="#" class="btn btn-sm btn-warning" data-toggle="tooltip" data-placement="left" title="Receive"><i class="fa fa-file-import"></i></a>
-            </td> -->
+            <td>
+                {$date}
+            </td>
+        </tr>
+ELLA;
+        echo $ellacutie;
+    }
+}
+
+function get_uploaded_shared()
+{
+    $unit = $_SESSION['unit'];
+    $myella = query("SELECT * FROM uploads WHERE up_receivingunit = '{$unit}' ORDER BY id DESC");
+    confirm($myella);
+
+    while($row = fetch_array($myella))
+    {
+        $id = $row['id'];
+        $filename = $row['up_filename'];
+        $title = $row['up_title'];
+        $action = $row['up_action'];
+        $receivingUnit = get_unit_name($row['up_receivingunit']);
+        $uploadedBy = get_user_name($row['up_by']);
+        $uploadedUnit = get_unit_name($row['up_unit']);
+
+        $date = format_date($row['up_dateadded']);
+
+        $ellacutie = <<<ELLA
+        <tr>
+            <td><a href="./uploads/{$filename}" target="_blank">{$filename}</a></td>
+            <td><a tabindex="0" class="btn btn-sm btn-default popover-dismiss" role="button" data-toggle="popover" data-html="true" data-trigger="focus" title="Document Details"
+                data-content="
+                Originating Office: {$uploadedUnit}
+                <br>Uploaded by: {$uploadedBy}
+                <br>Forwarded to: {$receivingUnit}
+                <br>Date Uploaded: {$date}
+                <hr>Action:<br>{$action}
+                ">{$title}</a></td>
+            <td>
+                {$date}
+            </td>
         </tr>
 ELLA;
         echo $ellacutie;

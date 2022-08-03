@@ -61,9 +61,9 @@
                 <table class="table table-bordered table-striped table-hover" id="uploadedDocsTable">
                   <thead>
                   <tr>
-                    <th class="text-center col-3">Filename</th>
+                    <th class="text-center col-2">Filename</th>
                     <th class="text-center col-8">Title</th>
-                    <!-- <th class="text-center col-1">Action</th> -->
+                    <th class="text-center col-2">Date Uploaded</th>
                   </tr>
                   </thead>
                   <tbody>
