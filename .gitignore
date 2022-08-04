@@ -1,4 +1,4 @@
 *.zip
 uploads/*.pdf
-queries.sql
 robots.txt
+*.sql
