@@ -1,10 +1,44 @@
   <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
+  <aside class="control-sidebar control-sidebar-dark" style="bottom:calc(5rem + 1px)">
     <!-- Control sidebar content goes here -->
-    <!-- <div class="p-3">
-      <h5>Title</h5>
-      <p>Sidebar content</p>
-    </div> -->
+    <div class="p-3">
+      <h5>About SDOIN eDTS</h5>
+      <p>Technologies Used</p>
+      <div class="container">
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <i style="font-size: 5rem;" class="devicon-mysql-plain-wordmark"></i>
+          </div>
+          <div class="col-md-6">
+            <i style="font-size: 5rem;" class="devicon-php-plain colored"></i>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <i style="font-size: 5rem;" class="devicon-html5-plain-wordmark colored"></i>
+          </div>
+          <div class="col-md-6">
+            <i style="font-size: 5rem;" class="devicon-css3-plain-wordmark colored"></i>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <i style="font-size: 5rem;" class="devicon-bootstrap-plain-wordmark"></i>
+          </div>
+          <div class="col-md-6">
+            <i style="font-size: 5rem;" class="devicon-javascript-plain colored"></i>
+          </div>
+        </div>
+      </div>
+      <div class="mb-3">
+        <p class="mb-1">Project Repository</p>
+        <a href="https://github.com/loiSvelasco/sdoin-dts" target="_blank" class="btn btn-light text-dark text-decoration-none">GitHub&nbsp;&nbsp;<i class="fa fa-github"></i></a>
+      </div>
+      <div class="mb-3">
+        <p class="mb-1">Support / Suggestions</p>
+        <a href="https://www.facebook.com/louis.superficial.velasco.1/" target="_blank" class="btn btn-primary text-decoration-none">Facebook <i class="fa fa-facebook"></i></a>
+      </div>
+    </div>
   </aside>
   <!-- /.control-sidebar -->
   <button onclick="topFunction()" data-toggle="tooltip" data-placement="top" class="btn btn-dark" id="myBtn" title="Scroll to top of page"><i class="fa fa-angle-up"></i></button>

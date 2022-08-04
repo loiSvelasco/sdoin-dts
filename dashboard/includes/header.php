@@ -17,7 +17,10 @@
 
   <title><?php echo DASHBOARD_TITLE ?></title>
   <link rel="icon" type="image/x-icon" href="./favicon.ico" />
-
+  
+  <!-- Dev Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+        
   <!-- Font Awesome Icons -->
   <!-- <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css"> -->
   <script src="https://kit.fontawesome.com/8fb6d51646.js" crossorigin="anonymous"></script>
@@ -116,7 +119,7 @@ style="position:absolute;
 
       <li class="nav-item">
         <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button"><i
-            class="fas fa-th-large"></i></a>
+            class="fas fa-question-circle"></i></a>
       </li>
     </ul>
   </nav>
