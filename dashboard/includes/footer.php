@@ -30,14 +30,29 @@
           </div>
         </div>
       </div>
-      <div class="mb-3">
-        <p class="mb-1">Project Repository</p>
-        <a href="https://github.com/loiSvelasco/sdoin-dts" target="_blank" class="btn btn-light text-dark text-decoration-none">GitHub&nbsp;&nbsp;<i class="fa fa-github"></i></a>
+      <p class="mb-2">Project Details</p>
+      <div class="row mb-2">
+        <div class="col-12">
+        <a href="https://github.com/loiSvelasco/sdoin-dts" target="_blank"><img src="https://img.shields.io/badge/repo-sdoin--dts-lightgrey?style=for-the-badge&logo=github" alt=""></a>
+        </div>
       </div>
-      <div class="mb-3">
-        <p class="mb-1">Support / Suggestions</p>
-        <a href="https://www.facebook.com/louis.superficial.velasco.1/" target="_blank" class="btn btn-primary text-decoration-none">Facebook <i class="fa fa-facebook"></i></a>
+      <div class="row mb-3">
+        <div class="col-12">
+        <a href="https://github.com/loiSvelasco" target="_blank"><img src="https://img.shields.io/badge/status-beta--testing-critical?style=for-the-badge&logo=github" alt=""></a>
+        </div>
       </div>
+      <p class="mb-2">Support / Suggestions</p>
+      <div class="row mb-2">
+        <div class="col-12">
+          <a href="https://www.facebook.com/louis.superficial.velasco.1/" target="_blank"><img src="https://img.shields.io/badge/FB-Louis%20Velasco-grey?style=for-the-badge&logo=facebook&logoColor=f0f0f0&colorA=informational" alt=""></a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <a href="https://www.facebook.com/jenmfelipe" target="_blank"><img src="https://img.shields.io/badge/FB-jen%20felipe-grey?style=for-the-badge&logo=facebook&logoColor=f0f0f0&colorA=informational" alt=""></a>
+        </div>
+      </div>
+      <!-- <a href="https://www.facebook.com/louis.superficial.velasco.1/" target="_blank" class="btn btn-primary text-decoration-none">Facebook <i class="fa fa-facebook"></i></a> -->
     </div>
   </aside>
   <!-- /.control-sidebar -->
