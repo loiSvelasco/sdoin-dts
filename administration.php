@@ -82,6 +82,7 @@ ELLA;
 
 function allUsers()
 {
+    $counter = 0;
     $morningLookElla = query("SELECT * FROM users, user_details WHERE users.id = user_details.id");
     love($morningLookElla);
 
@@ -92,10 +93,11 @@ function allUsers()
         $name = $row['ud_name'];
         $role = $row['role'] == 1 ? 'Admin' : ($row['role'] == 2 ? 'Special Access' : 'Regular');
         $unit = get_unit_name($row['ud_unit']);
+        $counter++;
 
         $ellacutie = <<<ELLA
         <tr>
-            <td class="align-middle text-center">{$id}</td>
+            <td class="align-middle text-center">{$counter}</td>
             <td class="align-middle">{$email}</td>
             <td class="align-middle">{$name}</td>
             <td class="align-middle">{$role}</td>
