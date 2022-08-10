@@ -4,12 +4,21 @@ function allReceived($today, $start = 0, $end = 0)
 {
     if($today == true)
     {
-        $prettyella = query("SELECT * FROM docs_location WHERE DATE(dl_receiveddate) = CURDATE() ORDER BY dl_id DESC");
+        $prettyella = query(
+            "SELECT * FROM docs_location 
+             WHERE DATE(dl_receiveddate) = CURDATE() 
+             ORDER BY dl_id DESC"
+        );
         confirm($prettyella);
     }
     else
     {
-        $prettyella = query("SELECT * FROM docs_location WHERE DATE(dl_receiveddate) BETWEEN '{$start}' AND '{$end}' ORDER BY dl_id DESC");
+        $prettyella = query(
+            "SELECT * FROM docs_location 
+             WHERE DATE(dl_receiveddate) 
+             BETWEEN '{$start}' AND '{$end}' 
+             ORDER BY dl_id DESC"
+            );
         confirm($prettyella);
     }
     while($row = fetch_array($prettyella))
@@ -44,12 +53,21 @@ function allReleased($today, $start = 0, $end = 0)
 {
     if($today == true)
     {
-        $prettyella = query("SELECT * FROM docs_location WHERE DATE(dl_releaseddate) = CURDATE() ORDER BY dl_id DESC");
+        $prettyella = query(
+            "SELECT * FROM docs_location 
+             WHERE DATE(dl_releaseddate) = CURDATE() 
+             ORDER BY dl_id DESC"
+        );
         confirm($prettyella);
     }
     else
     {
-        $prettyella = query("SELECT * FROM docs_location WHERE DATE(dl_releaseddate) BETWEEN '{$start}' AND '{$end}' ORDER BY dl_id DESC");
+        $prettyella = query(
+            "SELECT * FROM docs_location 
+             WHERE DATE(dl_releaseddate) 
+             BETWEEN '$start' AND '$end' 
+             ORDER BY dl_id DESC"
+        );
         confirm($prettyella);
     }
     while($row = fetch_array($prettyella))
@@ -83,7 +101,10 @@ ELLA;
 function allUsers()
 {
     $counter = 0;
-    $morningLookElla = query("SELECT * FROM users, user_details WHERE users.id = user_details.id");
+    $morningLookElla = query(
+        "SELECT * FROM users, user_details 
+         WHERE users.id = user_details.id"
+    );
     love($morningLookElla);
 
     while($row = fetch_array($morningLookElla))
@@ -118,7 +139,11 @@ ELLA;
 
 function allDocs()
 {
-    $ella = query("SELECT * FROM documents WHERE document_accomplished = 0 ORDER BY id DESC LIMIT 500");
+    $ella = query(
+        "SELECT * FROM documents 
+         WHERE document_accomplished = 0 
+         ORDER BY id DESC LIMIT " . ADMIN_ALL_LIMIT
+    );
     confirm($ella);
 
     while($row = fetch_array($ella))
@@ -156,7 +181,7 @@ ELLA;
 function allLapsedDocs()
 {
     $wStmt = "SELECT DISTINCT dl_tracking, dl_forwarded, dl_unit, DATE(dl_receiveddate) AS 'receiveddate', document_accomplished FROM docs_location, documents ";
-    $wStmt .= "WHERE DATEDIFF(CURDATE(), DATE(dl_receiveddate)) >= 15 ";
+    $wStmt .= "WHERE DATEDIFF(CURDATE(), DATE(dl_receiveddate)) >= " . DOC_LAPSED_DAYS . " ";
     $wStmt .= "AND document_accomplished = 0 AND dl_forwarded = 0";
     $babyElla = query($wStmt);
     love($babyElla); // QUERY FOR LAPSED DOCS
@@ -196,6 +221,52 @@ ELLA;
     }
 
 
+}
+
+function get_accomplished_docs_admin()
+{
+    $babyella = query(
+        "SELECT * FROM documents 
+         WHERE document_accomplished = 1 
+         ORDER BY id DESC LIMIT " . ACC_QUERY_LIMIT
+    );
+    love($babyella);
+
+    if(row_count($babyella) >= 1)
+    {
+        while($row = fetch_array($babyella))
+        {
+            $title = $row['document_title'];
+            $desc = $row['document_desc'];
+            $purpose = $row['document_purpose'];
+            $tracking = $row['document_tracking'];
+
+            $dateCreated = format_date($row['date_created']);
+            $accompDate = format_date($row['accomp_date']);
+            
+            $origin = get_unit_name($row['document_origin']);
+            $accompUnit = get_unit_name($row['accomp_unit']);
+            $doctype = get_doctype_name($row['document_type']);
+            $accompBy = get_user_name($row['accomp_by']);
+            $owner = get_user_name($row['document_owner']);
+            
+            $ellacutie = <<<ELLA
+            <tr>
+                <td class="align-middle">
+                    <a href="?tracking={$tracking}" target="_blank" data-toggle="tooltip" data-placement="top" title="Track"><i class="fa fa-search"></i></a>&nbsp;&nbsp;
+                    <a href="?print={$tracking}" target="_blank" data-toggle="tooltip" data-placement="top" title="Print Tracking no."><i class="fa fa-print"></i></a>&nbsp;&nbsp;
+                    {$tracking}
+                </td>
+                <td class="align-middle">{$title}</td>
+                <td class="align-middle">{$purpose}</td>
+                <td class="align-middle">{$doctype}</td>
+                <td class="align-middle">{$dateCreated}</td>
+                <td class="align-middle">{$accompDate}</td>
+            </tr>
+ELLA;
+            echo $ellacutie;
+        }
+    }
 }
 
 

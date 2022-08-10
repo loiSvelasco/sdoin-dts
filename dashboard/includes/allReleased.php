@@ -34,7 +34,7 @@
                     </span>
                   </div>
                   <input type="text" class="form-control float-right" id="received_drpicker" value="">
-                  <input type="hidden" form="daterange" name="released">
+                  <input type="hidden" form="daterange" name="allReleased">
                   <input type="hidden" form="daterange" name="startDate" class="form-control float-right" id="startDate" value="">
                   <input type="hidden" form="daterange" name="endDate" class="form-control float-right" id="endDate" value="">
                   <div class="input-group-append">
@@ -66,7 +66,7 @@
                       isset($_GET['startDate']) ? $start = escape_string($_GET['startDate']) : $start = 0;
                       isset($_GET['endDate']) ? $end = escape_string($_GET['endDate']) : $end = 0;
                       isset($_GET['startDate']) && isset($_GET['endDate']) ? $today = false : $today = true;
-                      echo allReleased($today, $start, $end); 
+                      echo allReleased($today, $start, $end);
                     ?>
                     </tbody>
                   </table>

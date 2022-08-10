@@ -60,6 +60,11 @@ else if (isset($_GET['documents']))
     include("includes/documents.php");
 }
 
+else if (isset($_GET['updates']))
+{
+    include("includes/updates.php");
+}
+
 else if (isset($_GET['upload']))
 {
     if($_SESSION['role'] == 2 || 

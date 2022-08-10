@@ -35,7 +35,7 @@
                     </span>
                   </div>
                   <input type="text" class="form-control float-right" id="received_drpicker" value="">
-                  <input type="hidden" form="daterange" name="received">
+                  <input type="hidden" form="daterange" name="allReceived">
                   <input type="hidden" form="daterange" name="startDate" class="form-control float-right" id="startDate" value="">
                   <input type="hidden" form="daterange" name="endDate" class="form-control float-right" id="endDate" value="">
                   <div class="input-group-append">
