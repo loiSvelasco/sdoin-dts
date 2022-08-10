@@ -100,11 +100,7 @@ ELLA;
 
 function allUsers()
 {
-    $counter = 0;
-    $morningLookElla = query(
-        "SELECT * FROM users, user_details 
-         WHERE users.id = user_details.id"
-    );
+    $morningLookElla = query("SELECT * FROM users, user_details WHERE users.id = user_details.id");
     love($morningLookElla);
 
     while($row = fetch_array($morningLookElla))
