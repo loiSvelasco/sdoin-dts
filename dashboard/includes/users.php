@@ -24,7 +24,7 @@
       <?php display_notice();?>
       </div>
         <div class="row">
-          <div class="col-8">
+          <div class="col-lg-8 col-12">
             <div class="card">
               <div class="card-header border-info bg-white">
                 <h3 class="card-title">Manage Users</h3>
@@ -55,7 +55,7 @@
             <!-- /.card-body -->
           </div>
 
-          <div class="col-4">
+          <div class="col-lg-4 col-12">
             <div class="card">
               <div class="card-header border-info bg-white">
                 <h3 class="card-title">Add a user</h3>

@@ -137,7 +137,7 @@
                       </tr>
                     </thead>
                     <tbody>
-                    <?php echo get_accomplished_docs(); ?>
+                    <?php echo get_accomplished_docs_admin(); ?>
                     </tbody>
                   </table>
                 </div>

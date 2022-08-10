@@ -118,7 +118,7 @@
                         <th class="col-2">Purpose</th>
                         <th class="col-2">Type</th>
                         <th class="col-2">Date Created</th>
-                        <th class="col">Owner</th>
+                        <th class="col">Current Location</th>
                       </tr>
                     </thead>
                     <tbody>
