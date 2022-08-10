@@ -695,6 +695,7 @@ function accomplished_details($today, $start = 0, $end = 0)
             "SELECT * FROM documents WHERE 
              DATE(accomp_date) = CURDATE() 
              AND document_accomplished = 1 
+             AND accomp_unit = '{$unit}' 
              ORDER BY id DESC"
         );
         confirm($prettyella);
@@ -706,6 +707,7 @@ function accomplished_details($today, $start = 0, $end = 0)
             "SELECT * FROM documents WHERE 
              DATE(accomp_date) BETWEEN '{$start}' AND '{$end}' 
              AND document_accomplished = 1 
+             AND accomp_unit = '{$unit}' 
              ORDER BY id DESC"
         );
         confirm($prettyella);
