@@ -65,7 +65,7 @@
                     isset($_GET['startDate']) ? $start = escape_string($_GET['startDate']) : $start = 0;
                     isset($_GET['endDate']) ? $end = escape_string($_GET['endDate']) : $end = 0;
                     isset($_GET['startDate']) && isset($_GET['endDate']) ? $today = false : $today = true;
-                    echo accomplished_details($today, $start, $end); 
+                    echo get_accomplished_docs($today, $start, $end); 
                   ?>
                   </tbody>
                 </table>

@@ -38,6 +38,7 @@
     define("DOC_QUERY_LIMIT", 100);
     define("DOC_REMIND_DAYS", 10);
     define("DOC_LAPSED_DAYS", 15);
+    define("ADMIN_ALL_LIMIT", 500);
     define("BASE_URL", "localhost" . SUBDIRECTORY);
 
     // db

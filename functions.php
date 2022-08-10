@@ -273,14 +273,14 @@ function get_my_docs()
     while($row = fetch_array($ella))
     {
         $doctype = get_doctype_name($row['document_type']);
-        $origin = get_unit_name($row['document_origin']);
-        $owner = get_user_name($row['document_owner']);
+        // $origin = get_unit_name($row['document_origin']);
+        // $owner = get_user_name($row['document_owner']);
         $title = $row['document_title'];
-        $desc = $row['document_desc'];
         $purpose = $row['document_purpose'];
         $tracking = $row['document_tracking'];
-        $id = $row['id'];
         $date = format_date($row['date_created']);
+
+        $currentLocation = get_doc_current_location($tracking);
 
         $ellacutie = <<<ELLA
         <tr>
@@ -293,7 +293,7 @@ function get_my_docs()
             <td class="align-middle">{$purpose}</td>
             <td class="align-middle">{$doctype}</td>
             <td class="align-middle">{$date}</td>
-            <td class="align-middle">{$owner}</td>
+            <td class="align-middle">{$currentLocation}</td>
         </tr>
 ELLA;
         echo $ellacutie;
@@ -308,7 +308,8 @@ function get_doc_current_location($tracking)
     if(row_count($superduperultramegacutiepieprintetella) >= 1)
     {
         $row = fetch_assoc($superduperultramegacutiepieprintetella);
-        return $row['dl_unit'];
+        $received = ($row['dl_receivedby'] == 0) ? ", not yet received." : "";
+        return get_unit_name($row['dl_unit']) . $received;
     }
     else
     {
