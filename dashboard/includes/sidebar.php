@@ -60,7 +60,12 @@
                   <p>Reports</p>
                 </a>
               </li>
-
+              <li class="nav-item">
+                <a href="?updates" class="nav-link">
+                  <i class="fas fa-history nav-icon"></i>
+                  <p>System Updates</p>
+                </a>
+              </li>
               <?php 
               
                 if ($_SESSION['role'] == 1)

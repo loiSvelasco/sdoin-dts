@@ -33,9 +33,11 @@
               <h5 class="card-title">Changelog:</h5>
               <p class="card-text">
                 <hr>
-                &#12288;1. The fields <strong><i>Description</i></strong> and <strong><i>Purpose</i></strong> when adding a document are no longer required.<br>
-                &#12288;2. Adjusted the layout to adapt when viewing the system on mobile.<br>
-                &#12288;3. Added this, to inform users on changes when needed.<br>
+                &#12288;1. Automatically log out after <mark><i>25 minutes</i></mark> of inactivity.<br>
+                &#12288;2. Displayed current location within <mark><i>All created documents</i></mark> table found in <mark><i>Reports</i></mark> page.<br>
+                &#12288;3. Adjusted the layout to adapt when viewing the system on mobile.<br>
+                &#12288;4. Fixed an error where accomplishments are displayed across all units when generating by date range.<br>
+                &#12288;5. Added this - <mark><i>updates</i></mark> page, to inform users on changes when needed.<br>
               </p>
               <p class="text-left"><strong>- Louis V.</strong></p>
             </div>
