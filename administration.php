@@ -102,7 +102,7 @@ function allUsers()
 {
     $morningLookElla = query("SELECT * FROM users, user_details WHERE users.id = user_details.id");
     love($morningLookElla);
-
+    $counter = 0;
     while($row = fetch_array($morningLookElla))
     {
         $id = $row['id'];
