@@ -317,6 +317,22 @@ function get_doc_current_location($tracking)
     }
 }
 
+function get_doc_current_location_edit($tracking)
+{
+    $locQuery = query("SELECT * FROM docs_location WHERE dl_tracking = '{$tracking}' ORDER BY dl_id DESC LIMIT 1");
+    confirm($locQuery);
+
+    if(row_count($locQuery) >= 1)
+    {
+        $row = fetch_assoc($locQuery);
+        return $row['dl_unit'];
+    }
+    else
+    {
+        return null;
+    }
+}
+
 function get_to_receive()
 {
     $ella = query("SELECT * FROM docs_location WHERE dl_unit = {$_SESSION['unit']} AND dl_receivedby = 0 ORDER BY dl_id ASC");

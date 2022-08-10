@@ -77,7 +77,7 @@
                     <input type="hidden" name="referer" value="<?php echo URI; ?>">
                     <input type="hidden" name="tracking" value="<?php echo $tracking; ?>">
                     <select id="doc_to" name="to" class="custom-select" required>
-                        <option value="<?php echo get_doc_current_location($tracking); ?>" selected hidden><?php echo get_unit_name(get_doc_current_location($tracking)); ?></option>
+                        <option value="<?php echo get_doc_current_location_edit($tracking); ?>" selected hidden><?php echo get_unit_name(get_doc_current_location_edit($tracking)); ?></option>
                         <optgroup label="Division Office">
                             <?php get_unit_do(); ?>
                         </optgroup>
@@ -89,7 +89,7 @@
                         </optgroup>
                     </select>
                   <?php else: ?>
-                    <label for="Title">Current Location: <?php echo get_unit_name(get_doc_current_location($tracking)); ?></label>
+                    <label for="Title">Current Location: <?php echo get_unit_name(get_doc_current_location_edit($tracking)); ?></label>
                   <?php endif; ?>
                 </div>
                 <div class="form-group">
