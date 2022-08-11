@@ -8,17 +8,17 @@ include("includes/sidebar.php");
 // *  2 = admin / special accounts
 // *  3 = regular user
 
-if(isset($_SESSION['timestamp']))
-{
-    if(time() - $_SESSION['timestamp'] > 1500)
-    {
-        redirect("?logout");
-    }
-    else
-    {
-        $_SESSION['timestamp'] = time();
-    }
-}
+// if(isset($_SESSION['timestamp']))
+// {
+//     if(time() - $_SESSION['timestamp'] > 5400)
+//     {
+//         redirect("?logout");
+//     }
+//     else
+//     {
+//         $_SESSION['timestamp'] = time();
+//     }
+// }
 
 if ($_SERVER['REQUEST_URI'] == SUBDIRECTORY . "dashboard/")
 {

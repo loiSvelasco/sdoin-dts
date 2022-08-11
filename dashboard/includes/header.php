@@ -85,11 +85,11 @@ style="position:absolute;
 
     <!-- SEARCH FORM -->
     <form action="?tracking" class="form-inline ml-3" method="GET">
-      <div class="input-group input-group-sm">
+      <div class="input-group input-group-md border border-info rounded">
         <input class="form-control form-control-navbar" type="search" name="tracking" placeholder="Tracking no." aria-label="Search" required>
         <div class="input-group-append">
           <button class="btn btn-navbar" type="submit">
-            <i class="fas fa-search"></i>
+            <i class="fas fa-search"></i>&nbsp;&nbsp;Track
           </button>
         </div>
       </div>

@@ -7,6 +7,10 @@
  *  Used for Procedural PHP
  *
  */
+function currentdate()
+{
+    return date('Y-m-d');
+}
 
 function last_id()
 {
@@ -448,26 +452,26 @@ ELLA;
 function get_received_today()
 {
     $unit = $_SESSION['unit'];
-    $prettyella = query("SELECT *, DATE_FORMAT(dl_receiveddate, '%Y-%m-%d')  FROM docs_location WHERE DATE(dl_receiveddate) = CURDATE() AND dl_unit = {$unit}");
+    $prettyella = query("SELECT *, DATE_FORMAT(dl_receiveddate, '%Y-%m-%d')  FROM docs_location WHERE DATE(dl_receiveddate) = " . currentdate() . " AND dl_unit = {$unit}");
     echo shortNumber(row_count($prettyella));
 }
 
 function get_released_today()
 {
     $unit = $_SESSION['unit'];
-    $prettyella = query("SELECT *, DATE_FORMAT(dl_releaseddate, '%Y-%m-%d')  FROM docs_location WHERE DATE(dl_releaseddate) = CURDATE() AND dl_releasedbyunit = {$unit}");
+    $prettyella = query("SELECT *, DATE_FORMAT(dl_releaseddate, '%Y-%m-%d')  FROM docs_location WHERE DATE(dl_releaseddate) = " . currentdate() . " AND dl_releasedbyunit = {$unit}");
     echo shortNumber(row_count($prettyella));
 }
 
 function get_received_today_all()
 {
-    $prettyella = query("SELECT DISTINCT *, DATE_FORMAT(dl_receiveddate, '%Y-%m-%d')  FROM docs_location WHERE DATE(dl_receiveddate) = CURDATE()");
+    $prettyella = query("SELECT DISTINCT *, DATE_FORMAT(dl_receiveddate, '%Y-%m-%d')  FROM docs_location WHERE DATE(dl_receiveddate) = " . currentdate());
     echo shortNumber(row_count($prettyella));
 }
 
 function get_released_today_all()
 {
-    $prettyella = query("SELECT DISTINCT *, DATE_FORMAT(dl_releaseddate, '%Y-%m-%d')  FROM docs_location WHERE DATE(dl_releaseddate) = CURDATE()");
+    $prettyella = query("SELECT DISTINCT *, DATE_FORMAT(dl_releaseddate, '%Y-%m-%d')  FROM docs_location WHERE DATE(dl_releaseddate) = " . currentdate());
     echo shortNumber(row_count($prettyella));
 }
 
@@ -549,7 +553,7 @@ ELLA;
 
 function get_accomplished_count()
 {
-    $babyella = query("SELECT * FROM documents WHERE document_accomplished = 1 AND DATE(accomp_date) = CURDATE() AND accomp_unit = '{$_SESSION['unit']}'");
+    $babyella = query("SELECT * FROM documents WHERE document_accomplished = 1 AND DATE(accomp_date) = " . currentdate() . " AND accomp_unit = '{$_SESSION['unit']}'");
     love($babyella);
 
     echo row_count($babyella);
@@ -604,7 +608,7 @@ function received_details($today, $start = 0, $end = 0)
         $unit = $_SESSION['unit'];
         $prettyella = query(
             "SELECT * FROM docs_location WHERE 
-             DATE(dl_receiveddate) = CURDATE() 
+             DATE(dl_receiveddate) = " . currentdate() . " 
              AND dl_unit = {$unit} 
              ORDER BY dl_id DESC"
         );
@@ -656,7 +660,7 @@ function released_details($today, $start = 0, $end = 0)
         $unit = $_SESSION['unit'];
         $prettyella = query(
             "SELECT * FROM docs_location WHERE 
-             DATE(dl_releaseddate) = CURDATE() 
+             DATE(dl_releaseddate) = " . currentdate() . " 
              AND dl_releasedbyunit = {$unit} 
              ORDER BY dl_id DESC"
         );
@@ -709,7 +713,7 @@ function accomplished_details($today, $start = 0, $end = 0)
         $unit = $_SESSION['unit'];
         $prettyella = query(
             "SELECT * FROM documents WHERE 
-             DATE(accomp_date) = CURDATE() 
+             DATE(accomp_date) = " . currentdate() . " 
              AND document_accomplished = 1 
              AND accomp_unit = '{$unit}' 
              ORDER BY id DESC"
@@ -775,7 +779,7 @@ function getNumDocs()
 function getLapsedNumDocs()
 {
     $wStmt = "SELECT DISTINCT dl_tracking, dl_forwarded, DATE(dl_receiveddate) AS 'receiveddate', document_accomplished FROM docs_location, documents ";
-    $wStmt .= "WHERE DATEDIFF(CURDATE(), DATE(dl_receiveddate)) >= " . DOC_LAPSED_DAYS . " ";
+    $wStmt .= "WHERE DATEDIFF(" . currentdate() . ", DATE(dl_receiveddate)) >= " . DOC_LAPSED_DAYS . " ";
     $wStmt .= "AND document_accomplished = 0 AND dl_forwarded = 0";
     $babyElla = query($wStmt);
     love($babyElla); // QUERY FOR LAPSED DOCS

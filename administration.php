@@ -65,7 +65,7 @@ function allReleased($today, $start = 0, $end = 0)
         $prettyella = query(
             "SELECT * FROM docs_location 
              WHERE DATE(dl_releaseddate) 
-             BETWEEN '$start' AND '$end' 
+             BETWEEN '{$start}' AND '{$end}' 
              ORDER BY dl_id DESC"
         );
         confirm($prettyella);
@@ -73,7 +73,7 @@ function allReleased($today, $start = 0, $end = 0)
     while($row = fetch_array($prettyella))
     {
         $tracking = $row['dl_tracking'];
-        $title = get_document_detail($tracking, 'document_title');
+        $title = escape_string(get_document_detail($tracking, 'document_title'));
         $purpose = get_document_detail($tracking, 'document_purpose');
         $doctype = get_doctype_name(get_document_detail($tracking, 'document_type'));
         $date = format_date(get_document_detail($tracking, 'date_created'));
@@ -149,7 +149,7 @@ function allDocs()
     while($row = fetch_array($ella))
     {
         $doctype = get_doctype_name($row['document_type']);
-        $origin = get_unit_name($row['document_origin']);
+        // $origin = get_unit_name($row['document_origin']);
         $owner = get_user_name($row['document_owner']);
         $title = $row['document_title'];
         $desc = $row['document_desc'];

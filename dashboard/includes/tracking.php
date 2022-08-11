@@ -107,13 +107,16 @@ CUTIEPIE;
 
                     while($row = fetch_array($prettyella))
                     {                      
+                      
+                      $remarks = $row['dl_relremarks'] == "" ? "" : "<strong>Remarks: {$row['dl_relremarks']}</strong>";
+                      
                       if($row['dl_receivedby'] != 0)
                       {
                         $phpdate = strtotime($row['dl_receiveddate']);
                         $date = date("F j, Y, g:i a", $phpdate );
                         
                         $status = "Received at " . get_unit_name($row['dl_unit']);
-                        $received = "Received by " . get_user_name($row['dl_receivedby']) . " - " . $date ;
+                        $received = "Received by " . get_user_name($row['dl_receivedby']) . " - " . $date;
                         $bg = "bg-success";
                       }
                       else
@@ -130,7 +133,9 @@ CUTIEPIE;
                       </div>
                       <div>
                           <h5 class="text-dark">{$status}</h5>
-                          <p class="lead text-muted pb-3">{$received}</p>
+                          <p class="lead text-muted pb-3">{$received} <br>
+                            <span class="lead">{$remarks}</span>
+                          </p>
                       </div>
                       </div>
 CUTIEPIE;

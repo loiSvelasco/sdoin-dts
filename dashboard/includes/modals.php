@@ -136,6 +136,11 @@
                         </div>
                     </div>
                 </div>
+                <div class="form-group row">
+                    <div class="col-12">
+                        <textarea id="rel-remarks" name="rel-remarks" placeholder="Remarks (Optional)" cols="40" rows="5" class="form-control"></textarea>
+                    </div>
+                </div> 
             </form>
         </div>
         <div class="modal-footer justify-content-between">
