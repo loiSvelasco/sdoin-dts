@@ -25,12 +25,14 @@ function release($tracking, $to, $remarks = "")
          ORDER BY dl_id DESC LIMIT 1"
     );
     love($ellaganda);
-
+    $date = date('Y-m-d H:i:s');
     if (row_count($ellaganda) >= 1)
     {
         $release = query(
             "UPDATE docs_location 
-             SET dl_forwarded = 1, dl_relremarks = '{$remarks}'
+             SET dl_forwarded = 1, 
+                dl_releaseddate = '{$date}',
+                dl_relremarks = '{$remarks}'
              WHERE dl_tracking = '{$tracking}' 
              AND dl_unit = '{$unit}' 
              ORDER BY dl_id DESC LIMIT 1"
@@ -38,8 +40,8 @@ function release($tracking, $to, $remarks = "")
         confirm($release);
     }
 
-    $query = "INSERT INTO docs_location(dl_tracking, dl_unit, dl_releasedby, dl_releasedbyunit) ";
-    $query .= "VALUES('{$tracking}', '{$to}', '{$by}', '{$unit}')";
+    $query = "INSERT INTO docs_location(dl_tracking, dl_unit, dl_releaseddate, dl_releasedby, dl_releasedbyunit) ";
+    $query .= "VALUES('{$tracking}', '{$to}', '{$date}', '{$by}', '{$unit}')";
     $insert = query($query);
     confirm($insert);
 }

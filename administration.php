@@ -73,7 +73,7 @@ function allReleased($today, $start = 0, $end = 0)
     while($row = fetch_array($prettyella))
     {
         $tracking = $row['dl_tracking'];
-        $title = escape_string(get_document_detail($tracking, 'document_title'));
+        $title = get_document_detail($tracking, 'document_title');
         $purpose = get_document_detail($tracking, 'document_purpose');
         $doctype = get_doctype_name(get_document_detail($tracking, 'document_type'));
         $date = format_date(get_document_detail($tracking, 'date_created'));
@@ -105,8 +105,8 @@ function allUsers()
         "SELECT * FROM users, user_details 
          WHERE users.id = user_details.id"
     );
-    $morningLookElla = query("SELECT * FROM users, user_details WHERE users.id = user_details.id");
     love($morningLookElla);
+
     while($row = fetch_array($morningLookElla))
     {
         $id = $row['id'];
@@ -149,7 +149,7 @@ function allDocs()
     while($row = fetch_array($ella))
     {
         $doctype = get_doctype_name($row['document_type']);
-        // $origin = get_unit_name($row['document_origin']);
+        $origin = get_unit_name($row['document_origin']);
         $owner = get_user_name($row['document_owner']);
         $title = $row['document_title'];
         $desc = $row['document_desc'];
