@@ -5,7 +5,6 @@ global $maintenance;
 
 if($maintenance)
 {
-    $maintenance_text = "in maintenance!";
     include(dirname(__DIR__) . DIRECTORY_SEPARATOR . "maintenance.php");
     exit();
 }
