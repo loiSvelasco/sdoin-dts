@@ -12,7 +12,7 @@ if(isset($_POST['userID']))
     $unit = escape_string($_POST['unit']);
     $fullname = escape_string($_POST['fullname']);
 
-    dd($_POST);
+    // dd($_POST);
 
     if(exists($id, 'users') && exists($id, 'user_details'))
     {
