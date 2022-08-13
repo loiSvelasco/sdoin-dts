@@ -12,6 +12,8 @@ function adminer_object()
 
     // Specify enabled plugins here.
     $plugins = [
+		new AdminerLoginOtp(base64_decode('yEmxhuQ7ProAwQ==')),
+		
         new AdminerDatabaseHide([
 			"mysql",
 			"information_schema",
@@ -20,10 +22,10 @@ function adminer_object()
 		]),
 		
         // Filters available servers (MySQL, SQLite3, etc)
-        new AdminerLoginServers([
-            filter_input(INPUT_SERVER, 'localhost') => filter_input(INPUT_SERVER, 'SERVER_NAME')
-        ]),
-		
+        //new AdminerLoginServers([
+            //filter_input(INPUT_SERVER, 'localhost') => filter_input(INPUT_SERVER, 'SERVER_NAME')
+        //]),
+
         new AdminerTablesFilter(),
         new AdminerSimpleMenu(),
         new AdminerCollations(),
@@ -44,4 +46,5 @@ function adminer_object()
 }
 
 // Include original Adminer or Adminer Editor.
-include "./adminer.php";
+// include "./adminer.php";
+include "./mysql-en.php";

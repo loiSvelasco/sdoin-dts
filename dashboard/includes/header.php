@@ -50,7 +50,7 @@
 </head>
 <?php global $staging;  if($staging): ?>
   <div class="bg-warning d-flex justify-content-center position-sticky">
-    <strong class="mt-1 mb-1">You are in a development environment. Changes here will not affect the live version. Webhook test.</strong>
+    <strong class="mt-1 mb-1">You are in a development environment. Changes here will not affect the live version.</strong>
   </div>
 <?php endif; ?>
 <body class="hold-transition sidebar-mini sidebar-collapse">
