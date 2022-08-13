@@ -27,8 +27,8 @@
     <div class="row text-monospace">
         <div class="col-12">
           <div class="card">
-            <div class="card-header bg-light">
-              <strong>System updated to <span class="badge badge-warning rounded-0">v2.8-beta.3</span></strong> <span class="text-muted">Aug. 11, 2022</span>
+            <div class="card-header bg-dark">
+              <strong>System updated to <span class="badge badge-warning rounded-0">v2.8-beta.7</span></strong> <span class="text-muted">Aug. 13, 2022</span>
             </div>
             <div class="card-body">
               <h5 class="card-title">Changelog:</h5>
@@ -36,9 +36,8 @@
                 <hr>
                 &#12288;1. Added the ability to input remarks when releasing a document.<br>
                 &#12288;2. Made the <mark>Track</mark> textbox located at the navigation bar larger.<br>
-                &#12288;3. Adjusted the log out timer from <mark>25 minutes</mark> to <mark>90 minutes.</mark><br>
-                &#12288;4. Fixed an error where accomplishments are displayed across all units when generating by date range.<br>
-                &#12288;5. Added this - <mark><i>updates</i></mark> page, to inform users on changes when needed.<br>
+                &#12288;3. Removed the log-out timer.<br>
+                &#12288;4. Added more document types.<br>
               </p>
               <p class="text-left"><strong>- Louis V.</strong></p>
             </div>
