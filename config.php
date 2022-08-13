@@ -1,6 +1,6 @@
 <?php 
 
-  $maintenance = true;
+  $maintenance = false;
 
   include 'kint.phar';
   Kint::$aliases[] = 'dd';
