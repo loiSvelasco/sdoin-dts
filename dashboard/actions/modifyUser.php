@@ -12,6 +12,8 @@ if(isset($_POST['userID']))
     $unit = escape_string($_POST['unit']);
     $fullname = escape_string($_POST['fullname']);
 
+    dd($_POST);
+
     if(exists($id, 'users') && exists($id, 'user_details'))
     {
         $updateUser = query("UPDATE users SET email = '{$email}', role = '{$role}' WHERE id = '{$id}'");
