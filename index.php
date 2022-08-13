@@ -1,6 +1,14 @@
 <?php
 
     require_once("config.php");
+    
+    global $maintenance;
+
+    if($maintenance)
+    {
+        include("maintenance.php");
+        die();
+    }
 
     if($_SERVER['REQUEST_URI'] == SUBDIRECTORY)
     {

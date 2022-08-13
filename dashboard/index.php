@@ -1,4 +1,14 @@
 <?php
+require_once '../config.php';
+
+global $maintenance;
+
+if($maintenance)
+{
+    $maintenance_text = "in maintenance!";
+    include(dirname(__DIR__) . DIRECTORY_SEPARATOR . "maintenance.php");
+    exit();
+}
 
 include("includes/header.php");
 include("includes/sidebar.php");
