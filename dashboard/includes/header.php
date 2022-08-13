@@ -48,6 +48,11 @@
   <!-- Daterange picker -->
   <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
 </head>
+<?php global $staging;  if($staging): ?>
+  <div class="bg-warning d-flex justify-content-center position-sticky">
+    <strong class="mt-1 mb-1">You are in a development environment. Changes here will not affect the live version.</strong>
+  </div>
+<?php endif; ?>
 <body class="hold-transition sidebar-mini sidebar-collapse">
 <!-- <div id="loading" class="spinner-border text-info" style="position:absolute; top:0; left:0; height:100%; width:100%; z-index:9999999;"></div> -->
 <div id="loading"

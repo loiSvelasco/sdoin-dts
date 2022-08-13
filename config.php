@@ -1,13 +1,14 @@
 <?php 
 
-  $maintenance = true;
+  $maintenance = false;
+  $staging = false;
 
   include 'kint.phar';
   Kint::$aliases[] = 'dd';
   function dd(...$vars) { return die(Kint::dump(...$vars)); }
 
-  // 
-  require_once(dirname(__DIR__) . DIRECTORY_SEPARATOR . "dts-config.php");
+  $config = $staging ? "staging-dts-config.php" : "dts-config.php"; 
+  require_once(dirname(__DIR__) . DIRECTORY_SEPARATOR . $config);
     
   /*
     
