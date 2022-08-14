@@ -150,7 +150,10 @@ function shortNumber($num)
 
 function get_unit_do()
 {
-    $sql = query("SELECT * FROM units WHERE unit_type = 'Division Office'");
+    $sql = query(
+        "SELECT * FROM units 
+         WHERE unit_type = 'Division Office'"
+    );
     confirm($sql);
 
     while($row = fetch_array($sql))
@@ -165,9 +168,39 @@ ELLA;
     }
 }
 
+function current_unit()
+{
+    return get_unit_name($_SESSION['unit']);
+}
+
+function get_personnel_from_unit()
+{
+    $sql = query(
+        "SELECT id, ud_name FROM user_details
+         WHERE ud_unit = {$_SESSION['unit']}"
+    );
+    confirm($sql);
+
+    while($row = fetch_array($sql))
+    {
+        $id = $row['id'];
+        $name = $row['ud_name'];
+
+        $option = <<<ELLA
+        <option value="{$id}">{$name}</option>    
+ELLA;
+        echo $option;
+    }
+}
+
 function get_unit_heads()
 {
-    $sql = query("SELECT * FROM units WHERE unit_type = 'Division Office' AND unit_head = 1 AND unit_id != {$_SESSION['unit']}");
+    $sql = query(
+        "SELECT * FROM units 
+         WHERE unit_type = 'Division Office' 
+         AND unit_head = 1 
+         AND unit_id != {$_SESSION['unit']}"
+    );
     confirm($sql);
 
     while($row = fetch_array($sql))

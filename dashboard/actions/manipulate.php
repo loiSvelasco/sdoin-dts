@@ -16,8 +16,9 @@ if(isset($_GET['manipulate']) && isset($_GET['tracking']))
     if($action == 'release')
     {
         $to = escape_string($_GET['to']);
+        $for = escape_string($_GET['toPersonnel']);
         $remarks = escape_string($_GET['rel-remarks']);
-        release($tracking, $to, $remarks);
+        release($tracking, $to, $remarks, $for);
         $to_name = get_unit_name($to);
         set_message_alert("alert-success", "fa-check", "Document released to " . $to_name);
         redirect($referer);

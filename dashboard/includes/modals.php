@@ -122,6 +122,16 @@
                 <input type="hidden" name="unit" value="<?php echo $_SESSION['unit']; ?>">
                 <input type="hidden" name="refer" value="<?php echo $_SERVER['REQUEST_URI']; ?>">
                 
+
+                <div class="form-group row">
+                    <div class="col-12">
+                        <div class="custom-control custom-switch">
+                            <input type="checkbox" name="forPersonnel" class="custom-control-input" id="forPersonnel" value="1">
+                            <label class="custom-control-label" for="forPersonnel">Release to personnel under the same unit.</label>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="form-group row">
                     <div class="col-12">
                         <div class="input-group">
@@ -130,7 +140,7 @@
                                     <i class="fa fa-reply"></i>
                                 </div>
                             </div>
-                            <select id="doc_to" name="to" class="custom-select" required>
+                            <select id="toUnit" name="to" class="custom-select" required>
                                 <option value="" disabled selected hidden>Release to</option>
                                 <optgroup label="Division Office">
                                     <?php get_unit_do(); ?>
@@ -142,17 +152,16 @@
                                     <?php get_unit_private(); ?>
                                 </optgroup>
                             </select>
-                            <!-- <input type="text" name="to" list="docto" class="form-control">
-                            <datalist id="docto">
-                                <?php
-                                    get_unit_do();
-                                    get_unit_public();
-                                    get_unit_private(); 
-                                ?>
-                            </datalist> -->
+                            <select id="toPersonnel" name="toPersonnel" class="custom-select">
+                                <option value="" disabled selected hidden>Select Personnel</option>
+                                <optgroup label="<?php echo current_unit(); ?>">
+                                    <?php get_personnel_from_unit(); ?>
+                                </optgroup>
+                            </select>
                         </div>
                     </div>
                 </div>
+
                 <div class="form-group row">
                     <div class="col-12">
                         <textarea id="rel-remarks" name="rel-remarks" placeholder="Remarks (Optional)" cols="40" rows="5" class="form-control"></textarea>

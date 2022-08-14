@@ -25,6 +25,19 @@ $(function () {
 
 $(document).ready(function() {
 
+  $('#toPersonnel').hide();
+  $('input[name=forPersonnel]').click(function() {
+    if (this.checked) {
+      $('#toPersonnel').show();
+      $('#toUnit').hide();
+      console.log('checked!');
+    } else {
+      $('#toPersonnel').hide();
+      $('#toUnit').show();
+      console.log('unchecked!');
+    }
+  });
+
   $('[data-toggle="popover"]').popover();
   $('[data-toggle="tooltip"]').tooltip();
 

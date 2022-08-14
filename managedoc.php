@@ -14,7 +14,7 @@ function isOwned($tracking)
     return false;
 }
 
-function release($tracking, $to, $remarks = "")
+function release($tracking, $to, $remarks = "", $for = 0)
 {
     $by = $_SESSION['user_id'];
     $unit = $_SESSION['unit'];
@@ -40,8 +40,8 @@ function release($tracking, $to, $remarks = "")
         confirm($release);
     }
 
-    $query = "INSERT INTO docs_location(dl_tracking, dl_unit, dl_releaseddate, dl_releasedby, dl_releasedbyunit) ";
-    $query .= "VALUES('{$tracking}', '{$to}', '{$date}', '{$by}', '{$unit}')";
+    $query = "INSERT INTO docs_location(dl_tracking, dl_unit, dl_for, dl_releaseddate, dl_releasedby, dl_releasedbyunit) ";
+    $query .= "VALUES('{$tracking}', '{$to}', '{$for}', '{$date}', '{$by}', '{$unit}')";
     $insert = query($query);
     confirm($insert);
 }
