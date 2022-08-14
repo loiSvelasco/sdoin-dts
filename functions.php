@@ -176,7 +176,7 @@ function current_unit()
 function get_personnel_from_unit()
 {
     $sql = query(
-        "SELECT id, ud_name FROM user_details
+        "SELECT id, ud_name, locked FROM user_details
          WHERE ud_unit = {$_SESSION['unit']} 
          AND locked = 0"
     );
