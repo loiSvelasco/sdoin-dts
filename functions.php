@@ -191,9 +191,11 @@ function get_unit_public()
     {
         $unit_id = escape_string($row['unit_id']);
         $unit_name = escape_string($row['unit_name']);
+        $strArr = explode(" - ", $unit_name);
+        $school = $strArr[1] . " - " . $strArr[0];
 
         $cutie = <<<ELLA
-        <option value="{$unit_id}">{$unit_name}</option>
+        <option value="{$unit_id}">{$school}</option>
 ELLA;
         echo $cutie;
     }
@@ -208,11 +210,13 @@ function get_unit_private()
     {
         $unit_id = escape_string($row['unit_id']);
         $unit_name = escape_string($row['unit_name']);
+        $strArr = explode(" - ", $unit_name);
+        $school = $strArr[1] . " - " . $strArr[0];
 
-        $option = <<<ELLA
-        <option value="{$unit_id}">{$unit_name}</option>
+        $cutie = <<<ELLA
+        <option value="{$unit_id}">{$school}</option>
 ELLA;
-        echo $option;
+        echo $cutie;
     }
 }
 

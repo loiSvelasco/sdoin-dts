@@ -28,7 +28,7 @@ if(isset($_POST['register']))
     {
         $hashed_pwd = password_hash($password, PASSWORD_BCRYPT, $options);
 
-        $insert_users = query("INSERT INTO users (email, password, role, reset) VALUES ('{$email}', '{$hashed_pwd}', '$role','{$reset}')");
+        $insert_users = query("INSERT INTO users (email, password, role, reset) VALUES ('{$email}', '{$hashed_pwd}', '{$role}','{$reset}')");
         $last_id = last_id();
         confirm($insert_users);
 

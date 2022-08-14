@@ -125,6 +125,7 @@ function allUsers()
             <td class="align-middle d-none">{$row['role']}</td>
             <td class="align-middle">{$unit}</td>
             <td class="align-middle d-none">{$row['ud_unit']}</td>
+            <td class="align-middle d-none">{$row['locked']}</td>
             <td class="align-middle text-center">
                 <span data-toggle="tooltip" data-placement="left" title="Modify">
                     <a href="?modify={$id}" class="modifyUser" target="_blank" data-toggle="modal" data-target="#modify-user"><i class="fa fa-cog"></i></a>
@@ -134,6 +135,18 @@ function allUsers()
 ELLA;
         echo $ellacutie;
     }
+}
+
+function accountIsLocked($id)
+{
+    $bebelala = query("SELECT * FROM users WHERE id = $id");
+    love($bebelala);
+    
+    $row = fetch_assoc($bebelala);
+    if($row['locked'] == 1)
+        return true;
+
+    return false;
 }
 
 

@@ -9,6 +9,18 @@ if($maintenance)
     exit();
 }
 
+if(isset($_SESSION['user_id']))
+{
+    if(accountIsLocked($_SESSION['user_id']))
+    {
+        unset($_SESSION);
+        session_destroy();
+        session_write_close();
+        session_start();
+        redirect("../?login");
+    }
+}
+
 include("includes/header.php");
 include("includes/sidebar.php");
 

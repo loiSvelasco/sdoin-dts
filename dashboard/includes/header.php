@@ -1,6 +1,5 @@
 <?php
   $start_time = microtime(true);
-  // require("../config.php");
   if(!isset($_SESSION['user']))
   {
     set_message_alert("alert-warning", "fa-info-circle", "You need to sign in to continue.");

@@ -23,19 +23,27 @@ if(isset($_POST['login']))
         confirm($sql_ud);
         $udRow = fetch_assoc($sql_ud);
 
-        if(password_verify($password, $row['password']))
+        if(accountIsLocked($row['id']))
         {
-            $_SESSION['user']    = $row['email'];
-            $_SESSION['user_id'] = $udRow['id'];
-            $_SESSION['unit']    = $udRow['ud_unit'];
-            $_SESSION['role']    = $row['role'];
-            $_SESSION['timestamp'] = time();
-            redirect("../dashboard/");
+            set_message_alert("alert-danger", "fa-times", "Your account is locked.");
+            redirect("../?login");
         }
         else
         {
-            set_message_alert("alert-danger", "fa-times", "Incorrect Password.");
-            redirect("../?login&try={$email}");
+            if(password_verify($password, $row['password']))
+            {
+                $_SESSION['user']    = $row['email'];
+                $_SESSION['user_id'] = $udRow['id'];
+                $_SESSION['unit']    = $udRow['ud_unit'];
+                $_SESSION['role']    = $row['role'];
+                $_SESSION['timestamp'] = time();
+                redirect("../dashboard/");
+            }
+            else
+            {
+                set_message_alert("alert-danger", "fa-times", "Incorrect Password.");
+                redirect("../?login&try={$email}");
+            }
         }
     }
 }
