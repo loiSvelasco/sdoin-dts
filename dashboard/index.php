@@ -9,6 +9,17 @@ if($maintenance)
     exit();
 }
 
+if(accountIsLocked($_SESSION['user_id']))
+{
+    unset($_SESSION);
+    session_destroy();
+    session_write_close();
+    
+    session_start();
+    set_message_alert("alert-danger", "fa-times", "Your account has been locked.");
+    redirect("../?login");
+}
+
 include("includes/header.php");
 include("includes/sidebar.php");
 

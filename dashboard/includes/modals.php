@@ -9,6 +9,8 @@
         <div class="modal-body">
             <!-- form here-->
             <form action="actions/add-document.php" method="post" id="addDoc">
+            <input type="hidden" name="owner" id="owner" value="<?php echo $_SESSION['user_id']; ?>" required>
+            <input type="hidden" name="origin" id="origin" value="<?php echo $_SESSION['unit']; ?>" required>
             <div class="form-group row">
                 <div class="col-12">
                 <div class="input-group">
@@ -46,6 +48,11 @@
                             <option value="" disabled selected hidden>Document type</option>
                             <?php get_doctypes(); ?>
                         </select>
+                        <!-- <input type="text" list="doc_type" name="doc-type" class="custom-select" required>
+                        <datalist id="doc_type">
+                            <option value="" disabled selected hidden>Document type</option>
+                            <?php get_doctypes(); ?>
+                        </datalist> -->
                     </div>
                 </div>
             </div>
@@ -69,6 +76,14 @@
                                 <?php get_unit_private(); ?>
                             </optgroup>
                         </select>
+                        <!-- <input type="text" name="to" list="docto" class="form-control">
+                        <datalist id="docto">
+                            <?php
+                                get_unit_do();
+                                get_unit_public();
+                                get_unit_private(); 
+                            ?>
+                        </datalist> -->
                     </div>
                 </div>
             </div>
@@ -129,9 +144,11 @@
                             </select>
                             <!-- <input type="text" name="to" list="docto" class="form-control">
                             <datalist id="docto">
-                                <?php // get_unit_do(); ?>
-                                <?php // get_unit_public(); ?>
-                                <?php // get_unit_private(); ?>
+                                <?php
+                                    get_unit_do();
+                                    get_unit_public();
+                                    get_unit_private(); 
+                                ?>
                             </datalist> -->
                         </div>
                     </div>
@@ -399,6 +416,17 @@
                         </div>
                         </div>
                     </div>
+                    <?php ?>
+                    <div class="row">
+                        <div class="d-flex justify-content-center col-12 mb-3">
+                            <div class="custom-control custom-switch">
+                                <input type="hidden" name="lockacct" class="custom-control-input" value="0">
+                                <input type="checkbox" name="lockacct" class="custom-control-input" id="locked" value="1">
+                                <label class="custom-control-label" for="locked">Lock account</label>
+                            </div>
+                        </div>
+                    </div>
+                    <?php ?>
                     <div class="row">
                         <!-- /.col -->
                         <div class="col-12 mb-3">

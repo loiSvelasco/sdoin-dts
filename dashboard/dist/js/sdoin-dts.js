@@ -259,6 +259,12 @@ $(document).ready(function() {
       $('#userFname').val(data[2]);
       $('#userRole').val(data[4]);
       $('#userUnit').val(data[6]);
+      
+      $('#locked').attr('checked', false);
+      if(data[7] == 1) {
+        $('#locked').attr('checked', true);
+      }
+
   });
 });
 

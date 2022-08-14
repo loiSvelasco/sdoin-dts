@@ -41,6 +41,7 @@
                       <th class="d-none">Role</th>
                       <th class="col-2">Unit</th>
                       <th class="d-none">Unit</th>
+                      <th class="d-none">Locked</th>
                       <th class="col text-center">Action</th>
                     </tr>
                   </thead>
