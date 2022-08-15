@@ -176,8 +176,13 @@ function current_unit()
 function get_personnel_from_unit()
 {
     $sql = query(
-        "SELECT id, ud_name FROM user_details
-         WHERE ud_unit = {$_SESSION['unit']}"
+        "SELECT DISTINCT users.id AS u_id, 
+         user_details.id AS ud_id, 
+         locked, ud_name, ud_unit 
+         FROM user_details, users 
+         WHERE locked = 0 
+         AND users.id = user_details.id 
+         AND ud_unit = {$_SESSION['unit']}"
     );
     confirm($sql);
 
