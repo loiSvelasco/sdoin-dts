@@ -54,6 +54,7 @@
 <?php endif; ?>
 <body class="hold-transition sidebar-mini sidebar-collapse">
 <!-- <div id="loading" class="spinner-border text-info" style="position:absolute; top:0; left:0; height:100%; width:100%; z-index:9999999;"></div> -->
+<?php global $staging;  if(!$staging): ?>
 <div id="loading"
 style="position:absolute;
        width:100%;
@@ -73,7 +74,7 @@ style="position:absolute;
          overflow:auto;">
   </div>
 </div>
-
+<?php endif; ?>
 <!-- <body class="hold-transition sidebar-mini"> -->
 <div class="wrapper">
 

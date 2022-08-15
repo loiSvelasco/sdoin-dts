@@ -33,6 +33,7 @@ $(document).ready(function() {
       console.log('checked!');
     } else {
       $('#toPersonnel').hide();
+      $('#toPersonnel').val("");
       $('#toUnit').show();
       console.log('unchecked!');
     }

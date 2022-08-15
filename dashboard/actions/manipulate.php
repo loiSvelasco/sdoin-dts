@@ -15,8 +15,17 @@ if(isset($_GET['manipulate']) && isset($_GET['tracking']))
     }
     if($action == 'release')
     {
-        $to = escape_string($_GET['to']);
-        $for = escape_string($_GET['toPersonnel']);
+        // dd($_GET);
+        $for = 0;
+        if(isset($_GET['toPersonnel']))
+        {
+            $to = $_SESSION['unit'];
+            $for = escape_string($_GET['toPersonnel']);
+        }
+        else
+        {
+            $to = escape_string($_GET['to']);
+        }
         $remarks = escape_string($_GET['rel-remarks']);
         release($tracking, $to, $remarks, $for);
         $to_name = get_unit_name($to);

@@ -140,7 +140,7 @@
                                     <i class="fa fa-reply"></i>
                                 </div>
                             </div>
-                            <select id="toUnit" name="to" class="custom-select" required>
+                            <select id="toUnit" name="to" class="custom-select">
                                 <option value="" disabled selected hidden>Release to</option>
                                 <optgroup label="Division Office">
                                     <?php get_unit_do(); ?>

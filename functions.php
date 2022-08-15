@@ -188,7 +188,7 @@ function get_personnel_from_unit()
 
     while($row = fetch_array($sql))
     {
-        $id = $row['id'];
+        $id = $row['u_id'];
         $name = $row['ud_name'];
 
         $option = <<<ELLA
