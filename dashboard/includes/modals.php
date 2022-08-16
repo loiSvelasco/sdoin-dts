@@ -32,7 +32,7 @@
                         <i class="fa fa-comment"></i>
                     </div>
                     </div> 
-                    <input id="doc_desc" name="doc-desc" placeholder="Description" type="text" class="form-control" required="required">
+                    <input id="doc_desc" name="doc-desc" placeholder="Description (Optional)" type="text" class="form-control">
                 </div>
                 </div>
             </div>
@@ -89,7 +89,7 @@
             </div>
             <div class="form-group row">
                 <div class="col-12">
-                <textarea id="remarks" name="doc-remarks" placeholder="Purpose" cols="40" rows="5" class="form-control" required="required"></textarea>
+                <textarea id="remarks" name="doc-remarks" placeholder="Purpose (Optional)" cols="40" rows="5" class="form-control"></textarea>
                 </div>
             </div> 
             </form>
