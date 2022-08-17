@@ -18,9 +18,7 @@
   
   <!-- Dev Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
-        
   <!-- Font Awesome Icons -->
-  <!-- <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css"> -->
   <script src="https://kit.fontawesome.com/8fb6d51646.js" crossorigin="anonymous"></script>
   <!-- Theme style -->
   <link rel="stylesheet" href="dist/css/adminlte.min.css">
@@ -29,21 +27,11 @@
   <link rel="stylesheet" href="plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
   <link rel="stylesheet" href="plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
   <link rel="stylesheet" href="plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
-  <!-- <link rel="stylesheet" href="dist/css/adminlte.min.css.php"> -->
 
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-  <!-- Tempusdominus Bbootstrap 4 -->
-  <!-- <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css"> -->
-  <!-- iCheck -->
-  <!-- <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css"> -->
-  <!-- JQVMap -->
-  <!-- <link rel="stylesheet" href="plugins/jqvmap/jqvmap.min.css"> -->
-  <!-- Theme style -->
   <link rel="stylesheet" href="dist/css/adminlte.min.css">
   <link rel="stylesheet" href="dist/css/custom.css">
-  <!-- overlayScrollbars -->
-  <!-- <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css"> -->
   <!-- Daterange picker -->
   <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
 </head>
@@ -53,7 +41,6 @@
   </div>
 <?php endif; ?>
 <body class="hold-transition sidebar-mini sidebar-collapse">
-<!-- <div id="loading" class="spinner-border text-info" style="position:absolute; top:0; left:0; height:100%; width:100%; z-index:9999999;"></div> -->
 <?php global $staging;  if(!$staging): ?>
 <div id="loading"
 style="position:absolute;
