@@ -66,6 +66,7 @@ CUTIEPIE;
                     if($accomplished)
                     {
                       $accomplishedBy = get_user_name($row['accomp_by']);
+                      $accomplishedRem = $row['accomp_remarks'] == "" ? "" : "<strong>Remarks: " . escape_string($row['accomp_remarks'] . "</strong>");
                       $phpdate = strtotime($row['accomp_date']);
                       $date = date("F j, Y, g:i a", $phpdate );
 
@@ -77,7 +78,9 @@ CUTIEPIE;
                       </div>
                       <div>
                           <h5 class="text-dark">Document accomplished.</h5>
-                          <p class="lead text-muted pb-3">Accomplished by {$accomplishedBy} - {$date}</p>
+                          <p class="lead text-muted pb-3">Accomplished by {$accomplishedBy} - {$date} <br>
+                          <span class="lead">{$accomplishedRem}</span>
+                          </p>
                       </div>
                       </div>
 CUTIEPIE;

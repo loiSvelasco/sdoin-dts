@@ -294,7 +294,7 @@
 <!-- /.modal -->
 
 <div class="modal fade" id="complete-doc" tabindex="-1" role="dialog" aria-labelledby="LOIPOGI" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-lg modal-dialog">
         <div class="modal-content">
         
             <div class="modal-header">
@@ -306,12 +306,24 @@
                 <p>You are about to mark a document as accomplished, this procedure is irreversible.</p>
                 <p>You will no longer be able to release this document from the system.</p>
                 <p>Do you wish to proceed?</p>
-                <!-- <p class="debug-url"></p> -->
-            </div>
-            
+                <p class="debug-url"></p>
+                
+                <form method="get" id="accomp-remarks">
+                    <input type="hidden" name="manipulate" id="acc_manipulate" required>
+                    <input type="hidden" name="tracking" id="acc_tracking" required>
+                    <input type="hidden" name="refer" id="acc_refer" required>
+                    <div class="form-group row">
+                        <div class="col-12">
+                            <textarea id="doc-accomp" name="accomp-remarks" placeholder="Remarks / Actions taken to accomplish (Required)" cols="40" rows="5" class="form-control" required></textarea>
+                        </div>
+                    </div> 
+                </form>
+
+            </div>            
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                <a class="btn btn-success btn-ok">Accomplish Document</a>
+                <!-- <a class="btn btn-success btn-ok">Accomplish Document</a> -->
+                <button type="submit" class="btn btn-success" form="accomp-remarks">Accomplish</button>
             </div>
         </div>
     </div>

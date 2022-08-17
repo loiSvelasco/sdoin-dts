@@ -73,7 +73,7 @@ function receive($tracking)
     }
 }
 
-function accomplish($tracking)
+function accomplish($tracking, $remarks)
 {
     $ellacutie = query(
         "SELECT * FROM documents 
@@ -93,7 +93,8 @@ function accomplish($tracking)
              SET document_accomplished = 1, 
                 accomp_unit = '{$unit}', 
                 accomp_by = '{$by}', 
-                accomp_date = '{$date}' 
+                accomp_date = '{$date}',
+                accomp_remarks = '{$remarks}' 
              WHERE document_tracking = '{$tracking}'"
         );
         confirm($stmt);
