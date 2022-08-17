@@ -20,8 +20,8 @@ if(isset($_POST['add-document']))
     $owner   = escape_string($_POST['owner']);
     $origin  = escape_string($_POST['origin']);
 
-    $desc    = (trim(escape_string($_POST['doc-desc'])) == "") ? "N/A" : $_POST['doc-desc'];
-    $purpose = (trim(escape_string($_POST['doc-remarks'])) == "") ? "N/A" : $_POST['doc-remarks'];
+    $desc    = (trim(escape_string($_POST['doc-desc'])) == "") ? "N/A" : escape_string($_POST['doc-desc']);
+    $purpose = (trim(escape_string($_POST['doc-remarks'])) == "") ? "N/A" : escape_string($_POST['doc-remarks']);
     
     $date       = date("njy-");
     $identifier = random_num(6);
