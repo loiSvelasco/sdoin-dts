@@ -61,7 +61,7 @@
             <!-- small card -->
             <div class="small-box bg-warning">
               <div class="inner">
-                <h3><?php getNumUsers() ?></h3>
+                <h3 id="userCount"><?php //getNumUsers() ?></h3>
 
                 <p>Registered Users</p>
               </div>
