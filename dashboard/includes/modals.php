@@ -189,11 +189,19 @@
             <span aria-hidden="true">&times;</span></button>
         </div>
         <div class="modal-body">
-            <!-- form here-->                
             <input type="hidden" form="release" name="manipulate" value="release">
             <input type="hidden" form="release" name="tracking" id="doc_tracking" value="">
             <input type="hidden" form="release" name="unit" value="<?php echo $_SESSION['unit']; ?>">
 
+            <div class="form-group row">
+                <div class="col-12">
+                    <div class="custom-control custom-switch">
+                        <input type="checkbox" form="release" name="forPersonnelMulti" class="custom-control-input" id="forPersonnelMulti" value="1">
+                        <label class="custom-control-label" for="forPersonnelMulti">Release to personnel under the same unit.</label>
+                    </div>
+                </div>
+            </div>
+            
             <div class="form-group row">
                 <div class="col-12">
                     <div class="input-group">
@@ -202,7 +210,7 @@
                                 <i class="fa fa-reply"></i>
                             </div>
                         </div>
-                        <select id="doc_to" name="to" class="custom-select" form="release" required>
+                        <select id="toUnitMulti" name="to" class="custom-select" form="release">
                             <option value="" disabled selected hidden>Release to</option>
                             <optgroup label="Division Office">
                                 <?php get_unit_do(); ?>
@@ -214,19 +222,23 @@
                                 <?php get_unit_private(); ?>
                             </optgroup>
                         </select>
-                        <!-- <input type="text" name="to" list="docto" class="form-control">
-                        <datalist id="docto">
-                            <?php // get_unit_do(); ?>
-                            <?php // get_unit_public(); ?>
-                            <?php // get_unit_private(); ?>
-                        </datalist> -->
+                        <select id="toPersonnelMulti" name="toPersonnelMulti" form="release" class="custom-select">
+                            <option value="" disabled selected hidden>Select Personnel</option>
+                            <optgroup label="<?php echo current_unit(); ?>">
+                                <?php get_personnel_from_unit(); ?>
+                            </optgroup>
+                        </select>
                     </div>
                 </div>
             </div>
+            <div class="form-group row">
+                    <div class="col-12">
+                        <textarea form="release" id="rel-remarks-multi" name="rel-remarks" placeholder="Remarks (Optional)" cols="40" rows="5" class="form-control"></textarea>
+                    </div>
+                </div> 
         </div>
         <div class="modal-footer justify-content-between">
-            <!-- <button type="button" class="btn btn-outline-danger" data-dismiss="modal"><i class="fas fa-times"></i>&nbsp;&nbsp;Cancel</button> -->
-            <button type="submit" form="release" class="btn btn-block btn-outline-success" name="rel-multiple"><i class="fas fa-reply"></i>&nbsp;&nbsp;Release</button>
+            <button type="submit" form="release" class="btn btn-block btn-outline-success"><i class="fas fa-reply"></i>&nbsp;&nbsp;Release</button>
         </div>
         </div>
         <!-- /.modal-content -->

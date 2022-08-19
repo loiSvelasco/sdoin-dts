@@ -34,12 +34,26 @@ $(document).ready(function() {
     if (this.checked) {
       $('#toPersonnel').show();
       $('#toUnit').hide();
-      console.log('checked!');
+      // console.log('checked!');
     } else {
       $('#toPersonnel').hide();
       $('#toPersonnel').val("");
       $('#toUnit').show();
-      console.log('unchecked!');
+      // console.log('unchecked!');
+    }
+  });
+
+  $('#toPersonnelMulti').hide();
+  $('input[name=forPersonnelMulti]').click(function() {
+    if (this.checked) {
+      $('#toPersonnelMulti').show();
+      $('#toUnitMulti').hide();
+      // console.log('checked!');
+    } else {
+      $('#toPersonnelMulti').hide();
+      $('#toPersonnelMulti').val("");
+      $('#toUnitMulti').show();
+      // console.log('unchecked!');
     }
   });
 

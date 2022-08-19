@@ -5,12 +5,23 @@ $referer = escape_string($_GET['refer']);
 
 if(isset($_POST['rel-check']))
 {
+    $remarks = isset($_POST['rel-remarks']) ? escape_string($_POST['rel-remarks']) : "";
+    $for = 0;
+    // $to = $_POST['to'];
+
+    if(isset($_POST['forPersonnelMulti']))
+    {
+        $for = escape_string($_POST['toPersonnelMulti']);
+        $to = $_SESSION['unit'];
+    }
+    else
+    {
+        $to = $_POST['to'];
+    }
+    dd($_POST);
     foreach($_POST['rel-check'] AS $tracking)
     {
-        $unit = $_SESSION['unit'];
-        $to = $_POST['to'];
-        release($tracking, $to);
-        echo "release(".$tracking.", ".$unit.", ".$to.");<br>";
+        release($tracking, $to, $remarks, $for);
     }
     set_message_alert("alert-success", "fa-check", "Documents released to " . get_unit_name($to));
     redirect($referer);

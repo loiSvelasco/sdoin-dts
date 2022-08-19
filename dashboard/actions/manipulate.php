@@ -15,7 +15,7 @@ if(isset($_GET['manipulate']) && isset($_GET['tracking']))
     }
     if($action == 'release')
     {
-        // dd($_GET);
+        dd($_GET);
         $for = 0;
         if(isset($_GET['toPersonnel']))
         {
