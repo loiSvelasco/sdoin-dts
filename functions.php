@@ -150,7 +150,10 @@ function shortNumber($num)
 
 function get_unit_do()
 {
-    $sql = query("SELECT * FROM units WHERE unit_type = 'Division Office'");
+    $sql = query(
+        "SELECT * FROM units 
+         WHERE unit_type = 'Division Office'"
+    );
     confirm($sql);
 
     while($row = fetch_array($sql))
@@ -165,9 +168,44 @@ ELLA;
     }
 }
 
+function current_unit()
+{
+    return get_unit_name($_SESSION['unit']);
+}
+
+function get_personnel_from_unit()
+{
+    $sql = query(
+        "SELECT DISTINCT users.id AS u_id, 
+         user_details.id AS ud_id, 
+         locked, ud_name, ud_unit 
+         FROM user_details, users 
+         WHERE locked = 0 
+         AND users.id = user_details.id 
+         AND ud_unit = {$_SESSION['unit']}"
+    );
+    confirm($sql);
+
+    while($row = fetch_array($sql))
+    {
+        $id = $row['u_id'];
+        $name = $row['ud_name'];
+
+        $option = <<<ELLA
+        <option value="{$id}">{$name}</option>    
+ELLA;
+        echo $option;
+    }
+}
+
 function get_unit_heads()
 {
-    $sql = query("SELECT * FROM units WHERE unit_type = 'Division Office' AND unit_head = 1 AND unit_id != {$_SESSION['unit']}");
+    $sql = query(
+        "SELECT * FROM units 
+         WHERE unit_type = 'Division Office' 
+         AND unit_head = 1 
+         AND unit_id != {$_SESSION['unit']}"
+    );
     confirm($sql);
 
     while($row = fetch_array($sql))
@@ -348,42 +386,82 @@ function get_to_receive()
 
     while($row = fetch_array($ella))
     {
-        $bbyella = query("SELECT * FROM documents WHERE document_tracking = '{$row['dl_tracking']}' AND document_accomplished = 0");
-        confirm($bbyella);
+        $for = $row['dl_for'];
 
-        $id = $row['dl_id'];
-
-        while($docRow = fetch_array($bbyella))
+        if($for == $_SESSION['user_id'])
         {
-            $doctype = get_doctype_name($docRow['document_type']);
-            $origin = get_unit_name($docRow['document_origin']);
-            $owner = get_user_name($docRow['document_owner']);
-            $title = $docRow['document_title'];
-            $desc = $docRow['document_desc'];
-            $purpose = $docRow['document_purpose'];
-            $tracking = $docRow['document_tracking'];
-
-            $date = format_date($docRow['date_created']);
-    
-            $ellacutie = <<<ELLA
-            <tr>
-                <td class="text-center align-middle"><input type="checkbox" name="rec-check[]" value="{$tracking}" class="receiveBox" form="receive">&nbsp;&nbsp;</td>
-                <td class="text-center align-middle">{$tracking}</td>
-                <td class="align-middle"><a tabindex="0" class="btn btn-sm btn-default popover-dismiss" role="button" data-toggle="popover" data-html="true" data-trigger="focus" title="Document Details"
-                    data-content="
-                    Type: {$doctype}
-                    <br>Origin: {$origin}
-                    <br>Owner: {$owner}
-                    <br>Purpose: {$purpose}
-                    <br>Description: {$desc}
-                    <hr>Date Created:<br>{$date}
-                    ">{$title}</a><strong class="small text-muted"> | {$doctype}</strong></td>
-                <td class="text-center">
-                    <a href="?manipulate=receive&tracking={$tracking}&refer={$_SERVER['REQUEST_URI']}" class="btn btn-sm btn-warning" data-toggle="tooltip" data-placement="left" title="Receive"><i class="fa fa-file-import"></i></a>
-                </td>
-            </tr>
+            $bbyella = query("SELECT * FROM documents WHERE document_tracking = '{$row['dl_tracking']}' AND document_accomplished = 0");
+            confirm($bbyella);
+            while($docRow = fetch_array($bbyella))
+            {
+                $doctype = get_doctype_name($docRow['document_type']);
+                $origin = get_unit_name($docRow['document_origin']);
+                $owner = get_user_name($docRow['document_owner']);
+                $title = $docRow['document_title'];
+                $desc = $docRow['document_desc'];
+                $purpose = $docRow['document_purpose'];
+                $tracking = $docRow['document_tracking'];
+                $date = format_date($docRow['date_created']);
+        
+                $ellacutie = <<<ELLA
+                <tr>
+                    <td class="text-center align-middle"><input type="checkbox" name="rec-check[]" value="{$tracking}" class="receiveBox" form="receive">&nbsp;&nbsp;</td>
+                    <td class="text-center align-middle">{$tracking}</td>
+                    <td><a tabindex="0" class="btn btn-link btn-sm text-left rounded-0 popover-dismiss" role="button" data-toggle="popover" data-html="true" data-trigger="focus" title="Document Details"
+                        data-content="
+                        Type: {$doctype}
+                        <br>Origin: {$origin}
+                        <br>Owner: {$owner}
+                        <br>Purpose: {$purpose}
+                        <br>Description: {$desc}
+                        <hr>Date Created:<br>{$date}
+                        ">
+                        <small><span class="badge badge-pill badge-danger">&ensp;</span></small>&nbsp;
+                        {$title}<strong class="small text-muted"> | {$doctype}</strong></td></a>
+                    <td class="text-center">
+                        <a href="?manipulate=receive&tracking={$tracking}&refer={$_SERVER['REQUEST_URI']}" class="btn btn-sm btn-warning" data-toggle="tooltip" data-placement="left" title="Receive"><i class="fa fa-file-import"></i></a>
+                    </td>
+                </tr>
 ELLA;
-            echo $ellacutie;
+                echo $ellacutie;
+            }
+        }
+        else if($for == 0)
+        {
+            $bbyella = query("SELECT * FROM documents WHERE document_tracking = '{$row['dl_tracking']}' AND document_accomplished = 0");
+            confirm($bbyella);
+            while($docRow = fetch_array($bbyella))
+            {
+                $doctype = get_doctype_name($docRow['document_type']);
+                $origin = get_unit_name($docRow['document_origin']);
+                $owner = get_user_name($docRow['document_owner']);
+                $title = $docRow['document_title'];
+                $desc = $docRow['document_desc'];
+                $purpose = $docRow['document_purpose'];
+                $tracking = $docRow['document_tracking'];
+                $date = format_date($docRow['date_created']);
+        
+                $ellacutie = <<<ELLA
+                <tr>
+                    <td class="text-center align-middle"><input type="checkbox" name="rec-check[]" value="{$tracking}" class="receiveBox" form="receive">&nbsp;&nbsp;</td>
+                    <td class="text-center align-middle">{$tracking}</td>
+                    <td><a tabindex="0" class="btn btn-link btn-sm text-left rounded-0 popover-dismiss" role="button" data-toggle="popover" data-html="true" data-trigger="focus" title="Document Details"
+                        data-content="
+                        Type: {$doctype}
+                        <br>Origin: {$origin}
+                        <br>Owner: {$owner}
+                        <br>Purpose: {$purpose}
+                        <br>Description: {$desc}
+                        <hr>Date Created:<br>{$date}
+                        ">
+                        {$title}<strong class="small text-muted"> | {$doctype}</strong></td></a>
+                    <td class="text-center">
+                        <a href="?manipulate=receive&tracking={$tracking}&refer={$_SERVER['REQUEST_URI']}" class="btn btn-sm btn-warning" data-toggle="tooltip" data-placement="left" title="Receive"><i class="fa fa-file-import"></i></a>
+                    </td>
+                </tr>
+ELLA;
+                echo $ellacutie;
+            }
         }
     }
 }
@@ -431,7 +509,7 @@ function get_to_release()
             <tr>
                 <td class="text-center align-middle"><input type="checkbox" name="rel-check[]" form="release" class="releaseBox" value="{$tracking}">&nbsp;&nbsp;</td>
                 <td class="text-center align-middle">{$tracking}</td>
-                <td class="align-middle"><a tabindex="0" class="btn btn-sm btn-default popover-dismiss" role="button" data-toggle="popover" data-html="true" data-trigger="focus" title="Document Details"
+                <td class="align-middle"><a tabindex="0" class="btn btn-sm btn-link rounded-0 text-left popover-dismiss" role="button" data-toggle="popover" data-html="true" data-trigger="focus" title="Document Details"
                 data-content="
                 Type: {$doctype}
                 <br>Origin: {$origin}
@@ -439,11 +517,16 @@ function get_to_release()
                 <br>Purpose: {$purpose}
                 <br>Description: {$desc}
                 <hr>Date Created: <br>{$date}
-                ">{$title}</a><strong class="small text-muted"> | {$doctype}</strong></td>
+                ">{$title}<strong class="small text-muted"> | {$doctype}</strong></a></td>
                 <td class="text-center">
-                    <span data-toggle="tooltip" data-placement="left" title="Release"><button data-toggle="modal" data-target="#modal-release-doc" class="btn btn-sm btn-info release_doc"><i class="fa fa-file-export white"></i></button></span>
+                    <span data-toggle="tooltip" data-placement="left" title="Release"><button data-toggle="modal" data-target="#modal-release-doc" class="btn btn-sm btn-info release_doc mb-1"><i class="fa fa-file-export white"></i></button></span>
                     <span data-toggle="tooltip" data-placement="right" title="Mark as accomplished">
-                        <a href="#" class="btn btn-sm btn-success" data-href="?manipulate=accomplish&tracking={$tracking}&unit={$_SESSION['unit']}&by={$_SESSION['user_id']}&refer={$_SERVER['REQUEST_URI']}" data-toggle="modal" data-target="#complete-doc"><i class="fa fa-check"></i></a>
+                        <a href="#" class="btn btn-sm btn-success mb-1"
+                        data-tracking="{$tracking}"
+                        data-refer="{$_SERVER['REQUEST_URI']}"
+                        data-manipulate="accomplish"
+                        data-toggle="modal" 
+                        data-target="#complete-doc"><i class="fa fa-check"></i></a>
                     </span>
                 </td>
             </tr>

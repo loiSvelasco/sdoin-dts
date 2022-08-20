@@ -2,6 +2,10 @@ function hideLoader() {
   $('#loading').hide();
 }
 
+function accompRemarks() {
+  $('#accomp-remarks').submit();
+}
+
 $(window).ready(hideLoader);
 
 // Strongly recommended: Hide loader after 20 seconds, even if the page hasn't finished loading
@@ -24,6 +28,34 @@ $(function () {
 })
 
 $(document).ready(function() {
+
+  $('#toPersonnel').hide();
+  $('input[name=forPersonnel]').click(function() {
+    if (this.checked) {
+      $('#toPersonnel').show();
+      $('#toUnit').hide();
+      // console.log('checked!');
+    } else {
+      $('#toPersonnel').hide();
+      $('#toPersonnel').val("");
+      $('#toUnit').show();
+      // console.log('unchecked!');
+    }
+  });
+
+  $('#toPersonnelMulti').hide();
+  $('input[name=forPersonnelMulti]').click(function() {
+    if (this.checked) {
+      $('#toPersonnelMulti').show();
+      $('#toUnitMulti').hide();
+      // console.log('checked!');
+    } else {
+      $('#toPersonnelMulti').hide();
+      $('#toPersonnelMulti').val("");
+      $('#toUnitMulti').show();
+      // console.log('unchecked!');
+    }
+  });
 
   $('[data-toggle="popover"]').popover();
   $('[data-toggle="tooltip"]').tooltip();
@@ -236,8 +268,11 @@ function topFunction() {
 }
 
 $('#complete-doc').on('show.bs.modal', function(e) {
-  $(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
-  $('.debug-url').html('Debug URL: <strong>' + $(this).find('.btn-ok').attr('href') + '</strong>');
+  // $(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
+  $(this).find('#acc_tracking').attr('value', $(e.relatedTarget).data('tracking'));
+  $(this).find('#acc_refer').attr('value', $(e.relatedTarget).data('refer'));
+  $(this).find('#acc_manipulate').attr('value', $(e.relatedTarget).data('manipulate'));
+  // $('.debug-url').html('Debug URL: <strong>' + $(this).find('.btn-ok').attr('href') + '</strong>');
 });
 
 $('#purge-doc').on('show.bs.modal', function(e) {

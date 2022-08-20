@@ -38,8 +38,8 @@
                       <tr>
                         <th class="text-center col-1"><form action="actions/multi-receive.php" id="receive" method="post">
                         <input type="checkbox" id="select-all-rec" data-toggle="tooltip" data-placement="left" title="Select All">&nbsp;&nbsp;</form></th>
-                        <th class="text-center col-3">Tracking</th>
-                        <th class="text-center col">Title</th>
+                        <th class="text-center col-1">Tracking</th>
+                        <th class="text-center col-5">Title</th>
                         <th class="text-center col-1">Action</th>
                       </tr>
                       </thead>
@@ -66,8 +66,8 @@
                         <tr>
                           <th class="text-center col-1"><form action="actions/multi-release.php?refer=<?php echo $_SERVER['REQUEST_URI']; ?>" id="release" method="post">
                               <input type="checkbox" id="select-all-rel" data-toggle="tooltip" data-placement="left" title="Select All">&nbsp;&nbsp;</form></th>
-                          <th class="text-center col-3">Tracking</th>
-                          <th class="text-center col-6">Title</th>
+                          <th class="text-center col-2">Tracking</th>
+                          <th class="text-center col-7">Title</th>
                           <th class="text-center col">Action</th>
                         </tr>
                         </thead>

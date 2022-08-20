@@ -15,16 +15,26 @@ if(isset($_GET['manipulate']) && isset($_GET['tracking']))
     }
     if($action == 'release')
     {
-        $to = escape_string($_GET['to']);
+        $for = 0;
+        if(isset($_GET['toPersonnel']))
+        {
+            $to = $_SESSION['unit'];
+            $for = escape_string($_GET['toPersonnel']);
+        }
+        else
+        {
+            $to = escape_string($_GET['to']);
+        }
         $remarks = escape_string($_GET['rel-remarks']);
-        release($tracking, $to, $remarks);
+        release($tracking, $to, $remarks, $for);
         $to_name = get_unit_name($to);
         set_message_alert("alert-success", "fa-check", "Document released to " . $to_name);
         redirect($referer);
     }
     if($action == 'accomplish')
     {
-        accomplish($tracking);
+        $remarks = escape_string($_GET['accomp-remarks']);
+        accomplish($tracking, $remarks);
         set_message_alert("alert-success", "fa-check", "Document accomplished.");
         redirect($referer);
     }
