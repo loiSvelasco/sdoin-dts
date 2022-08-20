@@ -36,7 +36,7 @@
                 <hr>
                 &#12288;1. Added the ability to input remarks when releasing a document. - for multiple releases<br>
                 &#12288;2. Implemented the ability to release documents under the same unit (to a specific personnel under the unit).<br>
-                &#12288;3. Re-written some functions for efficiency and <i>hopefully</i> increases loadtimes<br>
+                &#12288;3. Re-written some functions for efficiency and <i>hopefully</i> decreases loadtimes.<br>
                 &#12288;4. Added more errors to be fixed later. 🤪🥴<br>
               </p>
               <p class="text-left"><strong>- Louis V.</strong></p>
