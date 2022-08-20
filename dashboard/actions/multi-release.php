@@ -7,7 +7,6 @@ if(isset($_POST['rel-check']))
 {
     $remarks = isset($_POST['rel-remarks']) ? escape_string($_POST['rel-remarks']) : "";
     $for = 0;
-    // $to = $_POST['to'];
 
     if(isset($_POST['forPersonnelMulti']))
     {
@@ -18,7 +17,6 @@ if(isset($_POST['rel-check']))
     {
         $to = $_POST['to'];
     }
-    dd($_POST);
     foreach($_POST['rel-check'] AS $tracking)
     {
         release($tracking, $to, $remarks, $for);

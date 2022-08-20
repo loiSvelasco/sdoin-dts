@@ -15,7 +15,6 @@ if(isset($_GET['manipulate']) && isset($_GET['tracking']))
     }
     if($action == 'release')
     {
-        dd($_GET);
         $for = 0;
         if(isset($_GET['toPersonnel']))
         {
@@ -34,7 +33,6 @@ if(isset($_GET['manipulate']) && isset($_GET['tracking']))
     }
     if($action == 'accomplish')
     {
-        // dd($_GET);
         $remarks = escape_string($_GET['accomp-remarks']);
         accomplish($tracking, $remarks);
         set_message_alert("alert-success", "fa-check", "Document accomplished.");

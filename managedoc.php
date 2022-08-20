@@ -16,34 +16,46 @@ function isOwned($tracking)
 
 function release($tracking, $to, $remarks = "", $for = 0)
 {
-    $by = $_SESSION['user_id'];
-    $unit = $_SESSION['unit'];
-    $ellaganda = query(
-        "SELECT * FROM docs_location 
-         WHERE dl_tracking = '{$tracking}' 
-         AND dl_unit = '{$unit}' 
-         ORDER BY dl_id DESC LIMIT 1"
-    );
-    love($ellaganda);
-    $date = date('Y-m-d H:i:s');
-    if (row_count($ellaganda) >= 1)
+    $to_name = get_unit_name($to);
+
+    // dd(isReleased($tracking, $to));
+
+    if( ! isReleased($tracking, $to))
     {
-        $release = query(
-            "UPDATE docs_location 
-             SET dl_forwarded = 1, 
-                dl_releaseddate = '{$date}',
-                dl_relremarks = '{$remarks}'
-             WHERE dl_tracking = '{$tracking}' 
-             AND dl_unit = '{$unit}' 
-             ORDER BY dl_id DESC LIMIT 1"
+        $by = $_SESSION['user_id'];
+        $unit = $_SESSION['unit'];
+        $ellaganda = query(
+            "SELECT * FROM docs_location 
+            WHERE dl_tracking = '{$tracking}' 
+            AND dl_unit = '{$unit}' 
+            ORDER BY dl_id DESC LIMIT 1"
         );
-        confirm($release);
+        love($ellaganda);
+        $date = date('Y-m-d H:i:s');
+        if (row_count($ellaganda) >= 1)
+        {
+            $release = query(
+                "UPDATE docs_location 
+                SET dl_forwarded = 1, 
+                    dl_releaseddate = '{$date}',
+                    dl_relremarks = '{$remarks}'
+                WHERE dl_tracking = '{$tracking}' 
+                AND dl_unit = '{$unit}' 
+                ORDER BY dl_id DESC LIMIT 1"
+            );
+            confirm($release);
+        }
+    
+        $query = "INSERT INTO docs_location(dl_tracking, dl_unit, dl_for, dl_releaseddate, dl_releasedby, dl_releasedbyunit) ";
+        $query .= "VALUES('{$tracking}', '{$to}', '{$for}', '{$date}', '{$by}', '{$unit}')";
+        $insert = query($query);
+        confirm($insert);
+    }
+    else
+    {
+        set_message_alert("alert-danger", "fa-times", "Document is <strong>already</strong> released to " . $to_name);
     }
 
-    $query = "INSERT INTO docs_location(dl_tracking, dl_unit, dl_for, dl_releaseddate, dl_releasedby, dl_releasedbyunit) ";
-    $query .= "VALUES('{$tracking}', '{$to}', '{$for}', '{$date}', '{$by}', '{$unit}')";
-    $insert = query($query);
-    confirm($insert);
 }
 
 function receive($tracking)
@@ -167,4 +179,22 @@ function purge($tracking)
         );
         confirm($setForwarded);
     }
+}
+
+function isReleased($tracking, $to)
+{
+    $stmt = query(
+        "SELECT * FROM docs_location 
+         WHERE dl_tracking = '{$tracking}'
+         AND dl_unit = '{$to}' 
+         AND dl_receivedby = 0 
+         AND dl_releasedby != 0
+         ORDER BY dl_id DESC LIMIT 1"
+    );
+    confirm($stmt);
+
+    if(row_count($stmt) == 1)
+        return true;
+    else
+        return false;
 }
