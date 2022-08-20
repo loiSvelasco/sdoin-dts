@@ -53,7 +53,11 @@ function release($tracking, $to, $remarks = "", $for = 0)
     }
     else
     {
-        set_message_alert("alert-danger", "fa-times", "Document is <strong>already</strong> released to " . $to_name);
+        set_message_alert(
+            "alert-danger",
+            "fa-times",
+            "Document is <strong>already</strong> released to " . $to_name
+        );
     }
 
 }
