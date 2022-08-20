@@ -28,6 +28,27 @@
         <div class="col-12">
           <div class="card">
             <div class="card-header bg-dark">
+              <strong>System updated to <span class="badge badge-warning rounded-0">v2.8-beta.9</span></strong> <span class="text-muted">Aug. 20, 2022</span>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Changelog:</h5>
+              <p class="card-text">
+                <hr>
+                &#12288;1. Added the ability to input remarks when releasing a document. - for multiple releases<br>
+                &#12288;2. Implemented the ability to release documents under the same unit (to a specific personnel under the unit).<br>
+                &#12288;3. Re-written some functions for efficiency and <i>hopefully</i> increases loadtimes<br>
+                &#12288;4. Added more errors to be fixed later. 🤪🥴<br>
+              </p>
+              <p class="text-left"><strong>- Louis V.</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <div class="row text-monospace">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header bg-light">
               <strong>System updated to <span class="badge badge-warning rounded-0">v2.8-beta.7</span></strong> <span class="text-muted">Aug. 13, 2022</span>
             </div>
             <div class="card-body">
