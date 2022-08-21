@@ -2,10 +2,9 @@
 
 function isLapsed()
 {
-    // 117 - osds; 121 - records, 113- ict
-    if($_SESSION['unit'] == 117 ||
-       $_SESSION['unit'] == 121 ||
-       $_SESSION['unit'] == 113)
+    // 117 - osds; 121 - records, 113 - ict, 101 - accounting
+    $exempted = [117, 121, 113, 101];
+    if(in_array($_SESSION['unit'], $exempted))
     {
         return false; // always return false for these units to bypass permission blocking
     }
