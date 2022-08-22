@@ -128,7 +128,7 @@
       }
       .letter.incorrect {
         background: #7e7e7e;
-        border-color: #3a3a3c;
+        border-color: #7e7e7e;
       }
       .word:not(.attempted) .letter:not(:empty) {
         border-color: #565758;
@@ -212,7 +212,7 @@
         font-size: 12px;
       }
       button#playagain {
-        background: #44dd55;
+        background: #538d4e;
         border-radius: 6px;
         padding: 12px 24px;
         text-transform: uppercase;
@@ -266,7 +266,7 @@
         left: 50%;
         transform: translate(-50%, -50%);
         opacity: 0;
-        background: #121213;
+        background: #f4f6f9;
         border: solid 1px #444;
         transition: opacity 0.2s ease-in-out;
         pointer-events: none;
@@ -375,7 +375,7 @@
         bottom: 0;
         left: 15%;
         right: 15%;
-        background: #121213;
+        background: #f4f6f9;
         opacity: 0;
         pointer-events: none;
         transition: opacity 0.2s ease-in;
@@ -407,7 +407,7 @@
         border: solid 1px #565758;
         width: 38px;
         height: 38px;
-        color: #d7dadc;
+        color: #121213;
         font-size: 2rem;
         line-height: 2rem;
         font-weight: bold;
@@ -505,7 +505,7 @@
           <div>V</div>
           <div>A</div>
           <div>G</div>
-          <div style="background: #3a3a3c; border-color: #3a3a3c;">U</div>
+          <div style="background: #7e7e7e; border-color: #7e7e7e;">U</div>
           <div>E</div>
         </div>
         <span>The letter U is not in the word in any spot.</span>
@@ -1016,7 +1016,7 @@
         distributionDiv.style.width = (6 + Math.floor(distribution / bestGuessed * 94)) + '%'
         distributionDiv.style.background = hasWon() && attempt === state.wordsTried.length
           ? '#538d4e'
-          : '#3a3a3c'
+          : '#7e7e7e'
         distributionLabel.innerText = distribution
         distributionDiv.append(distributionLabel)
         distributionGrid.append(attemptLabel, distributionDiv)
