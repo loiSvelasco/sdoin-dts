@@ -109,8 +109,5 @@
 <script src="dist/js/sdoin-dts.js"></script>
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-<script src="dist/js/wordle-scripts.js" type="module"></script>
-
 </body>
 </html>
