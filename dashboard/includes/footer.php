@@ -112,7 +112,10 @@
 
 <!-- Custom Scripts -->
 <script src="dist/js/sdoin-dts.js"></script>
+<script src="dist/js/wordle.js"></script>
 
-
+<script type="text/javascript">
+  onInit();
+</script>
 </body>
 </html>
