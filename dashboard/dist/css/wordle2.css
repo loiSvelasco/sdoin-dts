@@ -220,7 +220,7 @@ body {
     white-space: pre-wrap;
     grid-row: span 2;
   }
-  .toast {
+  .toast-wordle {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -259,7 +259,7 @@ body {
     pointer-events: unset;
     opacity: 0.75;
   }
-  .modal {
+  .modal-wordle {
     position: fixed;
     top: 40%;
     left: 50%;
@@ -273,22 +273,22 @@ body {
     padding: 20px 64px 44px 64px;
   }
   @media (max-width: 360px) {
-    .modal {
+    .modal-wordle {
       padding: 20px 16px 44px 16px;
     }
   }
-  .modal.show {
+  .modal-wordle.show {
     pointer-events: unset;
     opacity: 1;
   }
-  .modal-close, .howtoplay-close, .settings-close {
+  .modal-wordle-close, .howtoplay-close, .settings-close {
     position: absolute;
     top: 12px;
     right: 6px;
     background: transparent;
     color: #565758;
   }
-  .modal-title {
+  .modal-wordle-title {
     font-weight: bold;
     font-size: 14px;
     margin: 24px 0 12px 0;
@@ -296,7 +296,7 @@ body {
     text-transform: uppercase;
     letter-spacing: 1px;
   }
-  .modal-content {
+  .modal-wordle-content {
     display: flex;
     flex-direction: column;
     justify-content: center;

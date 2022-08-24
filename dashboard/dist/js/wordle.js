@@ -20,13 +20,13 @@ const state = {
 }
 
 function displayToast (message, duration = 1.5e3, zIndex = 500) {
-  document.querySelectorAll('.toast').forEach(node => node.remove())
+  document.querySelectorAll('.toast-wordle').forEach(node => node.remove())
   if (!message) {
     return
   }
   let div = document.createElement('div')
   let span = document.createElement('span')
-  div.classList.add('toast')
+  div.classList.add('toast-wordle')
   div.append(span)
   div.style.zIndex = zIndex
   if (state.wordsTried.length === 1) {
@@ -356,7 +356,7 @@ function getPossibleWordsLeft () {
 
 function isGameOver () {
   return hasWon() || state.wordsTried.length >= state.config.attempts ||
-    document.querySelector('.modal').classList.contains('show') ||
+    document.querySelector('.modal-wordle').classList.contains('show') ||
     document.body.classList.contains('game-over')
 }
 
@@ -418,7 +418,7 @@ function getWordToGuess (code) {
 
 function onCloseModal (callback) {
   let called = false
-  let btnClose = document.querySelector('.modal-close')
+  let btnClose = document.querySelector('.modal-wordle-close')
   let func = () => {
     if (!called) {
       called = true
@@ -429,7 +429,7 @@ function onCloseModal (callback) {
 }
 
 function toggleModal (state) {
-  let modal = document.querySelector('.modal')
+  let modal = document.querySelector('.modal-wordle')
   let backdrop = document.querySelector('.backdrop')
   if (state === undefined) {
     state = !modal.classList.contains('show')
@@ -458,8 +458,8 @@ function createShareButtonEl (style) {
 }
 
 function setupEndGameModal () {
-  let title = document.querySelector('.modal-title')
-  let modalContent = document.querySelector('.modal-content')
+  let title = document.querySelector('.modal-wordle-title')
+  let modalContent = document.querySelector('.modal-wordle-content')
   Array.from(modalContent.children).forEach(node => node.remove())
   if (title) {
     title.innerHTML = 'Statistics'
@@ -720,11 +720,11 @@ function setupUI () {
     document.querySelector('.overlay').classList.remove('show')
   })
 
-  const btnCloseModal = document.querySelector('.modal-close')
+  const btnCloseModal = document.querySelector('.modal-wordle-close')
   const backdrop = document.querySelector('.backdrop')
   btnCloseModal.innerHTML = SVG_CLOSE
   btnCloseModal.addEventListener('click', (e) => {
-    if (!document.querySelector('.modal').classList.contains('show')) {
+    if (!document.querySelector('.modal-wordle').classList.contains('show')) {
       e.preventDefault()
       e.stopPropagation()
       return
