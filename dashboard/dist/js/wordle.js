@@ -689,10 +689,14 @@ function setupUI () {
 
   const btnHowToPlay = document.getElementById('howtoplay')
   btnHowToPlay.innerHTML = SVG_HOWTO
+
+  const btnLeaderBoard = document.getElementById('leaderboard')
+  btnLeaderBoard.innerHTML = SVG_LEADERBOARD
+
   btnHowToPlay.addEventListener('click', e => {
-    document.querySelector('.overlay').classList.add('show')
-    document.querySelector('.howtoplay').classList.add('show')
-    document.querySelector('.settings').classList.remove('show')
+    // document.querySelector('.overlay').classList.add('show')
+    // document.querySelector('.howtoplay').classList.add('show')
+    // document.querySelector('.settings').classList.remove('show')
   })
   const btnCloseHowToPlay = document.querySelector('.howtoplay-close')
   btnCloseHowToPlay.innerHTML = SVG_CLOSE
@@ -911,6 +915,8 @@ const SVG_SETTINGS = '<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBo
 const SVG_CLOSE = '<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path fill="currentColor" d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>'
 
 const SVG_BACKSPACE = '<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path fill="currentColor" d="M22 3H7c-.69 0-1.23.35-1.59.88L0 12l5.41 8.11c.36.53.9.89 1.59.89h15c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H7.07L2.4 12l4.66-7H22v14zm-11.59-2L14 13.41 17.59 17 19 15.59 15.41 12 19 8.41 17.59 7 14 10.59 10.41 7 9 8.41 12.59 12 9 15.59z"></path></svg>'
+
+const SVG_LEADERBOARD = '<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="24" height="24" viewBox="0 0 96.631 96.631" style="enable-background:new 0 0 96.631 96.631;" xml:space="preserve"> <g> <path fill="currentColor" d="M84.789,5.76H71.075V2c0-1.104-0.896-2-2-2H27.556c-1.104,0-2,0.896-2,2v3.761H11.843c-1.104,0-2,0.896-2,2V8.89 c0,17.03,8.584,30.775,19.589,31.463c2.912,4.32,7.211,7.518,12.162,9.047v22.744h-7.553c-1.104,0-2,0.896-2,2v3.26h-4.662 c-1.104,0-2,0.896-2,2v15.227c0,1.104,0.896,2,2,2h41.873c1.104,0,2-0.896,2-2V79.404c0-1.104-0.896-2-2-2H64.59v-3.26 c0-1.104-0.896-2-2-2h-7.553V49.4c4.948-1.529,9.247-4.728,12.161-9.048c11.006-0.688,19.59-14.434,19.59-31.463V7.76 C86.789,6.656,85.894,5.76,84.789,5.76z M25.556,12.019v15.647c0,1.772,0.217,3.559,0.646,5.325 c-5.261-2.959-9.271-11.314-9.985-20.973L25.556,12.019L25.556,12.19z M70.43,32.992c0.429-1.766,0.646-3.553,0.646-5.325V12.019 h9.34C79.703,21.677,75.692,30.033,70.43,32.992z"/></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg>'
 
 function addWordToDict (word, guessable) {
   let length = word.length

@@ -23,7 +23,10 @@
               <?php display_notice();?>
               <div class="header">
                   <div class="header-actions">
-                      <button id="howtoplay"></button>
+                      <span data-toggle="tooltip" data-placement="top" title="How to play"><button id="howtoplay" data-toggle="modal" 
+                      data-target="#wordleHowToPlay"></button></span>
+                      <span data-toggle="tooltip" data-placement="top" title="Leaderboard"><button id="leaderboard" data-toggle="modal" 
+                      data-target="#wordleLeaderboard"></button></span>
                   </div>
                   <div class="title">
                       <span>Wordle</span>
@@ -31,8 +34,8 @@
                       <br>
                   </div>
                   <div class="header-actions">
-                      <button id="stats"></button>
-                      <button id="settings"></button>
+                      <button id="stats" data-toggle="tooltip" data-placement="top" title="Statistics"></button>
+                      <button id="settings" data-toggle="tooltip" data-placement="top" title="Settings"></button>
                   </div>
               </div>
               <div class="words"></div>
