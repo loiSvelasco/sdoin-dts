@@ -473,3 +473,79 @@
         </div>
     </div>
 </div>
+
+<!-- Modal -->
+<div class="modal fade" id="wordleLeaderboard" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content rounded-0">
+      <div class="modal-header border-0">
+        <h5 class="modal-title" id="exampleModalLabel">Wordle Leaderboard</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Leaderboard under construction. 😁
+      </div>
+      <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="wordleHowToPlay" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content rounded-0">
+      <div class="modal-header border-0">
+        <!-- <h5 class="modal-title" id="exampleModalLabel">How to Play Wordle</h5> -->
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- <b style="align-self: center; font-size: 17px;">HOW TO PLAY</b> -->
+            <!-- <br> -->
+            <span>Guess the <b>WORDLE</b> in 6 attempts.</span>
+            <br>
+            <span>Each guess must be a valid 5 letter word. Hit the Enter button to submit an attempt.</span>
+            <br>
+            <span>After each guess, the color of the tiles will change to show how close your guess was to the word.</span>
+            <br>
+            <br>
+            <div class="line-sep"></div>
+            <br>
+            <b>Examples</b>
+            <div style="display: flex;" class="letters-example">
+                <div style="background: #6AAA64; border-color: #6AAA64;">W</div>
+                <div>E</div>
+                <div>A</div>
+                <div>R</div>
+                <div>Y</div>
+            </div>
+            <span>The letter W is in the word and in the correct spot.</span>
+            <div style="display: flex;" class="letters-example">
+                <div>P</div>
+                <div style="background: #C9B458; border-color: #C9B458;">I</div>
+                <div>L</div>
+                <div>L</div>
+                <div>S</div>
+            </div>
+            <span>The letter I is in the word but in the wrong spot.</span>
+            <div style="display: flex;" class="letters-example">
+                <div>V</div>
+                <div>A</div>
+                <div>G</div>
+                <div style="background: #787C7E; border-color: #787C7E;">U</div>
+                <div>E</div>
+            </div>
+            <span>The letter U is not in the word in any spot.</span>
+      </div>
+      <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div> -->
+    </div>
+  </div>
+</div>

@@ -36,9 +36,14 @@
         <a href="https://github.com/loiSvelasco/sdoin-dts" target="_blank"><img src="https://img.shields.io/badge/repo-sdoin--dts-lightgrey?style=for-the-badge&logo=github" alt=""></a>
         </div>
       </div>
-      <div class="row mb-3">
+      <div class="row mb-2">
         <div class="col-12">
         <a href="https://github.com/loiSvelasco" target="_blank"><img src="https://img.shields.io/badge/status-beta--testing-critical?style=for-the-badge&logo=github" alt=""></a>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-12">
+        <a href="?wordle" target="_blank"><img src="https://img.shields.io/badge/fun-wordle-critical?style=for-the-badge" alt=""></a>
         </div>
       </div>
       <p class="mb-2">Support / Suggestions</p>
@@ -107,10 +112,10 @@
 
 <!-- Custom Scripts -->
 <script src="dist/js/sdoin-dts.js"></script>
+<script src="dist/js/wordle.js"></script>
 
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-<script src="dist/js/wordle-scripts.js" type="module"></script>
-
+<script type="text/javascript">
+  onInit();
+</script>
 </body>
 </html>

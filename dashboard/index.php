@@ -56,6 +56,11 @@ else if (isset($_GET['view']) && isset($_GET['file']))
     redirect("uploads/".escape_string($_GET['file']));
 }
 
+else if (isset($_GET['wordle']))
+{
+    include("includes/wordlegame.php");
+}
+
 else if (isset($_GET['manipulate']))
 {
     include("actions/manipulate.php");
