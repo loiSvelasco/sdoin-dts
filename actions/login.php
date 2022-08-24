@@ -7,6 +7,8 @@ if(isset($_POST['login']))
     $email      = escape_string($_POST['email']);
     $password   = escape_string($_POST['password']);
 
+    $redirect = isset($_POST['redirectTo']) ? escape_string($_POST['redirectTo']) : "";
+
     $sql = query("SELECT * FROM users WHERE email = '{$email}'");
     confirm($sql);
 
@@ -37,7 +39,16 @@ if(isset($_POST['login']))
                 $_SESSION['unit']    = $udRow['ud_unit'];
                 $_SESSION['role']    = $row['role'];
                 $_SESSION['timestamp'] = time();
-                redirect("../dashboard/");
+
+                // dd($redirect);
+
+                if($redirect != "") {
+                    redirect("$redirect");
+                }
+                else {
+                    redirect("../dashboard/");
+                }
+
             }
             else
             {

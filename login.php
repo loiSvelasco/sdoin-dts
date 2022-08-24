@@ -14,6 +14,7 @@ if(isset($_SESSION['user']))
       <?php display_notice(); ?>
 
       <form action="actions/login.php" method="post">
+        <input type="hidden" name="redirectTo" value="<?php echo isset($_GET['redirectTo']) ? escape_string($_GET['redirectTo']) : ""; ?>">
         <div class="input-group mb-3">
           <input type="email" class="form-control" placeholder="Email" name="email" value="<?php echo isset($_GET['try']) ? escape_string($_GET['try']) : ""; ?>" required autofocus>
           <div class="input-group-append">
