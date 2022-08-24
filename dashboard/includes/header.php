@@ -3,7 +3,7 @@
   if(!isset($_SESSION['user']))
   {
     set_message_alert("alert-warning", "fa-info-circle", "You need to sign in to continue.");
-    redirect("../?login");
+    redirect("../?login&redirectTo=" . URI);
   }
 ?>
 <!DOCTYPE html>
