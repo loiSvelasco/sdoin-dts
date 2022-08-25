@@ -178,7 +178,7 @@ function notifyOwner($query)
         $days = countDays($row['receiveddate']);
         $title = get_document_detail($tracking, 'document_title');
         $link = '?tracking=' . $tracking;
-        $currentLoc = get_unit_name(get_doc_current_location($tracking));
+        $currentLoc = get_unit_name(get_doc_current_location_edit($tracking));
 
         $myLove = <<<ELLA
         Document <strong><a href="{$link}" target="_blank">#{$tracking}</a></strong> 
