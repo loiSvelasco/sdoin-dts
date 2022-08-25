@@ -25,15 +25,26 @@
         <div class="input-group mb-3">
           <select class="form-control select2" placeholder="School/Unit" name="unit" required>
               <option value="" disabled selected hidden>School / Unit</option>
-              <!-- <optgroup label="Division Office">
+              <?php 
+                global $DOSignUp;
+                global $fieldSignUp;
+
+                if($DOSignUp):
+              ?>
+              <optgroup label="Division Office">
                 <?php get_unit_do(); ?>
-              </optgroup> -->
+              </optgroup>
+              <?php endif; ?>
+              <?php 
+                if($fieldSignUp):
+              ?>
               <optgroup label="Public Schools">
                 <?php get_unit_public(); ?>
               </optgroup>
               <optgroup label="Private Schools">
                 <?php get_unit_private(); ?>
               </optgroup>
+              <?php endif; ?>
           </select>
           <div class="input-group-append">
             <div class="input-group-text">
