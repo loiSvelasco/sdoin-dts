@@ -37,7 +37,6 @@ function release($tracking, $to, $remarks = "", $for = 0)
             $release = query(
                 "UPDATE docs_location 
                 SET dl_forwarded = 1, 
-                    dl_releaseddate = '{$date}',
                     dl_relremarks = '{$remarks}'
                 WHERE dl_tracking = '{$tracking}' 
                 AND dl_unit = '{$unit}' 
