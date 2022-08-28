@@ -23,11 +23,32 @@
 
     <section class="content">
 
-
-    <div class="row text-monospace">
+      <div class="row text-monospace">
         <div class="col-12">
           <div class="card">
             <div class="card-header bg-dark">
+              <strong>System updated to <span class="badge badge-warning rounded-0">v2.9-beta.1</span></strong> <span class="text-muted">Aug. 29, 2022</span>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Changelog:</h5>
+              <p class="card-text">
+                <hr>
+                &#12288;1. Adjusted database and made corrections to timestamps, documents created from August 8 to 28 may display wrong timestamps on released / received.<br>
+                &#12288;2. Improved performance for launching on Sept. 5, 2022.<br>
+                &#12288;3. Started work on issue reporting, for easier suggestions / error reporting <br>
+                &#12288;4. Various bug fixes and improvements. <br>
+                &#12288;5. Added more errors to be fixed later. 🤪🥴<br>
+              </p>
+              <p class="text-left"><strong>- Louis V.</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row text-monospace">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header bg-light">
               <strong>System updated to <span class="badge badge-warning rounded-0">v2.8-beta.9</span></strong> <span class="text-muted">Aug. 20, 2022</span>
             </div>
             <div class="card-body">
@@ -45,7 +66,7 @@
         </div>
       </div>
 
-    <div class="row text-monospace">
+      <div class="row text-monospace">
         <div class="col-12">
           <div class="card">
             <div class="card-header bg-light">

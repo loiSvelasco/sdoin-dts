@@ -289,11 +289,11 @@ $(document).ready(function() {
       }).get();
       console.log(data);
       
-      $('#userID').val(data[0]);
-      $('#userMail').val(data[1]);
-      $('#userFname').val(data[2]);
-      $('#userRole').val(data[4]);
-      $('#userUnit').val(data[6]);
+      $('#userID').val(data[1]);
+      $('#userMail').val(data[2]);
+      $('#userFname').val(data[3]);
+      $('#userRole').val(data[5]);
+      $('#userUnit').val(data[7]);
       
       $('#locked').attr('checked', false);
       if(data[7] == 1) {

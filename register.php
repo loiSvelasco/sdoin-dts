@@ -38,8 +38,14 @@
               <?php 
                 if($fieldSignUp):
               ?>
-              <optgroup label="Public Schools">
-                <?php get_unit_public(); ?>
+              <optgroup label="Public Elementary">
+                <?php get_unit_elem(); ?>
+              </optgroup>
+              <optgroup label="Public Secondary">
+                <?php get_unit_sec(); ?>
+              </optgroup>
+              <optgroup label="Public Integrated">
+                <?php get_unit_integ(); ?>
               </optgroup>
               <optgroup label="Private Schools">
                 <?php get_unit_private(); ?>

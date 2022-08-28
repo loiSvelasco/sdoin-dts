@@ -35,6 +35,7 @@
                   <thead>
                     <tr>
                       <th class="col-1 text-center">#</th>
+                      <th class="d-none">realID</th>
                       <th class="col-3">Email</th>
                       <th class="col-3">Full Name</th>
                       <th class="col-2">Role</th>
