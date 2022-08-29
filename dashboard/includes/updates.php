@@ -36,7 +36,7 @@
                 &#12288;1. Adjusted database and made corrections to timestamps, documents created from August 8 to 28 may display wrong timestamps on released / received.<br>
                 &#12288;2. Improved performance for launching on Sept. 5, 2022.<br>
                 &#12288;3. Started work on issue reporting, for easier suggestions / error reporting <br>
-                &#12288;4. Various bug fixes and improvements. <br>
+                &#12288;4. Categorized schools on registration page for faster searching (Elem, Sec, Integrated). <br>
                 &#12288;5. Added more errors to be fixed later. 🤪🥴<br>
               </p>
               <p class="text-left"><strong>- Louis V.</strong></p>
