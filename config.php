@@ -2,6 +2,9 @@
 
   $maintenance = false;
   $staging = false;
+  
+  $DOSignUp = false;
+  $fieldSignUp = true;
 
   if ($staging)
   {

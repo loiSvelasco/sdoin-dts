@@ -123,6 +123,7 @@ function allUsers()
         $ellacutie = <<<ELLA
         <tr>
             <td class="align-middle text-center">{$counter}</td>
+            <td class="align-middle d-none">{$id}</td>
             <td class="align-middle">{$email}</td>
             <td class="align-middle">{$name}</td>
             <td class="align-middle">{$role}</td>

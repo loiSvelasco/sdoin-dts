@@ -399,8 +399,8 @@
         
             <div class="modal-body text-justify">
                 <form action="actions/modifyUser.php" method="post">
-                    <input type="hidden" class="form-control" placeholder="ID" id="userID" name="userID" required>
-                    <input type="hidden" name="referer" value="<?php echo URI; ?>">
+                    <input type="text" class="form-control" placeholder="ID" id="userID" name="userID" required>
+                    <input type="text" name="referer" value="<?php echo URI; ?>">
                     <div class="input-group mb-3">
                         <input type="text" class="form-control" placeholder="Full name" id="userFname" name="fullname" required autofocus>
                         <div class="input-group-append">

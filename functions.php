@@ -239,6 +239,79 @@ ELLA;
     }
 }
 
+function get_unit_integ()
+{
+    $sql = query(
+        "SELECT * FROM units 
+         WHERE unit_type = 'School' 
+         AND unit_sector = 'Public' 
+         AND unit_id >= 500000"
+    );
+    confirm($sql);
+
+    while($row = fetch_array($sql))
+    {
+        $unit_id = escape_string($row['unit_id']);
+        $unit_name = escape_string($row['unit_name']);
+        $strArr = explode(" - ", $unit_name);
+        $school = $strArr[1] . " - " . $strArr[0];
+
+        $cutie = <<<ELLA
+        <option value="{$unit_id}">{$school}</option>
+ELLA;
+        echo $cutie;
+    }
+}
+
+function get_unit_elem()
+{
+    $sql = query(
+        "SELECT * FROM units 
+         WHERE unit_type = 'School' 
+         AND unit_sector = 'Public' 
+         AND unit_id < 300000"
+    );
+    confirm($sql);
+
+    while($row = fetch_array($sql))
+    {
+        $unit_id = escape_string($row['unit_id']);
+        $unit_name = escape_string($row['unit_name']);
+        $strArr = explode(" - ", $unit_name);
+        $school = $strArr[1] . " - " . $strArr[0];
+
+        $cutie = <<<ELLA
+        <option value="{$unit_id}">{$school}</option>
+ELLA;
+        echo $cutie;
+    }
+}
+
+function get_unit_sec()
+{
+    $sql = query(
+        "SELECT * FROM units 
+         WHERE unit_type = 'School' 
+         AND unit_sector = 'Public' 
+         AND unit_id >= 300000 
+         AND unit_id < 500000"
+    );
+    confirm($sql);
+
+    while($row = fetch_array($sql))
+    {
+        $unit_id = escape_string($row['unit_id']);
+        $unit_name = escape_string($row['unit_name']);
+        $strArr = explode(" - ", $unit_name);
+        $school = $strArr[1] . " - " . $strArr[0];
+
+        $cutie = <<<ELLA
+        <option value="{$unit_id}">{$school}</option>
+ELLA;
+        echo $cutie;
+    }
+}
+
 function get_unit_private()
 {
     $sql = query("SELECT * FROM units WHERE unit_type = 'School' AND unit_sector = 'Private'");

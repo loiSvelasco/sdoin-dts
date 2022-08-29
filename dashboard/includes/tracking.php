@@ -77,9 +77,9 @@ CUTIEPIE;
                           <div class="line h-100"></div>
                       </div>
                       <div>
-                          <h5 class="text-dark">Document accomplished.</h5>
-                          <p class="lead text-muted pb-3">Accomplished by {$accomplishedBy} - {$date} <br>
-                          <span class="lead">{$accomplishedRem}</span>
+                          <h5 class="text-dark"><strong>Document accomplished.</strong></h5>
+                          <p class="text-muted pb-3">{$date} | Accomplished by {$accomplishedBy}<br>
+                          <span class="strong">{$accomplishedRem}</span>
                           </p>
                       </div>
                       </div>
@@ -115,29 +115,41 @@ CUTIEPIE;
                       
                       if($row['dl_receivedby'] != 0)
                       {
-                        $phpdate = strtotime($row['dl_receiveddate']);
-                        $date = date("F j, Y, g:i a", $phpdate );
+                        $recDateRow = strtotime($row['dl_receiveddate']);
+                        $recDate = date("F j, Y, g:i a", $recDateRow);
+
+                        $relDateRow = strtotime($row['dl_releaseddate']);
+                        $relDate = date("F j, Y, g:i a", $relDateRow);
                         
                         $status = "Received at " . get_unit_name($row['dl_unit']);
-                        $received = "Received by " . get_user_name($row['dl_receivedby']) . " - " . $date;
+                        $received = "$recDate | Received by " . get_user_name($row['dl_receivedby']);
+                        $released = "$relDate | Released to " . get_unit_name($row['dl_unit']);
                         $bg = "bg-success";
                       }
                       else
                       {
-                        $status = "Released to " . get_unit_name($row['dl_unit']);
+                        $relDateRow = strtotime($row['dl_releaseddate']);
+                        $relDate = date("F j, Y, g:i a", $relDateRow);
+
+                        $phpdate = strtotime($row['dl_releaseddate']);
+                        $date = date("F j, Y, g:i a", $phpdate );
+                        $released = "";
+
+                        $status = "Released to " . get_unit_name($row['dl_unit']) . " | <small class='text-muted'>$relDate</small>";
                         $received = "Document not yet received.";
                         $bg = "bg-warning";
                       } 
                       $lovelyella = <<<CUTIEPIE
                       <div class="d-flex mb-1">
                       <div class="d-flex flex-column pr-4 align-items-center">
-                          <div class="rounded-circle py-2 px-3 {$bg} text-white mb-1">{$sequence}</div>
+                          <div class="rounded-circle py-2 px-3 {$bg} text-white mb-1 strong">{$sequence}</div>
                           <div class="line h-100"></div>
                       </div>
                       <div>
-                          <h5 class="text-dark">{$status}</h5>
-                          <p class="lead text-muted pb-3">{$received} <br>
-                            <span class="lead">{$remarks}</span>
+                          <h5 class="text-dark"><strong>{$status}</strong></h5>
+                          <p class="text-muted pb-3">{$received} <br>
+                            {$released} <br>
+                            <span class="strong">{$remarks}</span>
                           </p>
                       </div>
                       </div>

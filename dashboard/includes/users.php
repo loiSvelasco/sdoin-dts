@@ -35,6 +35,7 @@
                   <thead>
                     <tr>
                       <th class="col-1 text-center">#</th>
+                      <th class="d-none">realID</th>
                       <th class="col-3">Email</th>
                       <th class="col-3">Full Name</th>
                       <th class="col-2">Role</th>
@@ -86,8 +87,14 @@
                         <optgroup label="Division Office">
                           <?php get_unit_do(); ?>
                         </optgroup>
-                        <optgroup label="Public Schools">
-                          <?php get_unit_public(); ?>
+                        <optgroup label="Public Elementary">
+                          <?php get_unit_elem(); ?>
+                        </optgroup>
+                        <optgroup label="Public Secondary">
+                          <?php get_unit_sec(); ?>
+                        </optgroup>
+                        <optgroup label="Public Integrated">
+                          <?php get_unit_integ(); ?>
                         </optgroup>
                         <optgroup label="Private Schools">
                           <?php get_unit_private(); ?>
