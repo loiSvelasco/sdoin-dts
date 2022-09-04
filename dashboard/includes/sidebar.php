@@ -61,19 +61,6 @@
                 </a>
               </li>
               <?php 
-              
-                if ($_SESSION['role'] == 1)
-                {
-                  $lala = <<<LALACUTIE
-                  <li class="nav-item">
-                  <a href="?admin" class="nav-link">
-                    <i class="fas fa-user-shield nav-icon"></i>
-                    <p>Administration</p>
-                  </a>
-                </li>
-LALACUTIE;
-                  echo $lala;
-                }
                 if($_SESSION['role'] == 2 || $_SESSION['role'] == 1 || $_SESSION['unit'] == 117 || $_SESSION['unit'] == 127 || $_SESSION['unit'] == 128)
                 {
                   // special accounts
