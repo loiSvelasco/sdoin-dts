@@ -118,7 +118,7 @@ LALACUTIE;
                   <p>Reports</p>
                 </a>
               </li>
-              <li class="nav-item">
+              <!-- <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="nav-icon fas fa-link"></i>
                   <p>
@@ -126,7 +126,7 @@ LALACUTIE;
                     <span class="right badge badge-success">New</span>
                   </p>
                 </a>
-              </li>
+              </li> -->
             </ul>
           </li>
 
