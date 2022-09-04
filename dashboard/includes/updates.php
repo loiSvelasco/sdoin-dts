@@ -21,12 +21,40 @@
       <?php display_notice(); ?>
     </div>
 
+    <blockquote class="quote-info">
+      This page contains updated information on the system. This page <i>may</i> also contain jokes.
+    </blockquote>
+
     <section class="content">
+
+    <div class="row text-monospace">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header bg-dark">
+              <strong>System updated to <span class="badge badge-warning rounded-0">v2.9-beta.3</span></strong> <span class="text-muted">Sept. 04, 2022</span>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Changelog:</h5>
+              <p class="card-text">
+                <hr>
+                &#12288;1. Made the top navigation bar darker, like my soul.<br>
+                &#12288;2. Categorized the side navigation bar by type for clarity.<br>
+                &#12288;3. Added the ability to edit your <mark><i>own</i></mark> documents.<br>
+                &#12288;4. Defeated the Earth Dragon Azhdaha, Overlord of the Geovishaps. 😈<br>
+                &#12288;5. Various improvements.<br>
+                &#12288;5. Started work on profile editing. (with profile pictures maybe?)<br>
+                &#12288;7. Added more bugs to be fixed later. 🐛🐜<br>
+              </p>
+              <p class="text-left"><strong>- Louis V.</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <div class="row text-monospace">
         <div class="col-12">
           <div class="card">
-            <div class="card-header bg-dark">
+            <div class="card-header bg-light">
               <strong>System updated to <span class="badge badge-warning rounded-0">v2.9-beta.1</span></strong> <span class="text-muted">Aug. 29, 2022</span>
             </div>
             <div class="card-body">
@@ -35,7 +63,7 @@
                 <hr>
                 &#12288;1. Adjusted database and made corrections to timestamps, documents created from August 8 to 28 may display wrong timestamps on released / received.<br>
                 &#12288;2. Improved performance for launching on Sept. 5, 2022.<br>
-                &#12288;3. Started work on issue reporting, for easier suggestions / error reporting <br>
+                &#12288;3. Started work on issue reporting, for easier suggestions / error reporting. <br>
                 &#12288;4. Categorized schools on registration page for faster searching (Elem, Sec, Integrated). <br>
                 &#12288;5. Added more errors to be fixed later. 🤪🥴<br>
               </p>

@@ -100,7 +100,7 @@ CUTIEPIE;
                           <div class="line h-100"></div>
                       </div>
                       <div>
-                          <h5 class="text-dark">Document purged.</h5>
+                          <h5 class="text-dark"><strong>Document purged.</strong></h5>
                           <p class="lead text-muted pb-3">Purged at {$date}</p>
                       </div>
                       </div>

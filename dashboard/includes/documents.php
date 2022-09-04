@@ -25,7 +25,7 @@
         <!-- <hr> -->
         <div class="row">
             <div class="col-lg-6">
-              <div class="card">
+              <div class="card rounded-0">
                 <div class="card-header border-warning bg-white">
                   <h3 class="card-title">
                   <button type="submit" form="receive" class="btn btn-warning btn-sm btn-flat" name="rec-selected">Receive Selected</button>
@@ -53,7 +53,7 @@
             </div>
 
             <div class="col-lg-6">
-              <div class="card">
+              <div class="card rounded-0">
                 <div class="card-header border-info bg-white">
                   <h3 class="card-title">
                   <button type="button" class="btn btn-sm btn-flat btn-info" data-toggle="modal" data-target="#modal-release-multi-doc" form="release" name="rel-selected">Release Selected</button>

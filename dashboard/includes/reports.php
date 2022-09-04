@@ -76,7 +76,7 @@
           <!-- ./col -->
           <div class="col-lg-3 col-6">
             <!-- small card -->
-            <div class="small-box bg-danger">
+            <div class="small-box bg-secondary">
               <div class="inner">
                 <h3><?php get_accomplished_count(); ?></h3>
 

@@ -71,7 +71,7 @@ style="position:absolute;
 <div class="wrapper">
 
   <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+  <nav class="main-header navbar navbar-expand navbar-dark navbar-gray-dark">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
       <li class="nav-item">
@@ -81,7 +81,7 @@ style="position:absolute;
 
     <!-- SEARCH FORM -->
     <form action="?tracking" class="form-inline ml-3" method="GET">
-      <div class="input-group input-group-md border border-info rounded">
+      <div class="input-group input-group-md border border-dark rounded">
         <input class="form-control form-control-navbar" type="search" name="tracking" placeholder="Tracking no." aria-label="Search" required>
         <div class="input-group-append">
           <button class="btn btn-navbar" type="submit">
@@ -101,7 +101,11 @@ style="position:absolute;
           <i class="far fa-user"></i>
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <span class="dropdown-item dropdown-header"><?php echo $_SESSION['user']; ?><br><?php echo get_unit_name($_SESSION['unit']); ?></span>
+          <span class="dropdown-item dropdown-header">
+            <?= $_SESSION['usrname']; ?>
+            <br><?= $_SESSION['user']; ?>
+            <br><?= get_unit_name($_SESSION['unit']); ?>
+          </span>
           <div class="dropdown-divider"></div>
           <a href="?profile" class="dropdown-item">
             <i class="fas fa-user mr-2"></i> Profile
