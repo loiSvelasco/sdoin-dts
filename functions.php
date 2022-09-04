@@ -419,6 +419,47 @@ ELLA;
     }
 }
 
+function get_mine_docs()
+{
+    $ella = query(
+        "SELECT * FROM documents 
+         WHERE document_owner = {$_SESSION['user_id']} 
+         ORDER BY id 
+         DESC LIMIT " . DOC_QUERY_LIMIT
+    );
+    confirm($ella);
+
+    while($row = fetch_array($ella))
+    {
+        $doctype = get_doctype_name($row['document_type']);
+        // $origin = get_unit_name($row['document_origin']);
+        // $owner = get_user_name($row['document_owner']);
+        $title = $row['document_title'];
+        $purpose = $row['document_purpose'];
+        $tracking = $row['document_tracking'];
+        $date = format_date($row['date_created']);
+
+        $currentLocation = get_doc_current_location($tracking);
+
+        $ellacutie = <<<ELLA
+        <tr>
+            <td class="align-middle">
+            <a href="?tracking={$tracking}" target="_blank" data-toggle="tooltip" data-placement="top" title="Track"><i class="fa fa-search"></i></a>&nbsp;&nbsp;
+            <a href="?print={$tracking}" target="_blank" data-toggle="tooltip" data-placement="top" title="Print Tracking no."><i class="fa fa-print"></i></a>&nbsp;&nbsp;
+            <a href="?modifyMyDoc={$tracking}" target="_blank" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a>&nbsp;&nbsp;
+                {$tracking}
+            </td>
+            <td class="align-middle">{$title}</td>
+            <td class="align-middle">{$purpose}</td>
+            <td class="align-middle">{$doctype}</td>
+            <td class="align-middle">{$date}</td>
+            <td class="align-middle">{$currentLocation}</td>
+        </tr>
+ELLA;
+        echo $ellacutie;
+    }
+}
+
 function get_doc_current_location($tracking)
 {
     $superduperultramegacutiepieprintetella = query("SELECT * FROM docs_location WHERE dl_tracking = '{$tracking}' ORDER BY dl_id DESC LIMIT 1");
@@ -1057,4 +1098,10 @@ function exists($id, $table)
         return true;
     else
         return false;
+}
+
+function firstName()
+{
+    $arr = explode(' ', $_SESSION['usrname']);
+    return $arr[0];
 }

@@ -37,6 +37,7 @@ if(isset($_POST['login']))
                 $_SESSION['user']    = $row['email'];
                 $_SESSION['user_id'] = $udRow['id'];
                 $_SESSION['unit']    = $udRow['ud_unit'];
+                $_SESSION['usrname'] = ucwords(strtolower($udRow['ud_name']));
                 $_SESSION['role']    = $row['role'];
                 $_SESSION['timestamp'] = time();
 

@@ -1,16 +1,21 @@
 <?php
-  $tracking = escape_string($_GET['editDoc']);
+  $tracking = escape_string($_GET['modifyMyDoc']);
+  $editable = true;
   if( ! docExists($tracking))
   {
     redirect("./?404");
   }
   if(isAccomplished($tracking) || isPurged($tracking))
   {
-    redirect("./?tracking=$tracking");
+    set_message_alert("alert-info", "fa-info", "Document is accomplished, editing is prohibited.");
+    $editable = false;
+    // redirect("./?tracking=$tracking");
   }
-  if($_SESSION['role'] >= 3 )
+  if($_SESSION['user_id'] != get_document_detail($tracking, 'document_owner'))
   {
-    redirect("./?tracking=$tracking");
+    set_message_alert("alert-warning", "fa-times", "You are unable to edit this document as this is not yours.");
+    $editable = false;
+    // redirect("./?tracking=$tracking");
   }
 ?>
 <div class="content-wrapper wrapper-bgcolor">
@@ -36,6 +41,7 @@
     <div class="container-fluid">
     <?php display_notice();?>
     </div>
+    <?php if($editable):?>
     <div class="row">
       <div class="col-sm-6 col-12">
         <div class="card bg-primary">
@@ -108,5 +114,6 @@
         </div>
       </div>
     </div>
+    <?php endif; ?>
   </div>
 </div>

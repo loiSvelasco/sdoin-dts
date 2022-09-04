@@ -61,6 +61,11 @@ else if (isset($_GET['wordle']))
     include("includes/wordlegame.php");
 }
 
+else if (isset($_GET['myDocs']))
+{
+    include("includes/editMyDocs.php");
+}
+
 else if (isset($_GET['manipulate']))
 {
     include("actions/manipulate.php");
@@ -69,6 +74,11 @@ else if (isset($_GET['manipulate']))
 else if (isset($_GET['tracking']))
 {
     include("includes/tracking.php");
+}
+
+else if (isset($_GET['modifyMyDoc']))
+{
+    include("includes/modifyMyDoc.php");
 }
 
 else if (isset($_GET['logout']))
