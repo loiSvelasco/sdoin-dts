@@ -4,9 +4,26 @@ require_once("../../config.php");
 function insert($title, $desc, $type, $purpose, $origin, $owner, $tracking)
 {
     $date = date('Y-m-d H:i:s');
-    $query = "INSERT INTO documents(document_title, document_desc, document_type, document_purpose, document_origin, document_owner, document_tracking, date_created) "; 
-    $query .= "VALUES('{$title}', '{$desc}', '{$type}', '{$purpose}', '{$origin}','{$owner}', '{$tracking}', '{$date}')";
-    $insert = query($query);
+    $insert = query(
+        "INSERT INTO documents(document_title, 
+                               document_desc, 
+                               document_type, 
+                               document_purpose, 
+                               document_origin, 
+                               document_owner, 
+                               document_tracking, 
+                               date_created)
+         VALUES(
+            '{$title}', 
+            '{$desc}', 
+            '{$type}', 
+            '{$purpose}', 
+            '{$origin}', 
+            '{$owner}', 
+            '{$tracking}', 
+            '{$date}'
+            )"
+    );
     confirm($insert);
 }
 
@@ -27,47 +44,61 @@ if(isset($_POST['add-document']))
     $identifier = random_num(6);
     $tracking   = strtoupper($date . $identifier);
 
-    // check if tracking # exists
-    $check = query("SELECT * FROM documents WHERE document_tracking = '{$tracking}'");
-    confirm($check);
-
-    if(row_count($check) == 0)
+    if( ! isset($_SESSION['user']))
     {
-        insert($title, $desc, $type, $purpose, $origin, $owner, $tracking);
-        release($tracking, $to);
         set_message_alert(
-            "alert-success", 
-            "fa-check", 
-            "Document added! 
-            Tracking # is: <strong><a href='?print={$tracking}' 
-            target='_blank' 
-            class='text-decoration-none btn btn-success' 
-            data-toggle='tooltip' data-placement='right' 
-            title='Print'>
-            <i class='fas fa-print'></i>&nbsp;&nbsp;&nbsp;" . $tracking . "</a></strong>"
+            "alert-warning",
+            "fa-exclamation",
+            "Adding a document while logged out is not allowed. Log-in and try again."
         );
-        redirect($refer);
+        redirect("../../../?login");
+        die();
     }
     else
     {
-        $identifier = random_num(6);
-        $tracking   = strtoupper($date . $identifier);
-        insert($title, $desc, $type, $purpose, $origin, $owner, $tracking);
-        release($tracking, $to);
-        set_message_alert(
-            "alert-success", 
-            "fa-check", 
-            "Document added! 
-            Tracking # is: <strong><a href='?print={$tracking}' 
-            target='_blank' 
-            class='text-decoration-none btn btn-success' 
-            data-toggle='tooltip' data-placement='right' 
-            title='Print'>
-            <i class='fas fa-print'></i>&nbsp;&nbsp;&nbsp;" . $tracking . "</a></strong>"
-        );
-        redirect($refer);
+        // check if tracking # exists
+        $check = query("SELECT * FROM documents WHERE document_tracking = '{$tracking}'");
+        confirm($check);
 
+        if(row_count($check) == 0)
+        {
+            insert($title, $desc, $type, $purpose, $origin, $owner, $tracking);
+            release($tracking, $to);
+            set_message_alert(
+                "alert-success", 
+                "fa-check", 
+                "Document added! 
+                Tracking # is: <strong><a href='?print={$tracking}' 
+                target='_blank' 
+                class='text-decoration-none btn btn-success' 
+                data-toggle='tooltip' data-placement='right' 
+                title='Print'>
+                <i class='fas fa-print'></i>&nbsp;&nbsp;&nbsp;" . $tracking . "</a></strong>"
+            );
+            redirect($refer);
+        }
+        else
+        {
+            $identifier = random_num(6);
+            $tracking   = strtoupper($date . $identifier);
+            insert($title, $desc, $type, $purpose, $origin, $owner, $tracking);
+            release($tracking, $to);
+            set_message_alert(
+                "alert-success", 
+                "fa-check", 
+                "Document added! 
+                Tracking # is: <strong><a href='?print={$tracking}' 
+                target='_blank' 
+                class='text-decoration-none btn btn-success' 
+                data-toggle='tooltip' data-placement='right' 
+                title='Print'>
+                <i class='fas fa-print'></i>&nbsp;&nbsp;&nbsp;" . $tracking . "</a></strong>"
+            );
+            redirect($refer);
+
+        }
     }
+
 }
 
 ?>

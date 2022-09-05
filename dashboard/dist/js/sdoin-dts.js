@@ -135,8 +135,9 @@ $(document).ready(function() {
   });
 
   $('#releaseTable').DataTable({
-    "paging": false,
-    "lengthChange": false,
+    // "paging": false,
+    // "lengthChange": false,
+    "lengthMenu": [ [10, 25, 50, -1], [10, 25, 50, "All"] ],
     "searching": true,
     "ordering": false,
     "info": true,
@@ -229,8 +230,9 @@ $(document).ready(function() {
   });
 
   $('#receiveTable').DataTable({
-    "paging": false,
-    "lengthChange": false,
+    // "paging": false,
+    // "lengthChange": false,
+    "lengthMenu": [ [10, 25, 50, -1], [10, 25, 50, "All"] ],
     "searching": true,
     "ordering": false,
     "info": true,
