@@ -57,7 +57,7 @@ function allReleased($today, $start = 0, $end = 0)
             "SELECT * FROM docs_location 
              WHERE DATE(dl_releaseddate) = '" . currentdate() . "'
              AND dl_tracking IS NOT NULL 
-             AND dl_Tracking != ''
+             AND dl_tracking != ''
              ORDER BY dl_id DESC"
         );
         confirm($prettyella);
@@ -69,7 +69,7 @@ function allReleased($today, $start = 0, $end = 0)
              WHERE DATE(dl_releaseddate) 
              BETWEEN '{$start}' AND '{$end}' 
              AND dl_tracking IS NOT NULL 
-             AND dl_Tracking != ''
+             AND dl_tracking != ''
              ORDER BY dl_id DESC"
         );
         confirm($prettyella);

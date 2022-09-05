@@ -4,9 +4,26 @@ require_once("../../config.php");
 function insert($title, $desc, $type, $purpose, $origin, $owner, $tracking)
 {
     $date = date('Y-m-d H:i:s');
-    $query = "INSERT INTO documents(document_title, document_desc, document_type, document_purpose, document_origin, document_owner, document_tracking, date_created) "; 
-    $query .= "VALUES('{$title}', '{$desc}', '{$type}', '{$purpose}', '{$origin}','{$owner}', '{$tracking}', '{$date}')";
-    $insert = query($query);
+    $insert = query(
+        "INSERT INTO documents(document_title, 
+                               document_desc, 
+                               document_type, 
+                               document_purpose, 
+                               document_origin, 
+                               document_owner, 
+                               document_tracking, 
+                               date_created)
+         VALUES(
+            '{$title}', 
+            '{$desc}', 
+            '{$type}', 
+            '{$purpose}', 
+            '{$origin}', 
+            '{$owner}', 
+            '{$tracking}', 
+            '{$date}'
+            )"
+    );
     confirm($insert);
 }
 
@@ -26,6 +43,17 @@ if(isset($_POST['add-document']))
     $date       = date("njy-");
     $identifier = random_num(6);
     $tracking   = strtoupper($date . $identifier);
+
+    if( ! isset($_SESSION['user']))
+    {
+        set_message_alert(
+            "alert-warning",
+            "fa-exclamation",
+            "You are trying to add a document while logged out, log in and try again."
+        );
+        redirect("../../../?login");
+        die();
+    }
 
     // check if tracking # exists
     $check = query("SELECT * FROM documents WHERE document_tracking = '{$tracking}'");

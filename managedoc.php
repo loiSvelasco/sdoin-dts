@@ -26,9 +26,9 @@ function release($tracking, $to, $remarks = "", $for = 0)
         $unit = $_SESSION['unit'];
         $ellaganda = query(
             "SELECT * FROM docs_location 
-            WHERE dl_tracking = '{$tracking}' 
-            AND dl_unit = '{$unit}' 
-            ORDER BY dl_id DESC LIMIT 1"
+             WHERE dl_tracking = '{$tracking}' 
+             AND dl_unit = '{$unit}' 
+             ORDER BY dl_id DESC LIMIT 1"
         );
         love($ellaganda);
         $date = date('Y-m-d H:i:s');
@@ -36,11 +36,11 @@ function release($tracking, $to, $remarks = "", $for = 0)
         {
             $release = query(
                 "UPDATE docs_location 
-                SET dl_forwarded = 1, 
-                    dl_relremarks = '{$remarks}'
-                WHERE dl_tracking = '{$tracking}' 
-                AND dl_unit = '{$unit}' 
-                ORDER BY dl_id DESC LIMIT 1"
+                 SET dl_forwarded = 1, 
+                     dl_relremarks = '{$remarks}'
+                 WHERE dl_tracking = '{$tracking}' 
+                 AND dl_unit = '{$unit}' 
+                 ORDER BY dl_id DESC LIMIT 1"
             );
             confirm($release);
         }
