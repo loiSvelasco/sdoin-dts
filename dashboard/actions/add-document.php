@@ -49,7 +49,7 @@ if(isset($_POST['add-document']))
         set_message_alert(
             "alert-warning",
             "fa-exclamation",
-            "You are trying to add a document while logged out, log in and try again."
+            "Adding a document while logged out is not allowed. Log-in and try again."
         );
         redirect("../../../?login");
         die();
