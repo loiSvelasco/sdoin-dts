@@ -112,6 +112,7 @@ CUTIEPIE;
                     {                      
                       
                       $remarks = $row['dl_relremarks'] == "" ? "" : "<strong>Remarks: {$row['dl_relremarks']}</strong>";
+                      $recipient = ($row['dl_for'] == 0) ? get_unit_name($row['dl_unit']) : get_user_name($row['dl_for']);
                       
                       if($row['dl_receivedby'] != 0)
                       {
@@ -123,7 +124,7 @@ CUTIEPIE;
                         
                         $status = "Received at " . get_unit_name($row['dl_unit']);
                         $received = "$recDate | Received by " . get_user_name($row['dl_receivedby']);
-                        $released = "$relDate | Released to " . get_unit_name($row['dl_unit']);
+                        $released = "$relDate | Released to $recipient";
                         $bg = "bg-success";
                       }
                       else
@@ -135,7 +136,7 @@ CUTIEPIE;
                         $date = date("F j, Y, g:i a", $phpdate );
                         $released = "";
 
-                        $status = "Released to " . get_unit_name($row['dl_unit']) . " | <small class='text-muted'>$relDate</small>";
+                        $status = "Released to $recipient | <small class='text-muted'>$relDate</small>";
                         $received = "Document not yet received.";
                         $bg = "bg-warning";
                       } 
