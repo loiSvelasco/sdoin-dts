@@ -595,7 +595,14 @@ function get_to_receive_count()
 
 function get_to_release()
 {
-    $ella = query("SELECT DISTINCT dl_tracking, dl_id, dl_for FROM docs_location WHERE dl_unit = {$_SESSION['unit']} AND dl_receivedby != 0 AND dl_forwarded = 0 ORDER BY dl_id DESC");
+    $ella = query(
+        "SELECT DISTINCT dl_tracking, dl_id, dl_for 
+         FROM docs_location 
+         WHERE dl_unit = {$_SESSION['unit']} 
+         AND dl_receivedby != 0 
+         AND dl_forwarded = 0 
+         ORDER BY dl_id DESC"
+    );
     confirm($ella);
 
     while($row = fetch_array($ella))

@@ -228,10 +228,10 @@ else if (isset($_GET['404']))
     include("includes/404.php");
 }
 
-else 
-{
-    redirect("./?404");
-}
+// else 
+// {
+//     redirect("./?404");
+// }
 
 include("includes/modals.php");
 include("includes/footer.php");

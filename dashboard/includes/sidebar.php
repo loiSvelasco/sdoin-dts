@@ -57,7 +57,7 @@
               <li class="nav-item">
                 <a href="?scanrec" class="nav-link">
                   <i class="fas fa-barcode nav-icon"></i>
-                  <p>Receive (Scan)</p>
+                  <p>Receive / Release (Scan)</p>
                 </a>
               </li>
               <li class="nav-item">
