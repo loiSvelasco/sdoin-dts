@@ -229,8 +229,20 @@ function isReceived($tracking)
     );
     confirm($stmt);
 
-    if(row_count($stmt) == 1)
-        return true;
+    if (row_count($stmt) == 1)
+    {
+        $doc = fetch_array($stmt);
+        $for = $doc['dl_for'];
+    
+        if($for == 0)
+            return true;
+        else if ($for == $_SESSION['user_id'])
+            return true;
+        else
+            return false;
+    }
     else
+    {
         return false;
+    }
 }

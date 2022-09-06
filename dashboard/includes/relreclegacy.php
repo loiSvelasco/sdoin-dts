@@ -50,10 +50,19 @@
                       if($_GET['legacy'] != '') {
                         $tracking = escape_string($_GET['legacy']);
                         $found = docExists($tracking);
+                        $isReceivable = isOwned($tracking);
+                        $isReleasable = isReceived($tracking);
                     ?>
-                    <blockquote class="quote-info">
-                      <h5><i class='far fa-list-alt'></i>&nbsp;&nbsp;Document Details</h5>
-                    </blockquote>
+                    <div class="col-6">
+                      <blockquote class="quote-info">
+                        <h5><i class='far fa-list-alt'></i>&nbsp;&nbsp;Document <?= $found ? "#{$tracking}." : "not found." ?></h5>
+                      </blockquote>
+                    </div>
+                    <div class="col-5">
+                      <blockquote class="quote-secondary border-left-0">
+                        <a href="#" class="btn btn-lg rounded-0 btn-block btn-warning shadow">Receive</a>
+                      </blockquote>
+                    </div>
                     <div class="card shadow-none rounded-0">
                       <div class="card-body">
                         <div class="row">
