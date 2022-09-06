@@ -6,12 +6,28 @@ function isOwned($tracking)
     $myElla = query(
         "SELECT * FROM docs_location 
          WHERE dl_tracking = '{$tracking}' 
-         AND dl_unit = {$unit}"
+         AND dl_unit = {$unit} 
+         AND dl_receivedby = 0 
+         ORDER BY dl_id DESC LIMIT 1"
     );
     love($myElla);
-    if (row_count($myElla) >= 1)
-        return true;
-    return false;
+
+    if (row_count($myElla) == 1)
+    {
+        $doc = fetch_array($myElla);
+        $for = $doc['dl_for'];
+    
+        if($for == 0)
+            return true;
+        else if ($for == $_SESSION['user_id'])
+            return true;
+        else
+            return false;
+    }
+    else
+    {
+        return false;
+    }
 }
 
 function release($tracking, $to, $remarks = "", $for = 0)
@@ -200,4 +216,33 @@ function isReleased($tracking, $to)
         return true;
     else
         return false;
+}
+
+function isReceived($tracking)
+{
+    $stmt = query(
+        "SELECT DISTINCT * FROM docs_location 
+         WHERE dl_tracking = '{$tracking}' 
+         AND dl_receivedby != 0 
+         AND dl_forwarded = 0 
+         ORDER BY dl_id DESC LIMIT 1"
+    );
+    confirm($stmt);
+
+    if (row_count($stmt) == 1)
+    {
+        $doc = fetch_array($stmt);
+        $for = $doc['dl_for'];
+    
+        if($for == 0)
+            return true;
+        else if ($for == $_SESSION['user_id'])
+            return true;
+        else
+            return false;
+    }
+    else
+    {
+        return false;
+    }
 }

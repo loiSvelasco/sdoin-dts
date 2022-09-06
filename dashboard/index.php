@@ -96,6 +96,11 @@ else if (isset($_GET['documents']))
     include("includes/documents.php");
 }
 
+else if (isset($_GET['legacy']))
+{
+    include("includes/relreclegacy.php");
+}
+
 else if (isset($_GET['updates']))
 {
     include("includes/updates.php");
@@ -223,10 +228,10 @@ else if (isset($_GET['404']))
     include("includes/404.php");
 }
 
-else 
-{
-    redirect("./?404");
-}
+// else 
+// {
+//     redirect("./?404");
+// }
 
 include("includes/modals.php");
 include("includes/footer.php");
