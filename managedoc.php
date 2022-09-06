@@ -32,6 +32,11 @@ function isOwned($tracking)
 
 function release($tracking, $to, $remarks = "", $for = 0)
 {
+    if($tracking == '')
+        die(redirect('?err=6'));
+    if($to == '' || $to == NULL)
+        die(redirect('?err=7'));
+
     $to_name = get_unit_name($to);
 
     // dd(isReleased($tracking, $to));
@@ -60,6 +65,7 @@ function release($tracking, $to, $remarks = "", $for = 0)
             );
             confirm($release);
         }
+
     
         $query = "INSERT INTO docs_location(dl_tracking, dl_unit, dl_for, dl_releaseddate, dl_releasedby, dl_releasedbyunit) ";
         $query .= "VALUES('{$tracking}', '{$to}', '{$for}', '{$date}', '{$by}', '{$unit}')";

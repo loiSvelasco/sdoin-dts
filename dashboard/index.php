@@ -223,6 +223,11 @@ else if (isset($_GET['scanrec']))
     include("includes/scanrec.php");
 }
 
+else if (isset($_GET['err']))
+{
+    include("includes/err.php");
+}
+
 else if (isset($_GET['404']))
 {
     include("includes/404.php");

@@ -44,14 +44,20 @@
               ?>
               <li class="nav-item">
                 <a href="?documents" class="nav-link">
+                  <i class="fas fa-table nav-icon"></i>
+                  <p>Receive / Release (Tabular)</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="?legacy" class="nav-link">
                   <i class="fas fa-file-import nav-icon"></i>
-                  <p>Receive / Release</p>
+                  <p>Receive / Release (Legacy)</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="?scanrec" class="nav-link">
                   <i class="fas fa-barcode nav-icon"></i>
-                  <p>Receive (Scan)</p>
+                  <p>Receive / Release (Scan)</p>
                 </a>
               </li>
               <li class="nav-item">

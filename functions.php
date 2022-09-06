@@ -182,7 +182,8 @@ function get_personnel_from_unit()
          FROM user_details, users 
          WHERE locked = 0 
          AND users.id = user_details.id 
-         AND ud_unit = {$_SESSION['unit']}"
+         AND ud_unit = {$_SESSION['unit']}
+         ORDER BY ud_name"
     );
     confirm($sql);
 
