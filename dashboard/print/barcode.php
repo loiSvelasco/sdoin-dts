@@ -17,7 +17,7 @@ span { font-size: 9px; line-height: 1.8;}
 </style>
 </head>
 <body onload="window.print();">
-	<div style="float: right; margin-right: 3%;">
+	<div style="float: right; margin-right: 6%;">
 		<?php
 		require_once("../../config.php");
 		include 'barcode128.php';
