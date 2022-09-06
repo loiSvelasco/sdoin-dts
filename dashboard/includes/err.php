@@ -27,7 +27,7 @@
         <div class="error-content">
           <h3><i class="fas fa-exclamation-triangle text-warning"></i> Oops! Error 6 Encountered.</h3>
           <p>
-            It seems like the system tried to release a document and forgot the tracking number, you may <a href="./">return to dashboard</a> and try again!
+            It seems like the system tried to release a document and forgot the tracking number, you may <a href="./">return to dashboard</a> or return, refresh, and try again!
             If this persists, call the handsome developer.
           </p>
         </div>
@@ -38,8 +38,8 @@
           <div class="error-content">
             <h3><i class="fas fa-exclamation-triangle text-warning"></i> Oops! Error 7 Encountered.</h3>
             <p>
-              It seems like the system tried to release a document and forgot the tracking number, you may <a href="./">return to dashboard</a> and try again!
-              if this persists, call the handsome developer.
+              It seems like you tried to release a document and forgot to put the receiving unit, you may <a href="./">return to dashboard</a> or return, refresh, and try again!
+              If this persists, call the handsome developer.
             </p>
           </div>
         </div>
