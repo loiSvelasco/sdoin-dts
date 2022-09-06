@@ -36,14 +36,14 @@
                 </div>
               </div>
             </form>
-            <p class="lead">Legacy mode handles 1 document at a time, this is suitable for users with slow internet / underpowered computers.</p>
+            <p class="lead mt-1">Legacy mode handles 1 document at a time, this is suitable for users with slow internet / underpowered computers.</p>
           </div>
         </div>
       </div><!-- /col -->
     </div><!-- /row -->
     <div class="row">
       <div class="col-12">
-        <section class="border-bottom" id="features">
+        <section id="features">
               <div class="container px-5">
                   <div class="row gx-5">
                     <?php 
@@ -53,16 +53,39 @@
                         $isReceivable = isOwned($tracking);
                         $isReleasable = isReceived($tracking);
                     ?>
-                    <div class="col-6">
-                      <blockquote class="quote-info">
-                        <h5><i class='far fa-list-alt'></i>&nbsp;&nbsp;Document <?= $found ? "#{$tracking}." : "not found." ?></h5>
-                      </blockquote>
-                    </div>
-                    <div class="col-5">
-                      <blockquote class="quote-secondary border-left-0">
-                        <a href="#" class="btn btn-lg rounded-0 btn-block btn-warning shadow">Receive</a>
-                      </blockquote>
-                    </div>
+                      <?php if($found): ?>
+                        <div class="col-6">
+                          <blockquote class="quote-info">
+                            <h5><i class='far fa-list-alt'></i>&nbsp;&nbsp;Document <?= "#{$tracking}." ?></h5>
+                          </blockquote>
+                        </div>
+                        <?php if($isReceivable): ?>
+                          <div class="col-5">
+                            <blockquote class="quote-secondary border-left-0">
+                              <a href="?manipulate=receive&tracking=<?= $tracking ?>&refer=<?= $_SERVER['REQUEST_URI'] ?>" class="btn btn-lg rounded-0 btn-block btn-warning shadow"><i class="fa fa-file-import"></i>&nbsp;&nbsp;Receive</a>
+                            </blockquote>
+                          </div>
+                        <?php elseif($isReleasable): ?>
+                          <div class="col-5">
+                            <blockquote class="quote-info border-left-0">
+                              <!-- <a href="#" class="btn btn-lg rounded-0 btn-block btn-info shadow">Release</a> -->
+                              <button data-toggle="modal" data-tracking="<?= $tracking ?>" data-target="#modal-release-doc" id="legacy_release" class="btn btn-lg rounded-0 btn-block btn-info"><i class="fa fa-file-export white"></i>&nbsp;&nbsp;Release</button>
+                            </blockquote>
+                          </div>
+                        <?php else: ?>
+                          <div class="col-5">
+                            <blockquote class="quote-info">
+                              Document released to <?= get_doc_current_location($tracking) ?>
+                            </blockquote>
+                          </div>
+                        <?php endif ?>
+                      <?php else: ?>
+                        <div class="col-6">
+                          <blockquote class="quote-danger">
+                            <h5><i class='fas fa-exclamation'></i>&nbsp;&nbsp;Document not found.</h5>
+                          </blockquote>
+                        </div>
+                      <?php endif ?>
                     <div class="card shadow-none rounded-0">
                       <div class="card-body">
                         <div class="row">
@@ -125,7 +148,7 @@
                       </div>
                     </div>
                     <?php } else { ?>
-                      <p class="lead">Search for a tracking no. to see its document details.</p>
+                      <p class="lead">Search for a tracking no. to see its current details</p>
                     <?php } ?>
                   </div>
               </div>

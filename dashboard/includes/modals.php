@@ -117,10 +117,10 @@
             <!-- form here-->
             <form method="get" id="releaseto">
                 
-                <input type="hidden" name="manipulate" value="release">
-                <input type="hidden" name="tracking" id="doc_tracking" value="">
-                <input type="hidden" name="unit" value="<?php echo $_SESSION['unit']; ?>">
-                <input type="hidden" name="refer" value="<?php echo $_SERVER['REQUEST_URI']; ?>">
+                <input type="text" name="manipulate" value="release">
+                <input type="text" name="tracking" id="doc_tracking" value="">
+                <input type="text" name="unit" value="<?php echo $_SESSION['unit']; ?>">
+                <input type="text" name="refer" value="<?php echo $_SERVER['REQUEST_URI']; ?>">
                 
 
                 <div class="form-group row">
