@@ -96,6 +96,11 @@ else if (isset($_GET['documents']))
     include("includes/documents.php");
 }
 
+else if (isset($_GET['legacy']))
+{
+    include("includes/relreclegacy.php");
+}
+
 else if (isset($_GET['updates']))
 {
     include("includes/updates.php");

@@ -3,7 +3,7 @@
   $maintenance = false;
   $staging = true;
   
-  $DOSignUp = false;
+  $DOSignUp = true;
   $fieldSignUp = true;
 
   if ($staging)
