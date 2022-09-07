@@ -43,8 +43,11 @@
                 &#12288;4. Fixed a bug where checked items on other pages of receiving/releasing table are not being received/released.<br>
                 &#12288;5. Paginated releasing and receiving tables when on tabular mode.<br>
                 &#12288;6. Added a print button when tracking. For ease of printing for documents which are necessary to have the same tracking no.<br>
-                &#12288;7. Added a script to force redownload <i>some</i> system files to keep the system updated across all computers around the world. 😂<br>
-                &#12288;8. Added more bugs to be fixed later. 🐛🐜<br>
+                &#12288;7. Improved sorting of releasing and receiving table as follows:<br>
+                &#12288;&#12288;&#12288;&#12288;7.1. Receiving table is sorted by date in the order of <mark><i>Oldest to Newest</i></mark>, hence, newer documents will be located at the end of the list / table.<br>
+                &#12288;&#12288;&#12288;&#12288;7.1. Releasing table is sorted by date in the order of <mark><i>Newest to Oldest</i></mark>, hence, newer documents will be located at the top of the list / table.<br>
+                &#12288;8. Added a script to force redownload <i>some</i> system files to keep the system updated across all computers around the world. 😂<br>
+                &#12288;9. Added more bugs to be fixed later. 🐛🐜<br>
               </p>
               <p class="text-left"><strong>- Louis V.</strong></p>
             </div>

@@ -496,7 +496,12 @@ function get_doc_current_location_edit($tracking)
 
 function get_to_receive()
 {
-    $ella = query("SELECT * FROM docs_location WHERE dl_unit = {$_SESSION['unit']} AND dl_receivedby = 0 ORDER BY dl_id ASC");
+    $ella = query(
+        "SELECT * FROM docs_location 
+         WHERE dl_unit = {$_SESSION['unit']} 
+         AND dl_receivedby = 0 
+         ORDER BY dl_releaseddate ASC"
+    );
     confirm($ella);
 
     while($row = fetch_array($ella))
@@ -597,12 +602,12 @@ function get_to_receive_count()
 function get_to_release()
 {
     $ella = query(
-        "SELECT DISTINCT dl_tracking, dl_id, dl_for 
+        "SELECT DISTINCT dl_tracking, dl_id, dl_for, dl_receiveddate
          FROM docs_location 
          WHERE dl_unit = {$_SESSION['unit']} 
          AND dl_receivedby != 0 
          AND dl_forwarded = 0 
-         ORDER BY dl_id DESC"
+         ORDER BY dl_receiveddate DESC"
     );
     confirm($ella);
 
