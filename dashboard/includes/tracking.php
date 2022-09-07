@@ -166,9 +166,23 @@ CUTIEPIE;
 
 
           <div class="col-md-6">
-            <blockquote class="quote-info">
-              <h5><i class='far fa-list-alt'></i>&nbsp;&nbsp;Document Details</h5>
-            </blockquote>
+            <div class="row">
+              <div class="col-md-6">
+                <blockquote class="quote-info">
+                  <h5><i class='far fa-list-alt'></i>&nbsp;&nbsp;Document Details</h5>
+                </blockquote>
+              </div>
+              <div class="col-md-6">
+                <blockquote class="quote-info border-left-0">
+                  <?php if($found): ?>
+                  <a href="?print=<?= $tracking ?>" class="btn btn-success btn-lg btn-block shadow rounded-0" target="_blank">
+                    <i class="fas fa-print"></i>&nbsp;&nbsp;Print Tracking No.
+                  </a>
+                  <?php endif ?>
+                </blockquote>
+              </div>
+            </div>
+
             <div class="card shadow-none rounded-0">
               <div class="card-body">
                 <div class="row">

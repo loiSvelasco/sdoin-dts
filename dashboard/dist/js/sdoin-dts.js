@@ -134,7 +134,7 @@ $(document).ready(function() {
     "autoWidth": false,
   });
 
-  $('#releaseTable').DataTable({
+  var releaseTable = $('#releaseTable').DataTable({
     // "paging": false,
     // "lengthChange": false,
     "lengthMenu": [ [10, 25, 50, -1], [10, 25, 50, "All"] ],
@@ -143,6 +143,27 @@ $(document).ready(function() {
     "info": true,
     "autoWidth": false,
     "responsive": true,
+  });
+
+  $(document).on('submit','#release', function(e){
+    var $form = $(this);
+ 
+    // Iterate over all checkboxes in the table
+    releaseTable.rows().nodes().to$().find('input[type="checkbox"]').each(function(){
+       // If checkbox doesn't exist in DOM
+       if(!$.contains(document, this)){
+          // If checkbox is checked
+          if(this.checked){
+             // Create a hidden element 
+             $form.append(
+                $('<input>')
+                   .attr('type', 'hidden')
+                   .attr('name', this.name)
+                   .val(this.value)
+             );
+          }
+        } 
+      });
   });
 
   $('#reportTable').DataTable({
@@ -229,7 +250,7 @@ $(document).ready(function() {
     "responsive": true,
   });
 
-  $('#receiveTable').DataTable({
+  var receiveTable = $('#receiveTable').DataTable({
     // "paging": false,
     // "lengthChange": false,
     "lengthMenu": [ [10, 25, 50, -1], [10, 25, 50, "All"] ],
@@ -241,6 +262,26 @@ $(document).ready(function() {
   });
 
 
+  $(document).on('submit','#receive', function(e){
+    var $form = $(this);
+ 
+    // Iterate over all checkboxes in the table
+    receiveTable.rows().nodes().to$().find('input[type="checkbox"]').each(function(){
+       // If checkbox doesn't exist in DOM
+       if(!$.contains(document, this)){
+          // If checkbox is checked
+          if(this.checked){
+             // Create a hidden element 
+             $form.append(
+                $('<input>')
+                   .attr('type', 'hidden')
+                   .attr('name', this.name)
+                   .val(this.value)
+             );
+          }
+        } 
+      });
+  });
 
 });
 

@@ -111,7 +111,7 @@
 <script src="dist/js/adminlte.min.js"></script>
 
 <!-- Custom Scripts -->
-<script src="dist/js/sdoin-dts.js"></script>
+<script src="dist/js/sdoin-dts.js?t=<?= time() ?>"></script>
 <script src="dist/js/wordle.js"></script>
 
 <script type="text/javascript">
