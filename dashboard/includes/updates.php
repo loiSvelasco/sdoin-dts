@@ -27,10 +27,35 @@
 
     <section class="content">
 
-    <div class="row text-monospace">
+      <div class="row text-monospace">
         <div class="col-12">
           <div class="card">
             <div class="card-header bg-dark">
+              <strong>System updated to <span class="badge badge-warning rounded-0">v2.9-beta.4</span></strong> <span class="text-muted">Sept. 07, 2022</span>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Changelog:</h5>
+              <p class="card-text">
+                <hr>
+                &#12288;1. Added legacy support for releasing and receiving.<br>
+                &#12288;2. Alphabetically arranged names for releasing under the same unit.<br>
+                &#12288;3. Added error codes for ease of issue tracking.<br>
+                &#12288;4. Fixed a bug where checked items on other pages of receiving/releasing table are not being received/released.<br>
+                &#12288;5. Paginated releasing and receiving tables when on tabular mode.<br>
+                &#12288;6. Added a print button when tracking. For ease of printing for documents which are necessary to have the same tracking no.<br>
+                &#12288;7. Added a script to force redownload <i>some</i> system files to keep the system updated across all computers around the world. 😂<br>
+                &#12288;8. Added more bugs to be fixed later. 🐛🐜<br>
+              </p>
+              <p class="text-left"><strong>- Louis V.</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row text-monospace">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header bg-light">
               <strong>System updated to <span class="badge badge-warning rounded-0">v2.9-beta.3</span></strong> <span class="text-muted">Sept. 04, 2022</span>
             </div>
             <div class="card-body">
