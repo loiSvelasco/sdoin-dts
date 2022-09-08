@@ -138,7 +138,7 @@
                   <div class="row">
                     <!-- /.col -->
                     <div class="col-12 mb-3">
-                      <button type="submit" class="btn btn-success btn-block" name="register"><i class="fa fa-plus"></i>&nbsp;&nbsp;&nbsp;Add User</button>
+                      <button type="submit" class="btn btn-success btn-block rounded-0" name="register"><i class="fa fa-plus"></i>&nbsp;&nbsp;&nbsp;Add User</button>
                     </div>
                     <!-- /.col -->
                   </div>
