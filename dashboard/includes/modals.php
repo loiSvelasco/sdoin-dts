@@ -463,9 +463,15 @@
                     <div class="row">
                         <!-- /.col -->
                         <div class="col-12 mb-3">
-                        <button type="submit" class="btn btn-success btn-block" name="register"><i class="fa fa-save"></i>&nbsp;&nbsp;&nbsp;Update User</button>
+                            <button type="submit" class="btn btn-success btn-block rounded-0" name="update"><i class="fa fa-save"></i>&nbsp;&nbsp;&nbsp;Update User</button>
                         </div>
                         <!-- /.col -->
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-12 mb-2">
+                            <button type="submit" class="btn btn-block btn-light rounded-0" name="reset"><i class="fas fa-unlock"></i>&nbsp;&nbsp;&nbsp;Reset Password</button>
+                        </div>
                     </div>
                 </form>
 

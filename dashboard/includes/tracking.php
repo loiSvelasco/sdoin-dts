@@ -257,10 +257,10 @@ CUTIEPIE;
                       <div class="col-md-6">
                       <?php if ($purged || $accomplished): ?>
                         <span data-toggle="tooltip" data-placement="top" title="Cannot edit when document is <?php echo $docState ?>">
-                          <a class="btn btn-block btn-primary disabled"><i class="fa fa-pen"></i>&nbsp;&nbsp;Edit</a>
+                          <a class="btn btn-block btn-primary rounded-0 disabled"><i class="fa fa-pen"></i>&nbsp;&nbsp;Edit</a>
                         </span>
                       <?php else: ?>
-                        <a href="?editDoc=<?php echo $tracking; ?>" class="btn btn-block btn-primary"><i class="fa fa-pen"></i>&nbsp;&nbsp;Edit</a>
+                        <a href="?editDoc=<?php echo $tracking; ?>" class="btn btn-block rounded-0 btn-primary"><i class="fa fa-pen"></i>&nbsp;&nbsp;Edit</a>
                       <?php endif; ?>
                       </div>
                       <?php if ($_SESSION['role'] == 1): ?>
@@ -268,10 +268,10 @@ CUTIEPIE;
                           <!-- <a href="?purgeDoc=<?php echo $tracking; ?>" class="btn btn-block btn-danger"><i class="fa fa-fire"></i>&nbsp;&nbsp;Purge</a> -->
                           <?php if ($purged || $accomplished): ?>
                           <span data-toggle="tooltip" data-placement="top" title="Cannot purge when document is <?php echo $docState ?>">
-                            <a class="btn btn-block btn-danger disabled"><i class="fa fa-fire"></i>&nbsp;&nbsp;Purge</a>
+                            <a class="btn btn-block btn-danger rounded-0 disabled"><i class="fa fa-fire"></i>&nbsp;&nbsp;Purge</a>
                           </span>
                           <?php else: ?>
-                            <a href="#" class="btn btn-block btn-danger" 
+                            <a href="#" class="btn btn-block btn-danger rounded-0" 
                             data-href="?manipulate=purge&tracking=<?php echo $tracking ?>
                             &unit=<?php echo $_SESSION['unit'] ?>
                             &by=<?php echo $_SESSION['user_id'] ?>
