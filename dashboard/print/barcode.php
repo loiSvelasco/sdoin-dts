@@ -40,7 +40,7 @@
 		require_once("../../config.php");
 		include 'barcode128.php';
 
-		$tracking = '*' . escape_string($_GET['tracking']) . '*';
+		$tracking = escape_string($_GET['tracking']);
 
 		echo "<p class='inline'><span><b>sdoin | Tracking no.</b></span>".bar128(stripcslashes($tracking))."</p>";
 
