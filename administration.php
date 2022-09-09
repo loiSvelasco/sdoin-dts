@@ -114,8 +114,8 @@ function allUsers()
     while($row = fetch_array($morningLookElla))
     {
         $id = $row['id'];
-        $email = $row['email'];
-        $name = $row['ud_name'];
+        $email = strtolower($row['email']);
+        $name = ucwords(strtolower($row['ud_name']));
         $role = $row['role'] == 1 ? 'Admin' : ($row['role'] == 2 ? 'Special Access' : 'Regular');
         $unit = get_unit_name($row['ud_unit']);
         $counter++;
@@ -132,8 +132,11 @@ function allUsers()
             <td class="align-middle d-none">{$row['ud_unit']}</td>
             <td class="align-middle d-none">{$row['locked']}</td>
             <td class="align-middle text-center">
-                <span data-toggle="tooltip" data-placement="left" title="Modify">
+                <span data-toggle="tooltip" data-placement="left" title="Modify" class="mr-2">
                     <a href="?modify={$id}" class="modifyUser" target="_blank" data-toggle="modal" data-target="#modify-user"><i class="fa fa-cog"></i></a>
+                </span>
+                <span data-toggle="tooltip" data-placement="right" title="View Documents">
+                    <a href="?viewDocs={$id}" class="text-success" target="_blank"><i class="fa fa-file"></i></a>
                 </span>
             </td>
         </tr>
@@ -287,5 +290,67 @@ ELLA;
     }
 }
 
+function documentStatus($statusCode)
+{
+    switch($statusCode)
+    {
+        case 1:
+            return 'Accomplished';
+            break;
+        case 3:
+            return 'Purged';
+            break;
+        default:
+            return 'Processing';
+    }
+}
+
+function allDocsBy($id)
+{
+    $ella = query(
+        "SELECT * FROM documents 
+         WHERE document_owner = $id 
+         ORDER BY id DESC LIMIT " . ADMIN_ALL_LIMIT
+    );
+    confirm($ella);
+
+    while($row = fetch_array($ella))
+    {
+        $doctype = get_doctype_name($row['document_type']);
+        $owner = get_user_name($row['document_owner']);
+        $title = $row['document_title'];
+        $purpose = $row['document_purpose'];
+        $tracking = $row['document_tracking'];
+        $date = format_date($row['date_created']);
+        $status = documentStatus($row['document_accomplished']);
+        $tooltip = 'Modify';
+        $disabled = '';
+
+        if($status != 'Processing')
+        {
+            $disabled = 'disabled';
+            $tooltip = 'Cannot modify if document is purged / accomplished.';
+        }
+
+        $ellacutie = <<<ELLA
+        <tr>
+            <td class="align-middle">
+            <a href="?tracking={$tracking}" target="_blank" data-toggle="tooltip" data-placement="top" title="Track"><i class="fa fa-search"></i></a>&nbsp;&nbsp;
+            <a href="?print={$tracking}" target="_blank" data-toggle="tooltip" data-placement="top" title="Print Tracking no."><i class="fa fa-print"></i></a>&nbsp;&nbsp;
+                {$tracking}
+            </td>
+            <td class="align-middle">{$title}</td>
+            <td class="align-middle">{$purpose}</td>
+            <td class="align-middle">{$doctype}</td>
+            <td class="align-middle">{$date}</td>
+            <td class="align-middle">{$status}</td>
+            <td class="align-middle text-center">
+            <a href="?editDoc={$tracking}" target="_blank" data-toggle="tooltip" data-placement="left" title="$tooltip" class="btn-link $disabled"><i class="fa fa-cog"></i></a>
+            </td>
+        </tr>
+ELLA;
+        echo $ellacutie;
+    }
+}
 
 ?>

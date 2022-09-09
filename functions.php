@@ -343,7 +343,7 @@ function get_unit_name($unit_id)
 
 function get_doctypes()
 {
-    $sql = query("SELECT * FROM doctypes");
+    $sql = query("SELECT * FROM doctypes ORDER BY doc_type ASC");
     confirm($sql);
 
     while($row = fetch_array($sql))
@@ -382,7 +382,7 @@ function get_user_name($id)
     confirm($printetella);
     
     $row = fetch_assoc($printetella);
-    return $row['ud_name'];
+    return ucwords(strtolower(escape_string($row['ud_name'])));
 }
 
 function get_my_docs()

@@ -61,6 +61,21 @@ else if (isset($_GET['wordle']))
     include("includes/wordlegame.php");
 }
 
+else if (isset($_GET['viewDocs']))
+{
+    if($_SESSION['role'] == 1)
+    {
+        $user = get_user_name($_GET['viewDocs']);
+        $userID = $_GET['viewDocs'];
+        include("includes/viewdocs.php");
+    }
+    else
+    {
+        set_message_alert("alert-warning", "fa-exclamation", "Access Denied.");
+        redirect("./?documents");
+    }
+}
+
 else if (isset($_GET['myDocs']))
 {
     include("includes/editMyDocs.php");

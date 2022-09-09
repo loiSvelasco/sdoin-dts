@@ -62,8 +62,8 @@
               </li>
               <li class="nav-item">
                 <a href="?myDocs" class="nav-link">
-                  <i class="fas fa-edit nav-icon"></i>
-                  <p>Edit Documents</p>
+                  <i class="fas fa-file-invoice nav-icon"></i>
+                  <p>My Documents</p>
                 </a>
               </li>
               <?php 

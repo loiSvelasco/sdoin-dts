@@ -1,5 +1,5 @@
 
-// let requestsFolder = './requests/';
+let requestsFolder = './requests/';
 
 // $.ajax({
 //   type: 'GET',
@@ -8,3 +8,11 @@
 //     $('#userCount').html(data);
 //   }
 // })
+
+$.ajax({
+  type: 'GET',
+  url: requestsFolder + 'doctypes.php',
+  success: function(data) {
+    $('#availdoctypes').html(data);
+  }
+})

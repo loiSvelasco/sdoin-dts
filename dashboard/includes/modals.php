@@ -555,3 +555,42 @@
     </div>
   </div>
 </div>
+
+<div class="modal fade" id="addDoctype" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content rounded-0">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add Document Type</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="actions/addDoctype.php" method="post" id="insertdoctype">
+            <div class="form-group row">
+                <div class="col-12">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                    <div class="input-group-text">
+                        <i class="fa fa-file"></i>
+                    </div>
+                    </div> 
+                    <input id="doc_type" name="doc-type" placeholder="Document Type" type="text" class="form-control" required="required">
+                    <input type="hidden" name="referer" value="<?= URI ?>">
+                </div>
+                </div>
+            </div>
+        </form>
+        <button class="btn btn-secondary rounded-0 btn-block" type="button" data-toggle="collapse" data-target="#doctypelist" aria-expanded="false" aria-controls="collapseExample">
+            View List of Document types in the system
+        </button>
+        <div class="collapse" id="doctypelist">
+            <div class="card card-body rounded-0" id="availdoctypes"></div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-success border-0 rounded-0" form="insertdoctype">Add Doctype</button>
+      </div>
+    </div>
+  </div>
+</div>
