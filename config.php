@@ -35,5 +35,8 @@
   require_once("managedoc.php");
   require_once("manageperms.php");
   require_once("administration.php");
+  require_once("vendor/autoload.php"); // barcode generator
+
+  $generatorIMG = new Picqer\Barcode\BarcodeGeneratorPNG();
 
 ?>

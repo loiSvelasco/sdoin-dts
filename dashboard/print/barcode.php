@@ -37,19 +37,20 @@
 <body onload="window.print();">
 	<div style="float: right; margin-right: 6%; line-height: 18px">
 		<?php
+		// require 'vendor/autoload.php';
 		require_once("../../config.php");
-		include 'barcode128.php';
-
 		$tracking = escape_string($_GET['tracking']);
-
-		echo "<p class='inline'><span><b>sdoin | Tracking no.</b></span>".bar128(stripcslashes($tracking))."</p>";
-
-		$ellapie = <<<LALA
-		<p><span><b>sdoin | Tracking no.</b></span></p>
-		<span id="codeFont">$tracking</span><br>
-		<span id="number"><b>$tracking</b></span>
-LALA;
-		// echo $ellapie;	
+		
+// 		include 'barcode128.php';
+// 		echo "<p class='inline'><span><b>sdoin | Tracking no.</b></span>".bar128(stripcslashes($tracking))."</p>";
+// 		$ellapie = <<<LALA
+// 		<p><span><b>sdoin | Tracking no.</b></span></p>
+// 		<span id="codeFont">$tracking</span><br>
+// 		<span id="number"><b>$tracking</b></span>
+// LALA;
+// 		// echo $ellapie;	
+			$generatorIMG = new Picqer\Barcode\BarcodeGeneratorPNG();
+			echo '<img src="data:image/png;base64,' . base64_encode($generatorIMG->getBarcode($tracking, $generatorIMG::TYPE_CODE_128, 1, 20)) . '">';
 		?>
 	</div>
 </body>

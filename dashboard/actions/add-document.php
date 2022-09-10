@@ -67,13 +67,14 @@ if(isset($_POST['add-document']))
             set_message_alert(
                 "alert-success", 
                 "fa-check", 
-                "Document added! 
-                Tracking # is: <strong><a href='?print={$tracking}' 
-                target='_blank' 
-                class='text-decoration-none btn btn-success' 
-                data-toggle='tooltip' data-placement='right' 
-                title='Print'>
-                <i class='fas fa-print'></i>&nbsp;&nbsp;&nbsp;" . $tracking . "</a></strong>"
+                "
+                Document added! 
+                Tracking # is: &nbsp;&nbsp;&nbsp;<strong><a href='?print={$tracking}' target='_blank' class='text-decoration-none strong'
+                data-toggle='tooltip' title='Print'>
+                <i class='fas fa-print'></i>&nbsp;&nbsp;{$tracking}</a></strong>
+                &nbsp;&nbsp;&nbsp;you can also right click and copy the image here &nbsp;&nbsp;&nbsp;
+                <img src=\"data:image/png;base64," . base64_encode($generatorIMG->getBarcode($tracking, $generatorIMG::TYPE_CODE_128, 1, 20)) . "\">
+                "
             );
             redirect($refer);
         }
@@ -86,13 +87,14 @@ if(isset($_POST['add-document']))
             set_message_alert(
                 "alert-success", 
                 "fa-check", 
-                "Document added! 
-                Tracking # is: <strong><a href='?print={$tracking}' 
-                target='_blank' 
-                class='text-decoration-none btn btn-success' 
-                data-toggle='tooltip' data-placement='right' 
-                title='Print'>
-                <i class='fas fa-print'></i>&nbsp;&nbsp;&nbsp;" . $tracking . "</a></strong>"
+                "
+                Document added! 
+                Tracking # is: &nbsp;&nbsp;&nbsp;<strong><a href='?print={$tracking}' target='_blank' class='text-decoration-none strong'
+                data-toggle='tooltip' title='Print'>
+                <i class='fas fa-print'></i>&nbsp;&nbsp;{$tracking}</a></strong>
+                &nbsp;&nbsp;&nbsp;you can also right click and copy the image here &nbsp;&nbsp;&nbsp;
+                <img src=\"data:image/png;base64," . base64_encode($generatorIMG->getBarcode($tracking, $generatorIMG::TYPE_CODE_128, 1, 20)) . "\">
+                "
             );
             redirect($refer);
 

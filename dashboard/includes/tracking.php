@@ -173,13 +173,24 @@ CUTIEPIE;
                 </blockquote>
               </div>
               <div class="col-md-6">
-                <blockquote class="quote-info border-left-0">
-                  <?php if($found): ?>
-                  <a href="?print=<?= $tracking ?>" class="btn btn-success btn-lg btn-block shadow rounded-0" target="_blank">
-                    <i class="fas fa-print"></i>&nbsp;&nbsp;Print Tracking No.
-                  </a>
-                  <?php endif ?>
-                </blockquote>
+                <div class="row align-items-center">
+                  <div class="col-6">
+                    <blockquote class="quote-info border-left-0">
+                      <?php if($found): ?>
+                      <a href="?print=<?= $tracking ?>" class="btn btn-success btn-lg btn-block shadow rounded-0" target="_blank">
+                        <i class="fas fa-print"></i>&nbsp;&nbsp;Print eDTS #
+                      </a>
+                      <?php endif ?>
+                    </blockquote>
+                  </div>
+                  <div class="col-6">
+                  <?=
+                  '<img src="data:image/png;base64,'
+                   . base64_encode($generatorIMG->getBarcode($tracking, $generatorIMG::TYPE_CODE_128, 1, 20))
+                   . '">';
+                  ?>
+                  </div>
+                </div>
               </div>
             </div>
 
