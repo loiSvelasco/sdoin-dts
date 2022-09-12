@@ -25,8 +25,11 @@ if(isset($_GET['manipulate']) && isset($_GET['tracking']))
         else
         {
             $to = escape_string($_GET['to']);
+            if($to == '' || $to == NULL)
+                die(redirect('?err=7'));
             $to_name = get_unit_name($to);
         }
+
         $remarks = escape_string($_GET['rel-remarks']);
         release($tracking, $to, $remarks, $for);
         set_message_alert("alert-success", "fa-check", "Document released to " . $to_name);
