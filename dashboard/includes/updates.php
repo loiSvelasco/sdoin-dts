@@ -31,7 +31,29 @@
         <div class="col-12">
           <div class="card">
             <div class="card-header bg-dark">
-              <strong>System updated to <span class="badge badge-warning rounded-0">v2.9-beta.4</span></strong> <span class="text-muted">Sept. 07, 2022</span>
+              <strong>System updated to <span class="badge badge-warning rounded-0">2.9.0-beta.5</span></strong> <span class="text-muted">Sept. 12, 2022</span>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Changelog:</h5>
+              <p class="card-text">
+                <hr>
+                &#12288;1. Disabled form submit buttons when releasing to avoid duplicates for users with slow internet.<br>
+                &#12288;2. Dynamically generate PNG barcode upon document creation and tracking for ease of printing. 🎉<br>
+                &#12288;3. Rebuilt some (<i>a lot, actually</i>) codes from scratch to further decrease loadtimes for administrator accounts that handles a lot of data.<br>
+                &#12288;4. Tracking nos are now clickable on receiving / releasing (Tabular mode) for ease of tracking.<br>
+                &#12288;5. Added more bugs to be fixed later. 🐛🐜<br>
+              </p>
+              <p class="text-left"><strong>- Louis V.</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row text-monospace">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header bg-light">
+              <strong>System updated to <span class="badge badge-warning rounded-0">2.9.0-beta.4</span></strong> <span class="text-muted">Sept. 07, 2022</span>
             </div>
             <div class="card-body">
               <h5 class="card-title">Changelog:</h5>
@@ -59,7 +81,7 @@
         <div class="col-12">
           <div class="card">
             <div class="card-header bg-light">
-              <strong>System updated to <span class="badge badge-warning rounded-0">v2.9-beta.3</span></strong> <span class="text-muted">Sept. 04, 2022</span>
+              <strong>System updated to <span class="badge badge-warning rounded-0">2.9.0-beta.3</span></strong> <span class="text-muted">Sept. 04, 2022</span>
             </div>
             <div class="card-body">
               <h5 class="card-title">Changelog:</h5>
@@ -83,7 +105,7 @@
         <div class="col-12">
           <div class="card">
             <div class="card-header bg-light">
-              <strong>System updated to <span class="badge badge-warning rounded-0">v2.9-beta.1</span></strong> <span class="text-muted">Aug. 29, 2022</span>
+              <strong>System updated to <span class="badge badge-warning rounded-0">2.9.0-beta.1</span></strong> <span class="text-muted">Aug. 29, 2022</span>
             </div>
             <div class="card-body">
               <h5 class="card-title">Changelog:</h5>
@@ -105,7 +127,7 @@
         <div class="col-12">
           <div class="card">
             <div class="card-header bg-light">
-              <strong>System updated to <span class="badge badge-warning rounded-0">v2.8-beta.9</span></strong> <span class="text-muted">Aug. 20, 2022</span>
+              <strong>System updated to <span class="badge badge-warning rounded-0">2.8.0-beta.9</span></strong> <span class="text-muted">Aug. 20, 2022</span>
             </div>
             <div class="card-body">
               <h5 class="card-title">Changelog:</h5>
@@ -126,7 +148,7 @@
         <div class="col-12">
           <div class="card">
             <div class="card-header bg-light">
-              <strong>System updated to <span class="badge badge-warning rounded-0">v2.8-beta.7</span></strong> <span class="text-muted">Aug. 13, 2022</span>
+              <strong>System updated to <span class="badge badge-warning rounded-0">2.8.0-beta.7</span></strong> <span class="text-muted">Aug. 13, 2022</span>
             </div>
             <div class="card-body">
               <h5 class="card-title">Changelog:</h5>
@@ -147,7 +169,7 @@
         <div class="col-12">
           <div class="card">
             <div class="card-header bg-light">
-              <strong>System updated to <span class="badge badge-warning rounded-0">v2.8-beta.3</span></strong> <span class="text-muted">Aug. 10, 2022</span>
+              <strong>System updated to <span class="badge badge-warning rounded-0">2.8.0-beta.3</span></strong> <span class="text-muted">Aug. 10, 2022</span>
             </div>
             <div class="card-body">
               <h5 class="card-title">Changelog:</h5>

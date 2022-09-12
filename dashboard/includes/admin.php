@@ -86,7 +86,7 @@
                 <i class="fas fa-file"></i>
               </div>
               <a href="?allDocs"  class="small-box-footer">
-                More info&nbsp;&nbsp;&nbsp;<i class="fas fa-arrow-circle-right"></i>
+                Manage Documents&nbsp;&nbsp;&nbsp;<i class="fas fa-arrow-circle-right"></i>
               </a>
             </div>
           </div>

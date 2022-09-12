@@ -61,6 +61,21 @@ else if (isset($_GET['wordle']))
     include("includes/wordlegame.php");
 }
 
+else if (isset($_GET['viewDocs']))
+{
+    if($_SESSION['role'] == 1)
+    {
+        $user = get_user_name($_GET['viewDocs']);
+        $userID = $_GET['viewDocs'];
+        include("includes/viewdocs.php");
+    }
+    else
+    {
+        set_message_alert("alert-warning", "fa-exclamation", "Access Denied.");
+        redirect("./?documents");
+    }
+}
+
 else if (isset($_GET['myDocs']))
 {
     include("includes/editMyDocs.php");
@@ -215,6 +230,19 @@ else if (isset($_GET['accomplished']))
 
 else if (isset($_GET['profile']))
 {
+    $date = date('H');
+    if($date < 12) 
+        $greeting = "Good morning "; 
+    else if($date < 17) 
+        $greeting = "Good afternoon ";
+    else if($date<20)
+        $greeting = "Good evening "; 
+    else 
+        $greeting = "Good night "; 
+
+    $user = firstName(get_user_name($_SESSION['user_id']));
+    $userID = $_SESSION['user_id'];
+
     include("includes/profile.php");
 }
 

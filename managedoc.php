@@ -32,6 +32,8 @@ function isOwned($tracking)
 
 function release($tracking, $to, $remarks = "", $for = 0)
 {
+    $tracking = trim($tracking);
+    
     if($tracking == '')
         die(redirect('?err=6'));
     if($to == '' || $to == NULL)

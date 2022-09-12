@@ -2,3 +2,4 @@
 uploads/*.pdf
 robots.txt
 *.sql
+.vscode/

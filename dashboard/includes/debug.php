@@ -21,8 +21,20 @@
     <!-- Main content -->
     <div class="content">
       <div class="container-fluid">
-      <?php display_notice();?>
-      </div>
+      <!-- <?php display_notice();?> -->
+        <div class="alert alert-success" role="alert"><i class="fa fa-w fa-check" role="alert"></i>&nbsp;&nbsp;
+              Document added! 
+              Tracking # is: &nbsp;&nbsp;&nbsp;<strong><a href='?print={$tracking}' target='_blank' class='text-decoration-none strong'
+              data-toggle="tooltip" title="Print">
+              <i class='fas fa-print'></i>&nbsp;&nbsp;9522-958123.</a></strong>
+              &nbsp;&nbsp;&nbsp;you can also right click and copy the image here: &nbsp;&nbsp;&nbsp;
+              <?=
+              '<img src="data:image/png;base64,' . base64_encode($generatorIMG->getBarcode('9522-958123', $generatorIMG::TYPE_CODE_128, 1, 20)) . '">';
+              ?>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
 
       <div class="row">
 

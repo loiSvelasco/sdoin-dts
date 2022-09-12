@@ -8,7 +8,7 @@
         </div>
         <div class="modal-body">
             <!-- form here-->
-            <form action="actions/add-document.php" method="post" id="addDoc">
+            <form action="actions/add-document.php" method="post" id="addDoc" onsubmit="addDocBtn.hidden = true; document.getElementById('addDocBtn2').style.display = '';">
             <input type="hidden" name="owner" id="owner" value="<?php echo $_SESSION['user_id']; ?>" required>
             <input type="hidden" name="origin" id="origin" value="<?php echo $_SESSION['unit']; ?>" required>
             <div class="form-group row">
@@ -96,7 +96,12 @@
         </div>
         <div class="modal-footer justify-content-between">
             <!-- <button type="button" class="btn btn-outline-danger" data-dismiss="modal"><i class="fas fa-times"></i>&nbsp;&nbsp;Cancel</button> -->
-            <button type="submit" form="addDoc" class="btn btn-block btn-outline-success" name="add-document"><i class="fas fa-plus"></i>&nbsp;&nbsp;Add Document</button>
+            <button disabled id="addDocBtn2" class="btn btn-block btn-success d-flex justify-content-center align-items-center" style="display: none !important;">
+            <div class="spinner-border text-light" role="status">
+            <span class="sr-only">Loading...</span>
+            </div>
+            &nbsp;&nbsp;Adding document</button>
+            <button type="submit" form="addDoc" class="btn btn-block btn-success" id="addDocBtn" name="add-document"><i class="fas fa-plus"></i>&nbsp;&nbsp;Add Document</button>
         </div>
         </div>
         <!-- /.modal-content -->
@@ -109,13 +114,13 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
         <div class="modal-header">
-            <h4 class="modal-title" id="modal-release-doc-Label">Release Document to</h4>
+            <h4 class="modal-title" id="modal-release-doc-Label">Release Document</h4>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span></button>
         </div>
         <div class="modal-body">
             <!-- form here-->
-            <form method="get" id="releaseto">
+            <form method="get" id="releaseto" onsubmit="relDocBtn.hidden = true; document.getElementById('relDocBtn2').style.display = '';">
                 
                 <input type="hidden" name="manipulate" value="release">
                 <input type="hidden" name="tracking" id="doc_tracking" value="">
@@ -170,8 +175,12 @@
             </form>
         </div>
         <div class="modal-footer justify-content-between">
-            <!-- <button type="button" class="btn btn-outline-danger" data-dismiss="modal"><i class="fas fa-times"></i>&nbsp;&nbsp;Cancel</button> -->
-            <button type="submit" form="releaseto" class="btn btn-block btn-outline-success"><i class="fas fa-reply"></i>&nbsp;&nbsp;Release</button>
+            <button disabled id="relDocBtn2" class="btn btn-block btn-info d-flex justify-content-center align-items-center" style="display: none !important;">
+                <div class="spinner-border text-light" role="status">
+                <span class="sr-only">Loading...</span>
+                </div>
+                &nbsp;&nbsp;Releasing document</button>
+            <button type="submit" form="releaseto" id="relDocBtn" class="btn btn-block btn-info"><i class="fas fa-file-export"></i>&nbsp;&nbsp;Release</button>
         </div>
         </div>
         <!-- /.modal-content -->
@@ -184,7 +193,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
         <div class="modal-header">
-            <h4 class="modal-title" id="modal-release-doc-Label">Release Document to</h4>
+            <h4 class="modal-title" id="modal-release-doc-Label">Release Document</h4>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span></button>
         </div>
@@ -238,7 +247,12 @@
                 </div> 
         </div>
         <div class="modal-footer justify-content-between">
-            <button type="submit" form="release" class="btn btn-block btn-outline-success"><i class="fas fa-reply"></i>&nbsp;&nbsp;Release</button>
+            <button disabled id="relDocMultiBtn2" class="btn btn-block btn-info d-flex justify-content-center align-items-center" style="display: none !important;">
+                <div class="spinner-border text-light" role="status">
+                <span class="sr-only">Loading...</span>
+                </div>
+            &nbsp;&nbsp;Releasing document</button>
+            <button type="submit" id="relDocMultiBtn" form="release" class="btn btn-block btn-info"><i class="fas fa-file-export"></i>&nbsp;&nbsp;Release</button>
         </div>
         </div>
         <!-- /.modal-content -->
@@ -552,6 +566,45 @@
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary">Save changes</button>
       </div> -->
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="addDoctype" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content rounded-0">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add Document Type</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="actions/addDoctype.php" method="post" id="insertdoctype">
+            <div class="form-group row">
+                <div class="col-12">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                    <div class="input-group-text">
+                        <i class="fa fa-file"></i>
+                    </div>
+                    </div> 
+                    <input id="doc_type" name="doc-type" placeholder="Document Type" type="text" class="form-control" required="required">
+                    <input type="hidden" name="referer" value="<?= URI ?>">
+                </div>
+                </div>
+            </div>
+        </form>
+        <button class="btn btn-secondary rounded-0 btn-block" type="button" data-toggle="collapse" data-target="#doctypelist" aria-expanded="false" aria-controls="collapseExample">
+            View List of Document types in the system
+        </button>
+        <div class="collapse" id="doctypelist">
+            <div class="card card-body rounded-0" id="availdoctypes"></div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-success border-0 rounded-0" form="insertdoctype">Add Doctype</button>
+      </div>
     </div>
   </div>
 </div>

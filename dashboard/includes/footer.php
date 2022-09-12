@@ -105,7 +105,7 @@
 <script src="plugins/daterangepicker/daterangepicker.js"></script>
 
 <!-- AJAX Requests -->
-<script src="dist/js/requests.js"></script>
+<script src="dist/js/requests.js?t=<?= time() ?>"></script>
 
 <!-- AdminLTE App -->
 <script src="dist/js/adminlte.min.js"></script>

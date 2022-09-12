@@ -295,7 +295,7 @@ $(document).ready(function() {
       }).get();
       console.log(data);
       
-      $('#doc_tracking').val(data[1]);
+      $('#doc_tracking').val(data[1].replace(/\s/g, ""));
       $('.tracking_placeholder').val(data[1]);
   });
 });

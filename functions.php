@@ -30,7 +30,7 @@ LOIPOGI;
 function set_message_alert($type, $icon, $message)
 {
     $structure = <<<LOIPOGI
-    <div class="alert {$type}" role="alert"><i class="fa fa-w {$icon}" role="alert"></i>&nbsp;&nbsp;{$message}
+    <div class="alert {$type} rounded-0" role="alert"><i class="fa fa-w {$icon}" role="alert"></i>&nbsp;&nbsp;{$message}
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">&times;</span>
     </button>
@@ -343,7 +343,7 @@ function get_unit_name($unit_id)
 
 function get_doctypes()
 {
-    $sql = query("SELECT * FROM doctypes");
+    $sql = query("SELECT * FROM doctypes ORDER BY doc_type ASC");
     confirm($sql);
 
     while($row = fetch_array($sql))
@@ -382,7 +382,7 @@ function get_user_name($id)
     confirm($printetella);
     
     $row = fetch_assoc($printetella);
-    return $row['ud_name'];
+    return ucwords(strtolower(escape_string($row['ud_name'])));
 }
 
 function get_my_docs()
@@ -525,8 +525,12 @@ function get_to_receive()
         
                 $ellacutie = <<<ELLA
                 <tr>
-                    <td class="text-center align-middle"><input type="checkbox" name="rec-check[]" value="{$tracking}" class="receiveBox" form="receive">&nbsp;&nbsp;</td>
-                    <td class="text-center align-middle">{$tracking}</td>
+                    <td class="text-center align-middle">
+                        <input style="transform: scale(1)" type="checkbox" name="rec-check[]" value="{$tracking}" class="receiveBox" form="receive">
+                    </td>
+                    <td class="text-center align-middle">
+                        <a href="?tracking={$tracking}" target="_blank" class="btn-link text-small" data-toggle="tooltip" data-placement="top" title="View Track">
+                        {$tracking}</a></td>
                     <td><a tabindex="0" class="btn btn-link btn-sm text-left rounded-0 popover-dismiss" role="button" data-toggle="popover" data-html="true" data-trigger="focus" title="Document Details"
                         data-content="
                         Type: {$doctype}
@@ -562,8 +566,13 @@ ELLA;
         
                 $ellacutie = <<<ELLA
                 <tr>
-                    <td class="text-center align-middle"><input type="checkbox" name="rec-check[]" value="{$tracking}" class="receiveBox" form="receive">&nbsp;&nbsp;</td>
-                    <td class="text-center align-middle">{$tracking}</td>
+                    <td class="text-center align-middle">
+                        <input style="transform: scale(1)" type="checkbox" name="rec-check[]" value="{$tracking}" class="receiveBox" form="receive">
+                    </td>
+                    <td class="text-center align-middle">
+                        <a href="?tracking={$tracking}" target="_blank" class="btn-link text-small" data-toggle="tooltip" data-placement="top" title="View Track">
+                        {$tracking}</a>
+                    </td>
                     <td><a tabindex="0" class="btn btn-link btn-sm text-left rounded-0 popover-dismiss" role="button" data-toggle="popover" data-html="true" data-trigger="focus" title="Document Details"
                         data-content="
                         Type: {$doctype}
@@ -633,8 +642,11 @@ function get_to_release()
         
                 $ellacutie = <<<ELLA
                 <tr>
-                    <td class="text-center align-middle"><input type="checkbox" name="rel-check[]" form="release" class="releaseBox" value="{$tracking}">&nbsp;&nbsp;</td>
-                    <td class="text-center align-middle">{$tracking}</td>
+                    <td class="text-center align-middle"><input type="checkbox" name="rel-check[]" form="release" class="releaseBox" value="{$tracking}"></td>
+                    <td class="text-center align-middle">
+                        <a href="?tracking={$tracking}" target="_blank" class="btn-link text-small" data-toggle="tooltip" data-placement="top" title="View Track">
+                        {$tracking}</a>
+                    </td>
                     <td class="align-middle"><a tabindex="0" class="btn btn-sm btn-link rounded-0 text-left popover-dismiss" role="button" data-toggle="popover" data-html="true" data-trigger="focus" title="Document Details"
                     data-content="
                     Type: {$doctype}
@@ -679,8 +691,11 @@ ELLA;
         
                 $ellacutie = <<<ELLA
                 <tr>
-                    <td class="text-center align-middle"><input type="checkbox" name="rel-check[]" form="release" class="releaseBox" value="{$tracking}">&nbsp;&nbsp;</td>
-                    <td class="text-center align-middle">{$tracking}</td>
+                    <td class="text-center align-middle"><input type="checkbox" name="rel-check[]" form="release" class="releaseBox" value="{$tracking}"></td>
+                    <td class="text-center align-middle">
+                        <a href="?tracking={$tracking}" target="_blank" class="btn-link text-small" data-toggle="tooltip" data-placement="top" title="View Track">
+                        {$tracking}</a>
+                    </td>
                     <td class="align-middle"><a tabindex="0" class="btn btn-sm btn-link rounded-0 text-left popover-dismiss" role="button" data-toggle="popover" data-html="true" data-trigger="focus" title="Document Details"
                     data-content="
                     Type: {$doctype}
@@ -711,29 +726,50 @@ ELLA;
 
 function get_received_today()
 {
-    $unit = $_SESSION['unit'];
-    $prettyella = query("SELECT *, DATE_FORMAT(dl_receiveddate, '%Y-%m-%d')  FROM docs_location WHERE DATE(dl_receiveddate) = '" . currentdate() . "' AND dl_unit = {$unit}");
-    echo shortNumber(row_count($prettyella));
+    $prettyella = query(
+        "SELECT COUNT(*) AS total, 
+         DATE_FORMAT(dl_receiveddate, '%Y-%m-%d') 
+         FROM docs_location 
+         WHERE DATE(dl_receiveddate) = '" . currentdate() . "' AND dl_unit = {$_SESSION['unit']}"
+    );
+    $row = fetch_assoc($prettyella);
+    echo shortNumber($row['total']);
 }
 
 function get_released_today()
 {
-    $unit = $_SESSION['unit'];
-    $date = date('Y-m-d');
-    $prettyella = query("SELECT *, DATE_FORMAT(dl_releaseddate, '%Y-%m-%d')  FROM docs_location WHERE DATE(dl_releaseddate) = '" . currentdate() . "' AND dl_releasedbyunit = {$unit}");
-    echo shortNumber(row_count($prettyella));
+    $prettyella = query(
+        "SELECT COUNT(*) AS total, 
+         DATE_FORMAT(dl_releaseddate, '%Y-%m-%d') 
+         FROM docs_location 
+         WHERE DATE(dl_releaseddate) = '" . currentdate() . "' AND dl_releasedbyunit = {$_SESSION['unit']}"
+    );
+    $row = fetch_assoc($prettyella);
+    echo shortNumber($row['total']);
 }
 
 function get_received_today_all()
 {
-    $prettyella = query("SELECT DISTINCT *, DATE_FORMAT(dl_receiveddate, '%Y-%m-%d')  FROM docs_location WHERE DATE(dl_receiveddate) = '" . currentdate() . "'");
-    echo shortNumber(row_count($prettyella));
+    $prettyella = query(
+        "SELECT DISTINCT COUNT(*) AS total, 
+         DATE_FORMAT(dl_receiveddate, '%Y-%m-%d') 
+         FROM docs_location 
+         WHERE DATE(dl_receiveddate) = '" . currentdate() . "'"
+    );
+    $row = fetch_assoc($prettyella);
+    echo shortNumber($row['total']);
 }
 
 function get_released_today_all()
 {
-    $prettyella = query("SELECT DISTINCT *, DATE_FORMAT(dl_releaseddate, '%Y-%m-%d')  FROM docs_location WHERE DATE(dl_releaseddate) = '" . currentdate() . "'");
-    echo shortNumber(row_count($prettyella));
+    $prettyella = query(
+        "SELECT DISTINCT COUNT(*) AS total, 
+         DATE_FORMAT(dl_releaseddate, '%Y-%m-%d') 
+         FROM docs_location 
+         WHERE DATE(dl_releaseddate) = '" . currentdate() . "'"
+    );
+    $row = fetch_assoc($prettyella);
+    echo shortNumber($row['total']);
 }
 
 function get_uploaded()
@@ -1023,18 +1059,16 @@ ELLA;
 
 function getNumUsers()
 {
-    $loveElla = query("SELECT * FROM users");
-    love($loveElla);
-
-    echo shortNumber(row_count($loveElla));
+    $loveElla = query("SELECT COUNT(*) AS total FROM users");
+    $row = fetch_assoc($loveElla);
+    echo shortNumber($row['total']);
 }
 
 function getNumDocs()
 {
-    $loveElla = query("SELECT * FROM documents");
-    love($loveElla);
-
-    echo shortNumber(row_count($loveElla));
+    $loveElla = query("SELECT COUNT(*) AS total FROM documents");
+    $row = fetch_assoc($loveElla);
+    echo shortNumber($row['total']);
 }
 
 function getLapsedNumDocs()
@@ -1054,7 +1088,6 @@ function docExists($tracking)
         "SELECT * FROM documents WHERE 
          document_tracking = '{$tracking}' LIMIT 1"
     );
-    love($babyElla);
 
     if(row_count($babyElla) == 1)
     {
