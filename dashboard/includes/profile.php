@@ -23,6 +23,16 @@
       <div class="container-fluid">
       <?php display_notice();?>
         <div class="row">
+          <div class="col-12">
+            <div class="jumbotron jumbotron-fluid">
+              <div class="container">
+                <div class="ml-4">
+                  <h1 class="display-4"><?= $greeting ?> <?= $user ?>,</h1>
+                  <p class="lead">This profile page is still under construction, check back soon 😊</p>
+                </div>
+              </div>
+            </div>
+          </div>
           <div class="col-3">
             <div class="card">
               <div class="card-header border-warning">Change Password</div>

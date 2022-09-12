@@ -106,8 +106,13 @@ function allUsers()
 {
     $counter = 0;
     $morningLookElla = query(
-        "SELECT * FROM users, user_details 
-         WHERE users.id = user_details.id"
+        "SELECT users.id, users.email, users.role, 
+                users.locked, user_details.ud_name, 
+                user_details.ud_unit, units.unit_name
+         FROM users
+         JOIN user_details ON users.id = user_details.id
+         JOIN units ON user_details.ud_unit = units.unit_id
+         ORDER BY users.id ASC"
     );
     love($morningLookElla);
 
@@ -117,7 +122,7 @@ function allUsers()
         $email = strtolower($row['email']);
         $name = ucwords(strtolower($row['ud_name']));
         $role = $row['role'] == 1 ? 'Admin' : ($row['role'] == 2 ? 'Special Access' : 'Regular');
-        $unit = get_unit_name($row['ud_unit']);
+        $unit = $row['unit_name'];
         $counter++;
 
         $ellacutie = <<<ELLA

@@ -20,14 +20,15 @@ if(isset($_GET['manipulate']) && isset($_GET['tracking']))
         {
             $to = $_SESSION['unit'];
             $for = escape_string($_GET['toPersonnel']);
+            $to_name = get_user_name($for) . ", " . get_unit_name($to);
         }
         else
         {
             $to = escape_string($_GET['to']);
+            $to_name = get_unit_name($to);
         }
         $remarks = escape_string($_GET['rel-remarks']);
         release($tracking, $to, $remarks, $for);
-        $to_name = get_unit_name($to);
         set_message_alert("alert-success", "fa-check", "Document released to " . $to_name);
         redirect($referer);
     }

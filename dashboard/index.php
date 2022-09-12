@@ -230,6 +230,19 @@ else if (isset($_GET['accomplished']))
 
 else if (isset($_GET['profile']))
 {
+    $date = date('H');
+    if($date < 12) 
+        $greeting = "Good morning "; 
+    else if($date < 17) 
+        $greeting = "Good afternoon ";
+    else if($date<20)
+        $greeting = "Good evening "; 
+    else 
+        $greeting = "Good night "; 
+
+    $user = firstName(get_user_name($_SESSION['user_id']));
+    $userID = $_SESSION['user_id'];
+
     include("includes/profile.php");
 }
 

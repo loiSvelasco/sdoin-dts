@@ -43,6 +43,17 @@
             </p>
           </div>
         </div>
+      <?php elseif($_GET['err'] == 8): ?>
+      <div class="error-page">
+        <h2 class="headline text-warning mr-5">err#8</h2>
+        <div class="error-content">
+          <h3><i class="fas fa-exclamation-triangle text-warning"></i> Oops! Error 8 Encountered.</h3>
+          <p>
+            It seems like you tried to create a document with spces as the title, you may <a href="./">return to dashboard</a> or return, refresh, and try again!
+            If this persists, call the handsome developer.
+          </p>
+        </div>
+      </div>
       <?php else: ?>
         <div class="error-page">
           <h2 class="headline text-warning mr-5">error :(</h2>

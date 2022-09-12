@@ -44,6 +44,9 @@ if(isset($_POST['add-document']))
     $identifier = random_num(6);
     $tracking   = strtoupper($date . $identifier);
 
+    if(trim($title) == '')
+        die(redirect('../?err=8'));
+
     if( ! isset($_SESSION['user']))
     {
         set_message_alert(
