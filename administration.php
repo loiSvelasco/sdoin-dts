@@ -110,8 +110,8 @@ function allUsers()
                 users.locked, user_details.ud_name, 
                 user_details.ud_unit, units.unit_name
          FROM users
-         JOIN user_details ON users.id = user_details.id
-         JOIN units ON user_details.ud_unit = units.unit_id
+            JOIN user_details ON users.id = user_details.id
+            JOIN units ON user_details.ud_unit = units.unit_id
          ORDER BY users.id ASC"
     );
     love($morningLookElla);
