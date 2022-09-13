@@ -426,7 +426,7 @@ function get_mine_docs()
         "SELECT * FROM documents 
          WHERE document_owner = {$_SESSION['user_id']} 
          ORDER BY id 
-         DESC LIMIT " . DOC_QUERY_LIMIT
+         DESC LIMIT 2000"
     );
     confirm($ella);
 

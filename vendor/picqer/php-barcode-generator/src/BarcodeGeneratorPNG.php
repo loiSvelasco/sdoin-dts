@@ -69,6 +69,7 @@ class BarcodeGeneratorPNG extends BarcodeGenerator
             $colorForeground = new \imagickpixel('rgb(' . $color[0] . ',' . $color[1] . ',' . $color[2] . ')');
             $png = new \Imagick();
             $png->newImage($width, $height + 40, 'none', 'png'); // +20 (+)
+
             $imageMagickObject = new \imagickdraw();
             $imageMagickObject->setFillColor($colorForeground);
         } else {
@@ -106,7 +107,7 @@ class BarcodeGeneratorPNG extends BarcodeGenerator
             $imageMagickObject->annotateImage($draw, 0, $height + 5, 0, $code);
         } else {
             // Detect center position
-            $font = 1;
+            $font = 3;
             $font_width = ImageFontWidth($font);
             $font_height = ImageFontHeight($font);
             $text_width = $font_width * strlen($code);
