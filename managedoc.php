@@ -17,9 +17,7 @@ function isOwned($tracking)
         $doc = fetch_array($myElla);
         $for = $doc['dl_for'];
     
-        if($for == 0)
-            return true;
-        else if ($for == $_SESSION['user_id'])
+        if($for == 0 || $for == $_SESSION['user_id'])
             return true;
         else
             return false;
@@ -70,7 +68,7 @@ function release($tracking, $to, $remarks = "", $for = 0)
 
     
         $query = "INSERT INTO docs_location(dl_tracking, dl_unit, dl_for, dl_releaseddate, dl_releasedby, dl_releasedbyunit) ";
-        $query .= "VALUES('{$tracking}', '{$to}', '{$for}', '{$date}', '{$by}', '{$unit}')";
+        $query .= "VALUES('{$tracking}', '{$to}', '{$for}', '{$date}', '{$by}', '{$unit}')"; 
         $insert = query($query);
         confirm($insert);
     }
@@ -233,6 +231,7 @@ function isReceived($tracking)
          WHERE dl_tracking = '{$tracking}' 
          AND dl_receivedby != 0 
          AND dl_forwarded = 0 
+         AND dl_unit = '{$_SESSION['unit']}'
          ORDER BY dl_id DESC LIMIT 1"
     );
     confirm($stmt);
@@ -242,9 +241,7 @@ function isReceived($tracking)
         $doc = fetch_array($stmt);
         $for = $doc['dl_for'];
     
-        if($for == 0)
-            return true;
-        else if ($for == $_SESSION['user_id'])
+        if($for == 0 || $for == $_SESSION['user_id'])
             return true;
         else
             return false;

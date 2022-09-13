@@ -167,17 +167,12 @@ CUTIEPIE;
 
           <div class="col-md-6">
             <div class="row">
-              <div class="col-md-6">
-                <blockquote class="quote-info">
-                  <h5><i class='far fa-list-alt'></i>&nbsp;&nbsp;Document Details</h5>
-                </blockquote>
-              </div>
-              <div class="col-md-6">
+              <div class="col-md-12">
                 <div class="row align-items-center">
                   <div class="col-6">
                     <blockquote class="quote-info border-left-0">
                       <?php if($found): ?>
-                      <a href="?print=<?= $tracking ?>" class="btn btn-success btn-lg btn-block shadow rounded-0" target="_blank">
+                      <a href="?print=<?= $tracking ?>" class="btn btn-success btn-md btn-block shadow rounded-0" target="_blank">
                         <i class="fas fa-print"></i>&nbsp;&nbsp;Print eDTS #
                       </a>
                       <?php endif ?>
@@ -191,6 +186,11 @@ CUTIEPIE;
                   ?>
                   </div>
                 </div>
+              </div>
+              <div class="col-md-5">
+                <blockquote class="quote-info">
+                  <h5><i class='far fa-list-alt'></i>&nbsp;&nbsp;Document Details</h5>
+                </blockquote>
               </div>
             </div>
 

@@ -35,7 +35,7 @@
 </style>
 </head>
 <body onload="window.print();">
-	<div style="float: right; margin-right: 6%; line-height: 18px">
+	<div style="float: right; margin-right: 6%; margin-top: 5%; line-height: 18px">
 		<?php
 		// require 'vendor/autoload.php';
 		require_once("../../config.php");
