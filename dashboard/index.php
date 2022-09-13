@@ -256,6 +256,11 @@ else if (isset($_GET['err']))
     include("includes/err.php");
 }
 
+else if (isset($_GET['about']))
+{
+    include("includes/about.php");
+}
+
 // else if (isset($_GET['404']))
 // {
 //     include("includes/404.php");

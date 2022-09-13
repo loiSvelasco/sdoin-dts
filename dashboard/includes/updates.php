@@ -31,6 +31,26 @@
         <div class="col-12">
           <div class="card">
             <div class="card-header bg-dark">
+              <strong>System updated to <span class="badge badge-warning rounded-0">2.9.6-beta.5</span></strong> <span class="text-muted">Sept. 13, 2022</span>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Changelog:</h5>
+              <p class="card-text">
+                <hr>
+                &#12288;1. Fixed bugs when on legacy mode.<br>
+                &#12288;2. Added file hashing for cache management.<br>
+                &#12288;3. Added more bugs to be fixed later. 🐛🐜<br>
+              </p>
+              <p class="text-left"><strong>- Louis V.</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row text-monospace">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header bg-light">
               <strong>System updated to <span class="badge badge-warning rounded-0">2.9.0-beta.5</span></strong> <span class="text-muted">Sept. 12, 2022</span>
             </div>
             <div class="card-body">

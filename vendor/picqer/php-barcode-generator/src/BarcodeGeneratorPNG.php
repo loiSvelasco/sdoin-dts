@@ -60,7 +60,7 @@ class BarcodeGeneratorPNG extends BarcodeGenerator
         if (function_exists('imagecreate')) {
             // GD library
             $imagick = false;
-            $png = imagecreate($width + 45, $height + 40); // +20 (+)
+            $png = imagecreate($width, $height + 40); // +20 (+)
             $colorBackground = imagecolorallocate($png, 255, 255, 255);
             imagecolortransparent($png, $colorBackground);
             $colorForeground = imagecolorallocate($png, $color[0], $color[1], $color[2]);
@@ -68,7 +68,8 @@ class BarcodeGeneratorPNG extends BarcodeGenerator
             $imagick = true;
             $colorForeground = new \imagickpixel('rgb(' . $color[0] . ',' . $color[1] . ',' . $color[2] . ')');
             $png = new \Imagick();
-            $png->newImage($width + 45, $height + 40, 'none', 'png'); // +20 (+)
+            $png->newImage($width, $height + 40, 'none', 'png'); // +20 (+)
+
             $imageMagickObject = new \imagickdraw();
             $imageMagickObject->setFillColor($colorForeground);
         } else {
@@ -106,7 +107,7 @@ class BarcodeGeneratorPNG extends BarcodeGenerator
             $imageMagickObject->annotateImage($draw, 0, $height + 5, 0, $code);
         } else {
             // Detect center position
-            $font = 7;
+            $font = 3;
             $font_width = ImageFontWidth($font);
             $font_height = ImageFontHeight($font);
             $text_width = $font_width * strlen($code);
@@ -115,8 +116,8 @@ class BarcodeGeneratorPNG extends BarcodeGenerator
 
             // Default font
             // Write the barcode's code, change $code to write other text
-            imagestring($png, 7, $position_left, $height + 16, $code, imagecolorallocate($png, 0, 0, 0));
-            imagestring($png, 7, $position_left, $height - 22, "sdoin.edts #", imagecolorallocate($png, 0, 0, 0));
+            imagestring($png, 3, $position_left, $height + 16, $code, imagecolorallocate($png, 0, 0, 0));
+            imagestring($png, 3, $position_left, $height - 19, "sdoin.edts #", imagecolorallocate($png, 0, 0, 0));
 
             // For custom font specify path to font file
             $fontPath = dirname(__FILE__) . '/Roboto-Regular.ttf';
