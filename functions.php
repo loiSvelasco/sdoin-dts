@@ -751,7 +751,7 @@ function get_released_today()
 function get_received_today_all()
 {
     $prettyella = query(
-        "SELECT DISTINCT COUNT(*) AS total, 
+        "SELECT COUNT(*) AS total, 
          DATE_FORMAT(dl_receiveddate, '%Y-%m-%d') 
          FROM docs_location 
          WHERE DATE(dl_receiveddate) = '" . currentdate() . "'"

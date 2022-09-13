@@ -2,7 +2,7 @@
   <aside class="control-sidebar control-sidebar-dark" style="bottom:calc(5rem + 1px)">
     <!-- Control sidebar content goes here -->
     <div class="p-3">
-      <h5>About SDOIN eDTS</h5>
+      <a href="?about" class="text-warning">Read about SDOIN eDTS here.</a>
       <p>Technologies Used</p>
       <div class="container">
         <div class="row mb-3">
@@ -105,13 +105,13 @@
 <script src="plugins/daterangepicker/daterangepicker.js"></script>
 
 <!-- AJAX Requests -->
-<script src="dist/js/requests.js?t=<?= time() ?>"></script>
+<script src="dist/js/requests.js?hash=<?= hash_file('md5', 'dist/js/requests.js') ?>"></script>
 
 <!-- AdminLTE App -->
 <script src="dist/js/adminlte.min.js"></script>
 
 <!-- Custom Scripts -->
-<script src="dist/js/sdoin-dts.js?t=<?= time() ?>"></script>
+<script src="dist/js/sdoin-dts.js?hash=<?= hash_file('md5', 'dist/js/sdoin-dts.js') ?>"></script>
 <script src="dist/js/wordle.js"></script>
 
 <script type="text/javascript">
