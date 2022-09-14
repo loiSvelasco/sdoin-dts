@@ -64,7 +64,9 @@
               </div>
   
               <div class="card-body bg-white">
-                <form action="actions/register.php" method="post" oninput="password2.setCustomValidity(password2.value != password.value ? 'Passwords do not match.' : '')">
+                <form action="actions/register.php" method="post" 
+                onsubmit="addUserBtn.hidden = true; document.getElementById('addUserBtn2').style.display = '';"
+                oninput="password2.setCustomValidity(password2.value != password.value ? 'Passwords do not match.' : '')">
                   <div class="input-group mb-3">
                     <input type="text" class="form-control" placeholder="Full name" name="fullname" required autofocus>
                     <div class="input-group-append">
@@ -138,7 +140,9 @@
                   <div class="row">
                     <!-- /.col -->
                     <div class="col-12 mb-3">
-                      <button type="submit" class="btn btn-success btn-block rounded-0" name="register"><i class="fa fa-plus"></i>&nbsp;&nbsp;&nbsp;Add User</button>
+                        <button disabled id="addUserBtn2" class="btn btn-block btn-success d-flex justify-content-center align-items-center" style="display: none !important;">
+                        <div class="spinner-border text-light" role="status"></div>&nbsp;&nbsp;Adding user</button>
+                      <button type="submit" id="addUserBtn" class="btn btn-success btn-block rounded-0" name="register"><i class="fa fa-plus"></i>&nbsp;&nbsp;&nbsp;Add User</button>
                     </div>
                     <!-- /.col -->
                   </div>

@@ -13,7 +13,7 @@ if(isset($_SESSION['user']))
 
       <?php display_notice(); ?>
 
-      <form action="actions/login.php" method="post">
+      <form action="actions/login.php" method="post" onsubmit="loginBtn.hidden = true; document.getElementById('loginBtn2').style.display = '';">
         <input type="hidden" name="redirectTo" value="<?php echo isset($_GET['redirectTo']) ? escape_string($_GET['redirectTo']) : ""; ?>">
         <div class="input-group mb-3">
           <input type="email" class="form-control" placeholder="Email" name="email" value="<?php echo isset($_GET['try']) ? escape_string($_GET['try']) : ""; ?>" required autofocus>
@@ -34,7 +34,9 @@ if(isset($_SESSION['user']))
         <div class="row">
           <!-- /.col -->
           <div class="col-12 mb-2">
-            <button type="submit" class="btn btn-primary btn-block" name="login">Sign In</button>
+            <button disabled id="loginBtn2" class="btn btn-block btn-primary d-flex justify-content-center align-items-center" style="display: none !important;">
+              <div class="spinner-border spinner-border-sm text-light" role="status"></div>&nbsp;&nbsp;Signing in</button>
+            <button type="submit" id="loginBtn" class="btn btn-primary btn-block" name="login">Sign In</button>
           </div>
           <!-- /.col -->
         </div>

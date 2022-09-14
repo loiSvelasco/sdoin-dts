@@ -176,10 +176,7 @@
         </div>
         <div class="modal-footer justify-content-between">
             <button disabled id="relDocBtn2" class="btn btn-block btn-info d-flex justify-content-center align-items-center" style="display: none !important;">
-                <div class="spinner-border text-light" role="status">
-                <span class="sr-only">Loading...</span>
-                </div>
-                &nbsp;&nbsp;Releasing document</button>
+                <div class="spinner-border text-light" role="status"></div>&nbsp;&nbsp;Releasing document</button>
             <button type="submit" form="releaseto" id="relDocBtn" class="btn btn-block btn-info"><i class="fas fa-file-export"></i>&nbsp;&nbsp;Release</button>
         </div>
         </div>
@@ -248,9 +245,7 @@
         </div>
         <div class="modal-footer justify-content-between">
             <button disabled id="relDocMultiBtn2" class="btn btn-block btn-info d-flex justify-content-center align-items-center" style="display: none !important;">
-                <div class="spinner-border text-light" role="status">
-                <span class="sr-only">Loading...</span>
-                </div>
+                <div class="spinner-border text-light" role="status"></div>
             &nbsp;&nbsp;Releasing document</button>
             <button type="submit" id="relDocMultiBtn" form="release" class="btn btn-block btn-info"><i class="fas fa-file-export"></i>&nbsp;&nbsp;Release</button>
         </div>
