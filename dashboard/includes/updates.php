@@ -31,6 +31,31 @@
         <div class="col-12">
           <div class="card">
             <div class="card-header bg-dark">
+              <strong>System updated to <span class="badge badge-warning rounded-0">2.9.6-beta.5</span></strong> <span class="text-muted">Sept. 18, 2022</span>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Changelog:</h5>
+              <p class="card-text">
+                <hr>
+                &#12288;1. Converted 2 tables to server-side processing, 16 more tables to go!<br>
+                &#12288;&#12288;&#12288;&#12288;Details for those curious: Tables load client-side (your computer / browser), which means downloading all the data (document details, locations, owners, etc.) 
+                from the server (this system's database) and displaying it on your browser. However, imagine having to download ~1,000,000 rows of data through years of usage and display it to a table, it would take a significant amount of time.
+                The solution is server-side processing, this allows asynchronous fetching of data in the bacgkround rather than having to load 1 million rows of data at page load. This breaks the downloading part into smaller 
+                parts (i.e. download 10 or 20 or 30 rows now, and when the user clicks on the next page of the table, download the next 10, 20, or 30 rows.). The conversion of tables from client-side to server-side will take a while 
+                since I do it alone, but it will be done to increase the system's performance in the long run.
+                <br>
+                &#12288;2. Sprayed insecticide to remove bugs, but some may still be hidden. (and will soon multiply too!) 🐛🐜<br>
+              </p>
+              <p class="text-left"><strong>- Louis V.</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row text-monospace">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header bg-light">
               <strong>System updated to <span class="badge badge-warning rounded-0">2.9.6-beta.5</span></strong> <span class="text-muted">Sept. 13, 2022</span>
             </div>
             <div class="card-body">

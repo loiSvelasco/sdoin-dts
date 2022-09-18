@@ -46,5 +46,26 @@ $(document).ready(function(){
     // * END :: dashboard/?users
 
 
+    // * START :: dashboard/?myDocs
+    $('#myCreatedDocs').DataTable({
+        dom: 'lBfrtip',
+        processing: true,
+        serverSide: true,
+        ajax: requestsFolder + 'getMyDocs.php',
+        buttons: [
+            {extend: 'pdfHtml5', orientation: 'landscape', pageSize: 'A4',},
+            {extend: 'copyHtml5', orientation: 'landscape', pageSize: 'A4',},
+            {extend: 'excelHtml5', orientation: 'landscape', pageSize: 'A4',},
+        ],
+        "lengthMenu": [ [10, 25, 50, -1], [10, 25, 50, "All"] ],
+        "responsive": true,
+        "ordering": false,
+        "autoWidth": false,
+        "columnDefs": [
+            { "targets": "_all", "className": "align-middle"}
+        ],
+    });
+    // * END :: dashboard/?myDocs
+
 
 });

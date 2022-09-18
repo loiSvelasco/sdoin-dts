@@ -8,7 +8,7 @@
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="./">Home</a></li>
-            <li class="breadcrumb-item active">Edit Documents</li>
+            <li class="breadcrumb-item active">My Documents</li>
           </ol>
         </div><!-- /.col -->
       </div><!-- /.row -->
@@ -35,7 +35,7 @@
           </div>
           <div class="card-body bg-white">
             <div class="table-responsive-sm">
-              <table id="doctables" class="table table-striped table-bordered table-hover table-sm">
+              <table id="myCreatedDocs" class="table table-striped table-bordered table-hover table-sm">
                 <thead>
                   <tr>
                     <th class="col-2">Tracking #</th>
@@ -47,7 +47,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                <?php echo get_mine_docs(); ?>
+                
                 </tbody>
               </table>
             </div>
