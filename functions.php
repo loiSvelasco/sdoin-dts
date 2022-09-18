@@ -382,7 +382,9 @@ function get_user_name($id)
     confirm($printetella);
     
     $row = fetch_assoc($printetella);
-    return ucwords(strtolower(escape_string($row['ud_name'])));
+    return preg_replace_callback('/(?<=( |-))./',
+    function ($m) { return strtoupper($m[0]); },
+    ucwords(strtolower(escape_string($row['ud_name']))));
 }
 
 function get_my_docs()
@@ -1150,4 +1152,11 @@ function firstName()
 {
     $arr = explode(' ', $_SESSION['usrname']);
     return $arr[0];
+}
+
+function properName($name)
+{
+    return preg_replace_callback('/(?<=( |-))./',
+            function ($m) { return strtoupper($m[0]); },
+            ucwords(strtolower(escape_string($name))));
 }

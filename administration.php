@@ -120,7 +120,10 @@ function allUsers()
     {
         $id = $row['id'];
         $email = strtolower($row['email']);
-        $name = ucwords(strtolower($row['ud_name']));
+        // $name = ucwords(strtolower($row['ud_name']), " ");
+        $name = preg_replace_callback('/(?<=( |-))./',
+                function ($m) { return strtoupper($m[0]); },
+                ucwords(strtolower(escape_string($row['ud_name']))));
         $role = $row['role'] == 1 ? 'Admin' : ($row['role'] == 2 ? 'Special Access' : 'Regular');
         $unit = $row['unit_name'];
         $counter++;

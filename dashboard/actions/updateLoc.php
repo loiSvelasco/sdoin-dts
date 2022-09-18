@@ -9,9 +9,31 @@ if(isset($_POST['to']))
 
     if(get_doc_current_location($tracking) != $to)
     {
-        $updateLoc = query("UPDATE docs_location SET dl_unit = " . $to . " WHERE dl_tracking = '{$tracking}' ORDER BY dl_id DESC LIMIT 1");
-        confirm($updateLoc);
-        set_message_alert("alert-success", "fa fa-check", "Successfully forwarded to " . get_unit_name($to));
+        $checkReceive = query(
+            "SELECT * FROM docs_location 
+             WHERE dl_tracking = '{$tracking}' 
+             ORDER BY dl_id DESC LIMIT 1"
+        );
+
+        $row = fetch_array($checkReceive);
+
+        if($row['dl_receivedby'] == 0)
+        {
+            $updateLoc = query(
+                "UPDATE docs_location 
+                 SET dl_unit = $to 
+                 WHERE dl_tracking = '{$tracking}' 
+                 ORDER BY dl_id DESC LIMIT 1"
+            );
+            confirm($updateLoc);
+            set_message_alert("alert-success", "fa fa-check", "Successfully forwarded to " . get_unit_name($to));
+        }
+        else
+        {
+            $received = get_unit_name($row['dl_unit']);
+            set_message_alert("alert-warning", "fa fa-exclamation", "You cannot edit the location when the document is already received by " . $received . ".");
+        }
+
     }
     else
     {

@@ -176,10 +176,7 @@
         </div>
         <div class="modal-footer justify-content-between">
             <button disabled id="relDocBtn2" class="btn btn-block btn-info d-flex justify-content-center align-items-center" style="display: none !important;">
-                <div class="spinner-border text-light" role="status">
-                <span class="sr-only">Loading...</span>
-                </div>
-                &nbsp;&nbsp;Releasing document</button>
+                <div class="spinner-border text-light" role="status"></div>&nbsp;&nbsp;Releasing document</button>
             <button type="submit" form="releaseto" id="relDocBtn" class="btn btn-block btn-info"><i class="fas fa-file-export"></i>&nbsp;&nbsp;Release</button>
         </div>
         </div>
@@ -248,10 +245,8 @@
         </div>
         <div class="modal-footer justify-content-between">
             <button disabled id="relDocMultiBtn2" class="btn btn-block btn-info d-flex justify-content-center align-items-center" style="display: none !important;">
-                <div class="spinner-border text-light" role="status">
-                <span class="sr-only">Loading...</span>
-                </div>
-            &nbsp;&nbsp;Releasing document</button>
+                <div class="spinner-border text-light" role="status"></div>
+            &nbsp;&nbsp;Releasing documents</button>
             <button type="submit" id="relDocMultiBtn" form="release" class="btn btn-block btn-info"><i class="fas fa-file-export"></i>&nbsp;&nbsp;Release</button>
         </div>
         </div>
@@ -413,7 +408,7 @@
         
             <div class="modal-body text-justify">
                 <form action="actions/modifyUser.php" method="post">
-                    <input type="hidden" class="form-control" placeholder="ID" id="userID" name="userID" required>
+                    <input type="hidden" placeholder="ID" id="userID" name="userID" required>
                     <input type="hidden" name="referer" value="<?php echo URI; ?>">
                     <div class="input-group mb-3">
                         <input type="text" class="form-control" placeholder="Full name" id="userFname" name="fullname" required autofocus>
@@ -589,7 +584,7 @@
                         <i class="fa fa-file"></i>
                     </div>
                     </div> 
-                    <input id="doc_type" name="doc-type" placeholder="Document Type" type="text" class="form-control" required="required">
+                    <input name="doc-type" placeholder="Document Type" type="text" class="form-control" required="required">
                     <input type="hidden" name="referer" value="<?= URI ?>">
                 </div>
                 </div>
@@ -604,6 +599,39 @@
       </div>
       <div class="modal-footer">
         <button type="submit" class="btn btn-success border-0 rounded-0" form="insertdoctype">Add Doctype</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="editDoctype" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content rounded-0">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit Document Type</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="actions/editDoctype.php" method="post" id="updateDoctype">
+            <div class="form-group row">
+                <div class="col-12">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                    <div class="input-group-text">
+                        <i class="fa fa-file"></i>
+                    </div>
+                    </div> 
+                    <input name="doc-type" placeholder="Document Type" type="text" class="form-control" required="required">
+                    <input type="text" name="referer" value="<?= URI ?>">
+                </div>
+                </div>
+            </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-success border-0 rounded-0" form="updateDoctype">Save Doctype</button>
       </div>
     </div>
   </div>
