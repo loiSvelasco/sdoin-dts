@@ -31,7 +31,7 @@
         <div class="col-12">
           <div class="card">
             <div class="card-header bg-dark">
-              <strong>System updated to <span class="badge badge-warning rounded-0">2.9.6-beta.5</span></strong> <span class="text-muted">Sept. 18, 2022</span>
+              <strong>System updated to <span class="badge badge-warning rounded-0">2.9.6-beta.6</span></strong> <span class="text-muted">Sept. 18, 2022</span>
             </div>
             <div class="card-body">
               <h5 class="card-title">Changelog:</h5>
@@ -44,7 +44,8 @@
                 parts (i.e. download 10 or 20 or 30 rows now, and when the user clicks on the next page of the table, download the next 10, 20, or 30 rows.). The conversion of tables from client-side to server-side will take a while 
                 since I do it alone, but it will be done to increase the system's performance in the long run.
                 <br>
-                &#12288;2. Sprayed insecticide to remove bugs, but some may still be hidden. (and will soon multiply too!) 🐛🐜<br>
+                &#12288;2. Prohibited editing of document location when already received.<br>
+                &#12288;3. Sprayed insecticide to remove bugs, but some may still be hidden. (and will soon multiply too!) 🐛🐜<br>
               </p>
               <p class="text-left"><strong>- Louis V.</strong></p>
             </div>
