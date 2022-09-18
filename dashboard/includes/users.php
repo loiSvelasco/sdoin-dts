@@ -31,7 +31,7 @@
               </div>
 
               <div class="card-body bg-white">
-                <table id="adminTables" class="table table-bordered table-sm table-hover table-responsive-xl">
+                <table id="adminUserTable" class="table table-bordered table-sm table-hover table-responsive-xl">
                   <thead>
                     <tr>
                       <th class="col-1 text-center">#</th>
@@ -47,9 +47,7 @@
                     </tr>
                   </thead>
                   <tbody>
-                  <?php
-                    allUsers();
-                  ?>
+
                   </tbody>
                 </table>
               </div>

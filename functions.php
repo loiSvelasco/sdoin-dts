@@ -1153,3 +1153,10 @@ function firstName()
     $arr = explode(' ', $_SESSION['usrname']);
     return $arr[0];
 }
+
+function properName($name)
+{
+    return preg_replace_callback('/(?<=( |-))./',
+            function ($m) { return strtoupper($m[0]); },
+            ucwords(strtolower(escape_string($name))));
+}

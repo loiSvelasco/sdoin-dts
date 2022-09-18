@@ -112,6 +112,9 @@
 
 <!-- Custom Scripts -->
 <script src="dist/js/sdoin-dts.js?hash=<?= hash_file('md5', 'dist/js/sdoin-dts.js') ?>"></script>
+<script src="dist/js/dtrequests.js?hash=<?= hash_file('md5', 'dist/js/dtrequests.js') ?>"></script>
+
+
 <script src="dist/js/wordle.js"></script>
 
 <script type="text/javascript">
