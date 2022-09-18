@@ -24,7 +24,6 @@ $table = <<<LALAQT
     (
         SELECT * FROM documents 
         WHERE document_owner = {$_SESSION['user_id']} 
-        ORDER BY id DESC 
     ) temp
 LALAQT;
 
