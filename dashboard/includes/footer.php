@@ -118,7 +118,7 @@
 <script src="dist/js/wordle.js"></script>
 
 <script type="text/javascript">
-  onInit();
+  // onInit();
 </script>
 </body>
 </html>

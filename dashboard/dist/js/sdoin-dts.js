@@ -2,6 +2,8 @@ function hideLoader() {
   $('#loading').hide();
 }
 
+moment().format();
+
 function accompRemarks() {
   $('#accomp-remarks').submit();
 }
@@ -353,10 +355,4 @@ $('#modal-release-doc').on('show.bs.modal', function(e) {
 $('#purge-doc').on('show.bs.modal', function(e) {
   $(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
   $('.debug-url').html('<strong>' + $(this).find('.btn-ok').attr('href') + '</strong>');
-});
-
-
-$('.flexdatalist').flexdatalist({
-  selectionRequired: 1,
-  minLength: 0
 });

@@ -31,7 +31,7 @@
       <div class="col-12">
         <div class="card">
           <div class="card-header border-warning bg-white">
-            <h3 class="card-title">Search through the table's searchbox located at the upper left corner of the table.</h3>
+            <h3 class="card-title">Search through the table's searchbox located at the upper right corner of the table.</h3>
           </div>
           <div class="card-body bg-white">
             <div class="table-responsive-sm">
