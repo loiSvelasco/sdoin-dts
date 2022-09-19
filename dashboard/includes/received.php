@@ -26,7 +26,7 @@
         <div class="row">
 
           <div class="col-lg-3">
-            <form action="" method="get" id="daterange"></form>
+            <form action="" method="get" id="drReceived"></form>
               <div class="form-group">
                 <div class="input-group">
                   <div class="input-group-prepend">
@@ -35,11 +35,11 @@
                     </span>
                   </div>
                   <input type="text" class="form-control float-right" id="received_drpicker" value="">
-                  <input type="hidden" form="daterange" name="received">
-                  <input type="hidden" form="daterange" name="startDate" class="form-control float-right" id="startDate" value="">
-                  <input type="hidden" form="daterange" name="endDate" class="form-control float-right" id="endDate" value="">
+                  <input type="hidden" form="drReceived" name="received">
+                  <input type="hidden" form="drReceived" name="startDate" class="form-control float-right" id="startDate" value="">
+                  <input type="hidden" form="drReceived" name="endDate" class="form-control float-right" id="endDate" value="">
                   <div class="input-group-append">
-                    <button form="daterange" class="btn btn-outline-warning" type="submit"><i class="fa fa-search"></i>&nbsp;&nbsp;Generate</button>
+                    <button form="drReceived" class="btn btn-warning" type="submit"><i class="fa fa-search"></i>&nbsp;&nbsp;Generate</button>
                   </div>
                 </div>
               </div>
@@ -52,6 +52,9 @@
                 </div>
   
                 <div class="card-body bg-white">
+                  <!-- <input type="text" name="min" id="min"> -->
+                  <!-- <input type="text" name="max" id="max"> -->
+                  <!-- <input type="text" class="form-control float-right" id="received_dr" value=""> -->
                   <table id="reportTable" class="table table-bordered table-sm table-hover table-responsive-xl">
                     <thead>
                     <tr>
@@ -59,7 +62,7 @@
                       <th class="col-2">Title</th>
                       <th class="col-2">Purpose</th>
                       <th class="col-2">Type</th>
-                      <th class="col-2">Date Created</th>
+                      <th class="col-2">Date Received</th>
                       <th class="col">Received by</th>
                     </tr>
                     </thead>
@@ -83,3 +86,9 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
+  <?php
+    // isset($_GET['startDate']) ? $start = escape_string($_GET['startDate']) : $start = 0;
+    // isset($_GET['endDate']) ? $end = escape_string($_GET['endDate']) : $end = 0;
+    // isset($_GET['startDate']) && isset($_GET['endDate']) ? $today = false : $today = true;
+    // echo received_details($today, $start, $end); 
+  ?>

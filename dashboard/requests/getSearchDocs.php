@@ -20,12 +20,7 @@ require_once("../../config.php");
  */
  
 // DB table to use
-$table = <<<LALAQT
-    (
-        SELECT * FROM documents 
-        WHERE document_owner = {$_SESSION['user_id']} 
-    ) temp
-LALAQT;
+$table = "documents";
 
 // Where Clause
 $whereAll = "";
@@ -44,7 +39,6 @@ $columns = [
         return '
         <a href="?tracking='.$d.'" target="_blank" data-toggle="tooltip" data-placement="top" title="Track"><i class="fa fa-search"></i></a>&nbsp;&nbsp;
         <a href="?print='.$d.'" target="_blank" data-toggle="tooltip" data-placement="top" title="Print Tracking no."><i class="fa fa-print"></i></a>&nbsp;&nbsp;
-        <a href="?modifyMyDoc='.$d.'" target="_blank" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a>&nbsp;&nbsp;
         ' . $d;
      }
     ],
