@@ -70,9 +70,32 @@ $(document).ready(function(){
     // * END :: dashboard/?myDocs
 
 
-    // * START :: dashboard/?received
+    // * START :: dashboard/?searchDocs
+    $('#searchDocs').DataTable({
+        dom: 'lBfrtip',
+        processing: true,
+        serverSide: true,
+        ajax: requestsFolder + 'getSearchDocs.php',
+        buttons: [
+            {extend: 'pdfHtml5', orientation: 'landscape', pageSize: 'A4',},
+            {extend: 'copyHtml5', orientation: 'landscape', pageSize: 'A4',},
+            {extend: 'excelHtml5', orientation: 'landscape', pageSize: 'A4',},
+        ],
+        "lengthMenu": [ [10, 25, 50, -1], [10, 25, 50, "All"] ],
+        "responsive": true,
+        "ordering": true,
+        "order": [[4, 'desc']],
+        "autoWidth": false,
+        "columnDefs": [
+            { "targets": "_all", "className": "align-middle"}
+        ],
+    });
+    // * END :: dashboard/?searchDocs
+
+
+    // * START :: dashboard/?received :: NOT FINISHED
     document.getElementById('drReceived').addEventListener('submit', function (event) {
-        event.preventDefault();
+        // event.preventDefault();
         const form = event.target;
         const formFields = form.elements;
         const startDate = formFields[1];

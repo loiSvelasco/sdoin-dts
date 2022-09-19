@@ -89,6 +89,16 @@ LALACUTIE;
                 </li>
 LALACUTIE;
                   echo $lala;
+
+                  $lala = <<<LALACUTIE
+                  <li class="nav-item">
+                  <a href="?searchDocs" class="nav-link">
+                    <i class="fas fa-search nav-icon"></i>
+                    <p>Search Documents</p>
+                  </a>
+                </li>
+LALACUTIE;
+                  echo $lala;
                 }
 
               ?>

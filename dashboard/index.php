@@ -61,6 +61,11 @@ else if (isset($_GET['wordle']))
     include("includes/wordlegame.php");
 }
 
+else if (isset($_GET['searchDocs']))
+{
+    include("includes/searchDocs.php");
+}
+
 else if (isset($_GET['viewDocs']))
 {
     if($_SESSION['role'] == 1)
