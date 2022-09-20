@@ -8,8 +8,8 @@ if($_GET['today'] == 'no')
    $end = escape_string($_GET['endDate']);
    $table = 
    "(SELECT * FROM docs_location WHERE 
-    DATE(dl_receiveddate) BETWEEN '{$start}' AND '{$end}' 
-    AND dl_unit = {$_SESSION['unit']} 
+    DATE(dl_releaseddate) BETWEEN '{$start}' AND '{$end}' 
+    AND dl_releasedbyunit = {$_SESSION['unit']} 
     ORDER BY dl_id DESC
    ) temp";
    // Where Clause
@@ -19,8 +19,8 @@ if($_GET['today'] == 'yes')
 {
    $table = 
    "(SELECT * FROM docs_location WHERE 
-    DATE(dl_receiveddate) = '" . currentdate() . "' 
-    AND dl_unit = {$_SESSION['unit']} 
+    DATE(dl_releaseddate) = '" . currentdate() . "' 
+    AND dl_releasedbyunit = {$_SESSION['unit']} 
     ORDER BY dl_id DESC
    ) temp";
    // Where Clause
@@ -61,13 +61,13 @@ $columns = [
      }
     ],
 
-    ['db' => 'dl_receiveddate', 'dt' => 4,
+    ['db' => 'dl_releaseddate', 'dt' => 4,
     'formatter' => function ($d, $row) {
         return format_date($d);
      }
     ],
 
-    ['db' => 'dl_receivedby', 
+    ['db' => 'dl_releasedby', 
      'dt' => 5,
      'formatter' => function ($d, $row) {
         return get_user_name($d);

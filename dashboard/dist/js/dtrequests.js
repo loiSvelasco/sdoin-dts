@@ -94,31 +94,27 @@ $(document).ready(function(){
 
 
     // * START :: dashboard/?received
+    const date = new Date();
+    let day = date.getDate();
+    let month = date.getMonth() + 1;
+    let year = date.getFullYear();
+    // This arrangement can be altered based on how we want the date's format to appear.
+    let currentDate = `${year}-${month}-${day}`;
+    $('#reportsReceived').DataTable().destroy();
+    fetch_received_data('yes', currentDate, currentDate);
+
     document.getElementById('drReceived').addEventListener('submit', function (event) {
         event.preventDefault();
         const form = event.target;
         const formFields = form.elements;
         const startDate = formFields[1];
         const endDate = formFields[2];    
-        // console.log('start:' + startDate.value);
-        // console.log('end:' + endDate.value);
+
 
         if(startDate.value != '' && endDate.value != '')
         {
             $('#reportsReceived').DataTable().destroy();
             fetch_received_data('no', startDate.value, endDate.value);
-        }
-        else
-        {
-            const date = new Date();
-            let day = date.getDate();
-            let month = date.getMonth() + 1;
-            let year = date.getFullYear();
-            // This arrangement can be altered based on how we want the date's format to appear.
-            let currentDate = `${year}-${month}-${day}`;
-            console.log(currentDate); // "17-6-2022"
-            $('#reportsReceived').DataTable().destroy();
-            fetch_received_data('yes', currentDate, currentDate);
         }
     }, false);
 
@@ -129,7 +125,7 @@ $(document).ready(function(){
             serverSide: true,
             ajax: {
                 url: requestsFolder + 'getReportReceived.php',
-                type: 'POST',
+                type: "GET",
                 data: {
                     today: today,
                     startDate: startDate,
@@ -153,5 +149,63 @@ $(document).ready(function(){
     }
     // * END :: dashboard/?received
 
+});
 
+$(document).ready(function() {
+    // * START :: dashboard/?released
+    const date = new Date();
+    let day = date.getDate();
+    let month = date.getMonth() + 1;
+    let year = date.getFullYear();
+    // This arrangement can be altered based on how we want the date's format to appear.
+    let currentDate = `${year}-${month}-${day}`;
+    $('#reportsReleased').DataTable().destroy();
+    fetch_released_data('yes', currentDate, currentDate);
+
+    document.getElementById('drReleased').addEventListener('submit', function (event) {
+        event.preventDefault();
+        const form = event.target;
+        const formFields = form.elements;
+        const startDate = formFields[1];
+        const endDate = formFields[2];    
+        // console.log('start:' + startDate.value);
+        // console.log('end:' + endDate.value);
+
+        if(startDate.value != '' && endDate.value != '')
+        {
+            $('#reportsReleased').DataTable().destroy();
+            fetch_released_data('no', startDate.value, endDate.value);
+        }
+    }, false);
+
+    function fetch_released_data(today, startDate = '', endDate = '') {
+        $('#reportsReleased').DataTable({
+            dom: 'lBfrtip',
+            processing: true,
+            serverSide: true,
+            ajax: {
+                url: requestsFolder + 'getReportReleased.php',
+                type: "GET",
+                data: {
+                    today: today,
+                    startDate: startDate,
+                    endDate: endDate
+                }
+            },
+            buttons: [
+                {extend: 'pdfHtml5', orientation: 'landscape', pageSize: 'A4',},
+                {extend: 'copyHtml5', orientation: 'landscape', pageSize: 'A4',},
+                {extend: 'excelHtml5', orientation: 'landscape', pageSize: 'A4',},
+            ],
+            "lengthMenu": [ [10, 25, 50, -1], [10, 25, 50, "All"] ],
+            "responsive": true,
+            "ordering": true,
+            "order": [[4, 'desc']],
+            "autoWidth": false,
+            "columnDefs": [
+                { "targets": "_all", "className": "align-middle"}
+            ],
+        });
+    }
+    // * END :: dashboard/?released
 });
