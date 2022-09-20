@@ -52,10 +52,9 @@
                 </div>
   
                 <div class="card-body bg-white">
-                  <!-- <input type="text" name="min" id="min"> -->
-                  <!-- <input type="text" name="max" id="max"> -->
                   <!-- <input type="text" class="form-control float-right" id="received_dr" value=""> -->
-                  <table id="reportTable" class="table table-bordered table-sm table-hover table-responsive-xl">
+                  <!-- <table id="reportTable" class="table table-bordered table-sm table-hover table-responsive-xl"> -->
+                  <table id="reportsReceived" class="table table-bordered table-sm table-hover table-responsive-xl">
                     <thead>
                     <tr>
                       <th class="col-2">Tracking #</th>
@@ -67,12 +66,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <?php
-                      isset($_GET['startDate']) ? $start = escape_string($_GET['startDate']) : $start = 0;
-                      isset($_GET['endDate']) ? $end = escape_string($_GET['endDate']) : $end = 0;
-                      isset($_GET['startDate']) && isset($_GET['endDate']) ? $today = false : $today = true;
-                      echo received_details($today, $start, $end); 
-                    ?>
+
                     </tbody>
                   </table>
                 </div>

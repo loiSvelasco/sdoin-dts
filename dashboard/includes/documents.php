@@ -36,8 +36,10 @@
                     <table class="table table-bordered table-striped table-hover" id="receiveTable">
                       <thead>
                       <tr>
-                        <th class="text-center col-1"><form action="actions/multi-receive.php" id="receive" method="post">
-                        <input type="checkbox" id="select-all-rec" data-toggle="tooltip" data-placement="left" title="Select All"></form></th>
+                        <th class="text-center col-1">
+                          <form action="actions/multi-receive.php" id="receive" method="post">
+                          <input type="checkbox" id="select-all-rec" data-toggle="tooltip" data-placement="left" title="Select All"></form>
+                        </th>
                         <th class="text-center col-2">Tracking</th>
                         <th class="text-center col-7">Title</th>
                         <th class="text-center col">Action</th>

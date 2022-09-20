@@ -31,6 +31,27 @@
         <div class="col-12">
           <div class="card">
             <div class="card-header bg-dark">
+              <strong>System updated to <span class="badge badge-warning rounded-0">2.9.7-beta.6</span></strong> <span class="text-muted">Sept. 20, 2022</span>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Changelog:</h5>
+              <p class="card-text">
+                <hr>
+                &#12288;1. Converted 4 tables to server-side processing, 12 more tables to go!<br>
+                &#12288;&#12288;&#12288;&#12288;Specifically, the received and released table on the reports page. Next to work on is the receiving and releasing table when on tabular and scan mode.
+                <br>
+                &#12288;2. Sprayed insecticide to remove bugs, but some may still be hidden. (and will soon multiply too!) 🐛🐜<br>
+              </p>
+              <p class="text-left"><strong>- Louis V.</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row text-monospace">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header bg-light">
               <strong>System updated to <span class="badge badge-warning rounded-0">2.9.6-beta.6</span></strong> <span class="text-muted">Sept. 18, 2022</span>
             </div>
             <div class="card-body">

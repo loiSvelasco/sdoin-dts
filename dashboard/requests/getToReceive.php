@@ -1,76 +1,73 @@
 <?php
 
 require_once("../../config.php");
+/*
+ * DataTables example server-side processing script.
+ *
+ * Please note that this script is intentionally extremely simple to show how
+ * server-side processing can be implemented, and probably shouldn't be used as
+ * the basis for a large complex system. It is suitable for simple use cases as
+ * for learning.
+ *
+ * See http://datatables.net/usage/server-side for full details on the server-
+ * side processing requirements of DataTables.
+ *
+ * @license MIT - http://datatables.net/license_mit
+ */
+ 
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * Easy set variables
+ */
+ 
+// DB table to use
+$table = <<<LALAQT
+    (
+        SELECT * FROM documents 
+        WHERE document_owner = {$_SESSION['user_id']} 
+    ) temp
+LALAQT;
 
-if($_GET['today'] == 'no')
-{
-   $start = escape_string($_GET['startDate']);
-   $end = escape_string($_GET['endDate']);
-   $table = 
-   "(SELECT * FROM docs_location WHERE 
-    DATE(dl_receiveddate) BETWEEN '{$start}' AND '{$end}' 
-    AND dl_unit = {$_SESSION['unit']} 
-    ORDER BY dl_id DESC
-   ) temp";
-   // Where Clause
-   $whereAll = "";
-}
-if($_GET['today'] == 'yes')
-{
-   $table = 
-   "(SELECT * FROM docs_location WHERE 
-    DATE(dl_receiveddate) = '" . currentdate() . "' 
-    AND dl_unit = {$_SESSION['unit']} 
-    ORDER BY dl_id DESC
-   ) temp";
-   // Where Clause
-   $whereAll = "";
-}
+// Where Clause
+$whereAll = "";
+
 
 // Table's primary key
-$primaryKey = 'dl_id';
+$primaryKey = 'id';
  
 // Array of database columns which should be read and sent back to DataTables.
 // The `db` parameter represents the column name in the database, while the `dt`
 // parameter represents the DataTables column identifier. In this case simple
 // indexes
 $columns = [
-    ['db' => 'dl_tracking', 'dt' => 0,
+    ['db' => 'document_tracking', 'dt' => 0,
      'formatter' => function ($d, $row) {
         return '
         <a href="?tracking='.$d.'" target="_blank" data-toggle="tooltip" data-placement="top" title="Track"><i class="fa fa-search"></i></a>&nbsp;&nbsp;
         <a href="?print='.$d.'" target="_blank" data-toggle="tooltip" data-placement="top" title="Print Tracking no."><i class="fa fa-print"></i></a>&nbsp;&nbsp;
+        <a href="?modifyMyDoc='.$d.'" target="_blank" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a>&nbsp;&nbsp;
         ' . $d;
      }
     ],
 
-    ['db' => 'dl_tracking', 'dt' => 1,
+    ['db' => 'document_title', 'dt' => 1],
+    ['db' => 'document_purpose', 'dt' => 2],
+
+    ['db' => 'document_type', 'dt' => 3, 
      'formatter' => function ($d, $row) {
-        return get_document_detail($d, 'document_title');
-     }
-    ],
-    ['db' => 'dl_tracking', 'dt' => 2,
-     'formatter' => function ($d, $row) {
-        return get_document_detail($d, 'document_purpose');
+        return get_doctype_name($d);
      }
     ],
 
-    ['db' => 'dl_tracking', 'dt' => 3, 
-     'formatter' => function ($d, $row) {
-        return get_doctype_name(get_document_detail($d, 'document_type'));
-     }
-    ],
-
-    ['db' => 'dl_receiveddate', 'dt' => 4,
-    'formatter' => function ($d, $row) {
+    ['db' => 'date_created', 'dt' => 4,
+     'formatter' => function ($d, $row ) {
         return format_date($d);
      }
     ],
 
-    ['db' => 'dl_receivedby', 
+    ['db' => 'document_tracking', 
      'dt' => 5,
      'formatter' => function ($d, $row) {
-        return get_user_name($d);
+        return get_doc_current_location($d);
      }
     ]
 ];
