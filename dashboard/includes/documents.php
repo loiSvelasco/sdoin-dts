@@ -64,19 +64,20 @@
                 </div>
                 <div class="card-body bg-white">
                   <div class="table-responsive-sm">
+                  <form action="actions/multi-release.php?refer=<?php echo $_SERVER['REQUEST_URI']; ?>" id="release" method="post" onsubmit="relDocMultiBtn.hidden = true; document.getElementById('relDocMultiBtn2').style.display = '';"></form>
                       <table id="releaseTable" class="table table-striped table-bordered table-hover">
                         <thead>
                         <tr>
                           <th class="text-center col-1">
-                            <form action="actions/multi-release.php?refer=<?php echo $_SERVER['REQUEST_URI']; ?>" id="release" method="post" onsubmit="relDocMultiBtn.hidden = true; document.getElementById('relDocMultiBtn2').style.display = '';">
-                              <input type="checkbox" id="select-all-rel" data-toggle="tooltip" data-placement="left" title="Select All"></form></th>
+                            <input type="checkbox" id="select-all-rel" data-toggle="tooltip" data-placement="left" title="Select All">
+                          </th>
                           <th class="text-center col-2">Tracking</th>
                           <th class="text-center col-7">Title</th>
                           <th class="text-center col">Action</th>
                         </tr>
                         </thead>
                         <tbody>
-                            <?php echo get_to_release(); ?>
+                            <!-- <?php //echo get_to_release(); ?> -->
                         </tbody>
                       </table>
                   </div>

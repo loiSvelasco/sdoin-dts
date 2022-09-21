@@ -286,3 +286,48 @@ $(document).ready(function (){
       });
     // * END :: dashboard/?documents :: receiving table
 });
+
+
+$(document).ready(function (){
+    // * START :: dashboard/?documents :: release table
+    var releaseTable = $('#releaseTable').DataTable({
+        processing: true,
+        language: {
+            processing: '<div class="spinner-border text-info" role="status"><span class="sr-only"></span></div>'
+        },
+        serverSide: true,
+        ajax: requestsFolder + 'getToRelease.php',
+        "lengthMenu": [ [10, 25, 50, -1], [10, 25, 50, "All"] ],
+        "searching": true,
+        "ordering": false,
+        "info": true,
+        "autoWidth": false,
+        "columnDefs": [
+            { "targets": [0,1,3], "className": "align-middle text-center"},
+            { "targets": "_all", "className": "align-middle"},
+            { "targets": 0, "checkboxes": { "selectRow": true } }
+        ],
+        "select": { "style": "multi" },
+        "responsive": true,
+        "drawCallback": function( settings ) {
+            $('[data-toggle="tooltip"]').tooltip();
+            $('[data-toggle="popover"]').popover();
+        },
+      });
+    
+    
+      $(document).on('submit','#release', function(e){
+        var form = this;
+
+        var rows_selected = receiveTable.column(0).checkboxes.selected();
+        $.each(rows_selected, function(index, rowId){
+            $(form).append(
+                $('<input>')
+                   .attr('type', 'text')
+                   .attr('name', 'rel-check[]')
+                   .val(rowId)
+            );
+         });
+      });
+    // * END :: dashboard/?documents :: release table
+});

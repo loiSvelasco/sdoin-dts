@@ -29,13 +29,13 @@ $table = <<<LALAQT
         documents.document_title,
         docs_location.dl_tracking,
         docs_location.dl_receivedby,
-        docs_location.dl_releaseddate
+        docs_location.dl_receiveddate
     FROM documents
         JOIN docs_location ON documents.document_tracking = docs_location.dl_tracking
     WHERE docs_location.dl_unit = {$_SESSION['unit']} 
-    AND docs_location.dl_receivedby = 0
+    AND docs_location.dl_receivedby != 0
     AND documents.document_accomplished = 0
-    ORDER BY docs_location.dl_releaseddate ASC
+    ORDER BY docs_location.dl_receiveddate DESC
     ) temp
 LALAQT;
 
@@ -71,7 +71,7 @@ $columns = [
             class="btn btn-link btn-sm text-left rounded-0 popover-dismiss" 
                 role="button" data-toggle="popover" 
                 data-html="true" 
-                data-trigger="focus" title="Document Details"
+                data-trigger="focus" title="Document Details"l
             data-content="
                 Type: '.get_doctype_name(get_document_detail($d, 'document_type')).'
                 <br>Origin: '.get_unit_name(get_document_detail($d, 'document_origin')).'
@@ -87,7 +87,15 @@ $columns = [
     ['db' => 'document_tracking', 'dt' => 3, 
      'formatter' => function ($d, $row) {
         return '
-        <a href="?manipulate=receive&tracking='.$d.'&refer=/dashboard/?documents" class="btn btn-sm btn-warning" data-toggle="tooltip" data-placement="left" title="Receive"><i class="fa fa-file-import"></i></a>
+        <span data-toggle="tooltip" data-placement="left" title="Release"><button data-toggle="modal" data-target="#modal-release-doc" class="btn btn-sm btn-info release_doc mb-1"><i class="fa fa-file-export white"></i></button></span>
+        <span data-toggle="tooltip" data-placement="right" title="Mark as accomplished">
+            <a href="#" class="btn btn-sm btn-success mb-1"
+            data-tracking='.$d.'
+            data-refer='.$_SERVER['REQUEST_URI'].'
+            data-manipulate="accomplish"
+            data-toggle="modal" 
+            data-target="#complete-doc"><i class="fa fa-check"></i></a>
+        </span>
         ';
      }]
 ];
