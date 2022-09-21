@@ -319,7 +319,7 @@ $(document).ready(function (){
       $(document).on('submit','#release', function(e){
         var form = this;
 
-        var rows_selected = receiveTable.column(0).checkboxes.selected();
+        var rows_selected = releaseTable.column(0).checkboxes.selected();
         $.each(rows_selected, function(index, rowId){
             $(form).append(
                 $('<input>')

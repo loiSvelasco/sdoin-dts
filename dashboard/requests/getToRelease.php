@@ -34,6 +34,7 @@ $table = <<<LALAQT
         JOIN docs_location ON documents.document_tracking = docs_location.dl_tracking
     WHERE docs_location.dl_unit = {$_SESSION['unit']} 
     AND docs_location.dl_receivedby != 0
+    AND docs_location.dl_forwarded = 0
     AND documents.document_accomplished = 0
     ORDER BY docs_location.dl_receiveddate DESC
     ) temp

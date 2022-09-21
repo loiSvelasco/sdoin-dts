@@ -59,12 +59,12 @@
               <div class="card rounded-0">
                 <div class="card-header border-info bg-white">
                   <h3 class="card-title">
+                  <form action="actions/multi-release.php?refer=<?php echo $_SERVER['REQUEST_URI']; ?>" id="release" method="post" onsubmit="relDocMultiBtn.hidden = true; document.getElementById('relDocMultiBtn2').style.display = '';"></form>
                   <button type="button" class="btn btn-sm btn-flat btn-info" data-toggle="modal" data-target="#modal-release-multi-doc" form="release" name="rel-selected">Release Selected</button>
                   &nbsp;&nbsp;&nbsp;Documents to Release</h3>
                 </div>
                 <div class="card-body bg-white">
                   <div class="table-responsive-sm">
-                  <form action="actions/multi-release.php?refer=<?php echo $_SERVER['REQUEST_URI']; ?>" id="release" method="post" onsubmit="relDocMultiBtn.hidden = true; document.getElementById('relDocMultiBtn2').style.display = '';"></form>
                       <table id="releaseTable" class="table table-striped table-bordered table-hover">
                         <thead>
                         <tr>
