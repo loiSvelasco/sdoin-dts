@@ -22,8 +22,20 @@ require_once("../../config.php");
 // DB table to use
 $table = <<<LALAQT
     (
-        SELECT * FROM documents 
-        WHERE document_owner = {$_SESSION['user_id']} 
+    SELECT 
+        documents.id,
+        documents.document_tracking,
+        documents.document_accomplished,
+        documents.document_title,
+        docs_location.dl_tracking,
+        docs_location.dl_receivedby,
+        docs_location.dl_releaseddate
+    FROM documents
+        JOIN docs_location ON documents.document_tracking = docs_location.dl_tracking
+    WHERE docs_location.dl_unit = 122 
+    AND docs_location.dl_receivedby = 0
+    AND documents.document_accomplished = 0
+    ORDER BY docs_location.dl_releaseddate ASC
     ) temp
 LALAQT;
 
@@ -39,37 +51,45 @@ $primaryKey = 'id';
 // parameter represents the DataTables column identifier. In this case simple
 // indexes
 $columns = [
-    ['db' => 'document_tracking', 'dt' => 0,
+    // ['db' => 'document_tracking', 'dt' => 0,
+    //  'formatter' => function ($d, $row) {
+    //     return '<input style="transform: scale(1)" type="checkbox" name="rec-check[]" value="'.$d.'" class="receiveBox" form="receive">';
+    //  }
+    // ],
+    ['db' => 'document_tracking', 'dt' => 0],
+
+    ['db' => 'document_tracking', 'dt' => 1,
+     'formatter' => function ($d, $row) {
+       return '<a href="?tracking='.$d.'" target="_blank" class="btn-link text-small" data-toggle="tooltip" data-placement="top" title="View Track">
+       '.$d.'</a>';
+     }],
+
+    ['db' => 'document_tracking', 'dt' => 2,
+     'formatter' => function($d, $row) {
+        return '
+            <a tabindex="0" 
+            class="btn btn-link btn-sm text-left rounded-0 popover-dismiss" 
+                role="button" data-toggle="popover" 
+                data-html="true" 
+                data-trigger="focus" title="Document Details"
+            data-content="
+                Type: '.get_doctype_name(get_document_detail($d, 'document_type')).'
+                <br>Origin: '.get_unit_name(get_document_detail($d, 'document_origin')).'
+                <br>Owner: '.get_user_name(get_document_detail($d, 'document_owner')).'
+                <br>Purpose: '.get_document_detail($d, 'document_purpose').'
+                <br>Description: '.get_document_detail($d, 'document_desc').'
+                <hr>Date Created:<br>'.format_date(get_document_detail($d, 'date_created')).'">
+                '.get_document_detail($d, 'document_title').'
+                <strong class="small text-muted"> | '.get_doctype_name(get_document_detail($d, 'document_type')).'</strong></a>
+        ';
+     }],
+
+    ['db' => 'document_tracking', 'dt' => 3, 
      'formatter' => function ($d, $row) {
         return '
-        <a href="?tracking='.$d.'" target="_blank" data-toggle="tooltip" data-placement="top" title="Track"><i class="fa fa-search"></i></a>&nbsp;&nbsp;
-        <a href="?print='.$d.'" target="_blank" data-toggle="tooltip" data-placement="top" title="Print Tracking no."><i class="fa fa-print"></i></a>&nbsp;&nbsp;
-        <a href="?modifyMyDoc='.$d.'" target="_blank" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a>&nbsp;&nbsp;
-        ' . $d;
-     }
-    ],
-
-    ['db' => 'document_title', 'dt' => 1],
-    ['db' => 'document_purpose', 'dt' => 2],
-
-    ['db' => 'document_type', 'dt' => 3, 
-     'formatter' => function ($d, $row) {
-        return get_doctype_name($d);
-     }
-    ],
-
-    ['db' => 'date_created', 'dt' => 4,
-     'formatter' => function ($d, $row ) {
-        return format_date($d);
-     }
-    ],
-
-    ['db' => 'document_tracking', 
-     'dt' => 5,
-     'formatter' => function ($d, $row) {
-        return get_doc_current_location($d);
-     }
-    ]
+        <a href="?manipulate=receive&tracking='.$d.'&refer=/dashboard/?documents" class="btn btn-sm btn-warning" data-toggle="tooltip" data-placement="left" title="Receive"><i class="fa fa-file-import"></i></a>
+        ';
+     }]
 ];
  
 // SQL server connection information

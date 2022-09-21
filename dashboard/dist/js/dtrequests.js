@@ -6,6 +6,9 @@ $(document).ready(function(){
     $('#adminUserTable').DataTable({
         dom: 'lBfrtip',
         processing: true,
+        language: {
+            processing: '<div class="spinner-border text-success" role="status"><span class="sr-only"></span></div>'
+        },
         serverSide: true,
         ajax: requestsFolder + 'getUsers.php',
         buttons: [
@@ -23,6 +26,10 @@ $(document).ready(function(){
             { "targets": [1,5,7,8], "className": "d-none" },
             { "targets": "_all", "className": "align-middle"}
         ],
+        "drawCallback": function( settings ) {
+            $('[data-toggle="tooltip"]').tooltip();
+            $('[data-toggle="popover"]').popover();
+        },
     });
 
     $('#adminUserTable').on('click','.modifyUser', function() {
@@ -66,6 +73,10 @@ $(document).ready(function(){
         "columnDefs": [
             { "targets": "_all", "className": "align-middle"}
         ],
+        "drawCallback": function( settings ) {
+            $('[data-toggle="tooltip"]').tooltip();
+            $('[data-toggle="popover"]').popover();
+        },
     });
     // * END :: dashboard/?myDocs
 
@@ -74,6 +85,9 @@ $(document).ready(function(){
     $('#searchDocs').DataTable({
         dom: 'lBfrtip',
         processing: true,
+        language: {
+            processing: '<div class="spinner-border text-success" role="status"><span class="sr-only"></span></div>'
+        },
         serverSide: true,
         ajax: requestsFolder + 'getSearchDocs.php',
         buttons: [
@@ -89,6 +103,10 @@ $(document).ready(function(){
         "columnDefs": [
             { "targets": "_all", "className": "align-middle"}
         ],
+        "drawCallback": function( settings ) {
+            $('[data-toggle="tooltip"]').tooltip();
+            $('[data-toggle="popover"]').popover();
+        },
     });
     // * END :: dashboard/?searchDocs
 
@@ -122,6 +140,9 @@ $(document).ready(function(){
         $('#reportsReceived').DataTable({
             dom: 'lBfrtip',
             processing: true,
+            language: {
+                processing: '<div class="spinner-border text-warning" role="status"><span class="sr-only"></span></div>'
+            },
             serverSide: true,
             ajax: {
                 url: requestsFolder + 'getReportReceived.php',
@@ -145,6 +166,10 @@ $(document).ready(function(){
             "columnDefs": [
                 { "targets": "_all", "className": "align-middle"}
             ],
+            "drawCallback": function( settings ) {
+                $('[data-toggle="tooltip"]').tooltip();
+                $('[data-toggle="popover"]').popover();
+            },
         });
     }
     // * END :: dashboard/?received
@@ -182,6 +207,9 @@ $(document).ready(function() {
         $('#reportsReleased').DataTable({
             dom: 'lBfrtip',
             processing: true,
+            language: {
+                processing: '<div class="spinner-border text-info" role="status"><span class="sr-only"></span></div>'
+            },
             serverSide: true,
             ajax: {
                 url: requestsFolder + 'getReportReleased.php',
@@ -205,7 +233,56 @@ $(document).ready(function() {
             "columnDefs": [
                 { "targets": "_all", "className": "align-middle"}
             ],
+            "drawCallback": function( settings ) {
+                $('[data-toggle="tooltip"]').tooltip();
+                $('[data-toggle="popover"]').popover();
+            },
         });
     }
     // * END :: dashboard/?released
+});
+
+
+$(document).ready(function (){
+    // * START :: dashboard/?documents :: receiving table
+    var receiveTable = $('#receiveTable').DataTable({
+        processing: true,
+        language: {
+            processing: '<div class="spinner-border text-warning" role="status"><span class="sr-only"></span></div>'
+        },
+        serverSide: true,
+        ajax: requestsFolder + 'getToReceive.php',
+        "lengthMenu": [ [10, 25, 50, -1], [10, 25, 50, "All"] ],
+        "searching": true,
+        "ordering": false,
+        "info": true,
+        "autoWidth": false,
+        "columnDefs": [
+            { "targets": [0,1,3], "className": "align-middle text-center"},
+            { "targets": "_all", "className": "align-middle"},
+            { "targets": 0, "checkboxes": { "selectRow": true } }
+        ],
+        "select": { "style": "multi" },
+        "responsive": true,
+        "drawCallback": function( settings ) {
+            $('[data-toggle="tooltip"]').tooltip();
+            $('[data-toggle="popover"]').popover();
+        },
+      });
+    
+    
+      $(document).on('submit','#receive', function(e){
+        var form = this;
+
+        var rows_selected = receiveTable.column(0).checkboxes.selected();
+        $.each(rows_selected, function(index, rowId){
+            $(form).append(
+                $('<input>')
+                   .attr('type', 'hidden')
+                   .attr('name', 'rec-check[]')
+                   .val(rowId)
+            );
+         });
+      });
+    // * END :: dashboard/?documents :: receiving table
 });

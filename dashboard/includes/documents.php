@@ -33,22 +33,23 @@
                 </div>
                 <div class="card-body bg-white">
                   <div class="table-responsive-sm">
-                    <table class="table table-bordered table-striped table-hover" id="receiveTable">
-                      <thead>
-                      <tr>
-                        <th class="text-center col-1">
-                          <form action="actions/multi-receive.php" id="receive" method="post">
-                          <input type="checkbox" id="select-all-rec" data-toggle="tooltip" data-placement="left" title="Select All"></form>
-                        </th>
-                        <th class="text-center col-2">Tracking</th>
-                        <th class="text-center col-7">Title</th>
-                        <th class="text-center col">Action</th>
-                      </tr>
-                      </thead>
-                      <tbody>
-                        <?php echo get_to_receive(); ?>
-                      </tbody>
-                    </table>
+                    <form action="actions/multi-receive.php" id="receive" method="post">
+                      <table class="table table-bordered table-striped table-hover" id="receiveTable">
+                        <thead>
+                        <tr>
+                          <th class="text-center col-1">
+                            <input type="checkbox" id="select-all-rec" data-toggle="tooltip" data-placement="left" title="Select All">
+                          </th>
+                          <th class="text-center col-2">Tracking</th>
+                          <th class="text-center col-7">Title</th>
+                          <th class="text-center col">Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                          <!-- <?php //echo get_to_receive(); ?> -->
+                        </tbody>
+                      </table>
+                    </form>
                   </div>
                 </div>
               </div>
