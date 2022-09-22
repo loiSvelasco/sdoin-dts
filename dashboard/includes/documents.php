@@ -28,7 +28,9 @@
               <div class="card rounded-0">
                 <div class="card-header border-warning bg-white">
                   <h3 class="card-title">
-                  <button type="submit" form="receive" class="btn btn-warning btn-sm btn-flat" name="rec-selected">Receive Selected</button>
+                  <button type="submit" form="receive" class="btn btn-warning btn-flat" name="rec-selected">
+                  <i class="fa fa-file-import"></i>&nbsp;&nbsp;&nbsp;  
+                  Receive Selected</button>
                   &nbsp;&nbsp;&nbsp;Documents to Receive</h3>
                 </div>
                 <div class="card-body bg-white">
@@ -61,7 +63,9 @@
                 <div class="card-header border-info bg-white">
                   <h3 class="card-title">
                   <form action="actions/multi-release.php?refer=<?php echo $_SERVER['REQUEST_URI']; ?>" id="release" method="post" onsubmit="relDocMultiBtn.hidden = true; document.getElementById('relDocMultiBtn2').style.display = '';"></form>
-                  <button type="button" class="btn btn-sm btn-flat btn-info" data-toggle="modal" data-target="#modal-release-multi-doc" form="release" name="rel-selected">Release Selected</button>
+                  <button type="button" class="btn btn-flat btn-info" data-toggle="modal" data-target="#modal-release-multi-doc" form="release" name="rel-selected">
+                  <i class="fa fa-file-export"></i>&nbsp;&nbsp;&nbsp;
+                  Release Selected</button>
                   &nbsp;&nbsp;&nbsp;Documents to Release</h3>
                 </div>
                 <div class="card-body bg-white">

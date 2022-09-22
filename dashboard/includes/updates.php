@@ -27,10 +27,29 @@
 
     <section class="content">
 
-      <div class="row text-monospace">
+    <div class="row text-monospace">
         <div class="col-12">
           <div class="card">
             <div class="card-header bg-dark">
+              <strong>System updated to <span class="badge badge-warning rounded-0">2.9.8-beta.6</span></strong> <span class="text-muted">Sept. 20, 2022</span>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Changelog:</h5>
+              <p class="card-text">
+                <hr>
+                &#12288;1. Converted 2 tables to server-side processing, 10 more tables to go!<br>
+                &#12288;2. The end of the world is imminent.<br>
+              </p>
+              <p class="text-left"><strong>- Louis V.</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row text-monospace">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header bg-light">
               <strong>System updated to <span class="badge badge-warning rounded-0">2.9.7-beta.6</span></strong> <span class="text-muted">Sept. 20, 2022</span>
             </div>
             <div class="card-body">

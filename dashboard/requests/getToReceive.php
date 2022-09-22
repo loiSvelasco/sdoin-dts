@@ -68,11 +68,17 @@ $columns = [
 
     ['db' => 'dl_for', 'dt' => 2,
      'formatter' => function($d, $row) {
+        global $receivable;
         return $receivable = ($d == $_SESSION['user_id'] ? "yes" : ($d == 0 ? "possible" : "no"));
      }],
 
     ['db' => 'document_tracking', 'dt' => 3,
      'formatter' => function($d, $row) {
+        global $receivable;
+        $dot = '';
+        if($receivable == "yes") {
+            $dot = '<small><span class="badge badge-pill badge-danger">&ensp;</span></small>&nbsp;';
+        }
         return '
             <a tabindex="0" 
             class="btn btn-link btn-sm text-left rounded-0 popover-dismiss" 
@@ -86,7 +92,7 @@ $columns = [
                 <br>Purpose: '.get_document_detail($d, 'document_purpose').'
                 <br>Description: '.get_document_detail($d, 'document_desc').'
                 <hr>Date Created:<br>'.format_date(get_document_detail($d, 'date_created')).'">
-                '.get_document_detail($d, 'document_title').'
+                '. $dot . " " . get_document_detail($d, 'document_title').'
                 <strong class="small text-muted"> | '.get_doctype_name(get_document_detail($d, 'document_type')).'</strong></a>
         ';
      }],

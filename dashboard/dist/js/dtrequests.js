@@ -258,7 +258,7 @@ $(document).ready(function (){
         "info": true,
         "autoWidth": false,
         "columnDefs": [
-            { "targets": [2], "className": "d-none" },
+            { "targets": 2, "className": "d-none" },
             { "targets": [0,1,4], "className": "align-middle text-center"},
             { "targets": "_all", "className": "align-middle"},
             { "targets": 0, "checkboxes": { "selectRow": true } }
@@ -269,13 +269,15 @@ $(document).ready(function (){
             $('[data-toggle="tooltip"]').tooltip();
             $('[data-toggle="popover"]').popover();
         },
-        rowCallback: function( row, data, index ) {
-            if (data[2] == "no") {
-                $(row).hide();
+        "rowCallback": function( row, data, index ) {
+            if (data[2] === "no") {
+                // $(row).hide();
+                $(row).addClass('remove');
             }
         },
       });
-    
+
+      receiveTable.rows('.remove').remove().draw();
     
       $(document).on('submit','#receive', function(e){
         var form = this;
