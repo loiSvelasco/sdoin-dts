@@ -29,7 +29,9 @@ $table = <<<LALAQT
         documents.document_title,
         docs_location.dl_tracking,
         docs_location.dl_receivedby,
-        docs_location.dl_receiveddate
+        docs_location.dl_receiveddate,
+        docs_location.dl_for,
+        docs_location.dl_id
     FROM documents
         JOIN docs_location ON documents.document_tracking = docs_location.dl_tracking
     WHERE docs_location.dl_unit = {$_SESSION['unit']} 
@@ -65,7 +67,12 @@ $columns = [
        '.$d.'</a>';
      }],
 
-    ['db' => 'document_tracking', 'dt' => 2,
+    ['db' => 'dl_for', 'dt' => 2,
+     'formatter' => function($d, $row) {
+        return $receivable = ($d == $_SESSION['user_id'] ? "yes" : ($d == 0 ? "possible" : "no"));
+     }],
+
+    ['db' => 'document_tracking', 'dt' => 3,
      'formatter' => function($d, $row) {
         return '
             <a tabindex="0" 
@@ -85,7 +92,7 @@ $columns = [
         ';
      }],
 
-    ['db' => 'document_tracking', 'dt' => 3, 
+    ['db' => 'document_tracking', 'dt' => 4, 
      'formatter' => function ($d, $row) {
         return '
         <span data-toggle="tooltip" data-placement="left" title="Release"><button data-toggle="modal" data-target="#modal-release-doc" class="btn btn-sm btn-info release_doc mb-1"><i class="fa fa-file-export white"></i></button></span>

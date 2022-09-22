@@ -258,7 +258,8 @@ $(document).ready(function (){
         "info": true,
         "autoWidth": false,
         "columnDefs": [
-            { "targets": [0,1,3], "className": "align-middle text-center"},
+            { "targets": [2], "className": "d-none" },
+            { "targets": [0,1,4], "className": "align-middle text-center"},
             { "targets": "_all", "className": "align-middle"},
             { "targets": 0, "checkboxes": { "selectRow": true } }
         ],
@@ -267,6 +268,11 @@ $(document).ready(function (){
         "drawCallback": function( settings ) {
             $('[data-toggle="tooltip"]').tooltip();
             $('[data-toggle="popover"]').popover();
+        },
+        rowCallback: function( row, data, index ) {
+            if (data[2] == "no") {
+                $(row).hide();
+            }
         },
       });
     
@@ -303,7 +309,8 @@ $(document).ready(function (){
         "info": true,
         "autoWidth": false,
         "columnDefs": [
-            { "targets": [0,1,3], "className": "align-middle text-center"},
+            { "targets": [2], "className": "d-none" },
+            { "targets": [0,1,4], "className": "align-middle text-center"},
             { "targets": "_all", "className": "align-middle"},
             { "targets": 0, "checkboxes": { "selectRow": true } }
         ],
@@ -312,6 +319,11 @@ $(document).ready(function (){
         "drawCallback": function( settings ) {
             $('[data-toggle="tooltip"]').tooltip();
             $('[data-toggle="popover"]').popover();
+        },
+        rowCallback: function( row, data, index ) {
+            if (data[2] == "no") {
+                $(row).hide();
+            }
         },
       });
     
