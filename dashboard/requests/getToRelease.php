@@ -19,7 +19,7 @@ require_once("../../config.php");
  * Easy set variables
  */
 // DB table to use
-$table = <<<LALAQT
+$table = <<<ELLAQT
     (
     SELECT 
         documents.id,
@@ -41,7 +41,7 @@ $table = <<<LALAQT
     AND documents.document_accomplished = 0
     ORDER BY docs_location.dl_receiveddate DESC
     ) temp
-LALAQT;
+ELLAQT;
 
 // Where Clause
 $whereAll = "";
