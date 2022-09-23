@@ -18,6 +18,7 @@
   <link rel="stylesheet" href="dashboard/plugins/dataflex/jquery.flexdatalist.min.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <link href="css/custom.css?hash=<?= hash_file('md5', 'css/custom.css') ?>" rel="stylesheet"/>
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">
