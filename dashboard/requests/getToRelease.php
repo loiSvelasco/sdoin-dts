@@ -18,11 +18,6 @@ require_once("../../config.php");
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  * Easy set variables
  */
-
- function notifyStaff() {
-
- }
-
 // DB table to use
 $table = <<<LALAQT
     (
@@ -41,6 +36,8 @@ $table = <<<LALAQT
     WHERE docs_location.dl_unit = {$_SESSION['unit']} 
     AND docs_location.dl_receivedby != 0
     AND docs_location.dl_forwarded = 0
+    AND docs_location.dl_for = 0
+    OR docs_location.dl_for = {$_SESSION['user_id']} 
     AND documents.document_accomplished = 0
     ORDER BY docs_location.dl_receiveddate DESC
     ) temp
@@ -108,7 +105,7 @@ $columns = [
         <span data-toggle="tooltip" data-placement="right" title="Mark as accomplished">
             <a href="#" class="btn btn-sm btn-success mb-1"
             data-tracking='.$d.'
-            data-refer='.$_SERVER['REQUEST_URI'].'
+            data-refer="/dashboard/?documents"
             data-manipulate="accomplish"
             data-toggle="modal" 
             data-target="#complete-doc"><i class="fa fa-check"></i></a>

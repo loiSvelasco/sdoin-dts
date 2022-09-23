@@ -43,7 +43,7 @@
                             <input type="checkbox" id="select-all-rec" data-toggle="tooltip" data-placement="left" title="Select All">
                           </th>
                           <th class="text-center col-2">Tracking</th>
-                          <th class="text-center col-2">for</th>
+                          <th class="text-center">for</th>
                           <th class="text-center col-7">Title</th>
                           <th class="text-center col">Action</th>
                         </tr>

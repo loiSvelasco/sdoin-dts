@@ -16,7 +16,7 @@ $(document).ready(function(){
             {extend: 'copyHtml5', orientation: 'landscape', pageSize: 'A4',},
             {extend: 'excelHtml5', orientation: 'landscape', pageSize: 'A4',},
         ],
-        "lengthMenu": [ [10, 25, 50, -1], [10, 25, 50, "All"] ],
+        "lengthMenu": [ [15, 35, 50, -1], [15, 35, 50, "All"] ],
         "responsive": true,
         "ordering": true,
         "order": [[0, 'asc']],
@@ -65,7 +65,7 @@ $(document).ready(function(){
             {extend: 'copyHtml5', orientation: 'landscape', pageSize: 'A4',},
             {extend: 'excelHtml5', orientation: 'landscape', pageSize: 'A4',},
         ],
-        "lengthMenu": [ [10, 25, 50, -1], [10, 25, 50, "All"] ],
+        "lengthMenu": [ [15, 35, 50, -1], [15, 35, 50, "All"] ],
         "responsive": true,
         "ordering": true,
         "order": [[4, 'desc']],
@@ -95,7 +95,7 @@ $(document).ready(function(){
             {extend: 'copyHtml5', orientation: 'landscape', pageSize: 'A4',},
             {extend: 'excelHtml5', orientation: 'landscape', pageSize: 'A4',},
         ],
-        "lengthMenu": [ [10, 25, 50, -1], [10, 25, 50, "All"] ],
+        "lengthMenu": [ [15, 35, 50, -1], [15, 35, 50, "All"] ],
         "responsive": true,
         "ordering": true,
         "order": [[4, 'desc']],
@@ -158,7 +158,7 @@ $(document).ready(function(){
                 {extend: 'copyHtml5', orientation: 'landscape', pageSize: 'A4',},
                 {extend: 'excelHtml5', orientation: 'landscape', pageSize: 'A4',},
             ],
-            "lengthMenu": [ [10, 25, 50, -1], [10, 25, 50, "All"] ],
+            "lengthMenu": [ [15, 35, 50, -1], [15, 35, 50, "All"] ],
             "responsive": true,
             "ordering": true,
             "order": [[4, 'desc']],
@@ -225,7 +225,7 @@ $(document).ready(function() {
                 {extend: 'copyHtml5', orientation: 'landscape', pageSize: 'A4',},
                 {extend: 'excelHtml5', orientation: 'landscape', pageSize: 'A4',},
             ],
-            "lengthMenu": [ [10, 25, 50, -1], [10, 25, 50, "All"] ],
+            "lengthMenu": [ [15, 35, 50, -1], [15, 35, 50, "All"] ],
             "responsive": true,
             "ordering": true,
             "order": [[4, 'desc']],
@@ -246,13 +246,13 @@ $(document).ready(function() {
 $(document).ready(function (){
     // * START :: dashboard/?documents :: receiving table
     var receiveTable = $('#receiveTable').DataTable({
-        processing: true,
-        language: {
-            processing: '<div class="spinner-border text-warning" role="status"><span class="sr-only"></span></div>'
+        "processing": true,
+        "language": {
+            "processing": '<div class="spinner-border text-warning" role="status"><span class="sr-only"></span></div>'
         },
-        serverSide: true,
-        ajax: requestsFolder + 'getToReceive.php',
-        "lengthMenu": [ [10, 25, 50, -1], [10, 25, 50, "All"] ],
+        "serverSide": true,
+        "ajax": requestsFolder + 'getToReceive.php',
+        "lengthMenu": [ [15, 35, 50, -1], [15, 35, 50, "All"] ],
         "searching": true,
         "ordering": false,
         "info": true,
@@ -269,15 +269,8 @@ $(document).ready(function (){
             $('[data-toggle="tooltip"]').tooltip();
             $('[data-toggle="popover"]').popover();
         },
-        "rowCallback": function( row, data, index ) {
-            if (data[2] === "no") {
-                // $(row).hide();
-                $(row).addClass('remove');
-            }
-        },
       });
 
-      receiveTable.rows('.remove').remove().draw();
     
       $(document).on('submit','#receive', function(e){
         var form = this;
@@ -305,7 +298,7 @@ $(document).ready(function (){
         },
         serverSide: true,
         ajax: requestsFolder + 'getToRelease.php',
-        "lengthMenu": [ [10, 25, 50, -1], [10, 25, 50, "All"] ],
+        "lengthMenu": [ [15, 35, 50, -1], [15, 35, 50, "All"] ],
         "searching": true,
         "ordering": false,
         "info": true,
@@ -322,11 +315,6 @@ $(document).ready(function (){
             $('[data-toggle="tooltip"]').tooltip();
             $('[data-toggle="popover"]').popover();
         },
-        rowCallback: function( row, data, index ) {
-            if (data[2] == "no") {
-                $(row).hide();
-            }
-        },
       });
     
     
@@ -337,7 +325,7 @@ $(document).ready(function (){
         $.each(rows_selected, function(index, rowId){
             $(form).append(
                 $('<input>')
-                   .attr('type', 'text')
+                   .attr('type', 'hidden')
                    .attr('name', 'rel-check[]')
                    .val(rowId)
             );

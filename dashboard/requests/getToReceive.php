@@ -18,24 +18,24 @@ require_once("../../config.php");
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  * Easy set variables
  */
- 
 // DB table to use
 $table = <<<LALAQT
     (
-    SELECT 
+    SELECT
         documents.id,
         documents.document_tracking,
         documents.document_accomplished,
         documents.document_title,
         docs_location.dl_tracking,
         docs_location.dl_receivedby,
-        docs_location.dl_releaseddate,
         docs_location.dl_for,
-        docs_location.dl_id
+        docs_location.dl_releaseddate
     FROM documents
         JOIN docs_location ON documents.document_tracking = docs_location.dl_tracking
-    WHERE docs_location.dl_unit = {$_SESSION['unit']} 
+    WHERE docs_location.dl_unit = {$_SESSION['unit']}
     AND docs_location.dl_receivedby = 0
+    AND docs_location.dl_for = 0
+    OR docs_location.dl_for = {$_SESSION['user_id']}
     AND documents.document_accomplished = 0
     ORDER BY docs_location.dl_releaseddate ASC
     ) temp
