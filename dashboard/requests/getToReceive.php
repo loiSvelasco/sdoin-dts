@@ -78,7 +78,7 @@ $columns = [
     ['db' => 'document_tracking', 'dt' => 4, 
      'formatter' => function ($d, $row) {
         return '
-        <a href="?manipulate=receive&tracking='.$d.'&refer=/dashboard/?documents" class="btn btn-sm btn-warning" data-toggle="tooltip" data-placement="left" title="Receive"><i class="fa fa-file-import"></i></a>
+        <a href="?manipulate=receive&tracking='.$d.'&refer=/dashboard/?documents" class="btn btn-sm rounded-5 btn-warning" data-toggle="tooltip" data-placement="left" title="Receive"><i class="fa fa-file-import"></i></a>
         ';
      }]
 ];
