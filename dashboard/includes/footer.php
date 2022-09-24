@@ -89,6 +89,7 @@
 
 <!-- DataTables -->
 <script src="plugins/datatables/jquery.dataTables.min.js"></script>
+<!-- <script src="plugins/datatables/dataTables.min.js"></script> -->
 <script src="plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
 <script src="plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
 <script src="plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
@@ -103,7 +104,8 @@
 <script src="plugins/datatables-buttons/js/buttons.flash.min.js"></script>
 <script src="plugins/moment/moment.min.js"></script>
 <script src="plugins/daterangepicker/daterangepicker.js"></script>
-
+<script src="plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="dist/js/dataTables.checkboxes.min.js"></script>
 <!-- AJAX Requests -->
 <script src="dist/js/requests.js?hash=<?= hash_file('md5', 'dist/js/requests.js') ?>"></script>
 

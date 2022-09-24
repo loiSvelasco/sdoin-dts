@@ -28,27 +28,31 @@
               <div class="card rounded-0">
                 <div class="card-header border-warning bg-white">
                   <h3 class="card-title">
-                  <button type="submit" form="receive" class="btn btn-warning btn-sm btn-flat" name="rec-selected">Receive Selected</button>
+                  <button type="submit" form="receive" class="btn btn-warning btn-flat" name="rec-selected">
+                  <i class="fa fa-file-import"></i>&nbsp;&nbsp;&nbsp;  
+                  Receive Selected</button>
                   &nbsp;&nbsp;&nbsp;Documents to Receive</h3>
                 </div>
                 <div class="card-body bg-white">
                   <div class="table-responsive-sm">
-                    <table class="table table-bordered table-striped table-hover" id="receiveTable">
-                      <thead>
-                      <tr>
-                        <th class="text-center col-1">
-                          <form action="actions/multi-receive.php" id="receive" method="post">
-                          <input type="checkbox" id="select-all-rec" data-toggle="tooltip" data-placement="left" title="Select All"></form>
-                        </th>
-                        <th class="text-center col-2">Tracking</th>
-                        <th class="text-center col-7">Title</th>
-                        <th class="text-center col">Action</th>
-                      </tr>
-                      </thead>
-                      <tbody>
-                        <?php echo get_to_receive(); ?>
-                      </tbody>
-                    </table>
+                    <form action="actions/multi-receive.php" id="receive" method="post">
+                      <table class="table table-bordered table-striped table-hover" id="receiveTable">
+                        <thead>
+                        <tr>
+                          <th class="text-center col-1">
+                            <input type="checkbox" id="select-all-rec" data-toggle="tooltip" data-placement="left" title="Select All">
+                          </th>
+                          <th class="text-center col-2">Tracking</th>
+                          <th class="text-center">for</th>
+                          <th class="text-center col-7">Title</th>
+                          <th class="text-center col">Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                          <!-- <?php //echo get_to_receive(); ?> -->
+                        </tbody>
+                      </table>
+                    </form>
                   </div>
                 </div>
               </div>
@@ -58,7 +62,10 @@
               <div class="card rounded-0">
                 <div class="card-header border-info bg-white">
                   <h3 class="card-title">
-                  <button type="button" class="btn btn-sm btn-flat btn-info" data-toggle="modal" data-target="#modal-release-multi-doc" form="release" name="rel-selected">Release Selected</button>
+                  <form action="actions/multi-release.php?refer=<?php echo $_SERVER['REQUEST_URI']; ?>" id="release" method="post" onsubmit="relDocMultiBtn.hidden = true; document.getElementById('relDocMultiBtn2').style.display = '';"></form>
+                  <button type="button" class="btn btn-flat btn-info" data-toggle="modal" data-target="#modal-release-multi-doc" form="release" name="rel-selected">
+                  <i class="fa fa-file-export"></i>&nbsp;&nbsp;&nbsp;
+                  Release Selected</button>
                   &nbsp;&nbsp;&nbsp;Documents to Release</h3>
                 </div>
                 <div class="card-body bg-white">
@@ -67,15 +74,16 @@
                         <thead>
                         <tr>
                           <th class="text-center col-1">
-                            <form action="actions/multi-release.php?refer=<?php echo $_SERVER['REQUEST_URI']; ?>" id="release" method="post" onsubmit="relDocMultiBtn.hidden = true; document.getElementById('relDocMultiBtn2').style.display = '';">
-                              <input type="checkbox" id="select-all-rel" data-toggle="tooltip" data-placement="left" title="Select All"></form></th>
+                            <input type="checkbox" id="select-all-rel" data-toggle="tooltip" data-placement="left" title="Select All">
+                          </th>
                           <th class="text-center col-2">Tracking</th>
+                          <th class="text-center col-2">for</th>
                           <th class="text-center col-7">Title</th>
                           <th class="text-center col">Action</th>
                         </tr>
                         </thead>
                         <tbody>
-                            <?php echo get_to_release(); ?>
+                            <!-- <?php //echo get_to_release(); ?> -->
                         </tbody>
                       </table>
                   </div>

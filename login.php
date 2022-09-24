@@ -34,9 +34,9 @@ if(isset($_SESSION['user']))
         <div class="row">
           <!-- /.col -->
           <div class="col-12 mb-2">
+            <button type="submit" id="loginBtn" class="btn btn-primary btn-block" name="login">Sign In</button>
             <button disabled id="loginBtn2" class="btn btn-block btn-primary d-flex justify-content-center align-items-center" style="display: none !important;">
               <div class="spinner-border spinner-border-sm text-light" role="status"></div>&nbsp;&nbsp;Signing in</button>
-            <button type="submit" id="loginBtn" class="btn btn-primary btn-block" name="login">Sign In</button>
           </div>
           <!-- /.col -->
         </div>
