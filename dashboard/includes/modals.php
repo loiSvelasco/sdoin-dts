@@ -636,3 +636,25 @@
     </div>
   </div>
 </div>
+
+<div class="modal fade" data-backdrop="static" id="profileImg" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content rounded-0">
+      <div class="modal-header border-0">
+        <h5 class="modal-title" id="exampleModalLabel">Edit Profile Image</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="" method="" id="profileimg">
+            <input class="file-input" type="file" name="image">
+        </form>
+      </div>
+      <div class="modal-footer border-0">
+        <button type="button" class="btn" data-dismiss="modal">Close</button>
+        <button type="submit" form="profileimg" class="btn btn-success rounded-0">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>

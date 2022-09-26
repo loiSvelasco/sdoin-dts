@@ -80,7 +80,7 @@
               <div class="inner">
                 <h3><?php get_accomplished_count(); ?></h3>
 
-                <p>Accomplished</p>
+                <p>Accomplished (Today)</p>
               </div>
               <div class="icon">
                 <i class="fas fa-check"></i>
@@ -110,7 +110,7 @@
               </div>
               <div class="card-body bg-white">
                 <div class="table-responsive-sm">
-                  <table id="doctables" class="table table-striped table-bordered table-hover table-sm">
+                  <table id="myUnitDocs" class="table table-striped table-bordered table-hover table-sm">
                     <thead>
                       <tr>
                         <th class="col-2">Tracking #</th>
@@ -122,7 +122,7 @@
                       </tr>
                     </thead>
                     <tbody>
-                    <?php echo get_my_docs(); ?>
+                    <!-- <?php // echo get_my_docs(); ?> -->
                     </tbody>
                   </table>
                 </div>
@@ -140,7 +140,7 @@
               <!-- /.card-header -->
               <div class="card-body bg-white">
                 <div class="table-responsive-sm">
-                  <table id="accdoctables" class="table table-striped table-bordered table-hover table-sm">
+                  <table id="myUnitDocsAccomp" class="table table-striped table-bordered table-hover table-sm">
                     <thead>
                       <tr>
                         <th class="col-2">Tracking #</th>
@@ -152,7 +152,7 @@
                       </tr>
                     </thead>
                     <tbody>
-                    <?php echo get_accomplished_docs(); ?>
+                    <!-- <?php // echo get_accomplished_docs(); ?> -->
                     </tbody>
                   </table>
                 </div>

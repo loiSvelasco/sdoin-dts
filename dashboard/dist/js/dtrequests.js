@@ -481,3 +481,99 @@ $(document).ready(function() {
     }
     // * END :: dashboard/?allReleased
 });
+
+$(document).ready(function(){
+    // * START :: dashboard/?reports :: created docs under unit
+    $('#myUnitDocs').DataTable({
+        dom: 'lBfrtip',
+        processing: true,
+        language: {
+            processing: '<div class="spinner-border text-success" role="status"><span class="sr-only"></span></div>'
+        },
+        serverSide: true,
+        ajax: requestsFolder + 'getUnitDocs.php',
+        buttons: [
+            {extend: 'pdfHtml5', orientation: 'landscape', pageSize: 'A4',},
+            {extend: 'copyHtml5', orientation: 'landscape', pageSize: 'A4',},
+            {extend: 'excelHtml5', orientation: 'landscape', pageSize: 'A4',},
+        ],
+        "lengthMenu": [ [15, 35, 50, -1], [15, 35, 50, "All"] ],
+        "responsive": true,
+        "ordering": true,
+        "order": [[4, 'desc']],
+        "autoWidth": false,
+        "columnDefs": [
+            { "targets": "_all", "className": "align-middle"}
+        ],
+        "drawCallback": function( settings ) {
+            $('[data-toggle="tooltip"]').tooltip();
+            $('[data-toggle="popover"]').popover();
+        },
+    });
+    // * END :: dashboard/?reports :: created docs under unit
+});
+
+
+$(document).ready(function(){
+    // * START :: dashboard/?reports :: accomlished docs under unit
+    $('#myUnitDocsAccomp').DataTable({
+        dom: 'lBfrtip',
+        processing: true,
+        language: {
+            processing: '<div class="spinner-border text-success" role="status"><span class="sr-only"></span></div>'
+        },
+        serverSide: true,
+        ajax: requestsFolder + 'getUnitAccomp.php',
+        buttons: [
+            {extend: 'pdfHtml5', orientation: 'landscape', pageSize: 'A4',},
+            {extend: 'copyHtml5', orientation: 'landscape', pageSize: 'A4',},
+            {extend: 'excelHtml5', orientation: 'landscape', pageSize: 'A4',},
+        ],
+        "lengthMenu": [ [15, 35, 50, -1], [15, 35, 50, "All"] ],
+        "responsive": true,
+        "ordering": true,
+        "order": [[4, 'desc']],
+        "autoWidth": false,
+        "columnDefs": [
+            { "targets": "_all", "className": "align-middle"}
+        ],
+        "drawCallback": function( settings ) {
+            $('[data-toggle="tooltip"]').tooltip();
+            $('[data-toggle="popover"]').popover();
+        },
+    });
+    // * END :: dashboard/?reports :: accomlished docs under unit
+});
+
+
+
+$(document).ready(function(){
+    // * START :: dashboard/?reports :: accomlished docs under unit
+    $('#issuesTable').DataTable({
+        dom: 'lBfrtip',
+        // processing: true,
+        language: {
+            processing: '<div class="spinner-border text-success" role="status"><span class="sr-only"></span></div>'
+        },
+        // serverSide: true,
+        // ajax: requestsFolder + 'getUnitAccomp.php',
+        buttons: [
+            {extend: 'pdfHtml5', orientation: 'landscape', pageSize: 'A4',},
+            {extend: 'copyHtml5', orientation: 'landscape', pageSize: 'A4',},
+            {extend: 'excelHtml5', orientation: 'landscape', pageSize: 'A4',},
+        ],
+        "lengthMenu": [ [15, 35, 50, -1], [15, 35, 50, "All"] ],
+        "responsive": true,
+        "ordering": true,
+        "order": [[4, 'desc']],
+        "autoWidth": false,
+        "columnDefs": [
+            { "targets": "_all", "className": "align-middle"}
+        ],
+        "drawCallback": function( settings ) {
+            $('[data-toggle="tooltip"]').tooltip();
+            $('[data-toggle="popover"]').popover();
+        },
+    });
+    // * END :: dashboard/?reports :: accomlished docs under unit
+});

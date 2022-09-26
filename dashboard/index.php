@@ -246,6 +246,8 @@ else if (isset($_GET['profile']))
         $greeting = "Good night "; 
 
     $user = firstName(get_user_name($_SESSION['user_id']));
+    $userFullName = properName(get_user_name($_SESSION['user_id']));
+    $userEmail = strtolower($_SESSION['user']);
     $userID = $_SESSION['user_id'];
 
     include("includes/profile.php");
@@ -264,6 +266,11 @@ else if (isset($_GET['err']))
 else if (isset($_GET['about']))
 {
     include("includes/about.php");
+}
+
+else if (isset($_GET['issues']))
+{
+    include("includes/issues.php");
 }
 
 // else if (isset($_GET['404']))
