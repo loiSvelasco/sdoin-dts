@@ -276,7 +276,6 @@ CUTIEPIE;
                       </div>
                       <?php if ($_SESSION['role'] == 1): ?>
                         <div class="col-md-6">
-                          <!-- <a href="?purgeDoc=<?php echo $tracking; ?>" class="btn btn-block btn-danger"><i class="fa fa-fire"></i>&nbsp;&nbsp;Purge</a> -->
                           <?php if ($purged || $accomplished): ?>
                           <span data-toggle="tooltip" data-placement="top" title="Cannot purge when document is <?php echo $docState ?>">
                             <a class="btn btn-block btn-danger rounded-0 disabled"><i class="fa fa-fire"></i>&nbsp;&nbsp;Purge</a>

@@ -45,7 +45,7 @@
                       <li>Request Letter</li>
                       <li>Supervisory Report</li>
                       <li>CSC Form 48</li>
-                      <li>Bank Reconciliation Statemetn</li>
+                      <li>Bank Reconciliation Statement</li>
                       <li>Fidelity Bond</li>
                       <li>Service Record</li>
                     </ul>

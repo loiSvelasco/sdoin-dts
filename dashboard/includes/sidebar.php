@@ -8,6 +8,16 @@
     <!-- Sidebar -->
     <?php isLapsed(); ?>
     <div class="sidebar">
+
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+          <img src="dist/img/blank-avatar.webp" height="160" class="img-circle elevation-2" alt="User Image">
+        </div>
+        <div class="info">
+          <a href="?profile" class="d-block"><?= properName($_SESSION['usrname']); ?></a>
+        </div>
+      </div>
+      
       <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
@@ -22,42 +32,37 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
-              <?php
-                if(isLapsed())
-                {
-                  echo '<li class="nav-item">
+              <?php if(isLapsed()): ?>
+                <li class="nav-item">
                   <a href="#" data-toggle="modal" data-target="#modal-add-doc-restricted" class="nav-link">
                     <i class="fas fa-file-medical nav-icon"></i>
                     <p>Add Document</p>
                   </a>
-                </li>';
-                }
-                else
-                {
-                  echo '<li class="nav-item">
+                </li>
+              <?php else: ?>
+                <li class="nav-item">
                   <a href="#" data-toggle="modal" data-target="#modal-add-doc" class="nav-link">
                     <i class="fas fa-file-medical nav-icon"></i>
                     <p>Add Document</p>
                   </a>
-                </li>';
-                }
-              ?>
+                </li>
+              <?php endif; ?>
               <li class="nav-item">
                 <a href="?documents" class="nav-link">
                   <i class="fas fa-table nav-icon"></i>
-                  <p>Receive / Release (Tabular)</p>
+                  <p>Receive/Release (Tabular)</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="?legacy" class="nav-link">
                   <i class="fas fa-file-import nav-icon"></i>
-                  <p>Receive / Release (Legacy)</p>
+                  <p>Receive/Release (Legacy)</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="?scanrec" class="nav-link">
                   <i class="fas fa-barcode nav-icon"></i>
-                  <p>Receive / Release (Scan)</p>
+                  <p>Receive/Release (Scan)</p>
                 </a>
               </li>
               <li class="nav-item">
@@ -67,42 +72,31 @@
                 </a>
               </li>
               <?php 
-                if($_SESSION['role'] == 2 || $_SESSION['role'] == 1 || $_SESSION['unit'] == 117 || $_SESSION['unit'] == 127 || $_SESSION['unit'] == 128)
-                {
-                  // special accounts
-                  $lala = <<<LALACUTIE
-                  <li class="nav-item">
+                $specialUnits = [117, 127, 128];
+                $specialRoles = [1,2];
+                if(in_array($_SESSION['unit'], $specialUnits) || in_array($_SESSION['role'], $specialRoles)): 
+              ?>
+                <li class="nav-item">
                   <a href="?upload" class="nav-link">
                     <i class="fas fa-upload nav-icon"></i>
                     <p>Upload</p>
                   </a>
                 </li>
-LALACUTIE;
-                  echo $lala;
 
-                  $lala = <<<LALACUTIE
-                  <li class="nav-item">
+                <li class="nav-item">
                   <a href="?upForwarded" class="nav-link">
                     <i class="fas fa-share-square nav-icon"></i>
                     <p>Shared with you</p>
                   </a>
                 </li>
-LALACUTIE;
-                  echo $lala;
 
-                  $lala = <<<LALACUTIE
-                  <li class="nav-item">
+                <li class="nav-item">
                   <a href="?searchDocs" class="nav-link">
                     <i class="fas fa-search nav-icon"></i>
                     <p>Search Documents</p>
                   </a>
                 </li>
-LALACUTIE;
-                  echo $lala;
-                }
-
-              ?>
-
+              <?php endif ?>
             </ul>
           </li>
 
@@ -121,15 +115,6 @@ LALACUTIE;
                   <p>Reports</p>
                 </a>
               </li>
-              <!-- <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="nav-icon fas fa-link"></i>
-                  <p>
-                    Simple Link
-                    <span class="right badge badge-success">New</span>
-                  </p>
-                </a>
-              </li> -->
             </ul>
           </li>
 
@@ -169,9 +154,9 @@ LALACUTIE;
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link disabled">
+                <a href="?issues" class="nav-link">
                   <i class="fas fa-code-branch nav-icon"></i>
-                  <p>Issue Tracking (soon)</p>
+                  <p>Issue Tracking</p>
                 </a>
               </li>
             </ul>
