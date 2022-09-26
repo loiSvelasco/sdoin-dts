@@ -64,6 +64,7 @@ if(isset($_POST['updateProfile']))
 	}
  
 
+    
     // update Script
     $updateUser = query(
         "UPDATE users 
