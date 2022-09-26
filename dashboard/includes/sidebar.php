@@ -10,9 +10,22 @@
     <div class="sidebar">
 
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <div class="image">
-          <img src="dist/img/blank-avatar.webp" height="160" class="img-circle elevation-2" alt="User Image">
-        </div>
+        <?php 
+            $get_img = query("SELECT ud_img FROM user_details WHERE id = {$_SESSION['user_id']}");
+            confirm($get_img);
+            $row = fetch_assoc($get_img);
+            $imgName = $row['ud_img'];
+
+            if($imgName != ''):
+        ?>
+          <div class="image">
+            <img src="uploads/<?=$imgName?>" height="160" class="img-circle elevation-2" alt="User Image">
+          </div>
+        <?php else: ?>
+          <div class="image">
+            <img src="dist/img/blank-avatar.webp" height="160" class="img-circle elevation-2" alt="User Image">
+          </div>
+        <?php endif; ?>
         <div class="info">
           <a href="?profile" class="d-block"><?= properName($_SESSION['usrname']); ?></a>
         </div>
@@ -154,9 +167,9 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="?issues" class="nav-link">
+                <a href="?issues" class="nav-link disabled">
                   <i class="fas fa-code-branch nav-icon"></i>
-                  <p>Issue Tracking</p>
+                  <p>Issue Tracking (soon)</p>
                 </a>
               </li>
             </ul>

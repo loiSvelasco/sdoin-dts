@@ -20,6 +20,7 @@ if(isset($_POST['updateProfile']))
         $emailAdd = escape_string($_POST['userEmail']);
     }
 
+    $imageOK = true;
     
 	if(!empty($_FILES["pfimage"]["tmp_name"]))
     {
@@ -27,12 +28,11 @@ if(isset($_POST['updateProfile']))
         $type = mime_content_type($_FILES['pfimage']['tmp_name']);
         if( ! in_array($type, ['image/jpeg', 'image/png', 'image/gif']))
         {
-            set_message_alert("alert-danger", "fa-times", "File is not an image.");
-            redirect("../?profile");
+            $imageOK = false;
         }
         else
         {
-            if($_FILES['pfimage']['size'] < 500000)
+            if($_FILES['pfimage']['size'] < 2000000)
             {
                 // $newFilename = file_get_contents($_FILES['pfimage']['tmp_name']);
                 $newFilename = $fileinfo['filename'] ."_". time() . "." . $fileinfo['extension'];
@@ -41,8 +41,7 @@ if(isset($_POST['updateProfile']))
             }
             else
             {
-                set_message_alert("alert-danger", "fa-times", "File is not an image.");
-                redirect("../?profile");
+                $imageOK = false;
             }
         }
 	}
@@ -64,7 +63,7 @@ if(isset($_POST['updateProfile']))
 	}
  
 
-    
+
     // update Script
     $updateUser = query(
         "UPDATE users 
@@ -81,7 +80,15 @@ if(isset($_POST['updateProfile']))
     confirm($updateUserDetails);
     
     $_SESSION['user'] = $emailAdd;
-    set_message_alert("alert-success", "fa-check", "Profile updated successfully.");
+
+    if( ! $imageOK)
+    {
+        set_message_alert("alert-warning", "fa-exclamation", "Profile updated, but errors are encountered with the image you are trying to upload. It must be a valid image file under 2MB.");
+    }
+    else
+    {
+        set_message_alert("alert-success", "fa-check", "Profile updated successfully.");
+    }
     redirect("../?profile");
 }
 
