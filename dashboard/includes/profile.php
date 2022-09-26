@@ -9,7 +9,31 @@
       $query = query("SELECT COUNT(*) AS total FROM documents WHERE document_owner = {$_SESSION['user_id']} ");
       confirm($query);
       $row = fetch_assoc($query);
-      echo shortNumber($row['total']);
+      return shortNumber($row['total']);
+    }
+
+    function getMyReceived()
+    {
+      $query = query("SELECT COUNT(*) AS total FROM docs_location WHERE dl_receivedby = {$_SESSION['user_id']} ");
+      confirm($query);
+      $row = fetch_assoc($query);
+      return shortNumber($row['total']);
+    }
+
+    function getMyReleased()
+    {
+      $query = query("SELECT COUNT(*) AS total FROM docs_location WHERE dl_releasedby = {$_SESSION['user_id']} ");
+      confirm($query);
+      $row = fetch_assoc($query);
+      return shortNumber($row['total']);
+    }
+
+    function getMyAccomp()
+    {
+      $query = query("SELECT COUNT(*) AS total FROM documents WHERE accomp_by = {$_SESSION['user_id']} ");
+      confirm($query);
+      $row = fetch_assoc($query);
+      return shortNumber($row['total']);
     }
 
   ?>
@@ -165,32 +189,32 @@
                   <div class="col-12 col-md-6 col-lg-3">
                     <div class="card rounded-0">
                       <div class="card-body">
-                        <h5 class="card-title mb-4"><strong>Documents Created</strong></h5>
-                        <p class="card-text h3"></p>
+                        <h5 class="card-title mb-4">Documents Created</h5>
+                        <p class="card-text h1"><?= getMyCreatedDocs() ?></p>
                       </div>
                     </div>
                   </div>
                   <div class="col-12 col-md-6 col-lg-3">
                     <div class="card rounded-0">
                       <div class="card-body">
-                        <h5 class="card-title mb-4"><strong>Documents Received</strong></h5>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <h5 class="card-title mb-4">Documents Received</h5>
+                        <p class="card-text h1"><?= getMyReceived() ?></p>
                       </div>
                     </div>
                   </div>
                   <div class="col-12 col-md-6 col-lg-3">
                     <div class="card rounded-0">
                       <div class="card-body">
-                        <h5 class="card-title mb-4"><strong>Documents Released</strong></h5>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <h5 class="card-title mb-4">Documents Released</h5>
+                        <p class="card-text h1"><?= getMyReleased() ?></p>
                       </div>
                     </div>
                   </div>
                   <div class="col-12 col-md-6 col-lg-3">
                     <div class="card rounded-0">
                       <div class="card-body">
-                        <h5 class="card-title mb-4"><strong>Documents Accomplished</strong></h5>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <h5 class="card-title mb-4">Documents Accomplished</h5>
+                        <p class="card-text h1"><?= getMyAccomp() ?></p>
                       </div>
                     </div>
                   </div>
