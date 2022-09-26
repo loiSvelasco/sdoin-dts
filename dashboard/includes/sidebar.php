@@ -19,7 +19,7 @@
             if($imgName != ''):
         ?>
           <div class="image">
-            <img src="uploads/<?=$imgName?>" height="160" class="img-circle elevation-2" alt="User Image">
+            <img src="uploads/<?=$imgName?>" style="object-fit: cover; height: 35px; width: 35px;" class="img-circle elevation-2" alt="User Image">
           </div>
         <?php else: ?>
           <div class="image">
