@@ -80,6 +80,7 @@
                           <th class="text-center col-2">for</th>
                           <th class="text-center col-7">Title</th>
                           <th class="text-center col">Action</th>
+                          <th class="text-center">recdate</th>
                         </tr>
                         </thead>
                         <tbody>
