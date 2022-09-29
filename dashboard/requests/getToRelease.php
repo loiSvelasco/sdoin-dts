@@ -90,7 +90,9 @@ $columns = [
             data-target="#complete-doc"><i class="fa fa-check"></i></a>
         </span>
         ';
-     }]
+     }],
+
+     ['db' => 'dl_receiveddate', 'dt' => 5]
 ];
  
 $sql_details = array(

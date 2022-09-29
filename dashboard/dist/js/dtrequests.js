@@ -312,10 +312,10 @@ $(document).ready(function (){
         "info": true,
         "autoWidth": false,
         "columnDefs": [
-            { "targets": [2], "className": "d-none" },
+            { "targets": [2, 5], "className": "d-none" },
             { "targets": [0,1,4], "className": "align-middle text-center"},
             { "targets": "_all", "className": "align-middle"},
-            { "targets": 0, "checkboxes": { "selectRow": true } }
+            { "targets": 0, "checkboxes": { "selectRow": true } },
         ],
         "select": { "style": "multi" },
         "responsive": true,
@@ -323,6 +323,8 @@ $(document).ready(function (){
             $('[data-toggle="tooltip"]').tooltip();
             $('[data-toggle="popover"]').popover();
         },
+        "ordering": true,
+        "order": [[5, 'desc']],
         "rowCallback": function( row, data, index ) {
             if (data[2] === "yes") {
                 $(row).addClass('table-danger');
