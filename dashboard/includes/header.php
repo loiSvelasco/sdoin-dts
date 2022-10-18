@@ -46,7 +46,7 @@
     <strong class="mt-1 mb-1">You are in a development environment. Changes here will not affect the live version.</strong>
   </div>
 <?php endif; ?>
-<body class="hold-transition sidebar-mini sidebar-collapse">
+<body class="hold-transition sidebar-mini sidebar-collapse"> <!-- hold-transition sidebar-mini sidebar-collapse -->
 <?php global $staging;  if(!$staging): ?>
 <div id="loading"
 style="position:absolute;

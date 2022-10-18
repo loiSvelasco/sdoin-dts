@@ -1,4 +1,4 @@
-<aside class="main-sidebar sidebar-dark-warning elevation-4">
+<aside class="main-sidebar sidebar-no-expand sidebar-dark-warning elevation-4">
     <!-- Brand Logo -->
     <a href="./" class="brand-link">
       <img src="dist/img/cropped-logo-small-192x192.png" alt="eDTS Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
