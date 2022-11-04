@@ -8,7 +8,8 @@ function isLapsed()
     // 101 - accounting
     // 119 - personnel
     // 105 - BAC
-    $exempted = [117, 121, 113, 101, 119, 105];
+    // 114 - Legal
+    $exempted = [117, 121, 113, 101, 119, 105, 114];
     if(in_array($_SESSION['unit'], $exempted))
     {
         return false; // always return false for these units to bypass permission blocking
