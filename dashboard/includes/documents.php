@@ -31,7 +31,7 @@
                   <button type="submit" form="receive" class="btn btn-warning btn-flat" name="rec-selected">
                   <i class="fa fa-file-import"></i>&nbsp;&nbsp;&nbsp;  
                   Receive Selected</button>
-                  &nbsp;&nbsp;&nbsp;Documents to Receive</h3>
+                  &nbsp;&nbsp;&nbsp;<strong>Documents to Receive</strong></h3>
                 </div>
                 <div class="card-body bg-white">
                   <div class="table-responsive-sm">
@@ -66,7 +66,7 @@
                   <button type="button" class="btn btn-flat btn-info" data-toggle="modal" data-target="#modal-release-multi-doc" form="release" name="rel-selected">
                   <i class="fa fa-file-export"></i>&nbsp;&nbsp;&nbsp;
                   Release Selected</button>
-                  &nbsp;&nbsp;&nbsp;Documents to Release</h3>
+                  &nbsp;&nbsp;&nbsp;<strong>Documents to Release</strong></h3>
                 </div>
                 <div class="card-body bg-white">
                   <div class="table-responsive-sm">
