@@ -27,7 +27,7 @@
             <!-- small card -->
             <div class="small-box bg-info">
               <div class="inner">
-                <h3><?php get_received_today_all(); ?></h3>
+                <h3><?php //get_received_today_all(); ?></h3>
 
                 <p>Received Documents (Today)</p>
               </div>
@@ -44,7 +44,7 @@
             <!-- small card -->
             <div class="small-box bg-success">
               <div class="inner">
-                <h3><?php get_released_today_all(); ?></h3>
+                <h3><?php //get_released_today_all(); ?></h3>
 
                 <p>Released Documents (Today)</p>
               </div>
@@ -61,7 +61,7 @@
             <!-- small card -->
             <div class="small-box bg-warning">
               <div class="inner">
-                <h3><?php getNumUsers() ?></h3>
+                <h3><?php //getNumUsers() ?></h3>
 
                 <p>Registered Users</p>
               </div>
@@ -78,7 +78,7 @@
             <!-- small card -->
             <div class="small-box bg-primary">
               <div class="inner">
-                <h3><?php getNumDocs() ?></h3>
+                <h3><?php //getNumDocs() ?></h3>
 
                 <p>Created Documents</p>
               </div>
@@ -95,7 +95,7 @@
             <!-- small card -->
             <div class="small-box bg-danger">
               <div class="inner">
-                <h3><?php getLapsedNumDocs(); ?></h3>
+                <h3><?php //getLapsedNumDocs(); ?></h3>
 
                 <p>Lapsed Documents</p>
               </div>
