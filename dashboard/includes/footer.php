@@ -38,7 +38,7 @@
       </div>
       <div class="row mb-2">
         <div class="col-12">
-        <a href="https://github.com/loiSvelasco" target="_blank"><img src="https://img.shields.io/badge/status-beta--testing-critical?style=for-the-badge&logo=github" alt=""></a>
+        <a href="https://github.com/loiSvelasco" target="_blank"><img src="https://img.shields.io/badge/status-live-critical?style=for-the-badge&logo=github" alt=""></a>
         </div>
       </div>
       <div class="row mb-3">
