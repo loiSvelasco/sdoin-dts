@@ -99,7 +99,7 @@
           </blockquote>
         </div> -->
         <div class="row">
-          <!-- <?php issueNotice(); ?> -->
+          <!-- <?php // issueNotice(); ?> -->
         </div>
 
         <div class="row">
