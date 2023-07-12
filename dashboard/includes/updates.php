@@ -21,13 +21,31 @@
       <?php display_notice(); ?>
     </div>
 
-    <blockquote class="quote-info">
-      This page contains updated information on the system. This page <i>may</i> also contain jokes.
-    </blockquote>
-
     <section class="content">
 
-    <div class="row text-monospace">
+      <div class="row text-monospace">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header bg-dark">
+              <strong>System updated to <span class="badge badge-warning rounded-0">2.0</span></strong> <span class="text-muted">July. 5, 2023</span>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Changelog:</h5>
+              <p class="card-text">
+                <hr>
+                <ol>
+                  <li>Removed alerts and notices at Reports page.</li>
+                  <li>Various changes and improvements.</li>
+                </ol>
+                <hr>
+              </p>
+              <p class="text-left"><strong>- Louis V.</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row text-monospace">
         <div class="col-12">
           <div class="card">
             <div class="card-header bg-dark">
@@ -49,7 +67,7 @@
         </div>
       </div>
 
-    <div class="row text-monospace">
+      <div class="row text-monospace">
         <div class="col-12">
           <div class="card">
             <div class="card-header bg-dark">

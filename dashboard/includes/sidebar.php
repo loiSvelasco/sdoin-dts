@@ -1,3 +1,4 @@
+<!-- <aside class="main-sidebar sidebar-no-expand sidebar-dark-warning elevation-4"> -->
 <aside class="main-sidebar sidebar-dark-warning elevation-4">
     <!-- Brand Logo -->
     <a href="./" class="brand-link">
