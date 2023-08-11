@@ -116,11 +116,13 @@ class BarcodeGeneratorPNG extends BarcodeGenerator
 
             // Default font
             // Write the barcode's code, change $code to write other text
-            imagestring($png, 3, $position_left, $height + 16, $code, imagecolorallocate($png, 0, 0, 0));
-            imagestring($png, 3, $position_left, $height - 19, "sdoin.edts #", imagecolorallocate($png, 0, 0, 0));
+            // imagestring($png, 3, $position_left, $height + 16, $code, imagecolorallocate($png, 0, 0, 0));
+            // imagestring($png, 3, $position_left, $height - 19, "sdoin.edts #", imagecolorallocate($png, 0, 0, 0));
 
             // For custom font specify path to font file
-            $fontPath = dirname(__FILE__) . '/Roboto-Regular.ttf';
+            $fontPath = dirname(__FILE__) . '/Rubik-Medium.ttf';
+            imagettftext($png, 9, 0, 0, $height + 28, imagecolorallocate($png, 0, 0, 0), $fontPath, $code);
+            imagettftext($png, 9, 0, 0, $height - 8, imagecolorallocate($png, 0, 0, 0), $fontPath, "sdoin.edts #");
             // imagettftext($png, 12, 0, $position_left, $height + 35, imagecolorallocate($png, 0, 0, 0), $fontPath, $code);
         }
 
