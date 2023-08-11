@@ -1,7 +1,7 @@
 <?php 
 
   $maintenance = false;
-  $staging = true;
+  $staging = false;
   
   $DOSignUp = true;
   $fieldSignUp = true;
